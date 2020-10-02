@@ -23,7 +23,7 @@ init python:
 
     def updateChecker():
         try:
-            if not isUpToDate(modConfigPath, "https://raw.githubusercontent.com/KiloOscarSix/Ataegia-OscarSix-s-Mod/master/game/oscarAdditions/modConfig.txt"):
+            if not isUpToDate(modConfigPath, "https://raw.githubusercontent.com/KiloOscarSix/Leap-of-Faith-Mod/main/oscarAdditions/modConfig.txt"):
                 return True
             else:
                 return False

@@ -5,3 +5,4 @@ style galleryHeader is text:
 style galleryBody is text:
     size 50
     color "#fff"
+    font "DejaVuSans.ttf"

@@ -1,5 +1,4 @@
 init python:
-    galleryCharacter = "Kira"
     galleryPageNumber = 1
 
     def galleryDecreasePageNumber():
@@ -32,6 +31,7 @@ init python:
     "Stephanie": {
     1: [
     ["StephSlider4", {"todayIs":3}, "/images/ep1/steph/ep1_steph_leg1.jpg"],
+    ["ep4StephRomance", {"todayIs":8}, "/images/ep4/stephcouch/ep4_stephcouch80.jpg"]
     ],
     },
     "Robin": {
@@ -56,6 +56,7 @@ init python:
     "Cece": {
     1: [
     ["ep3CeceHome", {"contact_text_me":"", "contact_text_kira":"", "todayIs":5}, "/images/ep3/cecehome/ep3_cecehome14.jpg"],
+    ["galleryScene5", {}, "/images/ep4/cece/ep4_ceceromance24.jpg"],
     ],
     },
     }
@@ -82,8 +83,7 @@ screen sceneGalleryMenu():
         pos (1868, 50)
 
         fixed:
-            xmaximum 186
-            ymaximum 76
+            xysize(186, 76)
             xanchor 1.0
 
             imagebutton:
@@ -110,14 +110,14 @@ screen sceneGalleryMenu():
         for i in sceneGalleryMenuDict["galleryMenu"]:
             vbox:
                 imagebutton:
-                    action ShowMenu("sceneCharacterMenu"), Hide("sceneGalleryMenu"), SetVariable("galleryCharacter", i[0])
+                    action Show("sceneCharacterMenu", galleryCharacter=i[0]), Hide("sceneGalleryMenu")
                     idle Transform(i[1], zoom=0.2)
                     hover Transform(im.MatrixColor(i[1], im.matrix.brightness(0.2)), zoom=0.2)
                 text i[0]:
                     style "galleryBody"
                     xcenter 0.5
 
-screen sceneGalleryMenu():
+screen sceneCharacterMenu(galleryCharacter):
     tag menu
     modal True
     add "#23272a"
@@ -138,7 +138,7 @@ screen sceneGalleryMenu():
 
             imagebutton:
                 if galleryPageNumber == 1:
-                    action Hide("sceneGalleryMenu"), ShowMenu("main_menu")
+                    action Hide("sceneCharacterMenu"), Show("sceneGalleryMenu")
                 else:
                     action Function(galleryDecreasePageNumber)
                 idle "/oscarAdditions/images/button.png"
