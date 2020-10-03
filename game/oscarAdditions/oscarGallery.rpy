@@ -44,7 +44,7 @@ init python:
     },
     "Linda": {
     1: [
-    ["lindaScene1", {}, "/images/ep2/shopping/ep2_shopping47.jpg"],
+    ["galleryScene1", {"meFlirty":99, "todayIs":4}, "/images/ep2/shopping/ep2_shopping47.jpg"],
     ],
     },
     "Lexi": {

@@ -2966,6 +2966,7 @@ if ep2LexiReply:
     if nukeCommentsAdd not in nukeComments:
         $ nukeComments.append(nukeCommentsAdd)
 me "I envy you, Chris..."
+label galleryScene1:
 scene ep2_shopping39 with dissolve
 li "[name]?"
 me "Yes?"
@@ -3035,6 +3036,7 @@ me "How could I possibly forget..."
 me "...it was my first as well."
 uk "*speaker* The store closes in 5 minutes."
 li "Aww... I guess we have to continue this... some other time."
+$ renpy.end_replay()
 scene ep2_shopping53 with fade
 me "{b}CHRIS!{/b}"
 scene ep2_shopping54 with dissolve
