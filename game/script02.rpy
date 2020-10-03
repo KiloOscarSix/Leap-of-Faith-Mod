@@ -669,6 +669,7 @@ if wentBowlingKira:
     $ chat_kira_item = "1;0;1001;Good morning, sweetie. Or whenever you wake up. :p"
     if chat_kira_item not in chat_kira:
         $ chat_kira.append(chat_kira_item)
+$ renpy.choice_for_skipping()
 me "(What a surprise.)"
 label ep2InterPhoneLoop:
 scene ep2_home_inter05 with dissolve
@@ -978,6 +979,8 @@ if phone_task_append_item1 in phone_task_list:
         $ phone_task_list.remove(phone_task_append_item1)
         $ phone_task_list.append(phone_task_append_item2)
         $ phTaskNotify = True
+$ renpy.choice_for_skipping()
+mod "If you haven't done so already make sure you text Kira"
 me "(Here we are again. Let's see if the mood has changed.)"
 me "(I should convince her to stay at my place though.)"
 me "(From what she told me, I don't think she even has a place to stay.)"
@@ -1762,8 +1765,9 @@ menu:
         scene ep2_robin_reject01 with dissolve
         me "Don't...Let's just forget this. Maybe we get another moment, and it feels more right."
         ro "..."
+        $ renpy.end_replay()
         jump ep2RobinReject
-    "[M_02_015b]": # "Continue":
+    "Continue [gr]\[Robin +5\]":
         $ XProbin += 5
         $ ep2RejectedRobin = False
         me "*whispers* You've been teasing me with that top all evening."
@@ -1935,12 +1939,14 @@ menu:
         show screen rlvl with dissolve
         me "You're really beautiful."
         hide screen rlvl with dissolve
+        $ renpy.end_replay()
         jump ep2AfterRSex
-    "[M_02_016b]": # "This was just what I needed.":
+    "This was just what I needed.":
         $ meSporty += 1
         show screen slvl with dissolve
         me "This was just what I needed."
         hide screen slvl with dissolve
+        $ renpy.end_replay()
         jump ep2AfterRSex
 label ep2AfterRSex:
 me "And about that problem with the bowling..."
@@ -2850,6 +2856,7 @@ scene ep2_shopping27 with dissolve
 ch "*whispers* You're paying for their shopping spree, aren't you."
 scene ep2_shopping32 with dissolve
 me "*whispers* ...I am..."
+$ renpy.choice_for_skipping()
 scene ep2_shopping28 with dissolve
 show screen phone_camop
 $ phone_camop_screen = "ep2ShoppingSpree"
@@ -2944,6 +2951,8 @@ if MenuChoice != "HintsNone":
 
 me "...time...goes...soooo...slowly"
 me "If only I had something to do right now."
+$ renpy.choice_for_skipping()
+mod "Check Chris's photo of Lexi on Nuke on your phone"
 
 if MenuChoice != "HintsNone":
     ### Hide Hint ########################################################################################################################################

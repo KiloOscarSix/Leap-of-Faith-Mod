@@ -461,12 +461,12 @@ if MenuChoice != "HintsNone":
 
 menu:
     "[M_04_001a]" if ep4NightCece: # "Cece (I)" if ep4NightCece:
-    
+
         if MenuChoice != "HintsNone":
             ### Hide Hint ########################################################################################################################################
             hide screen general_notifytop with dissolve
             ### Hide Hint ########################################################################################################################################
-            
+
         $ contact_notify_me = True
         $ contact_text_me += "\n\nThe first night at Lexi's place, I went for a night walk by the pool with Cece. Things got really interresting."
         $ contact_notify_cece = True
@@ -493,12 +493,12 @@ menu:
         $ ep4NightChoose = 6
         "..."
     "[M_04_001g]" if ep4NightStephanie: # "Stephanie (I)" if ep4NightStephanie:
-    
+
         if MenuChoice != "HintsNone":
             ### Hide Hint ########################################################################################################################################
             hide screen general_notifytop with dissolve
             ### Hide Hint ########################################################################################################################################
-            
+
         $ contact_notify_me = True
         $ contact_text_me += "\n\nThe first night at Lexi's place, I could not sleep. I decided to text Stephanie, and she texted back."
         $ contact_notify_stephanie = True
@@ -4109,6 +4109,7 @@ else:
     st "Yes... just let me catch my breath first."
     play music ep4_loftheme
     st "And regain control over my legs."
+$ renpy.end_replay()
 $ renpy.pause(1)
 $ renpy.pause(1)
 hide screen phone
@@ -4269,6 +4270,7 @@ $ nowPlayingArtist = "Jay Denton"
 $ nowPlayingTitle = "Make Your Home with Me"
 $ nowPlayingRealArtist = ""
 $ nowPlayingRealTitle = ""
+label galleryScene5:
 scene ep4_backyardintroalone08 with dissolve
 me "..."
 show ep4_ceceromance39c at imgSlide_cecepool_c
@@ -4523,6 +4525,7 @@ else:
 scene ep4_ceceromance33 with dissolve
 play music ep4_loftheme
 ce "Let's just enjoy this moment."
+$ renpy.end_replay()
 $ renpy.pause(1)
 $ renpy.pause(1)
 hide screen phone

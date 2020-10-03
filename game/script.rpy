@@ -305,7 +305,7 @@ menu:
         "(What's the reason for training for that body if you don't show or use it.)"
         hide screen slvl with dissolve
         jump afterPersonality
-    "[M_01_001d]" if MenuChoice != "HintsNone": # "All three +1" if MenuChoice != "HintsNone":
+    "{color=#0f0}\[Mod\]{/color} All three" if MenuChoice != "HintsNone": # "All three +1" if MenuChoice != "HintsNone":
         hide screen general_notify
         $ meFlirty += 1
         show screen flvl with dissolve
@@ -1098,6 +1098,7 @@ me "(But after a few months of hard interior work, it was like brand new again.)
 scene ep1_home_mid_sofa2 with dissolve
 me "(Though, I should buy myself a new couch. This is so bad, it's tragic.)"
 scene ep1_home_mid_sofa1 with dissolve
+$ renpy.choice_for_skipping()
 me "(I should check out my phone)"
 me "(Or maybe...time for a little nap. I'm drowsing here.)"
 me "(Maybe...will...dream...again...zzz)"
@@ -3007,6 +3008,7 @@ scene ep1_metro_lexiperforming_me2 with dissolve
 hide screen phone
 show screen phone_camop
 $ phone_camop_screen = "ep1_photoop_lexiperform"
+$ renpy.choice_for_skipping()
 me "If I'm quick, I can get a picture."
 jump photoop_ep1_lexiperf_done
 label photoop_ep1_lexiperf1:
@@ -3408,6 +3410,7 @@ if ep1StephOrg:
     st "Fucking orgasm, my legs are all jelly."
 ml "*stomps up stairs* We have visitors? I hear voices."
 st "It's just the tv."
+$ renpy.end_replay()
 scene ep1_steph_escape03 with dissolve
 me "{size=20}My clothes.{/size}"
 st "{size=20}I got that.{/size}"

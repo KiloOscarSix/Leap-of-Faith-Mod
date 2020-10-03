@@ -31,7 +31,7 @@ init python:
     "Stephanie": {
     1: [
     ["StephSlider4", {"todayIs":3}, "/images/ep1/steph/ep1_steph_leg1.jpg"],
-    ["ep4StephRomance", {"todayIs":8}, "/images/ep4/stephcouch/ep4_stephcouch80.jpg"]
+    ["ep4StephRomance", {"todayIs":8, "meSporty":99}, "/images/ep4/stephcouch/ep4_stephcouch80.jpg"]
     ],
     },
     "Robin": {

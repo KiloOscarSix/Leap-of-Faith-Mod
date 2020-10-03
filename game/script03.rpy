@@ -1040,7 +1040,7 @@ scene ep3_cafe13 with dissolve
 ro "Isn't that the norm nowadays?"
 scene ep3_cafe11a with dissolve
 $ clockis = [[todayIs],1,1,1,3]
-menu:
+menu galleryScene2:
     "[M_03_005a]" if Impact_KiraRobin: # "How about a little challenge?" if Impact_KiraRobin:
         me "Well, how about a little challenge?"
         scene ep3_cafe14 with dissolve
@@ -1102,14 +1102,16 @@ menu:
                 $ XPkira += 1
                 scene ep3_cafe_robineyes with dissolve
                 ro "..."
+                $ renpy.end_replay()
                 jump ep3EndOfCafeChallenge
-            "[M_03_006b]": # "Look at Kira":
+            "Look at Kira [gr]\[Robin +1\]":
                 $ XProbin += 1
                 $ renpy.movie_cutscene("imov/ep3/ep3_kirasuckfinger.webm", delay=None, loops=0, stop_music=False)
                 scene ep3_cafe31
                 ki "Not much of a challenge."
+                $ renpy.end_replay()
                 jump ep3EndOfCafeChallenge
-    "[M_03_005b]": # "Continue":
+    "Continue":
         me "Still, I'd say it's a bit more daring than most."
         scene ep3_cafe16 with dissolve
         me "Not that it really matters though."
@@ -1524,6 +1526,9 @@ menu:
 
         jump ep3CeceHome
 label ep3KiraLewd:
+    if not _in_replay:
+        $ renpy.choice_for_skipping()
+        mod "1. Open your music app and Download Lexi's Songs\n2. Set 1 of the songs as your default ringtone."
 $ contact_notify_me = True
 $ contact_text_me += "\n\nKira invited me home to her place after the Cafe, to 'fuck like rabbits'. And that was just what we did."
 $ contact_notify_kira = True
@@ -1812,8 +1817,9 @@ menu:
         scene ep3_kiramain79 with dissolve
         ki "...I think we got time for another round!"
         hide screen rshw with dissolve
+        $ renpy.end_replay()
         jump ep3KiraEncoreEnd
-    "[M_03_014b]" if meFlirty >= 3: # "But what about my party trick. (F)" if meFlirty >= 3:
+    "But what about my party trick. (F) [gr]\[Kira +1\]" if meFlirty >= 3:
         $ XPkira += 1
         if XPkira > 25:
             $ XPkira = 25
@@ -1831,8 +1837,9 @@ menu:
         ki "...put the whole Lexi thing on hold for a bit..."
         ki "...and you go twirl all you like..."
         hide screen fshw with dissolve
+        $ renpy.end_replay()
         jump ep3KiraEncoreEnd
-    "[M_03_014c]" if meSporty >= 3: # "I don't need words to persuade you. (S)" if meSporty >= 3:
+    "I don't need words to persuade you. (S) [gr]\[Kira +1\]" if meSporty >= 3:
         $ XPkira += 1
         if XPkira > 25:
             $ XPkira = 25
@@ -1850,9 +1857,11 @@ menu:
         ki "Enough talking..."
         ki "...more riding!"
         hide screen sshw with dissolve
+        $ renpy.end_replay()
         jump ep3KiraEncoreEnd
-    "[M_03_014d]": # "You're right. I should get going.":
+    "You're right. I should get going.":
         me "But you're right. I should get going."
+        $ renpy.end_replay()
         jump ep3KiraEncoreEnd
 label ep3KiraEncoreEnd:
 scene bg empty with fade
@@ -1892,6 +1901,8 @@ ce "Can you knock first. I'm taking a shower here."
 li "Who cares. I need to pee."
 jump ep3AfterLewd
 label ep3CeceHome:
+    $ renpy.choice_for_skipping()
+    mod "1. Open your music app and Download Lexi's Songs\n2. Set 1 of the songs as your default ringtone."
 $ contact_notify_me = True
 $ contact_text_me += "\n\nKira invited me home to her place after the Cafe, to 'fuck like rabbits'. I declined, and went home instead."
 $ contact_notify_kira = True
@@ -2015,6 +2026,7 @@ $ renpy.pause(1)
 scene ep3_cecehome28 with Dissolve(1, alpha=True)
 $ renpy.pause(1)
 scene ep3_cecehome31 with dissolve
+$ renpy.end_replay()
 ce "Uhh... That was awful. I'm not cut out for this body on display stuff."
 scene ep3_cecehome32 with dissolve
 stop music fadeout 3
@@ -2313,7 +2325,7 @@ if MenuChoice != "HintsNone":
     $ gen_notify = "Which ever woman you pick,\nthe others gets a missed opportunity.\n\nPick wisely."
     show screen general_notifytop with dissolve
     ### Show Hint #######################################################################################################################################
-    
+
 $ clockis = [[todayIs],1,7,0,3]
 ch "What... You don't like her?"
 menu:
@@ -2610,7 +2622,7 @@ if nukeCommentsAdd not in nukeComments:
 $ ep3CanReplySteph = True
 play sound phone_notify_sound
 show screen phone_notify_chat
-
+$ renpy.choice_for_skipping()
 if MenuChoice != "HintsNone":
     ### Show Hint #######################################################################################################################################
     $ gen_notify = "Check Stephanie's {b}Nuke{/b} message"
@@ -3302,7 +3314,7 @@ me "(I never learn...)"
 scene ep3_planekirarobin with dissolve
 li "(...that looks kinda hot...)"
 scene ep3_airplane58 with dissolve
-menu:
+menu galleryScene3:
     "[M_03_020a]": # "Call out for Linda.":
         $ clockis = [[todayIs],1,3,1,2]
         me "Linda?"
@@ -3325,6 +3337,19 @@ menu:
         li "And you're not?"
         scene ep3_airplane61 with dissolve
         jump ep3GettingDrinks
+    "[gr]\[Mod\]{/color} Stay silent (Won't increase time)":
+        $ ep3LindaWatchRK = True
+        $ clockis = [[todayIs],1,3,1,7]
+        scene ep3_planekirarobin with dissolve
+        li "(...shit, what's wrong with me. It takes nothing at all to get me going these days...)"
+        scene ep3_airplane59 with dissolve
+        li "(Mmmm...)"
+        scene ep3_airplane60b with dissolve
+        li "(...it's been way to long...)"
+        me "You're getting turned on, aren't you..."
+        scene ep3_airplane62 with dissolve
+        li "And you're not?"
+        scene ep3_airplane61 with dissolve
 label ep3GettingDrinks:
 menu:
     "[M_03_021a]": # "Go fetch the drinks.":
@@ -3350,9 +3375,25 @@ menu:
                     ki "And you feel amazing. I love you."
                 else:
                     ki "And you feel amazing."
+                $ renpy.end_replay()
                 jump ep3AfterPeek
-            "[M_03_022b]": # "Don't peek":
+            "[gr]Don't peek":
+                $ renpy.end_replay()
                 jump ep3AfterPeek
+            "[gr]\[Mod\]{/color} Quick Peek":
+                if ep3TimePassed == 1:
+                    $ clockis = [[todayIs],1,3,1,8]
+                else:
+                    $ clockis = [[todayIs],1,3,2,3]
+                me "(This is too good to miss. And honestly, I don't think they care if they see me.)"
+                scene ep3_airplane71 with dissolve
+                ki "Mmmmh... Right there, right there, right there."
+                ro "My god you taste amazing."
+                if Impact_KiraRobin:
+                    ki "And you feel amazing. I love you."
+                else:
+                    ki "And you feel amazing."
+                $ renpy.end_replay()
         label ep3AfterPeek:
         scene ep3_airplane70 with dissolve
         me "(I'll leave them to it...)"
@@ -3633,6 +3674,7 @@ elif ep3TimePassed == 1:
     me "(She is one beautiful woman.)"
     me "(And I got a good picture.)"
 else:
+    label galleryScene4:
     $ XPlexi += 2
     if XPlexi > 25:
         $ XPlexi = 25
@@ -3677,6 +3719,7 @@ else:
         le "Hope you enjoyed the view, [name]."
         me "I did. But I'm sorry I arrived before you were fully dressed."
         le "Not to worry. I'm pretty sure you didn't see anything I didn't already show in my last music video."
+        $ renpy.end_replay()
         scene ep3_airplane991 with dissolve
         me "..."
         me "Oh. I'm pretty sure I did."

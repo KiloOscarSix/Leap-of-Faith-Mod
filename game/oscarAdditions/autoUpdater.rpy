@@ -23,9 +23,19 @@ init python:
 
     def updateChecker():
         try:
-            if not isUpToDate(modConfigPath, "https://raw.githubusercontent.com/KiloOscarSix/Leap-of-Faith-Mod/main/oscarAdditions/modConfig.txt"):
+            if not isUpToDate(modConfigPath, "https://raw.githubusercontent.com/KiloOscarSix/Leap-of-Faith-Mod/main/game/oscarAdditions/modConfig.txt"):
                 return True
             else:
                 return False
         except:
             return False
+
+label after_load:
+    if ep2Eyecontact == 3:
+        menu:
+            mod "To prevent future bugs we have reverted the take picture of both girls improvement, please select which girl you would like to take a picture of"
+            "Cece":
+                $ ep2Eyecontact = 1
+            "Linda":
+                $ ep2Eyecontact = 2
+    return
