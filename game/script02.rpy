@@ -1767,7 +1767,7 @@ menu:
         ro "..."
         $ renpy.end_replay()
         jump ep2RobinReject
-    "Continue [gr]\[Robin +5\]":
+    "Continue {color=#0f0}\[Robin +5\]":
         $ XProbin += 5
         $ ep2RejectedRobin = False
         me "*whispers* You've been teasing me with that top all evening."

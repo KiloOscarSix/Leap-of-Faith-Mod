@@ -1104,7 +1104,7 @@ menu galleryScene2:
                 ro "..."
                 $ renpy.end_replay()
                 jump ep3EndOfCafeChallenge
-            "Look at Kira [gr]\[Robin +1\]":
+            "Look at Kira {color=#0f0}\[Robin +1\]":
                 $ XProbin += 1
                 $ renpy.movie_cutscene("imov/ep3/ep3_kirasuckfinger.webm", delay=None, loops=0, stop_music=False)
                 scene ep3_cafe31
@@ -1819,7 +1819,7 @@ menu:
         hide screen rshw with dissolve
         $ renpy.end_replay()
         jump ep3KiraEncoreEnd
-    "But what about my party trick. (F) [gr]\[Kira +1\]" if meFlirty >= 3:
+    "But what about my party trick. (F) {color=#0f0}\[Kira +1\]" if meFlirty >= 3:
         $ XPkira += 1
         if XPkira > 25:
             $ XPkira = 25
@@ -1839,7 +1839,7 @@ menu:
         hide screen fshw with dissolve
         $ renpy.end_replay()
         jump ep3KiraEncoreEnd
-    "I don't need words to persuade you. (S) [gr]\[Kira +1\]" if meSporty >= 3:
+    "I don't need words to persuade you. (S) {color=#0f0}\[Kira +1\]" if meSporty >= 3:
         $ XPkira += 1
         if XPkira > 25:
             $ XPkira = 25
@@ -3337,7 +3337,7 @@ menu galleryScene3:
         li "And you're not?"
         scene ep3_airplane61 with dissolve
         jump ep3GettingDrinks
-    "[gr]\[Mod\]{/color} Stay silent (Won't increase time)":
+    "{color=#0f0}\[Mod\]{/color} Stay silent (Won't increase time)":
         $ ep3LindaWatchRK = True
         $ clockis = [[todayIs],1,3,1,7]
         scene ep3_planekirarobin with dissolve
@@ -3377,10 +3377,10 @@ menu:
                     ki "And you feel amazing."
                 $ renpy.end_replay()
                 jump ep3AfterPeek
-            "[gr]Don't peek":
+            "{color=#0f0}Don't peek":
                 $ renpy.end_replay()
                 jump ep3AfterPeek
-            "[gr]\[Mod\]{/color} Quick Peek":
+            "{color=#0f0}\[Mod\]{/color} Quick Peek":
                 if ep3TimePassed == 1:
                     $ clockis = [[todayIs],1,3,1,8]
                 else:
