@@ -21,11 +21,11 @@ define Best = MenuInfo[1]
 define Worst = MenuInfo[2]
 define Good = MenuInfo[3]
 define Bad = MenuInfo[4]
-$ CF = "{/color}"
-$ abPersName = ""
-$ abNotTelling = ""
-$ ceFamMenu = ""
-$ MenuChoice = " "
+define CF = "{/color}"
+define abPersName = ""
+define abNotTelling = ""
+define ceFamMenu = ""
+define MenuChoice = " "
 
 call screen MenuScreen nopredict
 
