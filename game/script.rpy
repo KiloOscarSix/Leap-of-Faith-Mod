@@ -305,7 +305,7 @@ menu:
         "(What's the reason for training for that body if you don't show or use it.)"
         hide screen slvl with dissolve
         jump afterPersonality
-    "{color=#0f0}\[Mod\]{/color} All three" if MenuChoice != "HintsNone": # "All three +1" if MenuChoice != "HintsNone":
+    "{color=#0f0}\[Mod\]{/color} All three": # "All three +1" if MenuChoice != "HintsNone":
         hide screen general_notify
         $ meFlirty += 1
         show screen flvl with dissolve
