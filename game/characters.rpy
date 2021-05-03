@@ -15,6 +15,8 @@ define li = Character("Linda", color="#ff4280")
 define ro = Character("Robin", color="#f9a491")
 define st = Character("Stephanie", color="#f145ef")
 define ho = Character("Holly", color="#fe3b3b")
+define se = Character("Sea", color="#d0ff42")
+define al = Character("Alexandra", color="#fffc00")
 
 
 define uk = Character("???", color="#aaaaaa")
@@ -23,11 +25,21 @@ define bart = Character("Bartender", color="#aaaaaa")
 define inte = Character("Intercom", color="#aaaaaa")
 define pr = Character("Priscilla", color="#aaaaaa")
 define he = Character("Helen", color="#aaaaaa")
+define ci = Character("Ciri", color="#aaaaaa")
+define wa = Character("Waitress", color="#aaaaaa")
 define clerk = Character("Clerk", color="#aaaaaa")
 define ke = Character("Kevin", color="#aaaaaa")
 define ja = Character("Jane", color="#aaaaaa")
+define be = Character("Benjamin", color="#aaaaaa")
 define cr = Character("Christine", color="#aaaaaa")
 define nd = Character("Night Dawg", color="#000000")
+define vo = Character("Voice", color="#aaaaaa")
+define v1 = Character("Another Voice", color="#aaaaaa")
+define v2 = Character("Yet another voice", color="#aaaaaa")
+define vm = Character("Voices", color="#aaaaaa")
+define jy = Character("Jaye", color="#ff3d0c")
+define jn = Character("Jan", color="#aaaaaa")
+define lol = Character("Little old lady", color="#aaaaaa")
 
 define evaluationRight = Character("", window_ypos=0.4, window_xpos=0.94, what_xmaximum=650)
 define evaluationLeft = Character("", window_ypos=0.4, window_xpos=0.318, what_xmaximum=650)
@@ -52,4 +64,3 @@ transform show_hide_dissolve:
     on hide:
         alpha 1.0
         linear 1.0 alpha .0
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

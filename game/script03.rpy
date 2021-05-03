@@ -4683,7 +4683,7 @@ $ contact_notify_me = True
 $ contact_text_me += "\n\nLater I found... Stephs letter in my pocket. It seems she did tell me ... something, before she left. Judging from my own reaction, I should at least hear her out."
 $ contact_notify_stephanie = True
 $ contact_text_stephanie += "\n\nIt seems that on our last day together before she left, she put a letter in the pocket of my shirt."
-$ contact_text_stephanie += " Probably expecting me to use that shirt like I had been for a long time. The letter didn't explain much though, but at at least it was something."
+$ contact_text_stephanie += " Probably expecting me to use that shirt like I had been for a long time. The letter didn't explain much though, but at least it was something."
 me "..."
 hide screen phone_taskadded
 hide screen phone

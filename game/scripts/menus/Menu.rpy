@@ -6,7 +6,7 @@ screen MenuScreen:
     vbox:
         xpos 200
         ypos 200
-        text "You can click on the image of your Love Interest and it will activate that character for hints.\n\nRobin and Kira are special cases where both can be selected.\n\nYou can also click on the red 'No Girls Active' and it will activate all of them.\n\nBelow that you can select if you just want hints or hints and stats.\n\nIf no Love Interests are selected, No hints will be supplied.\n\nYou can also click on the Menu colors below to cycle through color options." size 15 color "#A0A0A0" xsize 600 ysize 600
+        text "You can click on the image of your Love Interest and it will activate that character for hints.\n\nRobin and Kira are special cases where both can be selected.\n\nBelow that you can select if you just want hints or hints and stats.\n\nIf no Love Interests are selected, No hints will be supplied.\n\nYou can also click on the Menu colors below to cycle through color options." size 15 color "#A0A0A0" xsize 600 ysize 600
         text ""
         text ""
         text "Menus will appear with the following colors:" size 20
@@ -52,57 +52,46 @@ screen MenuScreen:
                         textbutton "Cece-10" action SetVariable("Bad","#FFA500") text_color Bad text_size 20
                     textbutton ")" text_color "#E0E0E0" text_size 20
     if MenuChoiceCece:
-        imagebutton focus_mask True xpos 1000 ypos 100 idle Transform("statscreen_cece_color") action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
+        imagebutton focus_mask True xpos 1000 ypos 100 idle Transform("statscreen_cece_color") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Active" xcenter 1075 ypos 300 text_color "#008000"
     else:
         imagebutton focus_mask True xpos 1000 ypos 100 idle Transform("statscreen_cece_bw") action (SetVariable("MenuChoiceCece",True),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Inactive" xcenter 1075 ypos 300 text_color "#9e0f25"
 
     if MenuChoiceKira:
-        imagebutton focus_mask True xpos 1200 ypos 100 idle Transform("statscreen_kira_color") action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceStephanie",False))
+        imagebutton focus_mask True xpos 1200 ypos 100 idle Transform("statscreen_kira_color") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Active" xcenter 1275 ypos 300 text_color "#008000"
     else:
         imagebutton focus_mask True xpos 1200 ypos 100 idle Transform("statscreen_kira_bw") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",True),SetVariable("MenuChoiceStephanie",False))
         textbutton "Inactive" xcenter 1275 ypos 300 text_color "#9e0f25"
 
     if MenuChoiceLexi:
-        imagebutton focus_mask True xpos 1400 ypos 100 idle Transform("statscreen_lexi_color") action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
+        imagebutton focus_mask True xpos 1400 ypos 100 idle Transform("statscreen_lexi_color") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Active" xcenter 1475 ypos 300 text_color "#008000"
     else:
         imagebutton focus_mask True xpos 1400 ypos 100 idle Transform("statscreen_lexi_bw") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",True),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Inactive" xcenter 1475 ypos 300 text_color "#9e0f25"
 
     if MenuChoiceRobin:
-        imagebutton focus_mask True xpos 1000 ypos 450 idle Transform("statscreen_robin_color") action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
+        imagebutton focus_mask True xpos 1000 ypos 450 idle Transform("statscreen_robin_color") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Active" xcenter 1075 ypos 650 text_color "#008000"
     else:
         imagebutton focus_mask True xpos 1000 ypos 450 idle Transform("statscreen_robin_bw") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceRobin",True),SetVariable("MenuChoiceStephanie",False))
         textbutton "Inactive" xcenter 1075 ypos 650 text_color "#9e0f25"
 
     if MenuChoiceStephanie:
-        imagebutton focus_mask True xpos 1200 ypos 450 idle Transform("statscreen_stephanie_color") action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
+        imagebutton focus_mask True xpos 1200 ypos 450 idle Transform("statscreen_stephanie_color") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Active" xcenter 1275 ypos 650 text_color "#008000"
     else:
         imagebutton focus_mask True xpos 1200 ypos 450 idle Transform("statscreen_stephanie_bw") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",True))
         textbutton "Inactive" xcenter 1275 ypos 650 text_color "#9e0f25"
 
     if MenuChoiceLinda:
-        imagebutton focus_mask True xpos 1400 ypos 450 idle Transform("statscreen_linda_color") action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
+        imagebutton focus_mask True xpos 1400 ypos 450 idle Transform("statscreen_linda_color") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Active" xcenter 1475 ypos 650 text_color "#008000"
     else:
         imagebutton focus_mask True xpos 1400 ypos 450 idle Transform("statscreen_linda_bw") action (SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceLinda",True),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False))
         textbutton "Inactive" xcenter 1475 ypos 650 text_color "#9e0f25"
-
-    if MenuChoiceAllGirlsTest:
-        vbox:
-            xpos 1600
-            ypos 20
-            textbutton "All Girls\nActive" xcenter 150 ycenter 200 text_color "#008000" action (SetVariable("MenuChoiceAllGirlsTest",False),SetVariable("MenuChoiceAllGirls","NoGirls"),SetVariable("MenuChoiceCece",False),SetVariable("MenuChoiceKira",False),SetVariable("MenuChoiceLexi",False),SetVariable("MenuChoiceRobin",False),SetVariable("MenuChoiceStephanie",False),SetVariable("MenuChoiceLinda",False))
-    else:
-        vbox:
-            xpos 1600
-            ypos 20
-            textbutton "All Girls\nInactive" xcenter 150 ycenter 200 text_color "#9e0f25" action (SetVariable("MenuChoiceAllGirlsTest",True),SetVariable("MenuChoiceAllGirls","AllGirls"),SetVariable("MenuChoiceCece",True),SetVariable("MenuChoiceKira",True),SetVariable("MenuChoiceLexi",True),SetVariable("MenuChoiceRobin",True),SetVariable("MenuChoiceStephanie",True),SetVariable("MenuChoiceLinda",True))
 
     if MenuChoiceBestChoiceStatsTest:
         vbox:
@@ -118,9 +107,7 @@ screen MenuScreen:
     if MenuChoiceCece == False and MenuChoiceLinda == False and MenuChoiceLexi == False and MenuChoiceKira == False and MenuChoiceRobin == False and MenuChoiceStephanie == False:
         $ MenuChoice = "HintsNone"
     elif MenuChoiceBestChoiceStats == "HintsStats":
-        if MenuChoiceAllGirls == "AllGirls":
-            $ MenuChoice = "HintsStatsAllGirls"
-        elif MenuChoiceCece:
+        if MenuChoiceCece:
             $ MenuChoice = "HintsStatsCece"
         elif MenuChoiceLinda:
             $ MenuChoice = "HintsStatsLinda"
@@ -135,9 +122,7 @@ screen MenuScreen:
         elif MenuChoiceStephanie:
             $ MenuChoice = "HintsStatsStephanie"
     elif MenuChoiceBestChoiceStats == "Hints":
-        if MenuChoiceAllGirls == "AllGirls":
-            $ MenuChoice = "HintsAllGirls"
-        elif MenuChoiceCece:
+        if MenuChoiceCece:
             $ MenuChoice = "HintsCece"
         elif MenuChoiceLinda:
             $ MenuChoice = "HintsLinda"

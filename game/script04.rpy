@@ -1,13 +1,11 @@
 label ch4Start:
 if persistent.chapter4 is None:
     $ persistent.chapter4 = True
-
+call MenuRefresh
 $ todayIs = 7
 $ phone_camop_screen = ""
 stop music fadeout 5
 scene bg empty
-scene ch4updateinfo with Dissolve(1, alpha=True)
-$ renpy.pause()
 scene bg empty with fade
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
@@ -54,14 +52,14 @@ he "You've been in the spotlight all your life. Do you sometimes miss the normal
 scene ep4_prologue14 with dissolve
 le "I only know of one life, and I duly enjoy it. So I can't really say I miss out on anything. At least that I know of."
 scene ep4_prologue12 with dissolve
-he "Of course there is one question that's on everyones mind. And I have to ask it."
+he "Of course there is one question that's on everyone's mind. And I have to ask it."
 scene ep4_prologue10 with dissolve
 he "*background cheering* Yeah, they know what I'm talking about."
 he "So tell us, Lexi. Is there someone special in your life right now?"
 scene ep4_prologue16 with dissolve
 le "(I thought we agreed not to talk about this, Helen...)"
 scene ep4_prologue10 with dissolve
-he "We've all heard the rumors of you and mr. hotshot himself. Anything to add?"
+he "We've all heard the rumors of you and Mr. Hotshot himself. Anything to add?"
 scene ep4_prologue17 with dissolve
 le "(...just...)"
 scene ep4_prologue09 with dissolve
@@ -78,11 +76,11 @@ st "...does this look like Chris to you?"
 scene ep4_prologue_side02 with dissolve
 me "Oh, you finally shaved the mustache."
 scene ep4_prologue_side03 with dissolve
-st "Ha-ha, mr. funny guy. You got any other good ones?"
+st "Ha-ha, Mr. Funny guy. You got any other good ones?"
 scene ep4_prologue_side02 with dissolve
 me "Sorry, Steph. I didn't recognize you from this end."
 scene ep4_prologue_side03 with dissolve
-st "*laughs*... that would have been way too cheeky, unless for the fact that it's probably true."
+st "*laughs*... that would have been way too cheeky, except for the fact that it's probably true."
 scene ep4_prologue_side04 with dissolve
 me "Yeah, don't just stand there, get over here, baby."
 scene ep4_prologue_side05 with dissolve
@@ -104,7 +102,7 @@ me "Helen is really tough on her. She obviously doesn't want to talk about her l
 me "But she keeps pushing forward."
 scene ep4_prologue_side09 with dissolve
 me "See? You can read it all over her face."
-st "Poor girl. Sometimes the hosts really pushes things too far."
+st "Poor girl. Sometimes the hosts really push things too far."
 st "Just to get a piece of exclusive news."
 scene ep4_prologue_side08 with dissolve
 st "She's probably a virgin."
@@ -141,7 +139,7 @@ me "No comment."
 st "But I love your mom's waffles."
 st "They are better than sex."
 scene ep4_prologue_side14 with dissolve
-st "We'll be right there, Miss. Hudson."
+st "We'll be right there, Miss Hudson."
 st "Waaaaaaaaafffffffles..."
 me "Hey!..."
 scene ep4_prologue_side15 with dissolve
@@ -193,7 +191,7 @@ scene ep4_prologue30 with dissolve
 ho "If he as much as looked at you the wrong way, I swear to God..."
 scene ep4_prologue31 with dissolve
 le "No. Nothing like that, relax girl."
-le "I was so sure... that once we'd done that thing, it would be it you know?"
+le "I was so sure... that once we'd done that thing, that would be it you know?"
 le "That it would connect us and fill in the blanks."
 scene ep4_prologue32 with dissolve
 ho "So... Ram home, and ran home, eh?"
@@ -219,14 +217,17 @@ le "*laughs*"
 scene ep4_prologue33 with dissolve
 ho "And don't overthink these things. You'll enjoy it that much more then."
 scene ep4_prologue34 with dissolve
-ho "Lets head over to your place, fill the jacuzzi and just relax the day away."
+ho "Let's head over to your place, fill the jacuzzi and just relax the day away."
 stop music fadeout 5
-scene ep3_epilogue_blank with Dissolve(1, alpha=True)
+scene ep4_lexititle_sea with Dissolve(2.5, alpha=True)
 $ renpy.pause(1)
-scene ep4_chapterscreen3 with Dissolve(1, alpha=True)
-$ renpy.pause(1)
-scene ep4_chapterscreen with Dissolve(1, alpha=True)
+show ch4title_nolexititle with Dissolve(2.5, alpha=True)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
 $ renpy.pause()
+hide ch4title_nolexititle with Dissolve(2.5, alpha=True)
 scene bg empty with fade
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
@@ -297,6 +298,7 @@ scene ep4_firstsleep09 with dissolve
 ce "(Maybe when we get back home he can solve that little thing.)"
 ce "(...)"
 ce "(Fuck... Here we go again...)"
+label galleryScene8:
 scene ep4_firstsleep10 with fade
 li "(...with those depressing thoughts...)"
 scene ep4_firstsleep11 with dissolve
@@ -310,6 +312,7 @@ scene ep4_firstsleep13 with dissolve
 li "(If he hasn't seen you by now, he never will.)"
 li "(...)"
 li "(Or maybe this little trip will somehow make him see that...)"
+$ renpy.end_replay()
 $ ep4SexNone = True
 if not ep3RejectedKira:
     $ ep4SexNone = False
@@ -344,7 +347,7 @@ if Impact_KiraRobin:
     ki "But he's the first guy I've ever..."
     ro "...felt anything like this about. I know."
     ro "Maybe even as much as I do for you..."
-    ki "*exhales* I'm so glad you said those word..."
+    ki "*exhales* I'm so glad you said those words..."
     scene ep4_firstsleep16 with dissolve
     ki "...so I don't have to."
     ro "..."
@@ -370,6 +373,7 @@ else:
     scene ep4_firstsleep22 with fade
     ro "(...so much.)"
     ro "(But everything about him makes me wonder why...)"
+    $ renpy.end_replay()
     if not ep2RejectedRobin:
         scene ep4_firstsleep23 with dissolve
         ro "(It was just supposed to be something... fun.)"
@@ -452,23 +456,12 @@ me "(...but I don't have to. I already know...)"
 me "(I can't get her out of my head...)"
 $ clockis = [[todayIs],0,1,4,2]
 $ ep4StephImpactTextOpen = False
-
-if MenuChoice != "HintsNone":
-    ### Show Hint #######################################################################################################################################
-    $ gen_notify = "The person you select will not get an opportunity.  All others will."
-    show screen general_notifytop with dissolve
-    ### Show Hint #######################################################################################################################################
-
+$ ep4NoGirlSelect = False
+label ep4GirlSelector:
 menu:
     "[M_04_001a]" if ep4NightCece: # "Cece (I)" if ep4NightCece:
-
-        if MenuChoice != "HintsNone":
-            ### Hide Hint ########################################################################################################################################
-            hide screen general_notifytop with dissolve
-            ### Hide Hint ########################################################################################################################################
-
         $ contact_notify_me = True
-        $ contact_text_me += "\n\nThe first night at Lexi's place, I went for a night walk by the pool with Cece. Things got really interresting."
+        $ contact_text_me += "\n\nThe first night at Lexi's place, I went for a night walk by the pool with Cece. Things got really interesting."
         $ contact_notify_cece = True
         $ contact_text_cece += "\n\nThe first night at Lexi's place, she went for a night walk by the pool with me. There was lots of feelings involved."
         $ ep4NightChoose = 1
@@ -477,28 +470,138 @@ menu:
         me "(I should be there for her and see how she's doing.)"
         me "(To make her feel safe...)"
         jump ep4NightCeceGo
-    "[M_04_001b]" if ep4NightLexi: # "Lexi (to be added in Ch4, part 2) (I)" if ep4NightLexi:
+    "[M_04_001b]" if ep4NightLexi: # "Lexi (I)" if ep4NightLexi:
         $ ep4NightChoose = 2
-        "..."
-    "[M_04_001c]" if ep4NightKira and not Impact_KiraRobin: # "Kira (to be added in Ch4, part 3) (I)" if ep4NightKira and not Impact_KiraRobin:
+        me "(Why am I laying here thinking about Lexi when I should go see if she's up.)"
+        me "(That's right. I should check if she's up.)"
+        scene ep4p2_firstsleep01 with dissolve
+        me "(It's kinda dorky, isn't it.)"
+        me "(Wandering around in the house like that.)"
+        me "(...)"
+        scene ep4p2_firstsleep02 with dissolve
+        me "(Whatever... Let's go check.)"
+        scene ep4p2_firstsleep03 with fade
+        me "(This house is such a maze.)"
+        me "(I don't even know where half the people are sleeping...)"
+        scene ep4p2_firstsleep04 with dissolve
+        me "Whoa..."
+        scene ep4p2_firstsleep05 with dissolve
+        ce "You can't sleep either?"
+        scene ep4p2_firstsleep06 with dissolve
+        me "No. And I was looking for Lexi..."
+        scene ep4p2_firstsleep05 with dissolve
+        ce "Oh... That's nice."
+        scene ep4p2_firstsleep06 with dissolve
+        me "And you? How are you doing?"
+        scene ep4p2_firstsleep05 with dissolve
+        ce "I'm fine... I was..."
+        scene ep4p2_firstsleep07 with dissolve
+        ce "...just heading back to my bedroom."
+        scene ep4p2_firstsleep08 with dissolve
+        me "Isn't your bedroom back there?"
+        stop music fadeout 3
+        ce "Sure. I just need to walk off a cramp..."
+        me "..."
+        scene ep4p2_firstsleep09 with dissolve
+        me "(Not sure I believe that, but I'll check in with her later.)"
+        jump ep4NightLexiGo
+    "[M_04_001c]" if ep4NightKira and not Impact_KiraRobin: # "Kira (I)" if ep4NightKira and not Impact_KiraRobin:
         $ ep4NightChoose = 3
-        "..."
-    "[M_04_001d]" if ep4NightRobin and not Impact_KiraRobin: # "Robin (to be added in Ch4, part 3) (I)" if ep4NightRobin and not Impact_KiraRobin:
+        me "(The bowling date...)"
+        scene ep4_firstsleep01 with dissolve
+        me "(Why am I thinking about that now.)"
+        me "(But honestly, I had fun.)"
+        if not ep3RejectedKira:
+            me "(Or the other day when we fucked.)"
+        me "(She's in a relationship already, although I sense it could turn into something more.)"
+        me "(Seems she thought so too.)"
+        me "(Honestly, I should have a talk with them.)"
+        scene ep4p2_firstsleep01 with dissolve
+        stop music fadeout 3
+        me "(...)"
+        scene ep4p2_firstsleep02 with dissolve
+        me "(Why not. Let's see if they are still up.)"
+        jump ep4NightKRGo
+    "[M_04_001d]" if ep4NightRobin and not Impact_KiraRobin: # "Robin (I)" if ep4NightRobin and not Impact_KiraRobin:
         $ ep4NightChoose = 4
-        "..."
-    "[M_04_001e]" if ep4NightKiraRobin and Impact_KiraRobin: # "Kira and Robin (to be added in Ch4, part 3) (I)" if ep4NightKiraRobin and Impact_KiraRobin:
+        me "(Robin...)"
+        scene ep4_firstsleep01 with dissolve
+        me "(Why am I thinking about her now.)"
+        me "(But honestly, I had fun at her place.)"
+        me "(Drinking, playing videogames...)"
+        if not ep2RejectedRobin:
+            me "(...fucking.)"
+        me "(I think she had fun too.)"
+        me "(Her proposal about the friends with benefits thing...)"
+        me "(...even with being in a relationship with Kira already.)"
+        me "(Honestly, I should have a talk with them.)"
+        scene ep4p2_firstsleep01 with dissolve
+        stop music fadeout 3
+        me "(...)"
+        scene ep4p2_firstsleep02 with dissolve
+        me "(Why not. Let's see if they are still up.)"
+        jump ep4NightKRGo
+    "[M_04_001e]" if ep4NightKiraRobin and Impact_KiraRobin: # "Kira and Robin (I)" if ep4NightKiraRobin and Impact_KiraRobin:
         $ ep4NightChoose = 5
-        "..."
-    "[M_04_001f]" if ep4NightLinda: # "Linda (to be added in Ch4, part 2) (I)" if ep4NightLinda:
+        me "(Kira and Robin are a cute couple.)"
+        me "(...)"
+        scene ep4_firstsleep01 with dissolve
+        me "(Did they hint towards a threesome relationship?)"
+        me "(Probably did... for the sex part...)"
+        me "(...or something more?)"
+        me "(Actually, I should have a talk with them.)"
+        scene ep4p2_firstsleep01 with dissolve
+        stop music fadeout 3
+        me "(...)"
+        scene ep4p2_firstsleep02 with dissolve
+        me "(Why not. Let's see if they are still up.)"
+        jump ep4NightKRGo
+    "[M_04_001f]" if ep4NightLinda: # "Linda (I)" if ep4NightLinda:
         $ ep4NightChoose = 6
-        "..."
+        me "(...)"
+        me "(Linda!)"
+        scene ep4p2_firstsleep01 with dissolve
+        me "(I was going to have a little talk with her, but forgot.)"
+        me "(...again.)"
+        scene ep4p2_firstsleep02 with dissolve
+        me "(...)"
+        me "(Maybe she's still awake?)"
+        scene ep4p2_firstsleep02 with dissolve
+        me "(Unless...)"
+        me "(Yeah, I think I'll have a shower instead.)"
+        scene ep4p2_firstsleep03 with fade
+        me "(This house is such a maze.)"
+        me "(I don't even know where half the people are sleeping...)"
+        scene ep4p2_firstsleep04 with dissolve
+        me "Whoa..."
+        scene ep4p2_firstsleep05 with dissolve
+        ce "You can't sleep either?"
+        scene ep4p2_firstsleep06 with dissolve
+        me "No. And I need to take a shower..."
+        me "...and I need a little talk with Linda."
+        scene ep4p2_firstsleep05 with dissolve
+        ce "Oh... That's nice."
+        scene ep4p2_firstsleep06 with dissolve
+        me "Nice? Oh, I smell don't I."
+        scene ep4p2_firstsleep05 with dissolve
+        ce "No, no. I was just thinking..."
+        scene ep4p2_firstsleep06 with dissolve
+        me "Do you know where Linda's room is."
+        scene ep4p2_firstsleep05 with dissolve
+        ce "Yeah, it's right behind you."
+        ce "..."
+        scene ep4p2_firstsleep07 with dissolve
+        ce "Well, good night [name]."
+        ce "...I'll just head back to my own bedroom."
+        scene ep4p2_firstsleep08 with dissolve
+        stop music fadeout 3
+        me "Isn't your bedroom back there?"
+        ce "Sure. I just need to walk off a cramp..."
+        me "..."
+        scene ep4p2_firstsleep09 with dissolve
+        me "(Not sure I believe that, but I'll check in with her later.)"
+        jump ep4NightLindaGo
     "[M_04_001g]" if ep4NightStephanie: # "Stephanie (I)" if ep4NightStephanie:
-
-        if MenuChoice != "HintsNone":
-            ### Hide Hint ########################################################################################################################################
-            hide screen general_notifytop with dissolve
-            ### Hide Hint ########################################################################################################################################
-
         $ contact_notify_me = True
         $ contact_text_me += "\n\nThe first night at Lexi's place, I could not sleep. I decided to text Stephanie, and she texted back."
         $ contact_notify_stephanie = True
@@ -540,33 +643,937 @@ menu:
         me "(There...)"
         me "(At least that's one step closer to the truth.)"
         stop music fadeout 3
+        scene ep4_firstsleep34 with dissolve
         me "(One Steph closer...)"
-        me "(Ok, I'm making bad jokes to myself in the middle of the night. I have to sleep.)"
-        jump ep4FirstMorning
-    "[M_04_001h]": # "I should just try to sleep (I)":
-
-        if MenuChoice != "HintsNone":
-            ### Hide Hint ########################################################################################################################################
-            hide screen general_notifytop with dissolve
-            ### Hide Hint ########################################################################################################################################
-
-        $ contact_notify_me = True
-        $ contact_text_me += "\n\nWhen thinking about the girls the first night at Lexi's place, I decided to not target a spesific girl."
+        me "(Ok, I'm making bad jokes to myself in the middle of the night. There's no way I'll be able to sleep now.)"
+        scene ep4_firstsleep01 with dissolve
+        me "(I need to take a little stroll.)"
+        jump lindaOpenNight
+    "[M_04_001h]" if not ep4NoGirlSelect: # "I should just try to sleep (I)" if not ep4NoGirlSelect:
+        $ ep4NoGirlSelect = True
+        $ ep4ChoseNoone = False
         scene ep4_firstsleep03 with dissolve
+        me "(Hehe. Yeah, right. What am I thinking.)"
+        me "(Of course we might run into other people, but for now I should try focusing on one of them.)"
+        jump ep4GirlSelector
+label ep4NightKRGo:
+$ clockis = [[todayIs],0,1,5,2]
+play music ep4_krnight
+$ nowPlayingArtist = "Michael Shynes"
+$ nowPlayingTitle = "Home"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+scene ep4p2_krbedroom03 with fade
+me "(Ok, here goes nothing.)"
+scene ep4p2_krbedroom02 with dissolve
+me "(I hope they are still up...)"
+scene ep4p2_krbedroom01 with dissolve
+me "Are you still awake?"
+scene ep4p2_krbedroom04 with dissolve
+me "(Guess not.)"
+scene ep4p2_krbedroom05 with dissolve
+ki "Mhmff.. What?"
+ro "Who?"
+scene ep4p2_krbedroom07 with dissolve
+me "Shit... I'm sorry, I was checking if you were still up, and obviously you weren't."
+scene ep4p2_krbedroom06 with dissolve
+ki "No problem. We weren't sleeping."
+ro "Come in."
+scene ep4p2_krbedroom07 with dissolve
+me "You don't want to get dressed first or something?"
+scene ep4p2_krbedroom08 with dissolve
+ki "Because of these things? They're just boobs."
+ro "*laughs* Kira, let's put something on."
+scene ep4p2_krbedroom09 with fade
+ro "So what's with the nightly visit?"
+scene ep4p2_krbedroom10 with dissolve
+me "Actually, I was tossing and turning, not being able to sleep."
+me "In the end I came to the conclusion that I was a bit unsure of how to think about this whole thing you mentioned."
+me "Maybe I'm reading it wrongly, but..."
+me "...how do I say this."
+scene ep4p2_krbedroom15 with dissolve
+ro "Allow me..."
+ro "You see, we were having sex one night and things got a bit more heated than normal... So we threw around things in the midst of it."
+scene ep4p2_krbedroom17 with dissolve
+ki "Let's just say we have the same fantasy..."
+scene ep4p2_krbedroom16 with dissolve
+ro "...involving a guy."
+scene ep4p2_krbedroom22 with dissolve
+me "*cough*"
+ro "Anyway... it was really nothing more than some... kink talk while we were having sex."
+ki "And I didn't really think about it anymore, at least until the next day while I was working and Chris pulled that 'set me up with you' thing."
+scene ep4p2_krbedroom21 with dissolve
+ki "After I talked to you, I came to think of what me and Robin had been talking about the evening before. So I messaged her..."
+ro "And I agreed provided I could say hello to you first. That's why I said you could use the bowling alley, and that's what we were talking about when you arrived."
+ro "Honestly, I didn't get a good first impression of you. You were too slick looking, and I wasn't all sure anymore."
+ro "So basically, I regretted having given Kira the ok..."
+scene ep4p2_krbedroom11 with dissolve
+ki "Aw... Darling."
+scene ep4p2_krbedroom11 with dissolve
+ki "You should have just said so."
+scene ep4p2_krbedroom13 with dissolve
+ro "And because I know Kira, I suspected if you played your cards right, you would be able to charm your way into her pants."
+ki "Ehem... Maybe that happened..."
+scene ep4p2_krbedroom15 with dissolve
+ro "...which was also why I told you to say no, but didn't really think that would happen."
+scene ep4p2_krbedroom17 with dissolve
+ki "Nothing happened."
+ro "I know. I thought it did, and when you came to my place a few days later, I was so sure you guys had gone way past third base."
+scene ep4p2_krbedroom20 with dissolve
+ro "But at the same time, I got a much better impression about you."
+ro "That's why I... wanted to fuck you."
+ki "Which I saw in the doorway."
+if ep2RejectedRobin:
+    ki "And I know nothing happened."
+ki "Basically, I don't know where we are right now. But it seems like a fun thing to do, and I'm still up for it."
+ro "And I agree."
+ro "I also believe you do so, seeing as you are here tonight."
+scene ep4p2_krbedroom19 with dissolve
+me "Ok, so I had it all figured out then. It was just a bit unreal to me."
+me "And even though I'm all up for having some fun, I still don't think you've thought this all the way through."
+scene ep4p2_krbedroom18 with dissolve
+me "Toying with others or your own feelings... has a tendency to ruin things. Even though you might be rock solid as a couple, you never know."
+me "Honestly, I want you to be sure before I step into this any further."
+scene ep4p2_krbedroom21 with dissolve
+me "And I believe that you two need to talk things through more thoroughly."
+me "..."
+scene ep4p2_krbedroom23 with dissolve
+me "I don't want to ruin things between you. I really don't."
+me "Right now you're both acting a bit weird when talking about me. Like you don't really know what you want."
+scene ep4p2_krbedroom24 with dissolve
+me "And I probably should think things through myself as well. Even though you both seem to be a lot of fun, I know first hand how badly feelings hurt you."
+scene ep4p2_krbedroom25 with dissolve
+me "So let's talk again later and see where we all are, ok?"
+ro "That sounds like a good idea."
+scene ep4p2_krbedroom38 with dissolve
+me "Just one more thing..."
+scene ep4p2_krbedroom26 with hpunch
+$ renpy.pause()
+scene ep4p2_krbedroom27 with dissolve
+ki "What the heck was that for?"
+me "For bringing me into this without having thought things through."
+me "And you both looked super depressed, so I thought I'd give you a pillow to the face."
+me "Good night."
+scene ep4p2_krbedroom28 with dissolve
+ro "Oh no, you simply can't walk away from this mister."
+scene ep4p2_krbedroom30 with hpunch
+me "Mhf..."
+scene ep4p2_krbedroom29 with dissolve
+ro "Of course you realize this means war."
+ki "No, no. No war. Make love, not war. Love!"
+$ clockis = [[todayIs],0,2,1,4]
+scene ep4p2_krbedroom33
+show ep4_KRNightPillow
+show ep4p2_krbedroom32b at imgSlide_ep4KRPillow
+$ renpy.pause(2)
+hide ep4_KRNightPillow
+hide ep4p2_krbedroom32b
+ki "Uaahhh..."
+scene ep4p2_krbedroom34 with dissolve
+ki "What the hell just happened?"
+ro "He sucker punched you, that's what happened."
+me "I did not, I was aiming for Robin."
+scene ep4p2_krbedroom35 with dissolve
+ki "Oh, to hell with peace and love. I want revenge."
+scene ep4p2_krbedroom36 with dissolve
+me "*laughs*"
+ro "I got him on his back, back me up here."
+ki "You got it."
+scene ep4p2_krbedroom37 with hpunch
+ro "Hah."
+me "Ok, ok. You got me."
+scene ep4p2_krbedroom39 with dissolve
+ki "It's what I've always said. Two girls are better than one."
+ro "He didn't stand a chance."
+scene ep4p2_krbedroom40 with dissolve
+ki "Girl power."
+ro "Girl power."
+me "Girl power..."
+scene ep4p2_krbedroom41 with hpunch
+me "...I'm terrified."
+scene ep4p2_krbedroom42 with dissolve
+me "*laughs*"
+ro "He just doesn't give up."
+ki "Here..."
+scene ep4p2_krbedroom43 with hpunch
+me "Ohff..."
+scene ep4p2_krbedroom44 with dissolve
+me "Ok, ok. I give up!"
+ki "Are you sure?"
+ro "No surprise attacks this time?"
+scene ep4p2_krbedroom45 with dissolve
+me "I'm sure, fine. I give up!"
+ro "Still not convinced."
+scene ep4p2_krbedroom46 with dissolve
+ki "His left eyebrow twitched slightly. I think he's planning revenge."
+scene ep4p2_krbedroom47 with dissolve
+me "You two are enjoying this position way too much."
+scene ep4p2_krbedroom48 with dissolve
+me "Not that I'm really complaining."
+ro "Are you going to declare the winners?"
+scene ep4p2_krbedroom49 with dissolve
+$ renpy.pause()
+scene ep4p2_krbedroom50 with hpunch
+ki "Ohf."
+ro "Ow."
+scene ep4p2_krbedroom51 with dissolve
+me "So the winner of the great pillow fight is..."
+scene ep4p2_krbedroom52 with dissolve
+me "..."
+scene ep4p2_krbedroom53 with dissolve
+me "..."
+scene ep4p2_krbedroom54 with dissolve
+me "Me! By double knockout."
+scene ep4p2_krbedroom55 with fade
+me "Are you ok? How's the head...s."
+ro "We're fine. Just slightly embarrassed."
+ki "..."
+scene ep4p2_krbedroom56 with dissolve
+ki "You are quite impossible not to like, [name]."
+ki "There's something there I can't even explain."
+scene ep4p2_krbedroom55 with dissolve
+ro "I know exactly what she means."
+ro "Honestly I don't think we'll need to do much thinking."
+me "How about this... We find some time for ourselves one day and go do something together?"
+me "Just the three of us?"
+if ep4NightChoose == 3:
+    scene ep4p2_krbedroom60 with dissolve
+    ki "I'd love that."
+    scene ep4p2_krbedroom61 with dissolve
+    me "Maybe we'll figure something out along the way."
+    scene ep4p2_krbedroom62 with dissolve
+    me "Or at least have fun trying."
+    me "In a nonsexual way."
+elif ep4NightChoose == 4:
+    scene ep4p2_krbedroom57 with dissolve
+    ro "I'd love that."
+    scene ep4p2_krbedroom58 with dissolve
+    me "Maybe we'll figure something out along the way."
+    scene ep4p2_krbedroom59 with dissolve
+    me "Or at least have fun trying."
+    me "In a nonsexual way."
+else:
+    scene ep4p2_krbedroom60 with dissolve
+    ki "I'd love that."
+    scene ep4p2_krbedroom57 with dissolve
+    ro "Me too."
+    scene ep4p2_krbedroom61 with dissolve
+    me "Maybe we'll figure something out along the way."
+    scene ep4p2_krbedroom62 with dissolve
+    me "Or at least have fun trying."
+    scene ep4p2_krbedroom59 with dissolve
+    me "In a nonsexual way."
+scene ep4p2_krbedroom63 with dissolve
+me "Anyway, I should probably get some sleep"
+me "We all should."
+ki "Good call."
+ro "Sleep well, [name]."
+me "You too, girls."
+scene ep4p2_krbedroom64 with fade
+me "(That felt nice.)"
+me "(I still feel we have quite a bit to work out, but who knows)"
+me "(And to believe I almost spent the night with two sex crazed girls that will do everything to please you...)"
+stop music fadeout 3
+scene ep4p2_krbedroom65 with dissolve
+me "(...)"
+scene ep4p2_krbedroom66 with dissolve
+me "(...)"
+me "(Of all the devs in the world, and I had to end up with this one...)"
+jump lindaOpenNight
+label ep4NightLexiGo:
+$ clockis = [[todayIs],0,1,5,2]
+scene ep4p2_firstsleep10 with dissolve
+$ renpy.music.set_volume(0, delay=0, channel='mobile')
+play mobile ep4_alwaysloveinstrumental
+$ renpy.music.set_volume(0.1, delay=0, channel='mobile')
+me "(She's acting a bit strange sometimes.)"
+$ renpy.music.set_volume(0.2, delay=0, channel='mobile')
+me "(...)"
+me "(Somebody's listening to music it seems.)"
+scene ep4p2_firstsleep11 with dissolve
+$ renpy.music.set_volume(0.3, delay=0, channel='mobile')
+me "(Is this...)"
+scene ep4p2_lexirecording01 with dissolve
+$ renpy.music.set_volume(0.6, delay=0, channel='mobile')
+me "(...Lexi's studio?)"
+me "(I'm not sure I should be here.)"
+scene ep4p2_lexirecording05 with dissolve
+me "(Is she playing this right now?)"
+me "(...)"
+me "(Seems like it.)"
+scene ep4p2_lexirecording07 with dissolve
+me "(I should make my presence known.)"
+scene ep4p2_lexirecording02 with dissolve
+$ renpy.music.set_volume(0.8, delay=0, channel='mobile')
+me "(But wow. Look at these sales figures.)"
+me "(That's a lot of albums sold.)"
+scene ep4p2_lexirecording06 with dissolve
+me "(...)"
+me "(A lot of million albums sold.)"
+scene ep4p2_lexirecording08 with dissolve
+$ renpy.music.set_volume(1, delay=0, channel='mobile')
+me "(She's good!)"
+scene ep4p2_lexirecording09 with dissolve
+me "(And so into the music, it's like a part of her.)"
+scene ep4p2_lexirecording10 with dissolve
+me "(Every note so effortless.)"
+scene ep4p2_lexirecording11 with dissolve
+me "(Like she's not even concentrating...)"
+scene ep4p2_lexirecording12 with dissolve
+stop mobile fadeout 0.5
+le "Oh..."
+scene ep4p2_lexirecording13 with dissolve
+le "Hi there."
+me "Uh... I'm so sorry. I was listening and..."
+me "...it sounded so nice, and I guess I was mesmerized..."
+le "Don't worry about it. I'm used to playing in front of people, you know."
+scene ep4p2_lexirecording14 with dissolve
+me "Well, that... and you're not really dressed..."
+scene ep4p2_lexirecording15 with dissolve
+play music ep4_lexirecording
+$ nowPlayingArtist = "Patrick Ussher"
+$ nowPlayingTitle = "Lifes Sweetness"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+le "An astute observation... But I can put some clothes on if you feel uncomfortable."
+me "If {b}I{/b} feel uncomfortable?"
+le "Yes?"
+me "If you're fine with it, then I'm sure I'll manage as well."
+scene ep4p2_lexirecording33 with fade
+me "New song?"
+scene ep4p2_lexirecording32 with dissolve
+le "Yes. Or... I'm having difficulties with this one for some reason."
+scene ep4p2_lexirecording33 with dissolve
+me "Difficulties? How come."
+scene ep4p2_lexirecording35 with dissolve
+le "Normally, writing a song is easy. I hear it in my head, and then I sit down with the piano and play through it."
+le "Then I polish the verse, the chorus and add a bridge, because every good song needs a bridge."
+le "Then I add some fillers, in this case some strings to accompany the piano, and sit down with the piano again and play through the whole thing with the backing track"
+scene ep4p2_lexirecording32 with dissolve
+le "By then, the lyrics just come naturally."
+scene ep4p2_lexirecording36 with dissolve
+le "But with this one, I'm stuck. I can't find the words."
+scene ep4p2_lexirecording39 with dissolve
+me "Run it by me then. Not that I'm a professional like you, but let's brainstorm. What's it about?"
+scene ep4p2_lexirecording40 with dissolve
+le "Love."
+scene ep4p2_lexirecording39 with dissolve
+me "Aha... The classic love song. But it's still vague. Love is a lot of things. What does that mean to you?"
+le "..."
+scene ep4p2_lexirecording32 with dissolve
+le "It's when you see that old couple holding hands after all those years, still being in love despite the wear and tear over the years."
+scene ep4p2_lexirecording33 with dissolve
+me "I agree. But how did they get there. What did they experience along the way. How did they meet."
+scene ep4p2_lexirecording34 with dissolve
+le "Maybe... they met randomly... somewhere?"
+le "You know... Love at first sight?"
+scene ep4p2_lexirecording37 with dissolve
+me "I do. But these are just phrases everyone use to describe when they met, or how much they mean to each other, answering 'everything'."
+me "It's not particularly deep..."
+me "Can I ask if it is a song about a real person?"
+scene ep4p2_lexirecording38 with dissolve
+le "Yes you can, and yes it is."
+scene ep4p2_lexirecording33 with dissolve
+me "Try thinking what you feel about that person then, or make the song as if you're singing it directly to that person."
+scene ep4p2_lexirecording34 with dissolve
+le "That's not a bad idea at all."
+scene ep4p2_lexirecording16 with dissolve
+me "Well, should I just bill you for my services personally, or do you have a company you want me to send the bill to?"
+scene ep4p2_lexirecording17 with dissolve
+le "I propose an exchange service instead."
+scene ep4p2_lexirecording18 with dissolve
+me "Interesting..."
+scene ep4p2_lexirecording23 with dissolve
+le "So what will it be? How can I be of assistance?"
+scene ep4p2_lexirecording24 with dissolve
+me "..."
+me "What's the secret to making a smashing hit?"
+scene ep4p2_lexirecording23 with dissolve
+le "Huh?"
+le "That's your exchange service? How to make a good song?"
+me "Smashing hit!"
+le "*laughs*"
+scene ep4p2_lexirecording17 with dissolve
+le "That one is easy."
+scene ep4p2_lexirecording16 with dissolve
+me "This is the moment. The very moment where I learn the secret to good music making. The universe unfolds and I get to know the answer. Which is..."
+scene ep4p2_lexirecording17 with dissolve
+le "D major."
+me "..."
+scene ep4p2_lexirecording16 with dissolve
+me "You lost me..."
+scene ep4p2_lexirecording17 with dissolve
+le "D major."
+scene ep4p2_lexirecording16 with dissolve
+me "Yes, I heard you, but you still lost me."
+scene ep4p2_lexirecording17 with dissolve
+le "Every hit starts with a D major."
+le "There you go. Now we're even."
+scene ep4p2_lexirecording18 with dissolve
+me "That sounds like a bad trade off to me."
+scene ep4p2_lexirecording23 with dissolve
+le "Maybe..."
+le "But you know..."
+le "...I could get you a freebie service."
+me "..."
+scene ep4p2_lexirecording24 with dissolve
+le "I've been thinking a lot about this."
+le "And I'm sure."
+scene ep4p2_lexirecording25 with dissolve
+le "I really want y..."
+scene ep4p2_lexirecording26 with dissolve
+le "*yawns*"
+scene ep4p2_lexirecording19 with dissolve
+me "I yawns you too."
+scene ep4p2_lexirecording20 with dissolve
+me "..."
+me "That's some good hangtime on that yawn."
+scene ep4p2_lexirecording21 with dissolve
+le "Maybe I'm a bit tired..."
+scene ep4p2_lexirecording22 with dissolve
+le "...but I still want y..."
+scene ep4p2_lexirecording27 with dissolve
+le "*yawns*"
+scene ep4p2_lexirecording28 with dissolve
+me "Ok, that's it, miss."
+me "I'm afraid I'm going to have to bring you to the office and book you."
+scene ep4p2_lexirecording29 with dissolve
+me "And since you don't seem to want to come voluntarily, I will have to carry you."
+le "But..."
+scene ep4p2_lexirecording30 with dissolve
+me "Mind your head through the door, miss."
+scene ep4p2_lexirecording31 with dissolve
+le "So we're going to bed, eh?"
+me "...to sleep."
+le "Awww..."
+scene ep4p2_lexirecording41 with fade
+$ clockis = [[todayIs],0,2,1,4]
+le "Thank you for the ride."
+le "It was better than the Limo."
+me "Don't say that too loud. You might hurt Kevin's feelings."
+scene ep4_lexirecording_bed with dissolve
+le "Can you stay here for a little bit?"
+le "Tell me something about yourself."
+scene ep4p2_lexirecording44 with dissolve
+me "Not sure what to tell, really."
+scene ep4p2_lexirecording45 with dissolve
+me "But someone said I have a calming voice."
+me "That is probably going to put you to sleep no matter what I say."
+scene ep4p2_lexirecording46 with dissolve
+me "Not sure if that's a good thing or not."
+scene ep4p2_lexirecording47 with dissolve
+me "But I can always tell you about that time I..."
+me "..."
+me "(...aaand she's sleeping.)"
+scene ep4p2_lexirecording48 with dissolve
+me "(Probably a good thing. 364 days touring. I can't even imagine how that is.)"
+scene ep4p2_lexirecording49 with dissolve
+me "Oh..."
+scene ep4p2_lexirecording47 with dissolve
+me "Why hello there, beautiful."
+scene ep4p2_lexirecording53 with dissolve
+me "Aren't you just the most gorgeous thing ever."
+scene ep4p2_lexirecording50 with dissolve
+me "I mean, you're no Frankenstrat, but you sure look good."
+scene ep4p2_lexirecording54 with dissolve
+me "Don't tell Lexi though..."
+scene ep4p2_lexirecording55 with dissolve
+me "...but I think we could make the sweet music together."
+scene ep4p2_lexirecording56 with dissolve
+me "I could just plug you in right now and let it rip."
+scene ep4p2_lexirecording53 with dissolve
+stop music fadeout 5
+le "..."
+scene ep4p2_lexirecording51 with dissolve
+me "{i}...you were the sole reason I picked up a guitar.{/i}"
+me "{i}Thank you for the inspiration. It is by far the greatest gift you can give to anyone.{/i}"
+me "{i}Rest in Peace, Eddie.{/i}"
+scene ep4p2_lexirecording52 with dissolve
+me "Let's get some sleep."
+jump lindaOpenNight
+label ep4NightLindaGo:
+scene ep4p2_lindanight01 with dissolve
+$ clockis = [[todayIs],0,1,5,2]
+me "(Oh well... Shower it is.)"
+scene ep4p2_lindanight02 with dissolve
+play music ep4_lindanight
+$ nowPlayingArtist = "Michael Shynes"
+$ nowPlayingTitle = "Making Sense"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "(With all the things going on lately, I haven't even had a chance to sit down with Linda.)"
+me "(...)"
+me "(Why the heck not? She's been there for me for as long as I can remember.)"
+scene ep4p2_lindanight03 with dissolve
+me "(I haven't even asked her about her situation.)"
+me "(And how she's been the last few years.)"
+scene ep4p2_lindanight04 with dissolve
+me "(She's probably sleeping now though.)"
+me "(But tomorrow...)"
+scene ep4p2_lindanight05 with dissolve
+me "(*hands gesticulating*)"
+li "(...)"
+li "(I've missed you...)"
+scene ep4p2_lindanight06 with dissolve
+li "(...I've missed you.)"
+scene ep4p2_lindanight05 with dissolve
+li "(The hair is kinda weird though.)"
+li "(...but it grows on you.)"
+scene ep4p2_lindanight07 with dissolve
+li "(And you've been working out, obviously.)"
+li "(...)"
+li "(You're going to...)"
+scene ep4p2_lindanight08 with dissolve
+li "(...undress, aren't you.)"
+li "(...)"
+scene ep4p2_lindanight09 with dissolve
+li "Mhmmmm."
+scene ep4p2_lindanight10 with dissolve
+me "Oh, hey Linda. I didn't see you there."
+scene ep4p2_lindanight11 with dissolve
+li "Mhmmmm?"
+scene ep4p2_lindanight12 with dissolve
+me "I'm just going to take a quick shower if you don't mind?"
+scene ep4p2_lindanight13 with dissolve
+li "Nooooo... Go right ahead."
+scene ep4p2_lindanight14 with dissolve
+me "I couldn't sleep. So... shower it is."
+scene ep4p2_lindanight13 with dissolve
+li "I agree. I just had one."
+li "Before I sat down to peek."
+scene ep4p2_lindanight15 with dissolve
+me "*laughs* Oh, really?"
+li "Pee! I meant, pee!"
+play sound shower
+scene ep4p2_lindanight16 with dissolve
+li "You're weird, you know. Strolling in here like you own the place."
+li "Stripping down without a care. Even when you notice me, you go flash that... thing around like it's the most natural thing in the world.."
+li "What if it'd been one of the other girls in here?"
+scene ep4p2_lindanight17 with dissolve
+me "Then you probably would have heard a very high pitched scream."
+me "And by very high pitched scream, I mean me screaming."
+li "*laughs*"
+scene ep4p2_lindanight42 with fade
+li "So what you've been up to these last few years?"
+me "And if you ask Chris, he'll probably say that I've been acting like a dick."
+scene ep4p2_lindanight18 with dissolve
+li "Can you stop with the dick jokes while you're nude, showering?"
+me "I'm distracting you?"
+li "You're distracting me!"
+me "I think we're past the point of getting freaked out just by seeing a boob, or a dick."
+me "But yeah, ever since Steph disappeared on the last day of school, I kinda went into hiding."
+scene ep4p2_lindanight19 with dissolve
+li "Well, about Steph..."
+scene ep4p2_lindanight20 with dissolve
+me "There's no Steph anymore. Took me quite a while to figure that out."
+menu:
+    "[M_04_002a]": # "Be friendly.":
+        me "Not that I hate her or anything like that. But after all it's a thing of the past. A high school romance, or something like that."
+        jump ep4AfterStephLinda
+    "[M_04_002b]": # "Be dismissive.":
+        me "But if you run away from your loved one without talking about whatever problems you might have, it's not a good sign for a good lasting relationship."
+        jump ep4AfterStephLinda
+label ep4AfterStephLinda:
+me "But other than that, it's been work, work and more work."
+scene ep4p2_lindanight21 with dissolve
+me "I feel I still have the faint odor of Eau de Seweour on me."
+scene ep4p2_lindanight22 with dissolve
+li "I wouldn't worry about that. You smell like a bed of flowers on a lazy summer day."
+scene ep4p2_lindanight24 with dissolve
+me "...and it only took 439 showers to get there."
+li "Mhmmmmm. Smells delicious."
+scene ep4p2_lindanight23 with dissolve
+li "But, have you seen the size of this place?"
+me "I know, right? I'm having problems navigating it."
+me "And I've counted 5 pools... up to now at least."
+li "I know, and so many rooms."
+stop sound fadeout 1
+scene ep4p2_lindanight25 with dissolve
+li "I think this is exactly what I needed right now."
+scene ep4p2_lindanight26 with dissolve
+li "To get away from everything..."
+scene ep4p2_lindanight27 with dissolve
+li "...and relax without a care in the world."
+scene ep4p2_lindanight29 with dissolve
+li "Even if it's just for a little while."
+scene ep4p2_lindanight28 with dissolve
+li "It's just so good to..."
+scene ep4p2_lindanight29 with dissolve
+li "...not feel the weight of the world..."
+scene ep4p2_lindanight28 with dissolve
+li "...on your shoulders..."
+scene ep4p2_lindanight30 with dissolve
+li "...and Cece too, she needs this..."
+scene ep4p2_lindanight26 with dissolve
+li "...so she won't go do anything stupid..."
+scene ep4p2_lindanight31 with dissolve
+me "I think she's feeling better."
+me "I've been trying to get through that brick wall of hers for a while now."
+me "And I think I'm succeeding."
+li "Unless she's faking it. You never know."
+scene ep4p2_lindanight32 with dissolve
+me "Can you pass me the towel over there?"
+li "Sure, here you..."
+scene ep4p2_lindanight33 with dissolve
+li "...WHOOOAMMMYGOD!"
+scene ep4p2_lindanight34 with dissolve
+li "*laughs* You asshole! You scared me half to death."
+scene ep4p2_lindanight38 with dissolve
+me "*laughs* You fell for it. Again!"
+scene ep4p2_lindanight34 with dissolve
+li "It's been years. And of course you're the only one that can go around flashing that monstrosity around like that..."
+scene ep4p2_lindanight37 with dissolve
+me "Thank you for the confidence boost though."
+scene ep4p2_lindanight35 with dissolve
+li "Yeah, yeah. Now careful you don't poke my eye out."
+scene ep4p2_lindanight36 with dissolve
+li "Here's the towel. Cover yourself up before I do something you might regret."
+scene ep4p2_lindanight39 with dissolve
+me "Hmmm. I'm thinking... It's late... We both can't sleep... I know what we should do."
+scene ep4p2_lindanight40 with dissolve
+li "Mhmmmm?"
+stop music fadeout 3
+me "Let's head upstairs and go down memory lane. We haven't really got a chance to talk about things since you came back."
+scene ep4p2_lindanight41 with dissolve
+li "...that sounds like a good idea."
+jump lindaClosedNight
+label lindaOpenNight:
+$ clockis = [[todayIs],0,2,5,5]
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lindanightcombine01 with fade
+me "(I thought I heard something. Is someone else up at this hour?)"
+scene ep4p2_lindanightcombine02 with dissolve
+me "(Linda?)"
+me "Couldn't sleep?"
+scene ep4p2_lindanightcombine03 with dissolve
+li "[name]."
+li "Nah. Just thinking for a bit."
+me "I know exactly what you need."
+li "Really?"
+me "Yup. A little cheer-you-up. And I got just the thing for it..."
+label lindaClosedNight:
+$ clockis = [[todayIs],0,3,1,5]
+scene bg empty with fade
+play music ep4_lindaremi
+$ nowPlayingArtist = "Michael Shynes"
+$ nowPlayingTitle = "Hello God"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lindanight43 with fade
+li "...and then Miss Vasques comes running and shouting, 'who emptied the fire extinguisher all over the hallways'!!!"
+me "...like nobody could put two and two together when they saw Linda sitting there in a huge pile of white dust!"
+li "...then Chris comes strolling without a care in the world, and she goes..."
+scene ep4p2_lindanight44 with dissolve
+li "...Chris! What have you done! There's no fire!"
+me "He looks at you, all knowing, going 'there's no fire... now!'"
+scene ep4p2_lindanight45 with dissolve
+li "Do you have any idea of how hard it is to get that stuff out of your hair?"
+li "And that stuff gets into every crack... and by that I mean, every single crack."
+scene ep4p2_lindanight46 with dissolve
+me "Fun times, Linda. Fun times."
+li "..."
+li "Poor Chris."
+me "Sometimes he's the goofiest person in the world. But he's got your back. Always."
+li "Like you do, [name]."
+me "I don't know about that, but..."
+scene ep4p2_lindanight47 with dissolve
+li "*gasps* This!"
+me "What?"
+li "Stroking my hair."
+scene ep4p2_lindanight48 with dissolve
+li "I can't remember when you last did it. It's so good."
+li "*purrrrrrr*"
+me "I just remembered that you used to like it."
+scene ep4p2_lindanight49 with dissolve
+li "I still do."
+li "It always made me feel so safe. Like I belonged."
+scene ep4p2_lindanight50 with dissolve
+me "I just realized how much I've missed this. How much I've missed you. Or all of us, together again."
+me "There's been so much shit going on the last few years."
+scene ep4p2_lindanight51 with dissolve
+me "..."
+me "What's wrong?"
+scene ep4p2_lindanight53 with dissolve
+li "So much shit... that's putting it mildly."
+scene ep4p2_lindanight52 with dissolve
+me "Then tell me about it."
+me "Of course I know things have been rough for you."
+me "Obviously, as you're broke and living at my place."
+me "And I should have sat down and really talked about it earlier, but now is as good a time as any..."
+scene ep4p2_lindanight53 with dissolve
+li "Things has been a mess since we moved away."
+li "The new school was bad. Not that I was bullied or anything, but there was always talk. And I never had any friends."
+scene ep4p2_lindanight54 with dissolve
+li "Years go by, and there's a new school, same problems."
+li "And I met Cece, and she instantly hit me as just so... likeable. And we got along so well."
+li "Then I realize that she has problems, and somehow that makes her..."
+scene ep4p2_lindanight55 with dissolve
+me "...even more likeable. I know."
+li "..."
+scene ep4p2_lindanight54 with dissolve
+li "So, there's always people talking. About me, her, and somewhere in the midst of it all I feel I have the weight of the world on my shoulders."
+li "I'm doing the best I can to keep me up. To keep her up. Because she's struggling."
+scene ep4p2_lindanight56 with dissolve
+li "But everything I try, I fail. We don't have food, a place to stay, money."
+li "Mom and dad can't help at all, because they have their own struggles."
+scene ep4p2_lindanight54 with dissolve
+li "I can't even help Cece!"
+li "And I feel so sorry for her that I go buy her a pair of shoes, and she... she..."
+li "..."
+li "...just that look in her face when she got those shoes."
+li "We couldn't afford it even if they were dirt cheap, low quality shit shoes."
+li "She puts them on, and she's shining. Literally glowing. Her smile goes all around her head, like she's in some fairytale story..."
+scene ep4p2_lindanight53 with dissolve
+li "... like Cinderella."
+li "..."
+scene ep4p2_lindanight56 with dissolve
+li "I just felt so damn alone..."
+li "..."
+li "You and Chris... and Steph... we always had each other."
+li "...I've missed it so much. Missed you so much."
+li "And then there's Matt..."
+scene ep4p2_lindanight57 with dissolve
+"*floor squeaking*"
+scene ep4p2_lindanight58 with dissolve
+me "(Oh, it's Chris.)"
+$ ep4SpentNightWithLindaAndChris = False
+menu:
+    "[M_04_003a]": # "Call out for him.":
+        $ ep4SpentNightWithLindaAndChris = True
+        me "Hey, man. Can't sleep?"
+        scene ep4p2_lindanight59 with dissolve
+        ch "Hi, yeah. I heard some voices, just wanted to see that everything was ok."
+        ch "I don't want to intrude, I'll head back downstairs."
+        scene ep4p2_lindanight61 with dissolve
+        li "Nonsense Chris, come here."
+        ch "Ok, if you're sure... I couldn't sleep so I walked around for a bit. I heard you were talking, and I didn't want to listen in."
+        scene ep4p2_lindanight62 with dissolve
+        li "What's the matter, Chris. Are you... crying?"
+        ch "No, I... em... got something stuck in my eye."
+        ch "But I kinda heard what you were talking about, and I didn't want to listen, but it seemed important, so I heard parts of it, and..."
+        scene ep4p2_lindanight63 with dissolve
+        li "Come here, Chris. Everything's ok. I promise."
+        ch "No... No it's not."
+        ch "*sniffs* I'm sorry."
+        li "Sorry? You don't have anything to be sorry about."
+        ch "Yes I do. I abandoned you."
+        li "You're not making any sense at all."
+        scene ep4p2_lindanight64 with dissolve
+        me "Actually, he's making all the sense in the world right now."
+        li "But I'm the one that moved away."
+        scene ep4p2_lindanight65 with dissolve
+        me "We're literally one click away from staying in touch. I should have... we should have stayed in touch. Visited you."
+        scene ep4p2_lindanight64 with dissolve
+        li "Chris..."
+        ch "What he said."
+        scene ep4p2_lindanight65 with dissolve
+        me "But for now, you need to continue the story... You mentioned Matt, and I've got a feeling I won't like what I'm about to hear."
+        scene ep4p2_lindanight66 with dissolve
+        li "Well, that part of it is more embarrassing... or stupid really..."
+        me "Go on, please."
+        scene ep4p2_lindanight67 with dissolve
+        li "You don't know this, but before I met you... Matt was an alright guy."
+        li "He'd been my friend ever since kindergarten. But he was never anything more than that."
+        li "And somehow I think he'd gotten into his bloated head of his that we were supposed to end up together someday."
+        li "Of course, when I met you that changed because the three of us spent so much time together."
+        scene ep4p2_lindanight68 with dissolve
+        li "Even though we tried to include him, he always rejected it."
+        li "I think he was jealous."
+        li "But when I moved away, he started contacting me again."
+        li "I was... lonely. So I accepted him reaching out. And we did text a bit back and forth."
+        scene ep4p2_lindanight69 with dissolve
+        li "Then one day he said he could come visit me for the weekend... and I accepted."
+        li "It wasn't all that bad. He was being more... normal... than he's been in ages."
+        li "So it ended up with us going out and drinking and..."
+        li "Well, all of a sudden he asks me about the ring."
+        scene ep4p2_lindanight70 with dissolve
+        me "Ring?"
+        me "What ring?"
+        ch "The one you gave her of course."
+        me "I did? Ooooohhhh. That ring."
+        scene ep4p2_lindanight71 with dissolve
+        li "Yeah, that ring."
+        li "I know it came out of a cereal box, but I always loved it."
+        li "I always wore it in a chain around my neck. It made me feel closer to you in a weird way. I found comfort in it when I was lonely."
+        li "So, Linda the smart one, decides she's going to put the ring in a very special place..."
+        li "I..."
+        li "God... this is so embarrassing..."
+        scene ep4p2_lindanight72 with dissolve
+        li "I put it in my clit-piercing..."
+        me "Oh... kay..."
+        li "I feel so stupid..."
+        scene ep4p2_lindanight70 with dissolve
+        li "But long story short... Matt asked... I was drunk... so I told him."
+        me "..."
+        li "He just laughed."
+        li "So later in the evening, we head home because he was staying in our place. Mom and dad said it was ok."
+        scene ep4p2_lindanight68 with dissolve
+        li "But we were very, very drunk, and he came on to me... hard."
+        li "I told him several times... that would never happen. I didn't want to."
+        li "At first he was angry, but he calmed down."
+        scene ep4p2_lindanight69 with dissolve
+        li "And eventually we fell asleep."
+        li "In the morning when I woke up, he was gone."
+        scene ep4p2_lindanight70 with dissolve
+        me "Sounds to me that you were lucky."
+        li "That's what I thought at first. Mom and dad said he left early."
+        li "So eventually I went to the toilet, and... the ring was gone."
+        scene ep4p2_lindanight73 with dissolve
+        li "And not only that... I didn't feel alright down there at all."
+        ch "..."
+        me "Did he..."
+        scene ep4p2_lindanight74 with dissolve
+        li "Look, I don't know!"
+        li "...I searched everywhere, but couldn't find it. I even went back to the disco just to check. But it was gone."
+        li "So maybe it was just because I saw the missing ring I felt... weird, or maybe it was because something else, but..."
+        li "...it's in the past now anyway."
+        ch "I'm going to straight up murder him!"
+        me "Yeah... he's..."
+        scene ep4p2_lindanight75 with dissolve
+        li "Listen, please. I don't know! That was why I asked you about him when I met you at the hospital."
+        li "And I didn't want to ask Matt when we ran into him at the restaurant, in front of everyone."
+        scene ep4p2_lindanight76 with dissolve
+        li "But just maybe there's some other solution to it."
+        li "So can we just please not talk about this anymore at this moment?"
+        ch "..."
+        me "..."
+        scene ep4p2_lindanight77 with dissolve
+        ch "Me and you are going to get to the bottom of this when we get home, [name]."
+        me "Of course we are... We need to pay Matt a visit."
+        me "Linda, does Cece know?"
+        li "She doesn't. Why?"
+        me "I thought that was why she poured that drink on him..."
+        scene ep4p2_lindanight76 with dissolve
+        li "But... can we change the topic?"
+        me "..."
+        scene ep4p2_lindanight78 with dissolve
+        ch "So... what was it you were talking about before I got here, anyway."
+        ch "I heard laughing."
+        li "Oh, that. The Vasques incident..."
+        scene ep4p2_lindanight79 with dissolve
+        ch "Vasques... Vasques..."
+        ch "Doesn't ring a bell."
+        me "Spanish teacher. Latino."
+        ch "..."
+        me "Huge tits."
+        scene ep4p2_lindanight80 with dissolve
+        ch "Oh... Her!"
+        ch "I actually met her at a cafe some time after we finished school."
+        scene ep4p2_lindanight81 with dissolve
+        ch "She apologized for being such a bitch when she was a teacher."
+        li "Wow."
+        ch "Then we had lunch together, and afterwards..."
+        scene ep4p2_lindanight82 with dissolve
+        ch "...we fucked at my place."
+        li "..."
+        me "..."
         stop music fadeout 3
-        me "(No... I want to experience life, I'm not really ready to bind myself. At least not yet.)"
-        scene ep4_firstsleep02 with dissolve
-        me "(And finally I feel I'm drifting...)"
-        scene bg empty with fade
-        $ renpy.pause(0.5)
-        $ renpy.pause(0.5)
-        $ renpy.pause(0.5)
-        $ renpy.pause(0.5)
-        play sound ep4_doorknock
-        me "Mmmhh.... zzz..."
-        ce "Oh..."
-        play sound ep4_doorclosing
-        "*door closes*"
+        ch "What?"
+        li "..."
+        me "..."
+        ch "She had nice boobs!"
+        jump ep4FirstMorning
+    "[M_04_003b]": # "Let him go.":
+        me "(He probably just heard our voices. He'll come back if he wants to.)"
+        scene ep4p2_lindanight55 with dissolve
+        me "Continue the story, please... You mentioned Matt, and I've got a feeling I won't like what I'm about to hear."
+        scene ep4p2_lindanight83 with dissolve
+        li "Well, that part of it is more embarrassing... or stupid really..."
+        me "Go on, please."
+        scene ep4p2_lindanight84 with dissolve
+        li "You don't know this, but before I met you... Matt was an alright guy."
+        li "He'd been my friend ever since kindergarten. But he was never anything more than that."
+        li "And somehow I think he'd gotten into his bloated head of his that we were supposed to end up together someday."
+        li "Of course, when I met you that changed because you, Chris and me spent so much time together."
+        scene ep4p2_lindanight85 with dissolve
+        li "Even though we tried to include him, he always rejected it."
+        li "I think he was jealous."
+        li "But when I moved away, he started contacting me again."
+        li "I was... lonely. So I accepted him reaching out. And we did text a bit back and forth."
+        scene ep4p2_lindanight86 with dissolve
+        li "Then one day he said he could come visit me for the weekend... and I accepted."
+        li "It wasn't all that bad. He was being more... normal... than he's been in ages."
+        li "So it ended up with us going out and drinking and..."
+        li "Well, all of a sudden he asks me about the ring."
+        scene ep4p2_lindanight87 with dissolve
+        me "Ring?"
+        me "What ring?"
+        li "The one you gave me."
+        me "I did? Ooooohhhh. That ring."
+        scene ep4p2_lindanight88 with dissolve
+        li "Yeah, that ring."
+        li "I know it came out of a cereal box, but I always loved it."
+        li "I always wore it in a chain around my neck. It made me feel closer to you in a weird way. I found comfort in it when I was lonely."
+        li "So, Linda the smart one, decides she's going to put the ring in a very special place..."
+        li "I..."
+        li "God... this is so embarrassing..."
+        scene ep4p2_lindanight89 with dissolve
+        li "I put it in my clit-piercing..."
+        me "Oh... kay..."
+        li "I feel so stupid..."
+        scene ep4p2_lindanight87 with dissolve
+        li "But long story short... Matt asked... I was drunk... so I told him."
+        me "..."
+        li "He just laughed."
+        li "So later in the evening, we head home because he was staying in our place. Mom and dad said it was ok."
+        scene ep4p2_lindanight85 with dissolve
+        li "But we were very, very drunk, and he came on to me... hard."
+        li "I told him several times... that would never happen. I didn't want to."
+        li "At first he was angry, but he calmed down."
+        li "And eventually we fell asleep."
+        scene ep4p2_lindanight86 with dissolve
+        li "In the morning when I woke up, he was gone."
+        me "Sounds to me that you were lucky."
+        scene ep4p2_lindanight87 with dissolve
+        li "That's what I thought at first. Mom and dad said he left early."
+        li "So eventually I went to the toilet, and... the ring was gone."
+        scene ep4p2_lindanight90 with dissolve
+        li "And not only that... I didn't feel alright down there at all."
+        me "Did he..."
+        scene ep4p2_lindanight91 with dissolve
+        li "Look, I don't know!"
+        li "...I searched everywhere, but couldn't find it. I even went back to the disco just to check. But it was gone."
+        li "So maybe it was just because I saw the missing ring I felt... weird, or maybe it was because something else, but..."
+        li "...it's in the past now anyway."
+        scene ep4p2_lindanight92 with hpunch
+        me "I'm going to straight up murder him!"
+        scene ep4p2_lindanight91 with dissolve
+        li "Listen, please. I don't know! That was why I asked you about him when I met you at the hospital."
+        li "And I didn't want to ask Matt when we ran into him at the restaurant, in front of everyone."
+        li "But just maybe there's some other solution to it."
+        me "..."
+        me "I am going to get to the bottom of this when we get home."
+        me "Does Cece know?"
+        li "She doesn't. Why?"
+        me "I thought that was why she poured that drink on him..."
+        li "But... can we change the subject?"
+        me "No we can't! I'm so fucking pissed off right now."
+        scene ep4p2_lindanight94 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_lindanight95 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_lindanight96 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_lindanight97 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_lindanight98 with fade
+        me "What was that about?"
+        li "It was for you to forget about him, and remember m..."
+        scene ep4p2_lindanight99 with dissolve
+        li "..."
+        stop music fadeout 3
+        li "So can we just drop this now and enjoy ourselves?"
+        me "Sure. I'm sorry I got riled up. But we are going to deal with this when we get home."
+        scene ep4p2_lindanight98 with dissolve
+        li "That's all I ask. Thank you."
         jump ep4FirstMorning
 label ep4NightCeceGo:
 play sound ep4_doorknock
@@ -624,7 +1631,7 @@ me "And listen to my voice."
 scene ep4_mccecenight07 with dissolve
 me "Try to clear your mind a bit. Close your eyes, and search for some kind of random memory that you haven't thought about for a while."
 scene ep4_mccecenight08 with dissolve
-me "Maybe something from when you were younger and the anticipation before christmas..."
+me "Maybe something from when you were younger, like the anticipation before christmas..."
 scene ep4_mccecenight05 with dissolve
 me "Or some sound you heard while trying to sleep, that made you relax. Like rain on the window, or your mom and dad chatting in the background."
 scene ep4_mccecenight08 with dissolve
@@ -663,7 +1670,7 @@ else:
     me "I wouldn't say that..."
     me "You didn't ruin anything."
     scene ep4_mccecenight15 with dissolve
-    ce "I still feel I did. Because it got awkward."
+    ce "I still feel like I did. Because it got awkward."
 scene ep4_mccecenight14 with dissolve
 me "...then why am I smiling."
 me "..."
@@ -804,7 +1811,7 @@ scene ep4_mccecenight67 with dissolve
 "{color=#ffff55}Before long she reaches her climax, thrusting herself against you as wave after wave of pleasure rips through her body.{/color}"
 "{color=#ffff55}Her face going through all the emotions of a beautiful agony, and she hugs you even harder.{/color}"
 scene ep4_mccecenight65 with dissolve
-"{color=#ffff55}Then her arms go limp, as she struggles to catch her breath, and returns to reality.{/color}"
+"{color=#ffff55}Then her arms go limb, as she struggles to catch her breath, and return to reality.{/color}"
 scene ep4_mccecenight69 with dissolve
 "{color=#ffff55}After a while she utters two simple words, so low you barely hear them...{/color}"
 scene ep4_mccecenight38 with dissolve
@@ -837,17 +1844,14 @@ if not ep2RejectedRobin:
 if not ep3RejectedKira:
     $ ep4NoSex = False
 menu:
-    "[M_04_002a]" if ep4NoSex: # "Not since Steph (Truth)" if ep4NoSex:
+    "[M_04_004a]" if ep4NoSex: # "Not since Steph (Truth)" if ep4NoSex:
         me "Not since Steph."
         me "I mean, there's been offers, or... opportunities, but I turned them down."
-    "[M_04_002b]" if not ep4NoSex: # "Not since Steph (Lie)" if not ep4NoSex:
+    "[M_04_004b]" if not ep4NoSex: # "Not since Steph (Lie)" if not ep4NoSex:
         $ ep4CeceSexTalk = 1
         me "Not since Steph."
         me "I mean, there's been offers, or... opportunities, but I turned them down."
-    "[M_04_002c]" if ep4NoSex: # "There's been others." if ep4NoSex:
-        $ ep4CeceSexTalk = 2
-        me "There's been others, sure. But not with feelings. Since Steph."
-    "[M_04_002d]" if not ep4NoSex: # "There's been others." if not ep4NoSex:
+    "[M_04_004c]": # "There's been others.":
         $ ep4CeceSexTalk = 2
         me "There's been others, sure. But not with feelings. Since Steph."
 scene ep4_mccecenight45 with dissolve
@@ -925,7 +1929,8 @@ stop music fadeout 3
 ce "Sorry. I just..."
 ce "...can't wrap my head around this right now..."
 ce "...and please don't tell anybody about this."
-jump ep4FirstMorning
+ce "Let me go back inside first, so they don't start talking."
+jump lindaOpenNight
 label ep4FirstMorning:
 scene bg empty with fade
 $ renpy.pause(0.5)
@@ -1001,7 +2006,7 @@ scene ep4_firstmorning06 with dissolve
 $ ep4RoamU = True
 le "U-huh. Don't go telling yourself that. You are beautiful."
 li "No, I'm not really..."
-le "That insecurity whispering in your ear, hun. Don't listen to it. You've got a body to die for."
+le "That's insecurity whispering in your ear, hun. Don't listen to it. You've got a body to die for."
 scene ep4_firstmorning07 with dissolve
 le "Such nice firm breasts and a good size as well."
 li "Wait, I'm..."
@@ -1021,12 +2026,12 @@ play sound whistle
 ki "*whistles* Damn, woman. You're hot!"
 scene ep4_firstmorning12 with dissolve
 menu:
-    "[M_04_003a]": # "Very sexy":
+    "[M_04_005a]": # "Very sexy":
         $ XPlinda += 2
         if XPlinda > 25:
             $ XPlinda = 25
         me "She is indeed. That's a body to die for. You're one sexy woman, Linda."
-    "[M_04_003b]": # "Looking good there":
+    "[M_04_005b]": # "Looking good there":
         me "Looking good there, Linda. But I knew that already."
 scene ep4_firstmorning13 with dissolve
 le "I know, I keep telling her that, but she doesn't believe me."
@@ -1055,12 +2060,12 @@ le "But I'm going to start off with a cup of coffee. Do you want me to make you 
 scene ep4_firstmorning18 with dissolve
 ce "She does."
 menu:
-    "[M_04_004a]": # "Yes, please.":
+    "[M_04_006a]": # "Yes, please.":
         $ ep4GotCoffee = True
         me "Yes, please. I need my morning coffee."
         scene ep4_firstmorning19 with dissolve
         le "Here you go. Enjoy it."
-    "[M_04_004b]": # "No need.":
+    "[M_04_006b]": # "No need.":
         me "No need. I'm not that much of a coffee drinker."
         li "I want one."
         le "Sure thing."
@@ -1088,7 +2093,7 @@ scene ep4_firstmorning21 with dissolve
 ch "Ok..."
 ch "But why?"
 scene ep4_firstmorning22 with dissolve
-ro "So you get a bigger highscore, duh..."
+ro "So you get a bigger high score, duh..."
 scene ep4_firstmorning21 with dissolve
 ch "Yeah, but why. Do you win money?"
 scene ep4_firstmorning22 with dissolve
@@ -1113,14 +2118,14 @@ scene ep4_firstmorning23 with dissolve
 ch "Sup. Finally awake, eh?"
 ro "Hey, [name]."
 scene ep4_firstmorning24 with dissolve
-ch "Robin has been teaching me to play a game."
+ch "Robin has been teaching me how to play a game."
 scene ep4_firstmorning25 with dissolve
 ro "It's Candie Squash Saga. Do you play?"
 menu:
-    "[M_04_005a]": # "Yes. (truth)":
+    "[M_04_007a]": # "Yes. (truth)":
         $ ep4SaidPlayGame = True
         me "I do actually. I haven't checked the ranks today, but when I went to sleep I was ranked as number o..."
-    "[M_04_005b]": # "Noooooo... Phone games is not for me. (lie)":
+    "[M_04_007b]": # "Noooooo... Phone games is not for me. (lie)":
         me "Not really. Got better things to do than play games."
 scene ep4_firstmorning24 with dissolve
 ch "But I don't get it. You can't win the game. And you can't even complete it."
@@ -1192,14 +2197,20 @@ if ep3RejectedKira:
         me "(...Cece seems a bit embarrassed about last night.)"
         me "(I'll try talking to her about it later on.)"
     elif ep4NightChoose == 3:
-
-        ki "I trust you had a good night."
-        me "I did."
-    elif ep4NightChoose == 5:
-
         ki "I trust you had a good night."
         me "I did."
         ro "*laughs*"
+    elif ep4NightChoose == 4:
+        ki "I trust you had a good night."
+        me "I did."
+        ro "*laughs*"
+    elif ep4NightChoose == 5:
+        ki "I trust you had a good night."
+        me "I did."
+        ro "*laughs*"
+    else:
+        ki "I trust you had a good night."
+        me "I did."
     if ep4GotCoffee:
         $ XPcece += 1
         if XPcece > 25:
@@ -1256,14 +2267,20 @@ else:
         me "(...she seems a bit embarrassed about last night.)"
         me "(I'll try talking to her when she's alone.)"
     elif ep4NightChoose == 3:
-
-        ki "I trust you had a good night."
-        me "I did."
-    elif ep4NightChoose == 5:
-
         ki "I trust you had a good night."
         me "I did."
         ro "*laughs*"
+    elif ep4NightChoose == 4:
+        ki "I trust you had a good night."
+        me "I did."
+        ro "*laughs*"
+    elif ep4NightChoose == 5:
+        ki "I trust you had a good night."
+        me "I did."
+        ro "*laughs*"
+    else:
+        ki "I trust you had a good night."
+        me "I did."
     if ep4GotCoffee:
         scene ep4_firstmorning43 with dissolve
         $ XPcece += 1
@@ -1288,9 +2305,7 @@ else:
     scene ep4_firstmorning49 with dissolve
     ce "Jeez. You're very straightforward."
     ki "Arm, dick. They're both bodyparts."
-
     ki "Although, somebody is very good with their dick."
-
     ce "..."
     scene ep4_firstmorning50 with dissolve
     $ ep4CeceDiscoveredKiraSex = True
@@ -1338,7 +2353,7 @@ scene ep4_firstmorning55 with dissolve
 le "Are you all ready to go out and get some sun and jump into the pool?"
 scene ep4_firstmorning57 with dissolve
 li "Eh... We'll probably have to go shopping for swimwear. Me and Cece at least."
-li "We're kinda traveling light..."
+li "We're kinda travelling light..."
 scene ep4_firstmorning56 with dissolve
 le "Don't worry about that, love. I have more than enough for everyone."
 le "Come on girls. Let's go raid the wardrobe. You too, Kira and Robin."
@@ -1367,10 +2382,14 @@ if ep3ToldChrisWhoMcLike == 1:
     ch "You said you liked Lexi, right?"
     scene ep4_firstmorning62 with dissolve
     if ep4NightChoose == 2:
-        "(this content is to be added for chapter 4, part 2)"
-        "(to avoid giving away spoilers, this part of the conversation is left out)"
+        me "Yeah, we had a little bit of a night talk tonight."
+        me "I think we have good chemistry."
         scene ep4_firstmorning66 with dissolve
-        ch "Ok, Lexi it is."
+        ch "I can't get over it. My best pal with Lexi!"
+        scene ep4_firstmorning62 with dissolve
+        me "Yeahyeah, relax now buddy. One step at a time."
+        scene ep4_firstmorning66 with dissolve
+        ch "Got it. I'll help you in any way I can."
     else:
         $ ep4ChangedOpinion = True
         me "I'm not really sure ... . I have to admit I haven't figured my feelings out yet."
@@ -1393,10 +2412,10 @@ elif ep3ToldChrisWhoMcLike == 3:
     ch "You said you liked Kira, right?"
     scene ep4_firstmorning62 with dissolve
     if ep4NightChoose == 3:
-        "(this content is to be added for chapter 4, part 3)"
-        "(to avoid giving away spoilers, this part of the conversation is left out)"
+        me "I do. There's something about her... I can't quite put my finger on it."
+        me "But she's in a relationship with Robin, so I don't really know how it's going to work out, or if we even try."
         scene ep4_firstmorning66 with dissolve
-        ch "Ok, Kira it is."
+        ch "Ok, careful approach. Gotcha."
     else:
         $ ep4ChangedOpinion = True
         me "I'm not really sure ... . I have to admit I haven't figured my feelings out yet."
@@ -1406,23 +2425,24 @@ elif ep3ToldChrisWhoMcLike == 4:
     ch "You said you liked Robin, right?"
     scene ep4_firstmorning62 with dissolve
     if ep4NightChoose == 4:
-        "(this content is to be added for chapter 4, part 3)"
-        "(to avoid giving away spoilers, this part of the conversation is left out)"
+        me "I do. There's something about her... I can't quite put my finger on it."
+        me "But she's in a relationship with Kira, so I don't really know how it's going to work out, or if we even try."
         scene ep4_firstmorning66 with dissolve
-        ch "Ok, Robin it is."
+        ch "Ok, careful approach. Gotcha."
     else:
         $ ep4ChangedOpinion = True
         me "I'm not really sure ... . I have to admit I haven't figured my feelings out yet."
         scene ep4_firstmorning65 with dissolve
         ch "I get you. But be careful man. I don't want to see you get hurt again. Fooling around with everyone is a recipe for disaster."
 elif ep3ToldChrisWhoMcLike == 7:
-    ch "You said you liked both Kira and Robin, right?"
+    ch "You are still going all in? Both Kira and Robin?"
     scene ep4_firstmorning62 with dissolve
     if ep4NightChoose == 5:
-        "(this content is to be added for chapter 4, part 3)"
-        "(to avoid giving away spoilers, this part of the conversation is left out)"
+        me "Honestly, I have no idea how that is going to work out."
+        me "But we talked a bit about it last night, and agreed to take it one day at a time. Get a feeling of things."
         scene ep4_firstmorning66 with dissolve
         ch "Ok, Kira and Robin it is."
+        ch "They are going to wear you out though."
     else:
         $ ep4ChangedOpinion = True
         me "I'm not really sure ... . I have to admit I haven't figured my feelings out yet."
@@ -1432,10 +2452,13 @@ elif ep3ToldChrisWhoMcLike == 5:
     ch "You said you finally discovered Linda, right?"
     scene ep4_firstmorning62 with dissolve
     if ep4NightChoose == 6:
-        "(this content is to be added for chapter 4, part 3)"
-        "(to avoid giving away spoilers, this part of the conversation is left out)"
+        me "No idea. We've been friends for so long, I don't know if there's anything there. But I don't think she ever left my mind."
         scene ep4_firstmorning66 with dissolve
-        ch "Ok, Linda it is."
+        ch "About time."
+        scene ep4_firstmorning62 with dissolve
+        me "What do you mean?"
+        scene ep4_firstmorning66 with dissolve
+        ch "Ok, blind as a bat as always. But I'll help you out."
     else:
         $ ep4ChangedOpinion = True
         me "I'm not really sure ... . I have to admit I haven't figured my feelings out yet."
@@ -1465,14 +2488,14 @@ scene ep4_firstmorning65 with dissolve
 ch "Nah man. This is your show..."
 scene ep4_firstmorning62 with dissolve
 menu:
-    "[M_04_006a]": # "If you say so. (I)":
+    "[M_04_008a]": # "If you say so. (I)":
         $ contact_notify_me = True
         $ contact_text_me += "\n\nWhen talking to Chris about setting him up with one of the girls, he declined. He would try focusing on fixing things with his old flame, Christine."
         $ contact_notify_chris = True
         $ contact_text_chris += "\n\nWhen I asked about setting him up with one of the girls, he declined. He's still not over his old flame, Christine."
         me "Ok man, if you say so."
         me "It's not like I can make up my mind anyway."
-    "[M_04_006b]" if not ep4ChangedOpinion: # "Maybe I should be the one trying to hook you up with someone. (I)" if not ep4ChangedOpinion:
+    "[M_04_008b]": # "Maybe I should be the one trying to hook you up with someone. (I)":
         $ contact_notify_me = True
         $ contact_text_me += "\n\nWhen talking to Chris about setting him up with one of the girls, he was open towards it. But it seems he didn't have any favorites picked out."
         $ contact_notify_chris = True
@@ -1518,7 +2541,7 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 scene ep4_morningsteph01 with fade
-ho "...then you will look into each others eyes, the world will melt away, and it will go back to the way things were."
+ho "...then you will look into each other's eyes, the world will melt away, and it will go back to the way things were."
 ho "But I'm telling you, that is not going to happen. Even if it does, it won't right the past."
 scene ep4_morningsteph02 with dissolve
 st "Yeah, tell me about it. Because I already tried that."
@@ -1545,7 +2568,7 @@ else:
     scene ep4_morningsteph01 with dissolve
     ho "Why the heck would you even do that? Melvin wouldn't hurt a fly."
     scene ep4_morningsteph02 with dissolve
-    st "I don't know... He has a tendancy to act first, and ask afterwards."
+    st "I don't know... He has a tendency to act first, and ask afterwards."
     scene ep4_morningsteph01 with dissolve
     ho "So what you're saying is that you sexually assaulted him after two years of unannounced absence..."
     ho "...then you fucked at Melvin's place..."
@@ -1617,7 +2640,7 @@ scene ep4_morningsteph15 with dissolve
 ho "...but if we're heading to a fancy restaurant, they might not agree."
 scene ep4_morningsteph16 with dissolve
 st "Jeez. Why didn't you say anything earlier."
-ho "Hey, don't undermine your nipples. They are cute."
+ho "Hey, don't underestimate your nipples. They are cute."
 ho "And it was so adorable while you were looking at me with those sad puppy eyes, while your nipples were peeking at me from below."
 st "You're crazy."
 stop music fadeout 3
@@ -1668,7 +2691,7 @@ $ ep4LookedAtRo = False
 label ep4PoolLookSelector:
 scene ep4_poolfun19
 menu:
-    "[M_04_007a]" if not ep4LookedAtCe: # "Look at Cece" if not ep4LookedAtCe:
+    "[M_04_009a]" if not ep4LookedAtCe: # "Look at Cece" if not ep4LookedAtCe:
         $ ep4LookedAtCe = True
         show ep4_pool_cece_front_c at imgSlide_pool_reverse_c
         show ep4_pool_cece_front_b at imgSlide_pool_reverse_b
@@ -1680,7 +2703,7 @@ menu:
         $ renpy.movie_cutscene("imov/ep4/ep4_pool_cece_1.webm", delay=None, loops=0, stop_music=False)
         $ renpy.pause()
         jump ep4PoolLookSelector
-    "[M_04_007b]" if not ep4LookedAtKi: # "Look at Kira" if not ep4LookedAtKi:
+    "[M_04_009b]" if not ep4LookedAtKi: # "Look at Kira" if not ep4LookedAtKi:
         $ ep4LookedAtKi = True
         show ep4_pool_kira_front_c at imgSlide_pool_reverse_c
         show ep4_pool_kira_front_b at imgSlide_pool_reverse_b
@@ -1692,7 +2715,7 @@ menu:
         $ renpy.movie_cutscene("imov/ep4/ep4_pool_kira_1.webm", delay=None, loops=0, stop_music=False)
         $ renpy.pause()
         jump ep4PoolLookSelector
-    "[M_04_007c]" if not ep4LookedAtLe: # "Look at Lexi" if not ep4LookedAtLe:
+    "[M_04_009c]" if not ep4LookedAtLe: # "Look at Lexi" if not ep4LookedAtLe:
         $ ep4LookedAtLe = True
         show ep4_pool_lexi_front_c at imgSlide_pool_reverse_c
         show ep4_pool_lexi_front_b at imgSlide_pool_reverse_b
@@ -1704,7 +2727,7 @@ menu:
         $ renpy.movie_cutscene("imov/ep4/ep4_pool_lexi_1.webm", delay=None, loops=0, stop_music=False)
         $ renpy.pause()
         jump ep4PoolLookSelector
-    "[M_04_007d]" if not ep4LookedAtLi: # "Look at Linda" if not ep4LookedAtLi:
+    "[M_04_009d]" if not ep4LookedAtLi: # "Look at Linda" if not ep4LookedAtLi:
         $ ep4LookedAtLi = True
         show ep4_pool_linda_front_c at imgSlide_pool_reverse_c
         show ep4_pool_linda_front_b at imgSlide_pool_reverse_b
@@ -1716,7 +2739,7 @@ menu:
         $ renpy.movie_cutscene("imov/ep4/ep4_pool_linda_1.webm", delay=None, loops=0, stop_music=False)
         $ renpy.pause()
         jump ep4PoolLookSelector
-    "[M_04_007e]" if not ep4LookedAtRo: # "Look at Robin" if not ep4LookedAtRo:
+    "[M_04_009e]" if not ep4LookedAtRo: # "Look at Robin" if not ep4LookedAtRo:
         $ ep4LookedAtRo = True
         show ep4_pool_robin_front_c at imgSlide_pool_reverse_c
         show ep4_pool_robin_front_b at imgSlide_pool_reverse_b
@@ -1728,7 +2751,7 @@ menu:
         $ renpy.movie_cutscene("imov/ep4/ep4_pool_robin_1.webm", delay=None, loops=0, stop_music=False)
         $ renpy.pause()
         jump ep4PoolLookSelector
-    "[M_04_007f]": # "Head over to the girls":
+    "[M_04_009f]": # "Head over to the girls":
         scene ep4_poolfun18 with dissolve
         me "Let's head on over to them."
         jump ep4PoolLookSelectorEnd
@@ -1753,8 +2776,8 @@ $ nowPlayingTitle = "Bahamas Nights"
 $ nowPlayingRealArtist = ""
 $ nowPlayingRealTitle = ""
 le "Of course. I'm not much of a wine collector, and it came with the house."
-le "I figure this is a good a time as any to enjoy it in good company."
-ro "Well, some of those wine might be a collectable. Old exclusive stuff you know."
+le "I figure this is as good a time as any to enjoy it in good company."
+ro "Well, some of those wines might be a collectable. Old exclusive stuff you know."
 le "All up to you, dear. You seem to know your stuff when it comes to wine and liquor."
 scene ep4_pooltime06 with dissolve
 ro "Anything I can bring you, [name]?"
@@ -1768,153 +2791,130 @@ scene ep4_pooltime09 with dissolve
 me "Why? Nothing beats beer on a hot sunny day."
 me "You are going there now?"
 ro "Yes."
+$ clockis = [[todayIs],1,1,2,3]
+$ XPlexi += 3
+if XPlexi > 25:
+    $ XPlexi = 25
+me "Can you bring me another beer?"
+scene ep4_pooltime11 with dissolve
+ro "Sure. But beer?"
+scene ep4_pooltime12 with dissolve
+ch "Let me come with you. I'll help carry."
+ro "Sure Chris. We'll be right back."
+scene ep4_pooltime15 with dissolve
+me "Still no plans for what to do?"
+scene ep4_pooltime14 with dissolve
+le "No real ones no. Got any ideas?"
+scene ep4_pooltime15 with dissolve
+me "Well, I have this little idea."
+label ep4PoolDawgStart:
 menu:
-    "[M_04_008a]" if ep4NightRobin and not Impact_KiraRobin: # "Want me to come with you? (to be added in Ch4, part 3) (I)" if ep4NightRobin and not Impact_KiraRobin:
-        $ contact_notify_lexi = True
-        $ contact_text_lexi += "\n\nIt seems she has never played any of the normal teenager games like Truth or Dare, or Never have I ever. We all decided to help her get that experience."
-        $ ep4RobinWineCellar = True
-        $ XProbin += 3
-        if XProbin > 25:
-            $ XProbin = 25
-        me "Need a hand down there? I can come help you."
-        scene ep4_pooltime10 with dissolve
-        ro "Sure. Why not. Let's see if we can find something a bit better than beer."
-        me "You want anything, Lexi?"
-        le "I trust you to bring me something good. You did well on the plane."
-        scene ep4_pooltime11 with dissolve
-        me "Robin in a wine cellar..."
-        scene ep4_pooltime12 with dissolve
-        me "I'm guessing you're just about freaking out right now."
-        ro "Hush... Don't tell anyone."
-
-        jump ep4AfterWineCellar
-    "[M_04_008b]": # "Can you bring me another beer?":
-        $ clockis = [[todayIs],1,1,2,3]
-        $ XPlexi += 3
-        if XPlexi > 25:
-            $ XPlexi = 25
-        me "Can you bring me another beer?"
-        scene ep4_pooltime11 with dissolve
-        ro "Sure. But beer?"
-        scene ep4_pooltime12 with dissolve
-        ch "Let me come with you. I'll help carry."
-        ro "Sure Chris. We'll be right back."
+    "[M_04_010a]" if not ep4AskedForDawgAutograph: # "Ask for Nite Dawg's autograph for Cece." if not ep4AskedForDawgAutograph:
+        $ ep4AskedForDawgAutograph = True
         scene ep4_pooltime15 with dissolve
-        me "Still no plans for what to do?"
+        me "*whispers* ...but I need to ask you something first."
+        me "Cece told me you worked with this rap guy..."
         scene ep4_pooltime14 with dissolve
-        le "No real ones no. Got any ideas?"
+        le "Nite Dawg?"
+        le "What about him?"
         scene ep4_pooltime15 with dissolve
-        me "Well, I have this little idea."
-        label ep4PoolDawgStart:
-        menu:
-            "[M_04_009c]" if not ep4AskedForDawgAutograph: # "Ask for Nite Dawg's autograph for Cece." if not ep4AskedForDawgAutograph:
-                $ ep4AskedForDawgAutograph = True
-                scene ep4_pooltime15 with dissolve
-                me "*whispers* ...but I need to ask you something first."
-                me "Cece told me you worked with this rap guy..."
-                scene ep4_pooltime14 with dissolve
-                le "Nite Dawg?"
-                le "What about him?"
-                scene ep4_pooltime15 with dissolve
-                me "Is there any way you can try and get his autograph for her?"
-                me "I think she really adores the guy."
-                scene ep4_pooltime14 with dissolve
-                le "As long as he's not touring right now, that shouldn't be a problem at all."
-                le "I'll try calling him later and ask him to send it over."
-                scene ep4_pooltime15 with dissolve
-                me "Great! She'll love that. Thank you."
-                jump ep4PoolDawgStart
-            "[M_04_009d]": # "Have you ever played Truth or Dare?":
-                jump ep4PoolDawgEnd
-        label ep4PoolDawgEnd:
-        me "Have you ever played Truth or Dare?"
+        me "Is there any way you can try and get his autograph for her?"
+        me "I think she really adores the guy."
         scene ep4_pooltime14 with dissolve
-        le "No. Stuff for teenagers, right?"
+        le "As long as he's not touring right now, that shouldn't be a problem at all."
+        le "I'll try calling him later and ask him to send it over."
         scene ep4_pooltime15 with dissolve
-        me "Yes, and you never played it growing up?"
-        scene ep4_pooltime14 with dissolve
-        le "Nope. All work and no play for me."
-        scene ep4_pooltime15 with dissolve
-        me "...so Never have you ever played Truth or Dare?"
-        scene ep4_pooltime14 with dissolve
-        le "Huh...?"
-        le "No, as I said, never played it..."
-        me "(She didn't take that joke. I don't think she's done any of these party games...)"
-        le "I feel like I'm missing a point here."
-        scene ep4_pooltime15 with dissolve
-        me "I just got an idea."
-        scene ep4_pooltime14 with dissolve
-        le "Oh... Exciting. What's the idea?"
-        scene ep4_pooltime15 with dissolve
-        me "Let's get everyone together."
-        scene ep4_pooltime14 with dissolve
-        le "Ok. But none of these teenager party games please."
-        le "I wouldn't know what to do, and to be honest..."
-        le "...it's slightly embarrassing... not knowing."
-        scene ep4_pooltime16 with dissolve
-        $ clockis = [[todayIs],1,1,2,7]
-        me "Ok... but... never mind. Let's go collect the others and have a little sit down."
-        scene ep4_pooltime17 with dissolve
-        me "Ladies..."
-        scene ep4_pooltime19 with dissolve
-        me "If you would come with me. We have an emergency."
-        ce "Emergency?"
-        ki "Sounds serious."
-        scene ep4_pooltime20 with fade
-        $ clockis = [[todayIs],1,1,3,3]
-        li "What's the emergency?"
-        me "So... This super nice popstar I know of... let's just call her that to protect her real identity..."
-        me "...just confided in me that she has never played Truth or Dare."
-        scene ep4_pooltime21 with dissolve
-        le "You bastard!"
-        scene ep4_pooltime22 with dissolve
-        $ contact_notify_me = True
-        $ contact_text_me += "\n\nLexi told me she had never played Truth or Dare growing up, or any of these games. I decided we should."
-        $ contact_notify_lexi = True
-        $ contact_text_lexi += "\n\nIt seems she has never played any of the normal teenager games like Truth or Dare, or Never have I ever. Let's help her get that experience."
-        le "*inhales* I'm sorry."
-        ki "Oh, that is definitely something we have to remedy."
-        me "Indeed."
-        scene ep4_pooltime23 with dissolve
-        ki "There's about a million ways this can go wrong."
-        ki "I love it!"
-        ki "But we need some alcohol to release the initial tension..."
-        scene ep4_pooltime24 with dissolve
-        ce "Yeah, we can't pop her Truth or Dare cherry without alcohol."
-        scene ep4_pooltime25 with dissolve
-        ki "Cece!"
-        ki "I didn't know you could talk like that!"
-        scene ep4_pooltime26 with dissolve
-        li "..."
-        le "I can't believe you told them."
-        scene ep4_pooltime27 with dissolve
-        ki "If you're embarassed right now, then just wait until we start playing."
-        scene ep4_pooltime28 with dissolve
-        li "The thing about Truth or Dare is, that it's a universal game that knows no limits or borders."
-        scene ep4_pooltime29 with dissolve
-        me "In it we're all equal. There's no difference between black or white, rich or poor, blonde or brunette."
-        scene ep4_pooltime30 with dissolve
-        ki "We all go into it virgins amongst strangers."
-        ce "And come out on the other side as stronger, nicer and better friends, with memories for life."
-        scene ep4_pooltime31 with dissolve
-        ki "It may be a teenager party game, but we're doing this with you. For you."
-        scene ep4_pooltime32 with dissolve
-        le "Let's do this."
-        le "But... give me a quick rundown of the rules."
-        li "It's as easy as it gets. Someone asks you Truth or Dare. You choose Truth, it means you have to answer a question. You choose Dare, and you have to do something."
-        scene ep4_pooltime33 with dissolve
-        li "The weirder... or crazier the request, the better. We go by rounds, and when it's your turn..."
-        li "...you just have to figure out who your target should be."
-        scene ep4_pooltime34 with dissolve
-        le "My target, eh..."
-        ki "Target and level of craziness."
-        scene ep4_pooltime35 with dissolve
-        ki "I have so many ideas right now."
-        scene ep4_pooltime36 with dissolve
-        ce "What do you mean? I don't even have a single one."
-        ki "I think you might be inspired."
-        jump ep4AfterWineCellar
-label ep4AfterWineCellar:
+        me "Great! She'll love that. Thank you."
+        jump ep4PoolDawgStart
+    "[M_04_010b]": # "Have you ever played Truth or Dare?":
+        jump ep4PoolDawgEnd
+label ep4PoolDawgEnd:
+me "Have you ever played Truth or Dare?"
+scene ep4_pooltime14 with dissolve
+le "No. Stuff for teenagers, right?"
+scene ep4_pooltime15 with dissolve
+me "Yes, and you never played it growing up?"
+scene ep4_pooltime14 with dissolve
+le "Nope. All work and no play for me."
+scene ep4_pooltime15 with dissolve
+me "...so Never have you ever played Truth or Dare?"
+scene ep4_pooltime14 with dissolve
+le "Huh...?"
+le "No, as I said, never played it..."
+me "(She didn't take that joke. I don't think she's done any of these party games...)"
+le "I feel like I'm missing a point here."
+scene ep4_pooltime15 with dissolve
+me "I just got an idea."
+scene ep4_pooltime14 with dissolve
+le "Oh... Exciting. What's the idea?"
+scene ep4_pooltime15 with dissolve
+me "Let's get everyone together."
+scene ep4_pooltime14 with dissolve
+le "Ok. But none of these teenager party games please."
+le "I wouldn't know what to do, and to be honest..."
+le "...it's slightly embarrassing... not knowing."
+scene ep4_pooltime16 with dissolve
+$ clockis = [[todayIs],1,1,2,7]
+me "Ok... but... never mind. Let's go collect the others and have a little sit down."
+scene ep4_pooltime17 with dissolve
+me "Ladies..."
+scene ep4_pooltime19 with dissolve
+me "If you would come with me. We have an emergency."
+ce "Emergency?"
+ki "Sounds serious."
+scene ep4_pooltime20 with fade
+$ clockis = [[todayIs],1,1,3,3]
+li "What's the emergency?"
+me "So... This super nice popstar I know of... let's just call her that to protect her real identity..."
+me "...just confided in me that she has never played Truth or Dare."
+scene ep4_pooltime21 with dissolve
+le "You bastard!"
+scene ep4_pooltime22 with dissolve
+$ contact_notify_me = True
+$ contact_text_me += "\n\nLexi told me she had never played Truth or Dare growing up, or any of these games. I decided we should."
+$ contact_notify_lexi = True
+$ contact_text_lexi += "\n\nIt seems she has never played any of the normal teenager games like Truth or Dare, or Never have I ever. Let's help her get that experience."
+le "*inhales* I'm sorry."
+ki "Oh, that is definitely something we have to remedy."
+me "Indeed."
+scene ep4_pooltime23 with dissolve
+ki "There's about a million ways this can go wrong."
+ki "I love it!"
+ki "But we need some alcohol to release the initial tension..."
+scene ep4_pooltime24 with dissolve
+ce "Yeah, we can't pop her Truth or Dare cherry without alcohol."
+scene ep4_pooltime25 with dissolve
+ki "Cece!"
+ki "I didn't know you could talk like that!"
+scene ep4_pooltime26 with dissolve
+li "..."
+le "I can't believe you told them."
+scene ep4_pooltime27 with dissolve
+ki "If you're embarassed right now, then just wait until we start playing."
+scene ep4_pooltime28 with dissolve
+li "The thing about Truth or Dare is, that it's a universal game that knows no limits or borders."
+scene ep4_pooltime29 with dissolve
+me "In it we're all equal. There's no difference between black or white, rich or poor, blonde or brunette."
+scene ep4_pooltime30 with dissolve
+ki "We all go into it virgins amongst strangers."
+ce "And come out on the other side as stronger, nicer and better friends, with memories for life."
+scene ep4_pooltime31 with dissolve
+ki "It may be a teenager party game, but we're doing this with you. For you."
+scene ep4_pooltime32 with dissolve
+le "Let's do this."
+le "But... give me a quick rundown of the rules."
+li "It's as easy as it gets. Someone asks you Truth or Dare. You choose Truth, it means you have to answer a question. You choose Dare, and you have to do something."
+scene ep4_pooltime33 with dissolve
+li "The weirder... or crazier the request, the better. We go by rounds, and when it's your turn..."
+li "...you just have to figure out who your target should be."
+scene ep4_pooltime34 with dissolve
+le "My target, eh..."
+ki "Target and level of craziness."
+scene ep4_pooltime35 with dissolve
+ki "I have so many ideas right now."
+scene ep4_pooltime36 with dissolve
+ce "What do you mean? I don't even have a single one."
+ki "I think you might be inspired."
 scene ep4_pooltime37 with dissolve
 $ clockis = [[todayIs],1,1,5,2]
 ro "We're back."
@@ -2064,7 +3064,7 @@ ho "Do you like Lexi?"
 scene ep4_hollyarrive_blink with dissolve
 label ep4HollyArriveStart:
 menu:
-    "[M_04_010a]" if ep4NightChoose == 2: # "I do. Very much. (I)" if ep4NightChoose == 2:
+    "[M_04_011a]" if ep4NightChoose == 2: # "I do. Very much. (I)" if ep4NightChoose == 2:
         $ ep4ToldHollyLike = 1
         $ XPholly = 15
         me "Yes, I do. Very much."
@@ -2077,7 +3077,7 @@ menu:
         scene ep4_hollyarrive19 with dissolve
         ho "...that she doesn't have to act like she's in her own music video trying to seduce some stand-in guy when she's with you? Yes, I will tell her that."
         jump ep4HollyArriveEnd
-    "[M_04_010b]" if ep4NightChoose == 0: # "I haven't really looked at her like that. (I)" if ep4NightChoose == 0:
+    "[M_04_011b]" if ep4NightChoose == 0: # "I haven't really looked at her like that. (I)" if ep4NightChoose == 0:
         $ ep4ToldHollyLike = 2
         $ XPholly = 20
         me "Honestly, I haven't really thought about her like that."
@@ -2098,7 +3098,7 @@ menu:
         ho "But yes, as I said. Interesting."
         ho "You and me are going to get along just fine."
         jump ep4HollyArriveEnd
-    "[M_04_010c]": # "I'm conflicted (*thinks* Wow. You are just... wow) (I)":
+    "[M_04_011c]": # "I'm conflicted (*thinks* Wow. You are just... wow) (I)":
         $ ep4ToldHollyLike = 3
         $ XPholly = 20
         me "I don't know..."
@@ -2114,7 +3114,7 @@ menu:
         ho "Did you just throw me a curveball?"
         ho "I'm going to pretend I didn't hear that."
         jump ep4HollyArriveEnd
-    "[M_04_010d]": # "I got my eyes on someone else here (I)":
+    "[M_04_011d]": # "I got my eyes on someone else here (I)":
         $ ep4ToldHollyLike = 4
         $ XPholly = 15
         me "Lexi is an amazing woman, but..."
@@ -2154,6 +3154,7 @@ if meFlirty >= 3:
     if XPholly > 25:
         $ XPholly = 25
     show screen fshw with dissolve
+    $ ep4ChrisTickler = True
     me "Yes. It's the pussy tickler."
     scene ep4_hollyarrive33 with dissolve
     le "*laughs*"
@@ -2286,7 +3287,7 @@ me "Yes, it's fine."
 scene ep4_limoto07 with dissolve
 ce "Much better."
 menu:
-    "[M_04_011a]" if not ep4AskedForDawgAutograph: # "Sorry, I haven't been able to get Nite Dawg's autograph" if not ep4AskedForDawgAutograph:
+    "[M_04_012a]" if not ep4AskedForDawgAutograph: # "Sorry, I haven't been able to get Nite Dawg's autograph" if not ep4AskedForDawgAutograph:
         $ ep4Dawgs = True
         scene ep4_limoto04 with dissolve
         me "By the way, that autograph..."
@@ -2305,7 +3306,7 @@ menu:
         scene ep4_limoto06 with dissolve
         ce "Mhmmm."
         jump afterCeceLimo
-    "[M_04_011b]": # "...(don't say anything)":
+    "[M_04_012b]": # "...(don't say anything)":
         jump afterCeceLimo
 label afterCeceLimo:
 scene ep4_limoto07 with dissolve
@@ -2352,15 +3353,15 @@ $ ep4StephAngryPathCounter = 0
 $ ep4StephNeutralPathCounter = 0
 $ ep4StephFriendlyPathCounter = 0
 menu:
-    "[M_04_012a]" if ep4NightChoose <> 7: # "But I still hate what she did (angry approach)." if ep4NightChoose <> 7:
+    "[M_04_013a]" if ep4NightChoose <> 7: # "But I still hate what she did (angry approach)." if ep4NightChoose <> 7:
         $ XPstephanie = 10
         $ ep4StephConfrontationMood = 2
         $ ep4StephAngryPathCounter += 1
-    "[M_04_012b]": # "No harm in hearing her out (neutral approach).":
+    "[M_04_013b]": # "No harm in hearing her out (neutral approach).":
         $ XPstephanie = 15
         $ ep4StephConfrontationMood = 1
         $ ep4StephNeutralPathCounter += 1
-    "[M_04_012c]": # "She's looking beautiful as ever (friendly approach).":
+    "[M_04_013c]": # "She's looking beautiful as ever (friendly approach).":
         $ XPstephanie = 20
         $ ep4StephConfrontationMood = 0
         $ ep4StephFriendlyPathCounter += 1
@@ -2472,28 +3473,28 @@ $ ep4StephConv1Love = False
 label ep4StephConv1Start:
 scene ep4_stephcon15 with dissolve
 menu:
-    "[M_04_013a]" if not ep4StephConv1Believe: # "I don't believe you." if not ep4StephConv1Believe:
+    "[M_04_014a]" if not ep4StephConv1Believe: # "I don't believe you." if not ep4StephConv1Believe:
         $ ep4StephConv1Believe = True
         me "You know how far fetched that sounds, right?"
         scene ep4_stephcon18 with dissolve
         st "I'm not lying. And no, I can't verify the story for you. Because even now I'm not allowed to say anything to you."
         st "It can get me in big trouble. Even jail time. See my predicament?"
         jump ep4StephConv1Start
-    "[M_04_013b]" if not ep4StephConv1Tell: # "Why didn't you tell me anything." if not ep4StephConv1Tell:
+    "[M_04_014b]" if not ep4StephConv1Tell: # "Why didn't you tell me anything." if not ep4StephConv1Tell:
         $ ep4StephConv1Tell = True
         me "Why didn't you tell me the truth?"
         scene ep4_stephcon20 with dissolve
-        st "I fell in love with you under false premesis. I had the time of my life. For the very first time in my life I really loved someone. And that someone loved me back."
+        st "I fell in love with you under false pretenses. I had the time of my life. For the very first time in my life I really loved someone. And that someone loved me back."
         st "I was afraid of losing you, ok? That me admitting it would ruin everything."
         menu:
-            "[M_04_014a]" if ep4StephConfrontationMood <= 1: # "I loved you Steph (friendly)" if ep4StephConfrontationMood <= 1:
+            "[M_04_015a]" if ep4StephConfrontationMood <= 1: # "I loved you Steph (friendly)" if ep4StephConfrontationMood <= 1:
                 $ XPstephanie += 5
                 scene ep4_stephcon19 with dissolve
                 me "I loved you Steph, we could have worked it out."
                 scene ep4_stephcon20 with dissolve
                 st "I know you did. But I was young girl, scared shitless. Terrified of fucking up everything!"
                 jump ep4StephConv1Start
-            "[M_04_014b]": # "How long did you think that was going to last (neutral)":
+            "[M_04_015b]": # "How long did you think that was going to last (neutral)":
                 $ XPstephanie += 2
                 scene ep4_stephcon19 with dissolve
                 me "You had to realize that it couldn't last forever."
@@ -2504,19 +3505,19 @@ menu:
                 scene ep4_stephcon18 with dissolve
                 st "Because I wanted to prove to you that my love for you was much more important than my job."
                 jump ep4StephConv1Start
-            "[M_04_014c]" if ep4StephConfrontationMood >= 1: # "That just makes you a liar (angry)" if ep4StephConfrontationMood >= 1:
+            "[M_04_015c]" if ep4StephConfrontationMood >= 1: # "That just makes you a liar (angry)" if ep4StephConfrontationMood >= 1:
                 me "That just makes you a liar."
                 scene ep4_stephcon16 with dissolve
                 st "I know. I lied to you by not telling you."
                 st "I was going to... but I never got a chance to."
                 jump ep4StephConv1Start
-    "[M_04_013c]" if not ep4StephConv1Love: # "Did you love me?" if not ep4StephConv1Love:
+    "[M_04_014c]" if not ep4StephConv1Love: # "Did you love me?" if not ep4StephConv1Love:
         $ ep4StephConv1Love = True
         me "Did you love me?"
         scene ep4_stephcon20 with dissolve
         st "Yes."
         jump ep4StephConv1Start
-    "[M_04_013d]": # "...go on.":
+    "[M_04_014d]": # "...go on.":
         me "Go on."
         jump ep4StephConv1End
 label ep4StephConv1End:
@@ -2527,7 +3528,7 @@ st "But me quitting, while being way overdue on a job with a what they believed 
 st "It took them less than an hour to appear on my doorstep."
 scene ep4_stephcon22 with dissolve
 st "I spilled everything. About why I'd used so much time figuring you out. That the real reason was that I'd fallen in love with you. That you were innocent from the start."
-st "But in addition to they thinking I'd gone rogue, they had come across some pictures..."
+st "But in addition to them thinking I'd gone rogue, they had come across some pictures..."
 st "It seemed somebody had been taking pictures of me. Of us."
 scene ep4_stephcon20 with dissolve
 me "What... Who?"
@@ -2587,7 +3588,7 @@ else:
     me "You threw a shoe at me."
     st "...and I am really sorry about that. Right then and there I was so frustrated, and I didn't even think clearly."
     st "But I went through more than 700 days of hell, just to make sure you could go on living blissfully ignorant..."
-    st "...and then you come telling me you looked into my eyes and saw no emotion what so ever. That really, really hurt."
+    st "...and then you come telling me you looked into my eyes and saw no emotion whatsoever. That really, really hurt."
     st "I've never cared about anybody as much as I care about you."
     me "Not even Melvin?"
     st "Melvin?"
@@ -2607,7 +3608,7 @@ scene ep4_stephcon30 with dissolve
 me "Steph..."
 $ clockis = [[todayIs],1,3,4,5]
 menu:
-    "[M_04_015a]" if ep4StephConfrontationMood <= 1: # "I understand why you did what you did. And I forgive you. (friendly)" if ep4StephConfrontationMood <= 1:
+    "[M_04_016a]" if ep4StephConfrontationMood <= 1: # "I understand why you did what you did. And I forgive you. (friendly)" if ep4StephConfrontationMood <= 1:
         $ XPstephanie += 5
         scene ep4_stephcon31 with dissolve
         me "I understand what you're saying."
@@ -2626,7 +3627,7 @@ menu:
         scene ep4_stephcon42 with dissolve
         me "...for what it's worth... Thank you."
         jump ep4AfterStephCon
-    "[M_04_015b]": # "I literally don't know what to think right now (neutral)":
+    "[M_04_016b]": # "I literally don't know what to think right now (neutral)":
         $ XPstephanie += 2
         $ ep4StephLeaveMode = 1
         scene ep4_stephcon31 with dissolve
@@ -2646,7 +3647,7 @@ menu:
         scene ep4_stephcon42 with dissolve
         me "Maybe our paths will cross again some day..."
         jump ep4AfterStephCon
-    "[M_04_015c]" if ep4StephConfrontationMood >= 1: # "I can never forgive you for what you have done. (angry)" if ep4StephConfrontationMood >= 1:
+    "[M_04_016c]" if ep4StephConfrontationMood >= 1: # "I can never forgive you for what you have done. (angry)" if ep4StephConfrontationMood >= 1:
         $ ep4StephLeaveMode = 2
         scene ep4_stephcon31 with dissolve
         me "I can never forgive you for what you did."
@@ -2661,7 +3662,7 @@ menu:
         scene ep4_stephcon44 with dissolve
         ce "..."
         scene ep4_stephcon40 with dissolve
-        me "When you ghost me for two years, it means it's over. There's no comming back from that."
+        me "When you ghost me for two years, it means it's over. There's no coming back from that."
         scene ep4_stephcon42 with dissolve
         me "Goodbye, Steph."
         jump ep4AfterStephCon
@@ -2740,7 +3741,7 @@ $ contact_text_me += "\n\nI finally got the story from Stephanie. About why she 
 $ contact_notify_stephanie = True
 $ contact_text_stephanie += "\n\nShe told the whole story about why she left and was gone for such a long time."
 menu:
-    "[M_04_016a]" if ep4NightChoose <> 7: # "I can't. She's not a part of my life anymore. (I)" if ep4NightChoose <> 7:
+    "[M_04_017a]" if ep4NightChoose <> 7: # "I can't. She's not a part of my life anymore. (I)" if ep4NightChoose <> 7:
         $ contact_notify_me = True
         $ contact_text_me += "\n\nAfter hearing it, I decided not to bring her along for the rest of the trip."
         $ contact_notify_stephanie = True
@@ -2785,7 +3786,7 @@ menu:
         st "You have no idea how much you're asking of me right now."
         st "But fine... I'll do it."
         jump ep4LimoAfter
-    "[M_04_016b]": # "You're right. She should join us. (I)":
+    "[M_04_017b]": # "You're right. She should join us. (I)":
         $ contact_notify_me = True
         $ contact_text_me += "\n\nAfter hearing it, I decided to bring her along for the rest of the trip."
         $ contact_notify_stephanie = True
@@ -2807,7 +3808,7 @@ menu:
         scene ep4_stephcon63 with dissolve
         st "[name]?"
         me "I don't feel right about leaving you here."
-        me "Me and my friend over there is staying with Lexi. So is Chris and Linda. Even Holly is there right now."
+        me "Me and my friend over there are staying with Lexi. So are Chris and Linda. Even Holly is there right now."
         me "Please come join us, and... see some old faces again."
         scene ep4_stephcon64 with dissolve
         st "I... but... Chris hates me..."
@@ -2904,7 +3905,7 @@ if Impact_Steph:
     st "I'm so sorry... I... are you ok now?"
     scene ep4_limofrom06 with dissolve
     ce "He went to that bridge after he had met you."
-    ce "If he hadn't met you, he'd still been at the Metro."
+    ce "If he hadn't met you, he'd still have been at the Metro."
     ce "And I would have been dead."
     ce "So you see..."
     scene ep4_limofrom09 with dissolve
@@ -3069,7 +4070,7 @@ scene bg empty with fade
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 scene ep4_reunion09 with dissolve
-me "And that's pretty much all it of..."
+me "And that's pretty much all of it..."
 ch "Holy shit."
 ch "That is one hell of an insane story."
 li "..."
@@ -3102,7 +4103,7 @@ li "And mine too. Don't you come with that cr..."
 scene ep4_reunion14 with hpunch
 me "Stop it! Both of you."
 me "That's enough."
-me "Enough of all the Steph pretence talk."
+me "Enough of all the Steph pretense talk."
 me "None of that shit matters right now."
 scene ep4_reunion15 with dissolve
 me "We're here at Lexi's place, and we're going to have a good time."
@@ -3120,6 +4121,9 @@ if Impact_Steph:
     li "Steph!"
     scene ep4_reunion19 with dissolve
     li "I'm so happy you're here!"
+    $ XPlinda += 5
+    if XPlinda > 25:
+        $ XPlinda = 25
     ch "I... no words... brown bag..."
     scene ep4_reunion20 with dissolve
     ch "Are you sure about this, brother."
@@ -3142,7 +4146,7 @@ if Impact_Steph:
     ch "Yeah... sure."
     scene ep4_reunion25 with dissolve
     stop music fadeout 3
-    ch "Honestly, that felt way better then I thought it would."
+    ch "Honestly, that felt way better than I thought it would."
     me "I know what you mean."
     $ contact_notify_me = True
     $ contact_text_me += "\n\nI told Chris and Linda about it later on, and they both seemed happy about it. It seems the old gang is back together."
@@ -3161,7 +4165,7 @@ else:
     li "And I need something stronger."
     scene ep4_reunion29 with dissolve
     menu:
-        "[M_04_017a]": # "Look closer":
+        "[M_04_018a]": # "Look closer":
             $ XPlinda += 5
             if XPlinda > 25:
                 $ XPlinda = 25
@@ -3175,32 +4179,256 @@ else:
             scene ep4_reunion32 with dissolve
             li "That's huge {b}bold{/b} capital letters, thank you."
             ch "*laughs*"
-            jump ep4TruthorDare
-        "[M_04_017b]": # "Don't look":
+            jump ep4LexiKitchen
+        "[M_04_018b]": # "Don't look":
             stop music fadeout 3
             me "Let's go grab that beer. I need it."
             scene ep4_reunion33 with dissolve
             ch "Agree. And I found something very cool down in that wine storage room."
-            jump ep4TruthorDare
+            jump ep4LexiKitchen
+label ep4LexiKitchen:
+$ clockis = [[todayIs],1,9,1,2]
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+play music ep4_lexihollykitchen
+$ nowPlayingArtist = "Leon Laudenbach"
+$ nowPlayingTitle = "Mountains to Move"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_aftersteph01 with fade
+ho "So how's things going?"
+me "(Is that Holly...)"
+scene ep4p2_aftersteph02 with dissolve
+le "We haven't fucked yet."
+me "(What?)"
+menu:
+    "[M_04_019a]" if ep4NightChoose == 2: # "Listen" if ep4NightChoose == 2:
+        me "(Let's see if I can pick up something interesting.)"
+        ho "Why would you even say that. That's not normal at all."
+        le "But..."
+        ho "Don't 'but' me."
+        if ep4NightChoose == 2:
+            if ep4ToldHollyLike == 1:
+                ho "Let's just say I have a feeling he likes you, so please don't fuck this up."
+            else:
+                ho "From what you've told me, it seems he really likes you, so please don't fuck this up."
+        else:
+            ho "Have you considered that he might actually like one of the others?"
+            ho "It's quite normal you know."
+            ho "Just enjoy the company, party, and if nothing happens, who cares."
+        me "(This is getting uncomfortable, I'm going to enter.)"
+        jump ep4AfterHLDiscussion
+    "[M_04_019b]": # "Enter":
+        jump ep4AfterHLDiscussion
+label ep4AfterHLDiscussion:
+scene ep4p2_aftersteph03 with dissolve
+ho "Don't screw this up, Lexi."
+if ep4NightChoose == 2:
+    scene ep4p2_aftersteph04 with dissolve
+    le "..."
+    scene ep4p2_aftersteph05 with dissolve
+    le "But I have no idea of how to tell him without seeming like a freak."
+    scene ep4p2_aftersteph06 with dissolve
+    ho "..."
+    scene ep4p2_aftersteph07 with dissolve
+    ho "Practice on me then."
+    le "That's just stupid."
+    ho "No, really. Let's say he was here in front of you."
+    ho "Just wing it."
+    scene ep4p2_aftersteph08 with dissolve
+    le "I'd probably say that I really enjoy his company, that he's very sweet, and I would ... like to see if there's anything more there."
+    scene ep4p2_aftersteph09 with dissolve
+    ho "And..."
+    scene ep4p2_aftersteph10 with dissolve
+    ho "...now you just did."
+    scene ep4p2_aftersteph11 with dissolve
+    ho "Yes!"
+    le "Come on! You're supposed to be my wing-girl here."
+    ho "Best wing-girl you've ever had."
+    scene ep4p2_aftersteph12 with dissolve
+    ho "And your turn, [name]."
+    me "My turn?"
+    scene ep4p2_aftersteph13 with dissolve
+    ho "Ask her out on a date."
+    me "Date?"
+    ho "Yes a date."
+    ho "You know... Man. Woman. Date."
+    scene ep4p2_aftersteph14 with dissolve
+    me "Sure, I can do that."
+    me "..."
+    ho "Ask her."
+    me "Just let me..."
+    ho "Ask her."
+    me "You're very persistent."
+    ho "Ask her."
+    scene ep4p2_aftersteph15 with dissolve
+    me "Lexi, would you like to go on a date with me?"
+    le "I'd love to."
+    scene ep4p2_aftersteph16 with dissolve
+    ho "My work here is done."
+    scene ep4p2_aftersteph17 with dissolve
+    ho "See you by the pool."
+    le "I told you... She is something..."
+    scene ep4p2_aftersteph18 with dissolve
+    ho "And Lexi, wear something cute. Not that leathery stuff."
+    ho "Like that dress I know you love, but never use."
+    ho "The one that shows 73%% of your boobs."
+    le "Do you ever stop talking?"
+    ho "Sometimes. But you never hear it."
+    me "..."
+    ho "Now go."
+    scene ep4p2_aftersteph19 with dissolve
+    ho "Love you too."
+    scene ep4p2_aftersteph20 with dissolve
+    me "..."
+    me "I'm still wondering what happened right now."
+    scene ep4p2_aftersteph22 with dissolve
+    le "She's just looking out for me. We've been through a lot together."
+    le "I'm sorry if she's a bit over the top."
+    scene ep4p2_aftersteph21 with dissolve
+    me "Not at all. She's rather refreshing actually."
+    scene ep4p2_aftersteph25 with dissolve
+    le "You want to head out somewhere right away?"
+    scene ep4p2_aftersteph26 with dissolve
+    me "I'd like to prepare a bit. Find a place and such?"
+    me "How about tomorrow instead. 8pm?"
+    scene ep4p2_aftersteph23 with dissolve
+    le "Perfect."
+    me "..."
+    me "So, 73%% of your boobs?"
+    scene ep4p2_aftersteph24 with dissolve
+    me "Sounds like a good date."
+    scene ep4p2_aftersteph27 with dissolve
+    me "Looking forward to it."
+    scene ep4p2_aftersteph28 with dissolve
+    le "Me too."
+    le "But what if we..."
+    scene ep4p2_aftersteph29 with dissolve
+    le "...spend some time before that exploring..."
+    scene ep4p2_aftersteph30 with dissolve
+    le "...and get the intimate stuff out of the way before that date?"
+else:
+    scene ep4p2_aftersteph04 with dissolve
+    le "..."
+    scene ep4p2_aftersteph12 with dissolve
+    ho "Hey [name]."
+    scene ep4p2_aftersteph13 with dissolve
+    ho "Enjoying yourself?"
+    me "Very much. And everyone else is too."
+    scene ep4p2_aftersteph14 with dissolve
+    me "Such a great place you have here Lexi."
+    me "And spoiling all the girls with new outfits."
+    scene ep4p2_aftersteph15 with dissolve
+    me "Speaking of... did you get to say hello to everyone, Holly?"
+    ho "I did. And such a nice lot of people you are."
+    if ep4ChrisTickler:
+        ho "Oh, and that reminds me... I was going to bring Pussytickler some sunscreen."
+    else:
+        ho "Oh, and that reminds me... I was going to bring Chris some sunscreen."
+    scene ep4p2_aftersteph16 with dissolve
+    ho "You two have fun now."
+    scene ep4p2_aftersteph18 with dissolve
+    ho "By the way, did you get to talk to Steph?"
+    if Impact_Steph:
+        me "I did, she's here."
+        scene ep4p2_aftersteph19 with dissolve
+        ho "Got ya. I'll go find her."
+        ho "*yells* Steph, baby!"
+    else:
+        me "I did. She's back at your place."
+        scene ep4p2_aftersteph19 with dissolve
+        ho "Alrighty. I probably should head back and see how she's doing."
+        ho "Later!"
+    scene ep4p2_aftersteph20 with dissolve
+    me "..."
+    me "So that's Holly."
+    scene ep4p2_aftersteph22 with dissolve
+    le "Indeed."
+    le "I'm sorry if she's a bit over the top."
+    scene ep4p2_aftersteph21 with dissolve
+    me "Not at all. She's rather refreshing actually."
+    scene ep4p2_aftersteph22 with dissolve
+    le "I'm glad to hear that. Some people don't seem to like her being quite straightforward."
+    scene ep4p2_aftersteph26 with dissolve
+    me "But now that we're alone, I just thought I should get something out of the way."
+    scene ep4p2_aftersteph27 with dissolve
+    le "Mhmm..."
+    me "You inviting us here for this trip..."
+    me "...and it might be me misreading everything, because I'm not used to this, but..."
+    scene ep4p2_aftersteph28 with dissolve
+    me "...were you maybe thinking about..."
+    scene ep4p2_aftersteph29 with dissolve
+    le "You?"
+    me "..."
+    le "I think you know the answer to that."
+scene ep4p2_aftersteph39 with dissolve
+ce "*humming and singing*"
+scene ep4p2_aftersteph38 with dissolve
+ce "Coffee... coffee..."
+scene ep4p2_aftersteph40 with dissolve
+ce "Coffeecoffeecoffee."
+scene ep4p2_aftersteph41 with dissolve
+ce "And now I present to you... Lexi's new single."
+scene ep4p2_aftersteph42 with dissolve
+ce "Coffee!"
+ce "Ba dum tshhh."
+scene ep4p2_aftersteph31 with dissolve
+me "..."
+le "..."
+scene ep4p2_aftersteph43 with dissolve
+ce "Hmmmm, hmmmm, hmmmm, da, dum."
+ce "I wonder what rhymes with coffee."
+scene ep4p2_aftersteph44 with dissolve
+ce "..."
+ce "Funky?"
+ce "No..."
+scene ep4_cecewave with dissolve
+ce "Oh... Hey guys."
+scene ep4_mclexiwave with dissolve
+me "..."
+le "..."
+scene ep4p2_aftersteph47 with dissolve
+ce "...rhymes with coffee..."
+ce "*slurps*"
+scene ep4p2_aftersteph48 with dissolve
+ce "Oh... I know what rhymes with coffee..."
+scene ep4p2_aftersteph34 with dissolve
+ce "...Cece!"
+scene ep4p2_aftersteph35 with dissolve
+"*laughs*"
+le "...she's just like... strolling..."
+scene ep4p2_aftersteph36 with dissolve
+stop music fadeout 3
+me "...not even affected by..."
+le "...us being here..."
+me "But let's head upstairs. I think it's time for that truth or dare."
+if ep4NightChoose == 2:
+    scene ep4p2_aftersteph37 with dissolve
+    le "I'm looking forward to our date."
+jump ep4TruthorDare
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 label ep4TruthorDare:
-scene ep4_villa_late with dissolve
-$ clockis = [[todayIs],1,6,0,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
-$ clockis = [[todayIs],1,7,0,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
-$ clockis = [[todayIs],1,8,0,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-scene ep4_villa_duskdawn with dissolve
-hide screen phone_nointeractive
-$ clockis = [[todayIs],1,9,0,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
+$ clockis = [[todayIs],1,9,5,2]
 scene bg empty with fade
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
@@ -3222,11 +4450,11 @@ ro "..."
 if Impact_Steph:
     scene ep4_partystarted05 with dissolve
     ho "We need proper warmup, you know."
-    st "A round of mini-truths first maybe?"
+    st "A round of confessions first maybe?"
 else:
     scene ep4_partystarted03 with dissolve
     le "We need proper warmup, you know."
-    li "A round of mini-truths first maybe?"
+    li "A round of confessions first maybe?"
 me "I agree. Let's do a round of 'things you did not know about me'."
 me "So we get to know each other a bit better."
 me "Let's start with..."
@@ -3243,7 +4471,7 @@ $ ep4TNDChris = False
 $ ep4TNDexit = False
 label ep4MiniTruthMenu:
 menu:
-    "[M_04_018a]" if not ep4TNDCece: # "Cece" if not ep4TNDCece:
+    "[M_04_020a]" if not ep4TNDCece: # "Cece" if not ep4TNDCece:
         $ ep4TNDexit = True
         $ ep4TNDCece = True
         scene ep4_partystarted08 with dissolve
@@ -3251,28 +4479,127 @@ menu:
         ce "I'm not quite ready yet..."
         me "Sure, let's go with..."
         jump ep4MiniTruthMenu
-    "[M_04_018b]" if ep4TNDKira: # "Kira (To be added in Ch4, Part 3)" if ep4TNDKira:
+    "[M_04_020b]" if not ep4TNDKira: # "Kira" if not ep4TNDKira:
         $ ep4TNDexit = True
-        jump ep4MiniTruthMenu
-    "[M_04_018c]" if ep4TNDLexi: # "Lexi (To be added in Ch4, Part 2)" if ep4TNDLexi:
+        scene ep4p2_confkr01 with dissolve
+        ki "Let's do this one together."
+        jump ep4MiniTruthKiRo
+    "[M_04_020c]" if not ep4TNDLexi: # "Lexi" if not ep4TNDLexi:
         $ ep4TNDexit = True
-        jump ep4MiniTruthMenu
-    "[M_04_018d]" if ep4TNDLinda: # "Linda (To be added in Ch4, Part 2)" if ep4TNDLinda:
+        jump ep4MiniTruthLexi
+    "[M_04_020d]" if not ep4TNDLinda: # "Linda" if not ep4TNDLinda:
         $ ep4TNDexit = True
-        jump ep4MiniTruthMenu
-    "[M_04_018e]" if ep4TNDRobin: # "Robin (To be added in Ch4, Part 3)" if ep4TNDRobin:
-        jump ep4MiniTruthMenu
-    "[M_04_018f]" if not ep4TNDSteph: # "Steph" if not ep4TNDSteph:
+        jump ep4MiniTruthLinda
+    "[M_04_020e]" if not ep4TNDRobin: # "Robin" if not ep4TNDRobin:
+        $ ep4TNDexit = True
+        scene ep4p2_confkr01 with dissolve
+        ro "Let's do this one together."
+        jump ep4MiniTruthKiRo
+    "[M_04_020f]" if not ep4TNDSteph: # "Steph" if not ep4TNDSteph:
         $ ep4TNDexit = True
         me "Steph."
         jump ep4MiniTruthSteph
-    "[M_04_018g]" if not ep4TNDChris: # "Chris" if not ep4TNDChris:
+    "[M_04_020g]" if not ep4TNDChris: # "Chris" if not ep4TNDChris:
         $ ep4TNDexit = True
         me "Chris."
         jump ep4MiniTruthChris
-    "[M_04_018h]" if ep4TNDexit: # "No more minitruths" if ep4TNDexit:
+    "[M_04_020h]" if ep4TNDexit: # "No more confessions" if ep4TNDexit:
         me "Are we ready for the dares?"
         jump ep4MiniTruthCece
+label ep4MiniTruthKiRo:
+$ ep4TNDKira = True
+$ ep4TNDRobin = True
+scene ep4p2_confkr03 with dissolve
+ro "So, we both come from a small town, and you know small towns. There's always a lot of talk."
+ro "But I met Kira, and eventually we decided to break the news of our relationship to our families."
+scene ep4p2_confkr02 with dissolve
+ki "We were both so nervous. Because both our families are super conservative."
+scene ep4p2_confkr03 with dissolve
+ro "So first we visit my family. I introduce them to the love of my life, and it goes surprisingly well."
+ro "I can see they are disappointed and don't approve, but they are being polite about it."
+ro "So I'm thinking, not bad."
+scene ep4p2_confkr04 with dissolve
+ki "Then it's my turn. We have a nice dinner with my parents, and I drop the bomb."
+ki "It didn't end well."
+scene ep4p2_confkr02 with dissolve
+ki "So to make it short and simple. I haven't spoken with them since then."
+ki "I left with my love, even moved to another city."
+scene ep4p2_confkr05 with dissolve
+ki "I do miss them at times. Feels like I've lost them. But they need to accept me for who I am before I can go back."
+scene ep4p2_confkr06 with dissolve
+ro "Kira, you didn't lose your family. Your family lost you."
+ro "And at any time you want to go see them, I'll be there with you."
+jump ep4MiniTruthMenu
+label ep4MiniTruthLinda:
+$ ep4TNDLinda = True
+scene ep4p2_lindaconfession01 with dissolve
+li "I don't really have anything to complain about."
+li "Ever since we moved away I've been... grinding along."
+scene ep4p2_lindaconfession04 with dissolve
+li "Tried high-school, but in the end I dropped out. Started a one year photography course where I met Cece."
+li "We finished school recently and have been trying to grind away at life."
+if Impact_Steph:
+    scene ep4p2_lindaconfession03 with dissolve
+    li "Suddenly I got a message from Steph a while ago, and decided we go meet her because she said she could finally move back."
+    li "I didn't know what it meant at the time, but she got delayed and we were left without a place to stay."
+else:
+    li "Suddenly I got a message from a friend a while ago, and decided we go meet her because she said she could finally move back."
+    li "I didn't know what it meant at the time, but my friend got delayed and we were left without a place to stay."
+scene ep4p2_lindaconfession05 with dissolve
+li "Later she told me it was because her current job took longer than expected."
+scene ep4p2_lindaconfession07 with dissolve
+li "I had to travel back to my family because my dad got sick, but I couldn't afford a ticket for Cece."
+ce "..."
+li "But we got it solved in the end."
+scene ep4p2_lindaconfession06 with dissolve
+ce "And there's this Matt thing..."
+scene ep4p2_lindaconfession08 with dissolve
+if ep4SpentNightWithLindaAndChris:
+    ch "No need to say anything else... We'll deal with that when we come back."
+else:
+    ch "What?"
+    me "Not now, Chris. Later."
+scene ep4p2_lindaconfession05 with dissolve
+li "Sorry, I didn't want to spoil the mood. It was a rough start..."
+scene ep4p2_lindaconfession02 with dissolve
+li "...but we're doing fine now."
+ki "..."
+jump ep4MiniTruthMenu
+label ep4MiniTruthLexi:
+$ ep4TNDLexi = True
+scene ep4p2_partystarted01 with dissolve
+le "Oh, me... I honestly don't know what to say."
+ki "Just give us something really juicy that we can spread to the tabloids."
+scene ep4p2_partystarted02 with dissolve
+le "Eh, you wouldn't do that, right?"
+ki "I'm kidding, Lexi. I adore you, I would never do that."
+scene ep4p2_partystarted04 with dissolve
+le "Ok... So I don't really have any super juicy stuff. If you're expecting some tragic childhood story, then I'm sorry to disappoint you."
+scene ep4p2_partystarted07 with dissolve
+le "But I got to tell you about that time I played at the Metro. And I saw this guy standing in the VIP bar."
+le "This was one of those small concerts I have no idea why was added to the tour. Probably because it paid well, something my manager appreciates."
+le "It was just for me to perform a few songs anyway, then move on."
+scene ep4p2_partystarted03 with dissolve
+le "But while having a break in the song setup, I saw this guy at the bar. He was looking completely lost."
+le "So I felt so sorry for him, I actually walked over to say hi."
+scene ep4p2_partystarted05 with dissolve
+me "Ah, come on. Everybody knows who you're talking about. Now you're just making fun of me."
+scene ep4p2_partystarted07 with dissolve
+le "Not at all, love. I wanted to end this little confession by saying that I was having a really shitty evening, and you turned it completely around."
+le "And honestly, I'm glad I did walk over to you, because you are all here now."
+scene ep4p2_partystarted08 with dissolve
+le "I'm sorry for not having anything juicier."
+ro "It's ok. We'll break you sooner or later."
+if Impact_Steph:
+    scene ep4p2_partystarted06 with dissolve
+    le "This really should have been about Holly, because she has all the good stories."
+    scene ep4p2_partystarted09 with dissolve
+    ho "At least I know how to make your story much juicier. Because on the plane when she called me..."
+    scene ep4p2_partystarted10 with dissolve
+    le "No, just no. Njet, no, nein. End of story. Next!"
+else:
+    le "So... Next!"
+jump ep4MiniTruthMenu
 label ep4MiniTruthSteph:
 $ ep4TNDSteph = True
 scene ep4_partystarted24 with dissolve
@@ -3313,7 +4640,7 @@ scene ep4_partystarted50 with dissolve
 st "I've been a fool."
 scene ep4_partystarted25 with dissolve
 ho "Bohoo. You had me when you were young."
-ho "So because I'm a veterans daughter, I don't count?"
+ho "So because I'm a veteran's daughter, I don't count?"
 st "Oh, shut up. You know what I mean."
 jump ep4MiniTruthMenu
 label ep4MiniTruthCece:
@@ -3378,12 +4705,12 @@ jump ep4TNDChrisEnding
 label ep4MiniTruthChris:
 $ ep4TNDChris = True
 scene ep4_partystarted40 with fade
-ch "Ehm... I'm not at all good with words."
+ch "Ehm... I'm not good at all with words."
 ch "But my story is rather short and simple."
 scene ep4_partystarted41 with dissolve
 ch "Me and [name] and Linda go back about 10 years."
 ch "In fact I met them both the same day."
-ch "They were new at our school, and I noticed [name] was oogling Linda from afar."
+ch "They were new at our school, and I noticed [name] was ogling Linda from afar."
 if Impact_Steph:
     scene ep4_partystarted45 with dissolve
 else:
@@ -3392,7 +4719,7 @@ me "Oh no..."
 scene ep4_partystarted51 with dissolve
 li "*laughs* I remember."
 scene ep4_partystarted43 with dissolve
-ch "And I feel real sorry for this dude, because he's sitting on the same bench every single day looking at her."
+ch "And I felt real sorry for this dude, because he's sitting on the same bench every single day looking at her."
 ch "But never had the guts to head over to her."
 if Impact_Steph:
     scene ep4_partystarted44 with dissolve
@@ -3416,11 +4743,11 @@ li "But I..."
 ch "Hush."
 scene ep4_partystarted52 with dissolve
 li "Did you just hush me?"
-ch "Anyway, that was how we met."
+ch "Anyway, that's how we met."
 if Impact_Steph:
     ch "And later on Steph joined up with us."
 scene ep4_partystarted41 with dissolve
-ch "But my real point of this story was that..."
+ch "But the real point of this story is that..."
 scene ep4_partystarted46 with dissolve
 ch "Without [name] here, I would never have..."
 ch "...tasted his mom's waffles. They are simply amazing."
@@ -3431,28 +4758,9 @@ else:
 me "You truly have a way with words, Chris."
 jump ep4MiniTruthMenu
 label ep4TNDChrisEnding:
-$ clockis = [[todayIs],1,9,3,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
-$ clockis = [[todayIs],2,0,0,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
-$ clockis = [[todayIs],2,0,3,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
-$ clockis = [[todayIs],2,1,0,0]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
-$ clockis = [[todayIs],2,1,1,5]
-show screen phone_nointeractive
-$ renpy.pause(1)
-hide screen phone_nointeractive
+$ clockis = [[todayIs],2,0,4,3]
 scene ep4_partystarted31 with fade
-me "Chris... I know you haven't used your dare yet... And if I don't push you, you never will."
+me "Chris... I know what your dare is... And if I don't push you, you will never use it."
 me "Go ahead, Chris..."
 ch "Well... I kinda..."
 scene ep4_partystarted32 with dissolve
@@ -3598,7 +4906,6 @@ else:
     hide ep4_sunfun03bc
 
 show ep4_villa_duskdawn with Dissolve(2, alpha=True)
-stop music fadeout 8
 $ renpy.pause(0.1)
 show ep4_villa_night with Dissolve(2, alpha=True)
 hide ep4_villa_duskdawn
@@ -3616,14 +4923,5516 @@ show ep4_villa_duskdawn with Dissolve(2, alpha=True)
 hide ep4_villa_late
 scene bg empty with fade
 hide ep4_villa_duskdawn
+$ renpy.pause()
+stop music fadeout 1
 $ renpy.pause(1)
+label ep4AssGamePre:
+$ clockis = [[todayIs],2,1,0,7]
+scene ep4p2_assgamepre01 with fade
+le "Hope you enjoyed it."
+le "Dedicated to you Chris. And the rest of you."
+ch "Wow, I..."
+scene ep4p2_assgamepre02 with dissolve
+le "But now I think I'll give every girl a dare, myself included."
+ro "That's not quite how it works..."
+le "Who cares, let's have fun."
+scene ep4p2_assgamepre03a with dissolve
+le "So if all the girls will follow me, and I'll send you a text [name] when we're ready."
+me "Sounds good to me."
+li "This is exciting."
+le "You'll love it, trust me."
+scene ep4p2_assgamepre03 with dissolve
+play music ep4_assparty
+$ nowPlayingArtist = "Lance Conrad ft. Aaron Rice"
+$ nowPlayingTitle = "Paradise"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "Chris, are there more beers. I have a feeling I'll need it."
+scene ep4p2_assgamepre04 with dissolve
+ch "Outside my friend. A whole lot of them in the pool, cooling off."
+me "Perfect."
+scene ep4p2_assgamepre06 with fade
+$ ep4SetupChrisWith = 0
+if ep4ChrisStatus == 1:
+    me "So, better make this quick before we're asked to join them."
+    scene ep4p2_assgamepre05 with dissolve
+    ch "Make what quick?"
+    scene ep4p2_assgamepre06 with dissolve
+    me "Setting you up with somebody. So... who do you want to go for."
+    scene ep4p2_assgamepre05 with dissolve
+    ch "Hold on now... Christine..."
+    scene ep4p2_assgamepre06 with dissolve
+    me "Chris... In the past few years, you've barely spoken with her. It's probably been a full year since you've spoken to her at all."
+    scene ep4p2_assgamepre05 with dissolve
+    ch "Uhm..."
+    scene ep4p2_assgamepre06 with dissolve
+    me "And not a single time have you brought her over to my place to introduce her."
+    me "Either I'm misreading something, or you're holding out."
+    ch "..."
+    me "So why don't you relax and open your mind to the fact that you can have some fun here at this trip of ours."
+    scene ep4p2_assgamepre08 with dissolve
+    ch "And you?"
+    $ ep4SetupChrisInit = True
+    $ ep4SetupChrisRobin = True
+    $ ep4SetupChrisLinda = True
+    $ ep4SetupChrisHolly = True
+    if ep4NightChoose == 4:
+        $ ep4SetupChrisRobin = False
+    if ep4NightChoose == 5:
+        $ ep4SetupChrisRobin = False
+    if ep4NightChoose == 6:
+        $ ep4SetupChrisLinda = False
+    if ep4ToldHollyLike == 3:
+        $ ep4SetupChrisHolly = False
+    if ep4SetupChrisRobin and not ep4SetupChrisLinda and not ep4SetupChrisHolly:
+        $ ep4SetupChrisInit = False
+    if ep4SetupChrisInit:
+        $ phone_task_append_item1 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;1"
+        if phone_task_append_item1 not in phone_task_list:
+            if phone_task_append_item1 not in phone_task_list:
+                $ phone_task_list.append(phone_task_append_item1)
+                $ phTaskNotify = True
+        $ phone_taskadd = "New task\nSet Chris up with someone."
+        show screen phone_taskadded
+        scene ep4p2_assgamepre05 with dissolve
+        me "Did you for some reason think I would go chasing all of them? You know me better than that, man. So just hear me out."
+        hide screen phone_taskadded
+        menu:
+            "[M_04_021a]" if ep4SetupChrisLinda: # "Linda" if ep4SetupChrisLinda:
+                $ ep4SetupChrisWith = 1
+                scene ep4p2_assgamepre06 with dissolve
+                me "There's Linda. I know you like her."
+                scene ep4p2_assgamepre05 with dissolve
+                ch "Listen. I've always liked Linda, you know that. But even if you might not have noticed yourself, I know she's always had the hots for you. So that wouldn't sit well with me."
+                scene ep4p2_assgamepre06 with dissolve
+                me "I think you might be looking at it the wrong way. We've always had a good time together."
+                me "Even if she had feelings for me, that wouldn't change the fact that she definitely also has feelings for you."
+                me "You know who I like here. And though it might not be what she wants, but I have to go with what feels right for me."
+                me "Honestly, if you'd been slightly more trying, you two would have ended up together while me and Steph were a thing back in school."
+                me "You deserve that, and she does too."
+                scene ep4p2_assgamepre08 with dissolve
+                ch "Yeah. I hear you..."
+                scene ep4p2_assgamepre06 with dissolve
+                me "So if what you're saying is right and you do like her, put on the Chris charm. You never know what might happen."
+                scene ep4p2_assgamepre07 with dissolve
+                ch "There's a Chris charm?"
+                scene ep4p2_assgamepre06 with dissolve
+                me "I mean... do something at least. Or she'll be gone again."
+            "[M_04_021b]" if ep4SetupChrisRobin: # "Robin" if ep4SetupChrisRobin:
+                scene ep4p2_assgamepre06 with dissolve
+                me "There's Robin."
+                scene ep4p2_assgamepre07 with dissolve
+                ch "That's just fucked up."
+                scene ep4p2_assgamepre06 with dissolve
+                me "Come on. I know you like her."
+                scene ep4p2_assgamepre05 with dissolve
+                ch "Sure, she's super fun. And beautiful. But she's in a relationship, man."
+                if not ep2RejectedRobin:
+                    $ ep4SetupChrisWith = 2
+                    $ phone_task_append_item1 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;1"
+                    $ phone_task_append_item2 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;0"
+                    if phone_task_append_item1 in phone_task_list:
+                        if phone_task_append_item2 not in phone_task_list:
+                            $ phone_task_list.remove(phone_task_append_item1)
+                            $ phone_task_list.append(phone_task_append_item2)
+                            $ phTaskNotify = True
+                    $ phone_taskadd = "Task failed\nSet Chris up with someone."
+                    show screen phone_taskfailed
+                    scene ep4p2_assgamepre07 with dissolve
+                    ch "Did you also forget the fact that you've already fucked her."
+                    ch "Nah, I'm good. And you're weird."
+                    me "Ok, I agree. That was probably not the best idea."
+                    hide screen phone_taskfailed
+                else:
+                    $ ep4SetupChrisWith = 3
+                    scene ep4p2_assgamepre06 with dissolve
+                    me "A very open one. But I'm just saying you're not stepping on my toes if you get an opportunity there."
+                    scene ep4p2_assgamepre08 with dissolve
+                    ch "Sure, fine, point taken."
+            "[M_04_021c]" if ep4SetupChrisHolly: # "Holly" if ep4SetupChrisHolly:
+                $ ep4SetupChrisWith = 4
+                scene ep4p2_assgamepre06 with dissolve
+                me "There's Holly."
+                scene ep4p2_assgamepre05 with dissolve
+                ch "No."
+                scene ep4p2_assgamepre06 with dissolve
+                me "No?"
+                scene ep4p2_assgamepre08 with dissolve
+                ch "Yeah, she's way too cute for me."
+                me "That's not how it works, man. If she likes you, she likes you."
+                scene ep4p2_assgamepre07 with dissolve
+                ch "I... would need a lot of help with her."
+                scene ep4p2_assgamepre15 with dissolve
+                me "Say no more, let me see what I can do."
+    else:
+        me "You're probably right. I didn't really think things through."
+else:
+    scene ep4p2_assgamepre06 with dissolve
+    me "I don't know about you, but I'm slightly nervous."
+    scene ep4p2_assgamepre05 with dissolve
+    ch "No shit. Good to have an unlimited supply of alcohol."
+    scene ep4p2_assgamepre06 with dissolve
+    me "I've been drinking all day, and I don't feel shit."
+    scene ep4p2_assgamepre15 with dissolve
+    ch "Probably the hot weather. I'll kick before you know it."
+scene ep4p2_assgamepre09 with dissolve
+ch "..."
+me "What the heck is that?"
+scene ep4p2_assgamepre10 with dissolve
+ch "This thing? Found it in the wine cellar. It's really good."
+scene ep4p2_assgamepre11 with dissolve
+ch "You should try it."
+scene ep4p2_assgamepre13 with dissolve
+me "You can't just go finding yourself a new type of beer, man."
+me "We already have our brand, remember?"
+scene ep4p2_assgamepre12 with dissolve
+ch "Oh shut your yap, this is really good. And it's not import."
+me "Whatever, I'll stick with the import."
+scene ep4p2_assgamepre14 with dissolve
+me "Cheers."
+play sound phone_notify_sound
+show screen phone_notify_chat
+$ ep4LexiAssgameTextOpen = True
+$ phChatNotify = True
+$ chat_notify_lexi = True
+$ chat_lexi_item = "1;0;2201;We're all ready. Head downstairs to the movie room."
+if chat_lexi_item not in chat_lexi:
+    $ chat_lexi.append(chat_lexi_item)
+me "..."
+me "It's probably Lexi."
+if ep4LexiAssgameTextOpen:
+    $ chat_notify_lexi = False
+    $ chat_sel_name = "Lexi"
+    $ chat_sel_icon = "cont_lexi"
+    hide screen phone_notify_chat
+    $ phChatNotify = False
+    call screen phone_chat_single
+label ep4GoToAssgame:
+$ ep4LexiAssgameTextOpen = False
+me "Ok, it seems we're up."
+scene bg empty with fade
+$ clockis = [[todayIs],2,1,4,2]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+le "Are you ready?"
+ch "I can't see anything."
+le "That's the whole point."
+me "We're ready. I think."
+le "Here we go. Let's play Assgame!"
+ch "Assgame?"
+me "Hush."
+le "The whole point with the game is to put the correct name to the asses."
+le "You'll get a point for every correct ass."
+le "So, ready or not, here we go. Turn on the lights girls."
+$ ep4AssgameScore = 0
+$ ep4AssgamePink = "0"
+$ ep4AssgameGreen = "0"
+$ ep4AssgamePurple = "0"
+$ ep4AssgameOrange = "0"
+$ ep4AssgameYellow = "0"
+$ ep4AssgameRed = "0"
+$ ep4AssgameBlue = "0"
+$ ep4AssgameDone = False
+$ ep4AssGameCeceGuessed = False
+$ ep4AssGameHollyGuessed = False
+$ ep4AssGameKiraGuessed = False
+$ ep4AssGameLexiGuessed = False
+$ ep4AssGameLindaGuessed = False
+$ ep4AssGameRobinGuessed = False
+if Impact_Steph:
+    $ ep4AssGameStephGuessed = False
+$ ep4AssGameSomeoneGuessed = False
+label ep4AssGameVideo:
+if not Impact_Steph:
+    $ renpy.movie_cutscene("imov/ep4/ep4p2_assgame.webm", delay=None, loops=0, stop_music=False)
+else:
+    $ renpy.movie_cutscene("imov/ep4/ep4p2_assgame_wos.webm", delay=None, loops=0, stop_music=False)
+le "What color ass belongs to which girl?"
+if not Impact_Steph:
+    label ep4AssGameGuessWOSteph:
+    $ ep4AssGameGuessedInit = 0
+    if ep4AssgamePink <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameGreen <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgamePurple <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameOrange <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameYellow <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameRed <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssGameGuessedInit >= 6:
+        jump ep4AssGameGuessWOStephDone
+    menu:
+        "[M_04_022a]": # "Can you show them again?":
+            le "Of course."
+            jump ep4AssGameVideo
+        "[M_04_022b]" if ep4AssgamePink == "0": # "Pink" if ep4AssgamePink == "0":
+            me "Pink belongs to..."
+            menu:
+                "[M_04_023a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgamePink = "Cece"
+                    me "...Cece."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_023b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgamePink = "Holly"
+                    me "...Holly."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_023c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgamePink = "Kira"
+                    me "...Kira."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_023d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgamePink = "Lexi"
+                    me "...Lexi."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_023e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgamePink = "Linda"
+                    me "...Linda."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_023f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgamePink = "Robin"
+                    me "...Robin."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_023g]": # "Someone else":
+                    $ ep4AssgamePink = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessWOSteph
+        "[M_04_022c]" if ep4AssgameGreen == "0": # "Green" if ep4AssgameGreen == "0":
+            me "Green belongs to..."
+            menu:
+                "[M_04_024a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameGreen = "Cece"
+                    me "...Cece."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_024b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameGreen = "Holly"
+                    me "...Holly."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_024c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameGreen = "Kira"
+                    me "...Kira."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_024d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameGreen = "Lexi"
+                    me "...Lexi."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_024e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameGreen = "Linda"
+                    me "...Linda."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_024f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameGreen = "Robin"
+                    me "...Robin."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_024g]": # "Someone else":
+                    $ ep4AssgameGreen = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessWOSteph
+        "[M_04_022d]" if ep4AssgamePurple == "0": # "Purple" if ep4AssgamePurple == "0":
+            me "Purple belongs to..."
+            menu:
+                "[M_04_025a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgamePurple = "Cece"
+                    me "...Cece."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_025b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgamePurple = "Holly"
+                    me "...Holly."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_025c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgamePurple = "Kira"
+                    me "...Kira."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_025d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgamePurple = "Lexi"
+                    me "...Lexi."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_025e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgamePurple = "Linda"
+                    me "...Linda."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_025f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgamePurple = "Robin"
+                    me "...Robin."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_025g]": # "Someone else":
+                    $ ep4AssgamePurple = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessWOSteph
+        "[M_04_022e]" if ep4AssgameOrange == "0": # "Orange" if ep4AssgameOrange == "0":
+            me "Orange belongs to..."
+            menu:
+                "[M_04_026a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameOrange = "Cece"
+                    me "...Cece."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_026b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameOrange = "Holly"
+                    me "...Holly."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_026c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameOrange = "Kira"
+                    me "...Kira."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_026d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameOrange = "Lexi"
+                    me "...Lexi."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_026e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameOrange = "Linda"
+                    me "...Linda."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_026f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameOrange = "Robin"
+                    me "...Robin."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_026g]": # "Someone else":
+                    $ ep4AssgameOrange = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessWOSteph
+        "[M_04_022f]" if ep4AssgameYellow == "0": # "Yellow" if ep4AssgameYellow == "0":
+            me "Yellow belongs to..."
+            menu:
+                "[M_04_027a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameYellow = "Cece"
+                    me "...Cece."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_027b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameYellow = "Holly"
+                    me "...Holly."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_027c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameYellow = "Kira"
+                    me "...Kira."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_027d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameYellow = "Lexi"
+                    me "...Lexi."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_027e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameYellow = "Linda"
+                    me "...Linda."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_027f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameYellow = "Robin"
+                    me "...Robin."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_027g]": # "Someone else":
+                    $ ep4AssgameYellow = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessWOSteph
+        "[M_04_022g]" if ep4AssgameRed == "0": # "Red" if ep4AssgameRed == "0":
+            me "Red belongs to..."
+            menu:
+                "[M_04_028a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameRed = "Cece"
+                    me "...Cece."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_028b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameRed = "Holly"
+                    me "...Holly."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_028c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameRed = "Kira"
+                    me "...Kira."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_028d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameRed = "Lexi"
+                    me "...Lexi."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_028e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameRed = "Linda"
+                    me "...Linda."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_028f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameRed = "Robin"
+                    me "...Robin."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+                "[M_04_028g]": # "Someone else":
+                    $ ep4AssgameRed = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessWOSteph
+else:
+    label ep4AssGameGuessSteph:
+    $ ep4AssGameGuessedInit = 0
+    if ep4AssgamePink <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameGreen <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgamePurple <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameOrange <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameYellow <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameRed <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssgameBlue <> "0":
+        $ ep4AssGameGuessedInit += 1
+    if ep4AssGameGuessedInit >= 7:
+        jump ep4AssGameGuessStephDone
+    menu:
+        "[M_04_029a]": # "Can you show them again?":
+            le "Of course."
+            jump ep4AssGameVideo
+        "[M_04_029b]" if ep4AssgamePink == "0": # "Pink" if ep4AssgamePink == "0":
+            me "Pink belongs to..."
+            menu:
+                "[M_04_030a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgamePink = "Cece"
+                    me "...Cece."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgamePink = "Holly"
+                    me "...Holly."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgamePink = "Kira"
+                    me "...Kira."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgamePink = "Lexi"
+                    me "...Lexi."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgamePink = "Linda"
+                    me "...Linda."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgamePink = "Robin"
+                    me "...Robin."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgamePink = "Steph"
+                    me "...Steph."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+                "[M_04_030h]": # "Someone else":
+                    $ ep4AssgamePink = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "Holly... Not that I've looked."
+                    jump ep4AssGameGuessSteph
+        "[M_04_029c]" if ep4AssgameGreen == "0": # "Green" if ep4AssgameGreen == "0":
+            me "Green belongs to..."
+            menu:
+                "[M_04_031a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameGreen = "Cece"
+                    me "...Cece."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameGreen = "Holly"
+                    me "...Holly."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameGreen = "Kira"
+                    me "...Kira."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameGreen = "Lexi"
+                    me "...Lexi."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameGreen = "Linda"
+                    me "...Linda."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameGreen = "Robin"
+                    me "...Robin."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgameGreen = "Steph"
+                    me "...Steph."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+                "[M_04_031h]": # "Someone else":
+                    $ ep4AssgameGreen = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "I got to go with Cece on this one."
+                    jump ep4AssGameGuessSteph
+        "[M_04_029d]" if ep4AssgamePurple == "0": # "Purple" if ep4AssgamePurple == "0":
+            me "Purple belongs to..."
+            menu:
+                "[M_04_032a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgamePurple = "Cece"
+                    me "...Cece."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgamePurple = "Holly"
+                    me "...Holly."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgamePurple = "Kira"
+                    me "...Kira."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgamePurple = "Lexi"
+                    me "...Lexi."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgamePurple = "Linda"
+                    me "...Linda."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgamePurple = "Robin"
+                    me "...Robin."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgamePurple = "Steph"
+                    me "...Steph."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+                "[M_04_032h]": # "Someone else":
+                    $ ep4AssgamePurple = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "It looks familiar... Linda."
+                    jump ep4AssGameGuessSteph
+        "[M_04_029e]" if ep4AssgameOrange == "0": # "Orange" if ep4AssgameOrange == "0":
+            me "Orange belongs to..."
+            menu:
+                "[M_04_033a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameOrange = "Cece"
+                    me "...Cece."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameOrange = "Holly"
+                    me "...Holly."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameOrange = "Kira"
+                    me "...Kira."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameOrange = "Lexi"
+                    me "...Lexi."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameOrange = "Linda"
+                    me "...Linda."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameOrange = "Robin"
+                    me "...Robin."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgameOrange = "Steph"
+                    me "...Steph."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+                "[M_04_033h]": # "Someone else":
+                    $ ep4AssgameOrange = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "Uhm... Steph?"
+                    jump ep4AssGameGuessSteph
+        "[M_04_029f]" if ep4AssgameYellow == "0": # "Yellow" if ep4AssgameYellow == "0":
+            me "Yellow belongs to..."
+            menu:
+                "[M_04_034a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameYellow = "Cece"
+                    me "...Cece."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameYellow = "Holly"
+                    me "...Holly."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameYellow = "Kira"
+                    me "...Kira."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameYellow = "Lexi"
+                    me "...Lexi."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameYellow = "Linda"
+                    me "...Linda."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameYellow = "Robin"
+                    me "...Robin."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgameYellow = "Steph"
+                    me "...Steph."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+                "[M_04_034h]": # "Someone else":
+                    $ ep4AssgameYellow = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "Definitely Lexi."
+                    jump ep4AssGameGuessSteph
+        "[M_04_029g]" if ep4AssgameRed == "0": # "Red" if ep4AssgameRed == "0":
+            me "Red belongs to..."
+            menu:
+                "[M_04_035a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameRed = "Cece"
+                    me "...Cece."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameRed = "Holly"
+                    me "...Holly."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameRed = "Kira"
+                    me "...Kira."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameRed = "Lexi"
+                    me "...Lexi."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameRed = "Linda"
+                    me "...Linda."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameRed = "Robin"
+                    me "...Robin."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgameRed = "Steph"
+                    me "...Steph."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+                "[M_04_035h]": # "Someone else":
+                    $ ep4AssgameRed = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "This has got to be Kira."
+                    jump ep4AssGameGuessSteph
+        "[M_04_029h]" if ep4AssgameBlue == "0": # "Blue" if ep4AssgameBlue == "0":
+            me "Blue belongs to..."
+            menu:
+                "[M_04_036a]" if not ep4AssGameCeceGuessed: # "Cece" if not ep4AssGameCeceGuessed:
+                    $ ep4AssGameCeceGuessed = True
+                    $ ep4AssgameBlue = "Cece"
+                    me "...Cece."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036b]" if not ep4AssGameHollyGuessed: # "Holly" if not ep4AssGameHollyGuessed:
+                    $ ep4AssGameHollyGuessed = True
+                    $ ep4AssgameBlue = "Holly"
+                    me "...Holly."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036c]" if not ep4AssGameKiraGuessed: # "Kira" if not ep4AssGameKiraGuessed:
+                    $ ep4AssGameKiraGuessed = True
+                    $ ep4AssgameBlue = "Kira"
+                    me "...Kira."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036d]" if not ep4AssGameLexiGuessed: # "Lexi" if not ep4AssGameLexiGuessed:
+                    $ ep4AssGameLexiGuessed = True
+                    $ ep4AssgameBlue = "Lexi"
+                    me "...Lexi."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036e]" if not ep4AssGameLindaGuessed: # "Linda" if not ep4AssGameLindaGuessed:
+                    $ ep4AssGameLindaGuessed = True
+                    $ ep4AssgameBlue = "Linda"
+                    me "...Linda."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036f]" if not ep4AssGameRobinGuessed: # "Robin" if not ep4AssGameRobinGuessed:
+                    $ ep4AssGameRobinGuessed = True
+                    $ ep4AssgameBlue = "Robin"
+                    me "...Robin."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036g]" if not ep4AssGameStephGuessed: # "Steph" if not ep4AssGameStephGuessed:
+                    $ ep4AssGameStephGuessed = True
+                    $ ep4AssgameBlue = "Steph"
+                    me "...Steph."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+                "[M_04_036h]": # "Someone else":
+                    $ ep4AssgameBlue = "Someone"
+                    me "...Something is not right. I don't think it belongs to any of them."
+                    ch "I'm sure about this one. It's Robin."
+                    jump ep4AssGameGuessSteph
+label ep4AssGameGuessStephDone:
+if ep4AssgamePink == "Cece":
+    $ ep4AssgameScore += 1
+if ep4AssgameGreen == "Robin":
+    $ ep4AssgameScore += 1
+if ep4AssgamePurple == "Linda":
+    $ ep4AssgameScore += 1
+if ep4AssgameOrange == "Kira":
+    $ ep4AssgameScore += 1
+if ep4AssgameYellow == "Lexi":
+    $ ep4AssgameScore += 1
+if ep4AssgameRed == "Someone":
+    $ ep4AssgameScore += 1
+if ep4AssgameBlue == "Steph":
+    $ ep4AssgameScore += 1
+jump ep4AssGameGuessDone
+label ep4AssGameGuessWOStephDone:
+if ep4AssgamePink == "Cece":
+    $ ep4AssgameScore += 1
+if ep4AssgameGreen == "Robin":
+    $ ep4AssgameScore += 1
+if ep4AssgamePurple == "Linda":
+    $ ep4AssgameScore += 1
+if ep4AssgameOrange == "Kira":
+    $ ep4AssgameScore += 1
+if ep4AssgameYellow == "Lexi":
+    $ ep4AssgameScore += 1
+if ep4AssgameRed == "Someone":
+    $ ep4AssgameScore += 1
+
+
+jump ep4AssGameGuessDone
+label ep4AssGameGuessDone:
+$ ep4AssgameTempScore = 0
+le "*laughs*"
+le "So for the results...."
+le "Pink..."
+$ phone_taskadd = "You guessed "+ str(ep4AssgamePink) +"."
+show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+show ep4p2_assgame_reveal_ce at imgSlide_ep4AGreveal_a
+show screen phone_taskcomplete with dissolve
+$ renpy.pause()
+hide screen phone_taskcomplete with dissolve
+if ep4AssgamePink == "Cece":
+    $ ep4AssgameTempScore += 1
+    le "That's one point for [name] and no points for Chris."
+else:
+    le "No points for either of you."
+$ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 0"
+show screen phone_taskcomplete with dissolve
+ch "Sorry for getting your ass wrong, Cece."
+ce "*laughs*"
+hide screen phone_taskcomplete with dissolve
+hide ep4p2_assgame_reveal_bg
+hide ep4p2_assgame_reveal_ce
+le "Next is, Green..."
+$ phone_taskadd = "You guessed "+ str(ep4AssgameGreen) +"."
+show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+show ep4p2_assgame_reveal_ro at imgSlide_ep4AGreveal_a
+show screen phone_taskcomplete with dissolve
+$ renpy.pause()
+if ep4AssgameGreen == "Robin":
+    $ ep4AssgameTempScore += 1
+    le "One point for [name] and no points for Chris."
+    ro "Good catch, [name]."
+else:
+    le "No points for either of you."
+    ro "I'm not sure if I should be happy or sad."
+hide screen phone_taskcomplete with dissolve
+hide ep4p2_assgame_reveal_bg
+hide ep4p2_assgame_reveal_ro
+$ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 0"
+show screen phone_taskcomplete with dissolve
+le "Purple, step up."
+hide screen phone_taskcomplete with dissolve
+$ phone_taskadd = "You guessed "+ str(ep4AssgamePurple) +"."
+show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+show ep4p2_assgame_reveal_li at imgSlide_ep4AGreveal_a
+show screen phone_taskcomplete with dissolve
+$ renpy.pause()
+if ep4AssgamePurple == "Linda":
+    $ ep4AssgameTempScore += 1
+    le "That's a point for the both of you."
+    li "You've had quite a few years to study it."
+else:
+    le "One point for Chris, and no points for [name]."
+hide screen phone_taskcomplete with dissolve
+hide ep4p2_assgame_reveal_bg
+hide ep4p2_assgame_reveal_li
+$ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 1"
+show screen phone_taskcomplete with dissolve
+le "Orange, reveal yourself."
+hide screen phone_taskcomplete with dissolve
+$ phone_taskadd = "You guessed "+ str(ep4AssgameOrange) +"."
+show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+show ep4p2_assgame_reveal_ki at imgSlide_ep4AGreveal_a
+show screen phone_taskcomplete with dissolve
+$ renpy.pause()
+if ep4AssgameOrange == "Kira":
+    $ ep4AssgameTempScore += 1
+    le "Guessed correctly by [name], and not by Chris."
+    ki "I thought I had the most recognizable ass in here."
+    ro "It's beautiful, Kira."
+else:
+    le "No points for either of you."
+hide screen phone_taskcomplete with dissolve
+hide ep4p2_assgame_reveal_bg
+hide ep4p2_assgame_reveal_ki
+$ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 1"
+show screen phone_taskcomplete with dissolve
+le "I guess it's time for the yellow one."
+hide screen phone_taskcomplete with dissolve
+$ phone_taskadd = "You guessed "+ str(ep4AssgameYellow) +"."
+show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+show ep4p2_assgame_reveal_le at imgSlide_ep4AGreveal_a
+show screen phone_taskcomplete with dissolve
+$ renpy.pause()
+if ep4AssgameYellow == "Lexi":
+    $ ep4AssgameTempScore += 1
+    le "A point to both of you. I'm flattered."
+else:
+    le "One point for Chris. I'm flattered."
+hide screen phone_taskcomplete with dissolve
+hide ep4p2_assgame_reveal_bg
+hide ep4p2_assgame_reveal_le
+$ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 2"
+show screen phone_taskcomplete with dissolve
+ch "Sorry Lexi, but I've had your poster on my wall for years. I'd recognize it anywhere."
+le "*laughs*"
+hide screen phone_taskcomplete with dissolve
+le "Red one, you're up."
+$ phone_taskadd = "You guessed "+ str(ep4AssgameRed) +"."
+show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+show ep4p2_assgame_reveal_ke at imgSlide_ep4AGreveal_a
+show screen phone_taskcomplete with dissolve
+$ renpy.pause()
+if ep4AssgameRed == "Someone":
+    $ ep4AssgameTempScore += 1
+    le "Chris, let's hope you don't get nightmares tonight."
+    le "And good call, [name]. Something was indeed off."
+else:
+    le "Way off guys. No points."
+    ki "I'm so disappointed in you guys."
+show screen phone_taskcomplete with dissolve
+ke "Sorry you had to witness that guys."
+me "We'll survive."
+hide screen phone_taskcomplete with dissolve
+hide screen phone_taskcomplete with dissolve
+hide ep4p2_assgame_reveal_bg
+hide ep4p2_assgame_reveal_ke
+$ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 2"
+if Impact_Steph:
+    le "And last one, blue."
+    $ phone_taskadd = "You guessed "+ str(ep4AssgameBlue) +"."
+    show ep4p2_assgame_reveal_bg at imgSlide_ep4AGreveal_b
+    show ep4p2_assgame_reveal_st at imgSlide_ep4AGreveal_a
+    show screen phone_taskcomplete with dissolve
+    $ renpy.pause()
+    hide screen phone_taskcomplete with dissolve
+    if ep4AssgameBlue == "Steph":
+        $ ep4AssgameTempScore += 1
+        le "[name] got one point. Chris no points."
+        me "Of course I would recognize that ass anywhere."
+        st "Of course you would."
+    else:
+        le "No points for either."
+        me "I should have known."
+    hide ep4p2_assgame_reveal_bg
+    hide ep4p2_assgame_reveal_st
+    $ phone_taskadd = "Score:\n" + str(name) + ": " + str(ep4AssgameTempScore) + ", Chris: 2"
+    show screen phone_taskcomplete with dissolve
+    ch "Sorry, Steph."
+    st "*laughs*"
+    hide screen phone_taskcomplete with dissolve
+le "That was it guys. Good effort. Girls, you're awesome."
+le "The final score is, Chris 2 points. [name] [ep4AssgameScore]."
+$ ep4AssGameWinner = 0
+if ep4AssgameScore >= 3:
+    $ ep4AssGameWinner = 2
+    scene ep4p2_assgame19 with dissolve
+    le "The winner is [name]."
+    scene ep4p2_assgame18 with dissolve
+    ch "Good job, man. I knew you were an ass man all along."
+    me "What's the prize?"
+    le "*laughs* No idea. Eternal recognition as the superior ass identifier maybe."
+elif ep4AssgameScore == 2:
+    $ ep4AssGameWinner = 1
+    scene ep4p2_assgame18 with dissolve
+    le "It's a tie!"
+    ch "I think we should have done better."
+    me "What's the prize?"
+    le "*laughs* None, you were both horrible."
+else:
+    scene ep4p2_assgame20 with dissolve
+    le "Chris is the winner"
+    ch "Oh my god. This is a monumental occasion. I beat you [name]."
+    me "Congratulations, man. My ass game was off today."
+    ch "What's the prize?"
+    le "*laughs* Nothing, you were both horrible."
+scene ep4p2_assgame17 with dissolve
+$ clockis = [[todayIs],2,2,5,5]
+stop music fadeout 5
+ho "Is it safe to come out?"
+le "Yes, we're all done now."
+scene ep4p2_assgame03 with dissolve
+le "Thank you for being so sporty, Kevin."
+ke "I wouldn't have missed it for the world."
+scene ep4p2_assgame04 with dissolve
+ho "Nice ass, Kevin."
+ke "*laughs*"
+scene ep4p2_assgame05 with dissolve
+ch "I need to get myself another beer."
+play music ep4_afterassgame
+$ nowPlayingArtist = "Brother Joseph"
+$ nowPlayingTitle = "Can't get over you"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+if ep4AssGameWinner == 2:
+    scene ep4p2_assgame11 with dissolve
+    ho "So, you're the ass champion."
+    me "Really, that sounds awful."
+    scene ep4p2_assgame12 with dissolve
+    if ep4AssGameHollyGuessed:
+        ho "You still got my ass wrong though."
+        ho "I'm not sure if I should take that as a compliment."
+    else:
+        ho "At least you didn't get my ass wrong."
+else:
+    scene ep4p2_assgame11 with dissolve
+    ho "So, you're not that good with recognizing asses, eh?"
+    me "Probably not."
+    scene ep4p2_assgame12 with dissolve
+    if ep4AssGameHollyGuessed:
+        ho "You got my ass wrong too."
+        ho "I'm not sure if I should take that as a compliment."
+    else:
+        ho "At least you didn't get my ass wrong."
+scene ep4p2_assgame12 with dissolve
+me "Honestly, I haven't studied it yet. I'll let you know."
+if Impact_Steph:
+    scene ep4p2_assgame16 with dissolve
+    ho "Why did you ask Steph to come here?"
+    scene ep4_hollyblink with dissolve
+    me "Yeah, you're right. I probably should have asked first."
+    scene ep4p2_assgame07 with dissolve
+    ho "No, that's not what I meant. You could just have walked away."
+    ho "We had a long conversation last night, so I never would have expected you to."
+    scene ep4_hollyblink with dissolve
+    me "..."
+    me "It seemed like the right thing to do."
+    scene ep4p2_assgame12 with dissolve
+    if ep4NightChoose == 7:
+        ho "You're not fooling me. You still love her, don't you."
+        me "..."
+        scene ep4_hollyblink with dissolve
+        me "I think I never stopped."
+        me "I mean, there were times when I thought I did, but then the other day I dreamed about her."
+        me "That somehow brought her back into my life."
+        scene ep4p2_assgame16 with dissolve
+        ho "I'm fairly sure you could have had the pop star artist..."
+        me "And deny my feelings? I don't think so."
+    else:
+        ho "Many people wouldn't have."
+        scene ep4_hollyblink with dissolve
+        me "I can't take all the credit. Cece reminded me of something..."
+        me "I don't love her anymore, but that doesn't mean I shouldn't do the right thing."
+        scene ep4p2_assgame07 with dissolve
+        ho "You forgave her?"
+        scene ep4_hollyblink with dissolve
+        menu:
+            "[M_04_037a]": # "Yes":
+                me "Yes, I did."
+            "[M_04_037b]": # "No":
+                me "No, I didn't."
+        me "But in the long run it doesn't matter."
+        me "20 years from now, who cares if I did or not."
+        me "Though honestly... I'd rather think back on today, having done this than the alternative."
+else:
+    scene ep4p2_assgame16 with dissolve
+    ho "You got to talk with Steph?"
+    scene ep4_hollyblink with dissolve
+    me "Yeah, I did."
+    scene ep4p2_assgame12 with dissolve
+    ho "How are you holding up?"
+    scene ep4_hollyblink with dissolve
+    me "Me? Isn't she your friend?"
+    scene ep4p2_assgame07 with dissolve
+    ho "Sure, and I'll ask her later on, but now I'm asking you."
+    ho "If she gave you the full story, that must have been a lot to take in."
+    scene ep4_hollyblink with dissolve
+    me "I'm oddly relaxed actually. To be honest I'm not even sure I believe it all."
+    me "And I'm glad I'm moving on."
+    ho "Good."
+scene ep4p2_assgame13 with dissolve
+me "..."
+scene ep4p2_assgame15 with dissolve
+ho "I had you all wrong..."
+ho "Behind that teddybear-ish with a sixpack exterior, there's a lot more going on with you."
+ho "I don't think drinking a ton and playing assgames is your M.O."
+scene ep4p2_assgame12 with dissolve
+me "Maybe..."
+scene ep4p2_assgame07 with dissolve
+ho "I can see that you're trying to figure me out."
+scene ep4p2_assgame12 with dissolve
+me "I don't think I have to be honest."
+scene ep4p2_assgame07 with dissolve
+ho "You will. And when you do... just accept it for what it is."
+scene ep4_hollyblink with dissolve
+me "That sounds oddly specific. What are you then?"
+scene ep4p2_assgame11 with dissolve
+if ep4AssGameHollyGuessed:
+    ho "I'm the ass you thought you had figured out, of course."
+else:
+    ho "I'm the ass you didn't guess, of course."
+me "*laughs*"
+scene ep4p2_assgame06 with dissolve
+ho "Anyway, I'll go mingle. See you around."
+scene bg empty with fade
+$ clockis = [[todayIs],2,3,2,0]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_kevin01 with fade
+me "(Time to get another drink.)"
+scene ep4p2_party_kevin02 with dissolve
+ke "Have you got a minute, [name]?"
+scene ep4p2_party_kevin03 with dissolve
+me "Sure thing, Kevin. What's up?"
+scene ep4p2_party_kevin04 with dissolve
+me "And by the way, nice job on the sixpack."
+scene ep4p2_party_kevin05 with dissolve
+ke "Oh well, got to stay in shape."
+if ep4Dawgs:
+    scene ep4p2_party_kevin06 with dissolve
+    ke "Just wanted to let you know that Dawg is down to surprise Cece. He'll be home in a few days. I'll let you know when."
+    scene ep4p2_party_kevin07 with dissolve
+    me "Thank you very much. She's going to love it."
+    scene ep4p2_party_kevin06 with dissolve
+    ke "No problem."
+scene ep4p2_party_kevin07 with dissolve
+me "I hope Lexi didn't put a knife to your neck for you to do this."
+scene ep4p2_party_kevin06 with dissolve
+ke "No, I was just dropping in with the package a delivery guy came to drop off when she asked me."
+ke "I wouldn't call it being in the line of duty, but I had fun."
+ke "The missus is going to love it though."
+scene ep4p2_party_kevin08 with dissolve
+ke "Here is the package by the way."
+ke "Can you bring it to Robin?"
+scene ep4p2_party_kevin09 with dissolve
+me "Sure thing. I think I have a fairly good idea of what it is anyway."
+scene ep4p2_party_kevin10 with dissolve
+ke "Yeah, I have a fairly good idea myself."
+me "You opened it? I mean... for safety reasons or something."
+ke "No, the missus shops from the same place. I recognized the sender."
+me "Ok, I probably didn't need to hear that, but my lips are sealed."
+ke "Have a fun night."
+me "I will."
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_robin01 with fade
+me "(Here she is, I can hear her.)"
+ro "Almost... almost..."
+scene ep4p2_party_robin02 with dissolve
+me "(Ok, I hope she's not doing anything indecent.)"
+ro "Yes! Yes! Yes!"
+ro "In your face motherfucker. I got ya!"
+$ phone_task_append_item1 = "7;8;2;3;5;9;SquashMaster4739;Beat SquashMaster4739, one way or another before;Beat SquashMaster4739.;2"
+$ phone_task_append_item2 = "7;8;2;3;5;9;SquashMaster4739;Time to end SquashMaster4739, once and for all;Beat SquashMaster4739.;1"
+if phone_task_append_item1 in phone_task_list:
+    if phone_task_append_item2 not in phone_task_list:
+        $ phone_task_list.remove(phone_task_append_item1)
+        $ phone_task_list.append(phone_task_append_item2)
+        $ phTaskNotify = True
+$ phone_taskadd = "Task updated\nSquashMaster4739 passed you on the high score list.\n\nYou should retaliate."
+show screen phone_taskadded
+play sound phone_notify_sound
+scene ep4p2_party_robin03 with dissolve
+me "(Ah, fuck you Squashmaster. Damn asshole beat me again.)"
+ro "Who's the Candie Squash master now."
+me "(Hang on now...)"
+me "(Robin is Squashmaster?)"
+hide screen phone_taskadded
+me "(No way! I've been battling him... I mean her... for years.)"
+me "(I'd better make sure.)"
+scene ep4p2_party_robin04 with dissolve
+ro "I beat you 'theAssman'... And not by a little."
+me "(Yep, it's her.)"
+scene ep4_robindance with dissolve
+me "(Should I tell her or not?)"
+$ ep4toldRobinAssman = False
+$ ep4toldRobinAssmanNuke = False
+show screen phone_camop
+$ phone_camop_screen = "ep4RobinDance"
+me "(...)"
+hide screen phone_camop
+$ photoop_ep4RobinDanceNuke = False
+jump photoop_ep4RobinDanceEnd
+label photoop_ep4RobinDance:
+play sound camerashutter
+$ photoop_ep4RobinDanceNuke = True
+$ cam_gallery_append_item1 = "ep4p2_party_robin07"
+if cam_gallery_append_item1 not in cam_gallery:
+    $ cam_gallery.append(cam_gallery_append_item1)
+show bg_empty
+scene ep4_robindance with Fade(0, 0, 0.5, color="#ffffff")
+me "(Maybe I should nuke it as well...)"
+label photoop_ep4RobinDanceEnd:
+$ phone_camop_screen = ""
+hide screen phone_camop
+scene ep4p2_party_robin09 with dissolve
+me "Someone's very happy."
+scene ep4p2_party_robin10 with dissolve
+ro "Well, hell yeah."
+ro "When you've been battling that asshole above you in the rankings forever, and then get that new high score by a whole lot, that's got to burn!"
+ro "I would give anything to see the look on his face right now."
+scene ep4p2_party_robin11 with dissolve
+menu:
+    "[M_04_038a]": # "Tell her you're 'theAssman'.":
+        $ ep4toldRobinAssman = True
+        me "*sigh* You're looking right at him..."
+        scene ep4p2_party_robin12 with dissolve
+        ro "Huh?"
+        ro "..."
+        scene ep4p2_party_robin13 with dissolve
+        ro "No... No way."
+        if not ep4SaidPlayGame:
+            ro "Mr. 'No, I don't play games'."
+        scene ep4p2_party_robin14 with dissolve
+        ro "Oh holy hell this day just got like a zillion times better."
+    "[M_04_038b]": # "Don't tell her.":
+        me "How do you know it's a he?"
+        scene ep4p2_party_robin16 with dissolve
+        ro "Seriously... With a name such as 'theAssman', how can it not be a he?"
+        scene ep4p2_party_robin17 with dissolve
+        me "Good point."
+scene ep4p2_party_robin18 with dissolve
+me "You're very competitive, you know that right?"
+ro "Flawless victory!"
+if ep4toldRobinAssman:
+    ro "I got you so hard, I'm getting horny."
+else:
+    ro "I got him so hard, I'm getting horny."
+scene ep4p2_party_robin19 with dissolve
+me "Well, on that topic, I have a little package for you."
+scene ep4p2_party_robin20 with dissolve
+ro "What's this?"
+scene ep4p2_party_robin21 with dissolve
+ro "Oh, the dildo."
+scene ep4p2_party_robin22 with dissolve
+ro "And when I thought this day couldn't get any better, it just did."
+scene ep4p2_party_robin15 with dissolve
+me "Now I'm wondering if you got a good tip from Chris."
+scene ep4p2_party_robin17 with dissolve
+ro "I did. He told me about this dildo you can control from your phone."
+if ep4SetupChrisWith == 3:
+    ro "He's dorky, but sweet."
+scene ep4p2_party_robin11 with dissolve
+me "And why would you want to control your dildo from your phone?"
+scene ep4p2_party_robin16 with dissolve
+ro "So I can put it in and walk around with this comfortable buzz going on of course."
+ro "I can't wait to try it out."
+scene ep4p2_party_robin11 with dissolve
+me "You're telling me you are going to do that? Here at the party?"
+scene ep4p2_party_robin17 with dissolve
+ro "Of course I am."
+scene ep4p2_party_robin11 with dissolve
+me "And you just connect it to your phone?"
+me "Sounds to me like something I... ehm, someone could take advantage of."
+scene ep4p2_party_robin22 with dissolve
+ro "Even though that sounds like fun, it's not possible. You need to pair your phone with the dildo. And you don't know my pin code, silly."
+scene ep4p2_party_robin21 with dissolve
+me "And your code is?"
+scene ep4p2_party_robin22 with dissolve
+ro "I think it would be a huge mistake to tell you that!"
+ro "And I haven't even made the code yet."
+scene ep4p2_party_robin23 with dissolve
+ro "I'm going to go check if it's charged. I want to have fun with it."
+scene ep4p2_party_robin24 with dissolve
+me "So... Have fun?"
+scene ep4p2_party_robin25 with dissolve
+ro "Come to think of it, I am going to warm up real nice."
+scene ep4p2_party_robin26 with dissolve
+ro "Then I'm going to insert it, inch by inch. All the way until I have it right where I want it."
+scene ep4p2_party_robin27 with dissolve
+if ep4NightChoose == 4 or ep4NightChoose == 5:
+    ro "And then... who knows, I just might be thinking about 'theAssman' doing so."
+    scene ep4p2_party_robin28 with dissolve
+    me "..."
+else:
+    ro "And then... when it's just at that right spot... oh heavens..."
+scene ep4p2_party_robin31 with dissolve
+ro "This is just the best day in forever."
+scene ep4p2_party_robin29 with dissolve
+me "Do you want any help with that?"
+ro "I'll manage..."
+if ep4toldRobinAssman:
+    ro "...loser."
+scene ep4p2_party_robin30 with dissolve
+stop music fadeout 3
+me "(I should do something to wipe that smile off her face.)"
+me "(She's way too cocky when winning.)"
+me "(Let's see if I can get a hold of that pin code somehow.)"
+scene bg empty with fade
 $ todayIs = 8
+$ clockis = [[todayIs],0,0,2,3]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_cecelexi01 with fade
+play music ep4_party
+$ nowPlayingArtist = "Lux Inspira"
+$ nowPlayingTitle = "Atlantic Waves"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+ce "Thank you so much."
+scene ep4p2_party_cecelexi02 with dissolve
+me "(That's a lot of drinks, very fast. Someone's going to get drunk.)"
+scene ep4p2_party_cecelexi03 with dissolve
+le "Of course I'll do that. It's no bother at all."
+scene ep4p2_party_cecelexi04 with dissolve
+me "Do what?"
+le "Girl secrets..."
+scene ep4p2_party_cecelexi05 with dissolve
+me "Sounds serious."
+le "Not at all."
+scene ep4p2_party_cecelexi06 with dissolve
+ce "Oh, it's just a little something."
+scene ep4p2_party_cecelexi07 with dissolve
+if ep4AssgamePink == "Cece":
+    ce "I'll give you points for recognizing my ass earlier."
+    if ep4AssgameYellow == "Lexi":
+        scene ep4p2_party_cecelexi08 with dissolve
+        le "And mine."
+        scene ep4p2_party_cecelexi05 with dissolve
+        me "Oh no. I didn't think of that. Everybody's probably going to mention this to me tonight."
+        scene ep4p2_party_cecelexi07 with dissolve
+        ce "Probably."
+        scene ep4p2_party_cecelexi06 with dissolve
+        me "I'll just say that you both have very distinctive asses, so it was an easy task."
+    else:
+        scene ep4p2_party_cecelexi08 with dissolve
+        le "But not mine."
+        scene ep4p2_party_cecelexi05 with dissolve
+        me "Oh no. I didn't think of that. Everybody's probably going to mention this to me tonight."
+        scene ep4p2_party_cecelexi07 with dissolve
+        ce "Probably."
+        scene ep4p2_party_cecelexi06 with dissolve
+        me "But yeah, I should have got your ass correct, Lexi."
+else:
+    ce "Oh, you didn't recognize my ass earlier."
+    if ep4AssgameYellow == "Lexi":
+        scene ep4p2_party_cecelexi08 with dissolve
+        le "But you recognized mine."
+        scene ep4p2_party_cecelexi05 with dissolve
+        me "Oh no. I didn't think of that. Everybody's probably going to mention this to me tonight."
+        scene ep4p2_party_cecelexi07 with dissolve
+        ce "Probably."
+        scene ep4p2_party_cecelexi06 with dissolve
+        me "I should have got your ass correct though, Cece."
+        if ep3RejectedKira:
+            me "After all, I got a good glimpse when you ripped the yoga pants open."
+            le "No way."
+            ce "Way. And so embarrassing."
+    else:
+        scene ep4p2_party_cecelexi08 with dissolve
+        le "Mine neither."
+        scene ep4p2_party_cecelexi05 with dissolve
+        me "Oh no. I didn't think of that. Everybody's probably going to mention this to me tonight."
+        scene ep4p2_party_cecelexi07 with dissolve
+        ce "Probably."
+        scene ep4p2_party_cecelexi06 with dissolve
+        me "But yeah, I will need more visual training."
+scene ep4p2_party_cecelexi07 with dissolve
+ce "By the way, I keep telling Lexi that her place is fantastic. I love everything about it."
+scene ep4p2_party_cecelexi08 with dissolve
+le "Well, I didn't want to buy a new modern type of place, so when I saw this I was sold."
+scene ep4p2_party_cecelexi06 with dissolve
+le "But I'm glad you enjoy yourself here."
+scene ep4p2_party_cecelexi10 with dissolve
+ho "Lexi! We need the wifi password for the Playstation. Me and Robin are going to play."
+scene ep4p2_party_cecelexi09 with dissolve
+le "It should be connected already. Just turn it on."
+scene ep4p2_party_cecelexi10 with dissolve
+ho "Why did she talk about a code then... Ok, if you say so."
+scene ep4p2_party_cecelexi08 with dissolve
+me "She's right though, it's a very nice place you have here."
+scene ep4p2_party_cecelexi05 with dissolve
+le "Let me tell you, this place is a whole lot more boring when I'm alone."
+le "So honestly, I'm glad you decided to come."
+scene ep4p2_party_cecelexi11 with dissolve
+me "How about a big toast to having a good time while we're here."
+scene ep4p2_party_cecelexi12 with dissolve
+ce "Wooooah..."
+scene ep4p2_party_cecelexi13 with dissolve
+le "Cheers!"
+scene ep4p2_party_cecelexi14 with dissolve
+le "A very, very, good time."
+ce "Oh, sexy smile."
+scene ep4p2_party_cecelexi15 with dissolve
+ce "I can do that."
+scene ep4p2_party_cecelexi16 with dissolve
+le "..."
+scene ep4p2_party_cecelexi17 with dissolve
+me "..."
+scene ep4p2_party_cecelexi18 with dissolve
+ce "Damn straw..."
+scene ep4p2_party_cecelexi19 with dissolve
+ce "Lexi, I have to say..."
+ce "...even if your house is amazing..."
+scene ep4p2_party_cecelexi20 with dissolve
+ce "*suck*"
+scene ep4p2_party_cecelexi21 with dissolve
+ce "...your straws suck."
+scene ep4p2_party_cecelexi23 with dissolve
+ce "Wow..."
+ce "She got drunk..."
+scene ep4p2_party_cecelexi22 with dissolve
+ce "...like really really fast..."
+scene ep4p2_party_cecelexi24 with fade
+le "Come on, Cece. I need to go get myself a new drink."
+ce "And a new straw for me."
+le "*laughs* ...and a new straw for you..."
+scene bg empty with fade
+$ clockis = [[todayIs],0,0,4,7]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_chris01 with fade
+me "Chris?"
+scene ep4p2_party_chris02 with dissolve
+ch "Hey, man. Wassup."
+scene ep4p2_party_chris04 with dissolve
+me "So, that's a bunch of golf clubs..."
+ch "Yeah..."
+scene ep4p2_party_chris05 with dissolve
+me "And that's a pair of Crocs..."
+ch "Yeah..."
+scene ep4p2_party_chris03 with dissolve
+me "Either you gained 40 years in the last few hours, or I don't get it..."
+ch "Says the guy with the hair..."
+scene ep4p2_party_chris06 with dissolve
+ch "But seriously, I'm going to play golf."
+ch "I saw these and I had to give it a try. It's probably the only time in my life I have a chance to play golf."
+scene ep4p2_party_chris07 with dissolve
+me "Really?"
+scene ep4p2_party_chris08 with dissolve
+ch "Yeah. I asked Lexi and she said there was plenty of space to play in front of the house."
+me "That sounds really stupid."
+scene ep4p2_party_chris09 with dissolve
+ch "Yeah..."
+ch "So... you in?"
+me "Hell yeah."
+scene ep4p2_party_chris10 with dissolve
+me "I'll be out in a bit."
+ch "And I'll be..."
+me "...playing golf. Gotcha."
+$ ep4ChrisBamboobzled = False
+if Impact_Steph:
+    scene bg empty with fade
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    scene ep4p2_party_lindasteph01 with fade
+    me "Hey girls."
+    scene ep4p2_party_lindasteph02 with dissolve
+    li "Ah, the charmer from school."
+    if ep4NightChoose == 2:
+        st "One sexy charmer."
+        me "You two..."
+    else:
+        st "Indeed."
+    scene ep4p2_party_lindasteph03 with dissolve
+    me "Oh no... You're drunk too?"
+    st "Just about right."
+    me "So did Linda not tell you that you have everything on display there?"
+    scene ep4p2_party_lindasteph04 with dissolve
+    st "Boobs."
+    li "Men."
+    st "Men."
+    li "Boobs."
+    scene ep4p2_party_lindasteph05 with dissolve
+    st "But it's so refreshing!"
+    scene ep4p2_party_lindasteph06 with dissolve
+    st "Remember that thing we used to do?"
+    li "Bamboobzled?"
+    st "Bamboobzled!"
+    me "No bamboobzled! We don't do that anymore."
+    scene ep4p2_party_lindasteph07 with dissolve
+    li "Just a little bit?"
+    scene ep4p2_party_lindasteph08 with dissolve
+    me "No please, I still have nightmares about that."
+    scene ep4p2_party_lindasteph11 with dissolve
+    li "*laughs*"
+    li "It's so good to be back together, it really is."
+    scene ep4p2_party_lindasteph10 with dissolve
+    st "Honestly, thank you..."
+    scene ep4p2_party_lindasteph08 with dissolve
+    me "Oh, just stop it. Let's not ruin the night with un-pleasantries."
+    me "Forget about all that, and let's have fun."
+    scene ep4p2_party_lindasteph09 with dissolve
+    li "He's right, let's just have fun."
+    scene ep4p2_party_lindasteph11 with dissolve
+    st "Well, I missed you guys too."
+    st "You're just about the best thing that's happened to me."
+    scene ep4p2_party_lindasteph12 with dissolve
+    me "I'll drink to that!"
+    li "Time to get drunk."
+    scene ep4p2_party_lindasteph13 with dissolve
+    "..."
+    scene ep4p2_party_lindasteph14 with Dissolve(2, alpha=True)
+    $ renpy.pause(0.2)
+    $ renpy.pause(0.2)
+    $ renpy.pause(0.2)
+    $ renpy.pause(0.2)
+    $ renpy.pause(0.2)
+    "..."
+    scene ep4p2_party_lindasteph15 with dissolve
+    st "And now..."
+    li "...bamboobzled!"
+    scene ep4_bamboobzled with dissolve
+    me "Nono, no..."
+    me "Not that."
+    scene ep4p2_party_lindasteph18 with dissolve
+    li "Yes that."
+    st "Bamboobzled!"
+    scene ep4p2_party_lindasteph19 with dissolve
+    me "I'm just going to walk away..."
+    scene ep4p2_party_lindasteph20 with dissolve
+    me "...very slowly, and you are going to be very nice..."
+    scene ep4p2_party_lindasteph21 with dissolve
+    me "Uaahhh..."
+    scene ep4p2_party_lindasteph22 with fade
+    li "Look at that smile of his..."
+    st "...oh he definitely likes this."
+    li "...nightmares, my ass."
+    li "And did you see where Chris went?"
+    me "You're going to bamboobzle him, aren't you."
+    st "Maybe."
+    stop music fadeout 3
+    menu:
+        "[M_04_039a]": # "No idea":
+            me "Nope, I have no idea where he went."
+            li "Awww."
+        "[M_04_039b]": # "He's out back":
+            $ ep4ChrisBamboobzled = True
+            me "He's out back playing golf."
+            li "Let's go, Steph."
+    jump ep4PartySongStar
+else:
+    jump ep4PartySongStar
+label ep4PartySongStar:
+scene bg empty with fade
+play music ep1_bowling
+$ nowPlayingArtist = "Lexi Dimante"
+$ nowPlayingTitle = "Crazy"
+$ nowPlayingRealArtist = "Lance Conrad"
+$ nowPlayingRealTitle = "Born to Drive Me Crazy"
+$ clockis = [[todayIs],0,1,2,1]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_hollyrobin01 with fade
+me "Is that Lexi on the Songstar?"
+scene ep4p2_party_hollyrobin02 with dissolve
+me "Time to shine. I can out sing anyone!"
+me "(Except Lexi of course.)"
+scene ep4p2_party_hollyrobin03 with dissolve
+ho "[name]."
+scene ep4p2_party_hollyrobin04 with dissolve
+ho "Come join us."
+scene ep4p2_party_hollyrobin05 with dissolve
+me "Say no more, I'm in!"
+scene ep4p2_party_hollyrobin06 with dissolve
+me "*sings*"
+scene ep4p2_party_hollyrobin10 with dissolve
+me "(Oh, this is getting feisty.)"
+scene ep4p2_party_hollyrobin11 with dissolve
+me "(We're all drunk today.)"
+me "(I should use my singing talent to help one of them.)"
+menu:
+    "[M_04_040a]": # "Help Robin Win":
+        scene ep4p2_party_hollyrobin07 with dissolve
+        me "*sings*"
+        if ep4NightChoose == 5:
+            scene ep4p2_party_hollyrobin09 with dissolve
+            me "*sings*"
+        scene ep4p2_party_hollyrobin17 with fade
+        stop music fadeout 3
+        ro "We lost!"
+        me "I actually tried helping you."
+        scene ep4p2_party_hollyrobin18 with dissolve
+        ro "You can't sing at all."
+        me "Whatever."
+        if ep4toldRobinAssman:
+            scene ep4p2_party_hollyrobin19 with dissolve
+            ro "I still beat you today though."
+            me "Until I get it back."
+        scene ep4p2_party_hollyrobin20 with dissolve
+        ro "Maybe..."
+    "[M_04_040b]": # "Help Holly Win":
+        scene ep4p2_party_hollyrobin08 with dissolve
+        me "*sings*"
+        scene ep4p2_party_hollyrobin12 with fade
+        stop music fadeout 3
+        me "Oh shit, the worst winner in the world won."
+        ro "In your face! That's double loss for you tonight."
+        scene ep4p2_party_hollyrobin13 with dissolve
+        me "I'm so sorry. I thought I could help you win. Seems my fantastic voice gave Robin the victory."
+        ho "Don't worry about it, seriously. It's just a game."
+        ro "Loooo-hooooo... Seeee-heeeerrrr!"
+        scene ep4p2_party_hollyrobin14 with dissolve
+        ho "That was a lot of fun. I'll team up with you any time."
+        if ep4SetupChrisWith <> 4:
+            scene ep4p2_party_hollyrobin15 with dissolve
+            ho "I..."
+            scene ep4p2_party_hollyrobin16 with dissolve
+            ho "..."
+scene ep4p2_party_hollyrobin21 with dissolve
+ro "This was fun, but I think my..."
+ro "...thing has finished recharging."
+scene ep4p2_party_hollyrobin22 with dissolve
+ro "Want me to get you something to drink, Holly?"
+ho "I'm good, thank you."
+scene ep4p2_party_hollyrobin23 with dissolve
+$ clockis = [[todayIs],0,1,5,7]
+play music ep4_partytwo
+$ nowPlayingArtist = "FASsounds"
+$ nowPlayingTitle = "Wonderful Holiday"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+ho "Sit with me a bit, will you [name]?"
+me "Sure."
+scene ep4p2_party_hollyrobin24 with fade
+me "This is perfect."
+ho "Are you seriously putting your feet on Lexi's table?"
+me "Yep."
+ho "Both feet."
+me "Oh yeah."
+ho "You rebel."
+ho "..."
+scene ep4p2_party_hollyrobin25 with dissolve
+ho "Make room for one more."
+me "Sure thing, co-rebel."
+scene ep4p2_party_hollyrobin26 with dissolve
+ho "This is nice."
+ho "But look at those toes."
+scene ep4p2_party_hollyrobin28 with dissolve
+ho "Looks like the piggies that everyone talks about when you're a kid."
+ho "This little piggie went to the market..."
+scene ep4p2_party_hollyrobin29 with dissolve
+me "Yeah, they are truly horrible."
+ho "..."
+scene ep4p2_party_hollyrobin30 with dissolve
+me "No, jokes aside. You have cute toes. And there're worse things in the world than having pigly toes."
+scene ep4p2_party_hollyrobin33 with dissolve
+ho "*sigh*"
+ho "I think I'm getting too old for parties."
+me "Really?"
+scene ep4p2_party_hollyrobin31 with dissolve
+ho "Probably. When sitting down and relaxing with my feet on the table is the best part of the party..."
+me "Don't worry, then I'm old too. Because this was nice."
+ho "All the wild crazy stuff I used to do, every weekend, the mindless sex..."
+scene ep4p2_party_hollyrobin33 with dissolve
+me "Sounds horrible."
+scene ep4p2_party_hollyrobin34 with dissolve
+ho "Shut up, you know what I mean."
+ho "But I wish I'd settled down with someone instead."
+scene ep4p2_party_hollyrobin31 with dissolve
+me "You're how old?"
+ho "26."
+ho "Same as Steph."
+scene ep4p2_party_hollyrobin30 with dissolve
+me "Just look at me. I'm even younger than you, but if you look at the hair..."
+scene ep4p2_party_hollyrobin29 with dissolve
+ho "Artic Silver?"
+scene ep4p2_party_hollyrobin30 with dissolve
+me "Wow. You even know the name of the color."
+scene ep4p2_party_hollyrobin29 with dissolve
+ho "I tried it once."
+scene ep4p2_party_hollyrobin32 with dissolve
+me "But yeah, you're definitely too old. Nobody's going to want to be with you at that age."
+scene ep4p2_party_hollyrobin35 with dissolve
+ho "..."
+me "I was kidding."
+ho "I know you were. But it gets you thinking. Maybe even regretting some things in the past."
+scene ep4_hollyblinksofa with dissolve
+me "That was my point. You're talking like you've wasted your whole life."
+me "If you're past the every weekend partying and all the..."
+scene ep4p2_party_hollyrobin38 with dissolve
+ho "...mindless sex..."
+me "...and that. Just stop it then."
+scene ep4p2_party_hollyrobin35 with dissolve
+ho "I have. That was easy."
+scene ep4_hollyblinksofa with dissolve
+me "...and find that right someone to settle down with."
+scene ep4p2_party_hollyrobin36 with dissolve
+ho "...that's the hard part. To find the right one."
+scene ep4_hollyblinksofa with dissolve
+$ ep4SetupChrisWithHo = False
+menu:
+    "[M_04_041a]" if ep4SetupChrisWith == 4: # "There's Chris..." if ep4SetupChrisWith == 4:
+        $ ep4SetupChrisWithHo = True
+        me "Chris think's you're cute you know..."
+        scene ep4p2_party_hollyrobin37 with dissolve
+        ho "Pussytickler?"
+        me "Yeah..."
+        ho "You playing matchmaker now?"
+        scene ep4_hollyblinksofa with dissolve
+        me "Probably."
+        ho "..."
+        scene ep4p2_party_hollyrobin26 with dissolve
+        me "But honestly, if you look past the goofy exterior, he's got a heart of gold."
+        me "And he's the most dependable person I know of."
+        me "He's never let me down... ever."
+    "[M_04_041b]": # "Say nothing.":
+        if ep4SetupChrisWith == 4:
+            $ phone_task_append_item1 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;1"
+            $ phone_task_append_item2 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;0"
+            if phone_task_append_item1 in phone_task_list:
+                if phone_task_append_item2 not in phone_task_list:
+                    $ phone_task_list.remove(phone_task_append_item1)
+                    $ phone_task_list.append(phone_task_append_item2)
+                    $ phTaskNotify = True
+            $ phone_taskadd = "Task failed\nSet Chris up with someone."
+            show screen phone_taskfailed
+            scene ep4p2_party_hollyrobin26 with dissolve
+            me "I don't think you need to worry about that."
+            me "You're a fine woman, and you can have anybody you want."
+            hide screen phone_taskfailed
+        else:
+            scene ep4p2_party_hollyrobin26 with dissolve
+            me "I don't think you need to worry about that."
+            me "You're a fine woman, and you can have anybody you want."
+            scene ep4p2_party_hollyrobin27 with dissolve
+            me "Just find that right one."
+play sound phone_notify_sound
+show screen phone_notify_chat
+$ ep4KiraPartyChatOpen = True
+$ phChatNotify = True
+$ chat_notify_kira = True
+$ chat_kira_item = "1;0;2301;Where are you! I'm in a bit of emergency. I need your help."
+if chat_kira_item not in chat_kira:
+    $ chat_kira.append(chat_kira_item)
+me "..."
+me "Message?"
+if ep4KiraPartyChatOpen:
+    $ chat_notify_kira = False
+    $ chat_sel_name = "Kira"
+    $ chat_sel_icon = "cont_kira"
+    hide screen phone_notify_chat
+    $ phChatNotify = False
+    call screen phone_chat_single
+label ep4KiraParty:
+me "So much for kicking back. Seems I'm wanted elsewhere."
+ho "Have fun."
+scene bg empty with fade
+$ clockis = [[todayIs],0,2,2,3]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_kira01 with fade
+me "Kiiiraaa?"
+scene ep4p2_party_kira02 with dissolve
+ki "Out back."
+scene ep4p2_party_kira03 with dissolve
+ki "Hey there."
+scene ep4p2_party_kira04 with dissolve
+me "You look drunk."
+ki "You look drunk too."
+scene ep4p2_party_kira05 with dissolve
+menu:
+    "[M_04_042a]": # "No, I'm not drunk. (Lie)":
+        me "Nah. I'm not drunk."
+        ki "If you say so..."
+        scene ep4p2_party_kira06 with hpunch
+        ki "A little well placed nudge should be no problem for you then."
+        scene ep4p2_party_kira07 with dissolve
+        me "You evil woman. Taking advantage of a drunk guy like that."
+        ki "*laughs* I thought you said you weren't drunk."
+        me "You're right. I've been drinking all day long, so it's probably safe to assume I'm drunk by now."
+    "[M_04_042b]": # "Probably true.":
+        scene ep4p2_party_kira08 with dissolve
+        me "Most likely. I've been drinking all day."
+me "So what's the emergency."
+scene ep4p2_party_kira11 with dissolve
+ki "..."
+ki "I forgot..."
+scene ep4p2_party_kira22 with dissolve
+me "Must have been quite the emergency."
+me "Oh wait... Is it..."
+me "...where you ask me we're going to go fuck like rabbits?"
+scene ep4p2_party_kira09 with dissolve
+ki "Nope."
+me "Wow."
+scene ep4p2_party_kira10 with dissolve
+ki "I don't fuck when I'm drunk. Can't orgasm."
+scene ep4p2_party_kira24 with dissolve
+me "That must be horrible."
+scene ep4p2_party_kira17 with dissolve
+ki "And how about you. Can you even get it up?"
+if ep4NightChoose >= 3 and ep4NightChoose <= 5:
+    me "Well, doesn't that sound like a fun challenge?"
+    ki "*laughs*"
+    scene ep4p2_party_kira16 with dissolve
+    ki "As tempting as it sounds, I'll pass."
+    scene ep4p2_party_kira17 with dissolve
+    ki "And would you have fucked anybody if you were unable to cum?"
+    scene ep4p2_party_kira22 with dissolve
+    me "..."
+    scene ep4p2_party_kira23 with dissolve
+    me "..."
+    scene ep4p2_party_kira12 with dissolve
+    ki "That's what I thought."
+    scene ep4_kiraunable with dissolve
+    ki "The damn thing is just so numbed down."
+    me "..."
+    scene ep4p2_party_kira15 with dissolve
+    me "You really don't like panties, do you?"
+    scene ep4p2_party_kira16 with dissolve
+    ki "It's just sex anyway, it's so much better when not drunk."
+    ki "And I know I'll wake up next to Robin anyway."
+    me "And me?"
+    ki "That's not a bad scenario either."
+else:
+    scene ep4p2_party_kira24 with dissolve
+    me "I don't think that's a big problem."
+    me "..."
+    me "You could always fuck for the fun of it."
+    scene ep4p2_party_kira17 with dissolve
+    ki "And would you have fucked anybody if you were unable to cum?"
+    scene ep4p2_party_kira22 with dissolve
+    me "..."
+    scene ep4p2_party_kira23 with dissolve
+    me "..."
+    scene ep4p2_party_kira12 with dissolve
+    ki "That's what I thought."
+    me "..."
+    scene ep4p2_party_kira25 with dissolve
+    me "You know I was joking, right?"
+    ki "I know."
+    me "Just wanted to make sure."
+    scene ep4p2_party_kira20 with dissolve
+    ki "Yeah, I can see you got the hots for someone else."
+    ki "You're all good in my book, I promise. And I got Robin."
+me "She's very competitive, isn't she."
+scene ep4p2_party_kira16 with dissolve
+ki "Tell me about it. But if that's her only flaw, then I can live with that."
+if not Impact_KiraRobin:
+    scene ep4p2_party_kira24 with dissolve
+    me "Have you ever wondered if this guy-thing is just a competition to her?"
+    scene ep4p2_party_kira20 with dissolve
+    ki "What..."
+    scene ep4p2_party_kira19 with dissolve
+    me "How do I say this..."
+    me "If it's some kind of thing she can win?"
+    ki "I don't think..."
+    scene ep4p2_party_kira25 with dissolve
+    me "Never mind. I take it back..."
+    me "...I shouldn't have said that, I'm sorry."
+    scene ep4p2_party_kira20 with dissolve
+    ki "No... I'm glad you did. I hadn't really looked at it like that."
+    scene ep4p2_party_kira21 with dissolve
+    ki "..."
+scene ep4p2_party_kira17 with dissolve
+ki "Oh... I remembered what the emergency was."
+scene ep4p2_party_kira26 with dissolve
+me "Lay it on me."
+scene ep4p2_party_kira27 with dissolve
+ki "Can you please escort this virgin Mary back to bed? She's a bit wobbly on her feet."
+me "Sure thing."
+scene ep4p2_party_kira28 with dissolve
+me "Just point me in her direction, and I'll do that."
+scene ep4p2_party_kira29 with dissolve
+ki "Oh, fuck you. I'm out of here."
+me "*laughs* No, wait. Let's get you to bed... Mary."
+scene ep4p2_party_kira30 with dissolve
+me "By the way, there's one thing I've been wondering about."
+ki "Shoot."
+me "After our bowling date outside your home, I got the feeling you wanted to have sex with me?"
+scene ep4p2_party_kira31 with dissolve
+ki "I did."
+me "But why... you were drunk then too."
+ki "I was tipsy, not drunk."
+me "Drunk bad, tipsy good. Got it."
+scene ep4p2_party_kira32 with dissolve
+ki "Can you do me a favor? Tell Robin to come to bed if you see her."
+me "She's still up?"
+ki "Most likely. She's always up all night when partying. Unless she's orgasming. Then she's out like a light."
+me "That's oddly specific but sure thing, I'll mention it when I see her."
+scene bg empty with fade
+$ clockis = [[todayIs],0,2,4,5]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_cecerobin01 with fade
+me "(There she is.)"
+scene ep4p2_party_cecerobin02 with dissolve
+me "(Dancing the night away.)"
+scene ep4p2_party_cecerobin03 with dissolve
+me "(Wait... is she?)"
+scene ep4p2_party_cecerobin04 with dissolve
+me "(...)"
+scene ep4p2_party_cecerobin05 with dissolve
+me "(...)"
+scene ep4p2_party_cecerobin06 with dissolve
+me "(Such a tease.)"
+scene ep4p2_party_cecerobin07 with dissolve
+$ ep4CanGetRobinsPin = True
+me "(I think it's about that time I knock her down a few notches.)"
+me "(She's been way too cocky lately, and she's the worst winner I've ever met.)"
+me "(Now what's that pin code of hers...)"
+mod "Open Nuke app on your phone and look at Kira's first Nuke.  Look at comments for Robins PIN."
+
+jump ep4RobinsPinEvent
+label ep4RobinsPinEventPre:
+
+me "(That's her commenting on Kira's nuke.)"
+me "(Hang on. So Robins' username is SquashMaster{b}4739{/b}. And her Nuke username is Robin{b}4739{/b}.)"
+me "(Don't tell me it's that easy.)"
+me "(4... 7... 3... 9...)"
+show ep4_RobinsFriend
+$ renpy.pause(3)
+me "(...and I'm in.)"
+hide ep4_RobinsFriend
+label ep4RobinsPinEvent:
+$ ep4CanGetRobinsPin = False
+$ photoop_ep4RobinDanceNuke = False
+if ep4GotRobinsPin:
+    scene ep4p2_party_cecerobin08 with dissolve
+    me "(Oh, you're going down.)"
+    scene ep4p2_party_cecerobin09 with dissolve
+    me "(There we go... We're connected. Now to start off with something simple.)"
+    scene ep4p2_party_cecerobin10 with hpunch
+    ce "Hey!"
+    me "Holy shit, you scared the crap out of me."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "I think my heart skipped five beats just now."
+    scene ep4p2_party_cecerobin12 with dissolve
+    ce "Sorry."
+    ce "I just wondered if you wanted to get another drink. Enjoy it by the pool or something."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "Are you sure you need another drink right now? You look drunk."
+    scene ep4p2_party_cecerobin13 with dissolve
+    ce "No, you're drunk."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "You're drunker."
+    scene ep4p2_party_cecerobin13 with dissolve
+    ce "You're drunkest... est..."
+    scene ep4p2_party_cecerobin14 with dissolve
+    ce "...is that a new phone game?"
+    scene ep4p2_party_cecerobin15 with dissolve
+    ce "Here, let me try."
+    scene ep4p2_party_cecerobin16 with dissolve
+    me "Maybe you shouldn't play that game right now."
+    me "You know, I just downloaded it and..."
+    me "...I'm not completely sure how it works, and..."
+    scene ep4p2_party_cecerobin15 with dissolve
+    ce "This looks easy enough..."
+    ce "So I just move my finger around, and that starts it?"
+    ce "What is this boost thing, and the numbers... Is that supposed to be heart beats?"
+    scene ep4p2_party_cecerobin16 with dissolve
+    me "(Hmmm. Why not. Let Robin get a taste of her own medicine.)"
+    me "You know what Cece. Go ahead and try, let's see what happens."
+    scene ep4p2_party_cecerobin17 with dissolve
+    ce "Power... Boost... There's so many buttons."
+    ce "So if I try Power..."
+    scene ep4p2_party_cecerobin18 with dissolve
+    ro "Ngh..."
+    ce "Nothing happens."
+    scene ep4p2_party_cecerobin19 with dissolve
+    me "Keep trying. Just click everything in there."
+    scene ep4p2_party_cecerobin20 with dissolve
+    me "And move that slider around for a bit. Especially towards the power area."
+    scene ep4p2_party_cecerobin21 with dissolve
+    me "(Shit, Robin is looking my way. Got to act natural...)"
+    scene ep4p2_party_cecerobin22 with dissolve
+    me "..."
+    scene ep4p2_party_cecerobin23 with dissolve
+    ro "..."
+    scene ep4p2_party_cecerobin24 with dissolve
+    ce "I don't get this game. It's just a lot of buttons, sliders and these numbers."
+    ce "So these numbers are your score?"
+    me "Probably. What's the numbers at right now?"
+    ce "150..."
+    scene ep4p2_party_cecerobin25 with dissolve
+    me "Try pushing all the sliders to the top and see if it changes."
+    ce "Ok..."
+    scene ep4p2_party_cecerobin26 with dissolve
+    ce "Setting everything to max."
+    scene ep4p2_party_cecerobin27 with dissolve
+    me "Nice. Any new high score?"
+    scene ep4p2_party_cecerobin28 with dissolve
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin29 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin28 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin29 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin28 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin29 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin30 with Dissolve(0.1, alpha=True)
+    ce "Wow, the numbers are increasing fast."
+    me "Great. Now try clicking that mega boost button."
+    ce "The one that looks like a nuclear explosion?"
+    me "Yes, try that one."
+    ce "Here goes."
+    scene ep4p2_party_cecerobin31 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin32 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin31 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin32 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin31 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin32 with Dissolve(0.1, alpha=True)
+    $ renpy.pause(0.2)
+    scene ep4p2_party_cecerobin31 with Dissolve(0.1, alpha=True)
+    me "That's more like it."
+    ce "The numbers are at 220 now."
+    scene ep4p2_party_cecerobin33 with dissolve
+    me "Yeah, we should probably stop it now."
+    scene ep4p2_party_cecerobin34 with dissolve
+    me "I think it's game over."
+    scene ep4p2_party_cecerobin35 with dissolve
+    me "Let me have the phone for a bit, so I can turn it off."
+    ce "Weird game."
+    scene ep4p2_party_cecerobin36 with dissolve
+    me "Actually, it's not really a game."
+    me "It just might have been... the remote to Robin's... new friend."
+    ce "I don't get it."
+    me "Robin's new friend, that she just might have inserted into..."
+    ce "I still don't get it."
+    ce "Inserted into..."
+    scene ep4p2_party_cecerobin37 with dissolve
+    ce "..."
+    me "Yeah, into that..."
+    ce "..."
+    me "Can you talk? You're freaking me out right now."
+    ce "..."
+    ce "I just gave her..."
+    me "Yeah."
+    scene ep4p2_party_cecerobin61 with fade
+    ce "Is she dead?"
+    scene ep4p2_party_cecerobin39 with dissolve
+    me "Probably just a mini-coma."
+    ce "..."
+    scene ep4p2_party_cecerobin61 with dissolve
+    me "..."
+    scene ep4p2_party_cecerobin38 with dissolve
+    ce "Poor woman."
+    me "I'm not sure she agrees with that. She looks..."
+    scene ep4p2_party_cecerobin39 with dissolve
+    ce "...peaceful."
+    scene ep4p2_party_cecerobin40 with dissolve
+    ce "Anyway, let's go get another drink."
+    me "Nope. Let's go to bed."
+    ce "Ewww."
+    me "Not like that. It's late, and you've had quite enough."
+else:
+    scene ep4p2_party_cecerobin07 with dissolve
+    me "(Shit, I don't know.)"
+    me "(That could have been fun.)"
+    scene ep4p2_party_cecerobin10 with hpunch
+    ce "Hey!"
+    me "Holy shit, you scared the crap out of me."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "I think my heart skipped five beats just now."
+    scene ep4p2_party_cecerobin12 with dissolve
+    ce "Sorry."
+    ce "I just wondered if you wanted to get another drink. Enjoy it by the pool or something."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "Are you sure you need another drink right now? You look drunk."
+    scene ep4p2_party_cecerobin13 with dissolve
+    ce "No, you're drunk."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "You're drunker."
+    scene ep4p2_party_cecerobin13 with dissolve
+    ce "You're drunkest... est..."
+    scene ep4p2_party_cecerobin12 with dissolve
+    ce "..."
+    ce "So... Do you want to come get another drink?"
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "How about I just get you to bed instead."
+    scene ep4p2_party_cecerobin13 with dissolve
+    ce "Ewww."
+    scene ep4p2_party_cecerobin11 with dissolve
+    me "Not like that. It's late, and I'm sure you've had quite enough."
+    me "Almost everyone else has gone to bed already."
+scene ep4p2_party_cecerobin46 with fade
+me "Will you be careful down the stairs?"
+scene ep4p2_party_cecerobin44 with dissolve
+ce "Are you saying I'm drunk?"
+scene ep4p2_party_cecerobin46 with dissolve
+me "I'm saying be careful."
+scene ep4p2_party_cecerobin44 with dissolve
+ce "You're still drunkest-est."
+scene ep4p2_party_cecerobin45 with dissolve
+ce "Whoa..."
+scene bg empty with fade
+$ clockis = [[todayIs],0,3,0,1]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_cecerobin47 with fade
+me "Got ya."
+scene ep4p2_party_cecerobin48 with dissolve
+ce "You're kinda soft to land on."
+ce "But thank you... Are you fine?"
+me "I am, don't worry about it."
+scene ep4p2_party_cecerobin49 with dissolve
+ce "On the bridge that night..."
+ce "Do you know why I chose to hold on to your hand?"
+me "I think I do."
+ce "I think you don't... because..."
+scene ep4p2_party_cecerobin50 with dissolve
+ce "Shit."
+ce "That would have been a major spoiler..."
+scene ep4p2_party_cecerobin51 with dissolve
+ce "*gasps* Hang on."
+ce "Are you..."
+scene ep4p2_party_cecerobin52 with dissolve
+if ep4NightChoose == 1:
+    ce "Hard again?"
+else:
+    ce "Hard?"
+scene ep4p2_party_cecerobin53 with dissolve
+me "The way you are twisting, turning and wiggling..."
+scene ep4p2_party_cecerobin54 with dissolve
+ce "Oh, that's it."
+scene ep4p2_party_cecerobin55 with dissolve
+ce "I'm so not talking to you anymore right now."
+me "But I..."
+scene ep4p2_party_cecerobin56 with dissolve
+ce "Not talking!"
+scene ep4p2_party_cecerobin57 with dissolve
+ce "I'll be in my room. Good night."
+scene ep4p2_party_cecerobin58 with dissolve
+me "Cece?"
+scene ep4p2_party_cecerobin57 with dissolve
+ce "..."
+me "..."
+ce "Yeah?"
+scene ep4p2_party_cecerobin58 with dissolve
+me "That's not your room."
+scene ep4p2_party_cecerobin57 with dissolve
+ce "Like I wouldn't recognize my own room."
+scene ep4p2_party_cecerobin59 with dissolve
+me "It's a closet."
+scene ep4p2_party_cecerobin57 with dissolve
+ce "..."
+scene ep4p2_party_cecerobin58 with dissolve
+me "..."
+scene ep4p2_party_cecerobin57 with dissolve
+ce "It's a closet."
+if ep4GotRobinsPin:
+    scene ep4p2_party_cecerobin60 with dissolve
+    me "I'll go check how Robin's doing."
+    me "Good night, Cece. Sweet dreams."
+    scene ep4p2_party_cecerobin41 with fade
+    me "Robin, you ok?"
+    scene ep4p2_party_cecerobin42 with dissolve
+    ro "Huh? Yeah, I'm fine."
+    me "4... 7... 3... 9..."
+    ro "..."
+    scene ep4p2_party_cecerobin43 with dissolve
+    stop music fadeout 3
+    ro "Congratulations. Well played!"
+    scene bg empty with fade
+    $ clockis = [[todayIs],0,3,1,9]
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    play music ep4_partygolf
+    $ nowPlayingArtist = "Oak and Cherry"
+    $ nowPlayingTitle = "Pull"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    scene ep4p2_party_chrislater01 with fade
+    me "(I completely forgot about Chris and the golf, I wonder if he's still up.)"
+else:
+    scene ep4p2_party_cecerobin60 with dissolve
+    stop music fadeout 3
+    me "I'll go check on Chris and his golfswing."
+    me "Good night, Cece. Sweet dreams."
+    scene bg empty with fade
+    $ clockis = [[todayIs],0,3,1,9]
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    play music ep4_partygolf
+    $ nowPlayingArtist = "Oak and Cherry"
+    $ nowPlayingTitle = "Pull"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    scene ep4p2_party_chrislater01 with fade
+    me "(I wonder if he's still up.)"
+scene ep4p2_party_chrislater02 with dissolve
+me "(Yup, he is.)"
+play sound ep4_golfswing
+scene ep4p2_party_chrislater03 with dissolve
+me "Nice swing."
+scene ep4p2_party_chrislater04 with dissolve
+ch "Thanks. I've been practicing it all night."
+scene ep4p2_party_chrislater05 with dissolve
+me "..."
+scene ep4p2_party_chrislater07 with dissolve
+ch "I thought you forgot about me out here."
+scene ep4p2_party_chrislater06 with dissolve
+me "That would never happen."
+scene ep4p2_party_chrislater07 with dissolve
+ch "...remember Metro..."
+scene ep4p2_party_chrislater06 with dissolve
+me "That doesn't count. I got Stephnotized."
+scene ep4p2_party_chrislater08 with dissolve
+if ep4NightChoose == 7:
+    ch "You've always been Stephnotized."
+    me "Probably true."
+else:
+    ch "Now that's a story for your grandchildren."
+    me "Probably not."
+scene ep4p2_party_chrislater09 with dissolve
+ch "So how did it go with the girls."
+scene ep4p2_party_chrislater10 with dissolve
+me "They're all sleeping now."
+me "I think most were caught off guard by a day of drinking and the warm weather."
+scene ep4p2_party_chrislater12 with dissolve
+if Impact_Steph:
+    me "Did Linda and Steph come to see you back here?"
+    if ep4ChrisBamboobzled:
+        scene ep4p2_party_chrislater13 with dissolve
+        ch "Yeah, they did the bamboobzled thing again."
+        me "Nice."
+        ch "..."
+        scene ep4p2_party_chrislater14 with dissolve
+        ch "You sent them, didn't you."
+        me "Yeah..."
+        ch "Thank you, I think."
+    else:
+        scene ep4p2_party_chrislater13 with dissolve
+        ch "Nope. Any reason?"
+        me "I got bamboobzled. I think they were trying to hunt you down as well."
+        ch "They still do that thing?"
+        me "Yeah."
+        scene ep4p2_party_chrislater14 with dissolve
+        ch "And..."
+        me "It wasn't all bad."
+    if ep4SetupChrisWith == 1:
+        scene ep4p2_party_chrislater13 with dissolve
+        me "Did you... get any good feeling with Linda?"
+        ch "As a Love interest, you mean?"
+        me "Yeah."
+        ch "She's nice... Always has been. And she kissed my cheek."
+        scene ep4p2_party_chrislater14 with dissolve
+        me "Dude, that's like base... 0.0001. Keep it up, and you'll have her reeled in, in about... 30 years."
+        ch "Fuck you."
+else:
+    me "I didn't see Linda all night though."
+    scene ep4p2_party_chrislater13 with dissolve
+    ch "She was back here with me. We had a nice talk."
+    if ep4SetupChrisWith == 1:
+        me "Did you... get any good feeling with Linda?"
+        ch "As a Love interest, you mean?"
+        me "Yeah."
+        ch "She's nice... Always has been. And she kissed my cheek."
+        scene ep4p2_party_chrislater14 with dissolve
+        me "Dude, that's like base... 0.0001. Keep it up, and you'll have her reeled in, in about... 30 years."
+        ch "Fuck you."
+ch "..."
+scene ep4p2_party_chrislater13 with dissolve
+ch "Linda's been through a lot."
+scene ep4p2_party_chrislater15 with dissolve
+me "Yeah, from what I could tell, she has. I feel terrible though. For not sticking in there."
+me "Let's try and help her from now on."
+scene ep4p2_party_chrislater16 with dissolve
+ch "That's a promise."
+ch "..."
+scene ep4p2_party_chrislater17 with dissolve
+ch "Do you think there's some kind of high power, ultimate plan behind all this?"
+me "What do you mean?"
+ch "This... All of it... Getting together at this wonderful place. Reconnecting... Bonding..."
+scene ep4p2_party_chrislater12 with dissolve
+me "I'm not really that much of a thinker, Chris. But who knows."
+ch "I could be wrong. But it's something I definitely will enjoy thinking back at some day in the future."
+scene ep4p2_party_chrislater14 with dissolve
+me "That's a good point. To enjoy it while being in the midst of it."
+ch "I'll drink to that."
+scene ep4p2_party_chrislater15 with dissolve
+me "You still drink that... thing."
+scene ep4p2_party_chrislater18 with dissolve
+ch "This thing? Yeah, it's so smooth."
+ch "But then again, beer types are like friends. They all get along."
+scene ep4p2_party_chrislater19 with dissolve
+me "A toast then. To beer."
+ch "To beer."
+me "Only one drink though. It's getting very very late."
+me "And I'm not touching that thing."
+ch "Cheers."
+scene bg empty with fade
+$ clockis = [[todayIs],0,4,1,2]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_party_chrislater20 with fade
+"{i}Ring ding diddle diddle I de oh ring di diddly I o...{/i}"
+"{i}I wonder if it's true what they don't wear beneath the kilt.{/i}"
+scene ep4p2_party_chrislater22 with dissolve
+ch "Did you talk to your mom after Metro?"
+me "Only briefly. Called her to say we were coming here, why?"
+ch "I think I called her in the middle of the night. Tell her I'm really sorry about that."
+me "..."
+ch "...I kinda ordered waffles..."
+me "..."
+scene ep4p2_party_chrislater21 with dissolve
+me "Dude..."
+me "She changed her phone number about a year ago, after that creep kept calling her..."
+ch "..."
+ch "No wonder that woman on the other end kept yelling at me."
+ch "I'm so relieved right now."
+me "..."
+ch "More toasts! Let's keep this going all night."
+me "Let's!"
+scene ep4p2_party_chrislater23 with fade
+"..."
+scene ep4p2_party_chrislater24 with dissolve
+me "CHRIS!"
+ch "RUBBER BAND!"
+me "What?"
+ch "Beats me... My mind doesn't cooperate right now."
+scene ep4p2_party_chrislater25 with dissolve
+me "I really, really, really should get some shuteye..."
+ch "One final toast..."
+scene ep4p2_party_chrislater26 with dissolve
+$ renpy.pause()
+scene ep4p2_party_chrislater27 with dissolve
+me "Smoothest beer in the world."
+scene ep4p2_party_chrislater28 with dissolve
+ch "HAH!"
+ch "You drank my brand!"
+scene ep4p2_party_chrislater29 with dissolve
+ch "AND you said it was the smoothest beer in the world!"
+me "Well, fuck me..."
+scene ep4p2_party_chrislater30 with dissolve
+me "HAH!"
+me "You drank my brand!"
+ch "Well, fuck me too."
+scene ep4p2_party_chrislater31 with dissolve
+me "Who cares... It's only beer."
+scene ep4p2_party_chrislater32 with dissolve
+me "And now! I'm heading to bed."
+me "Let me just take a swing with that golf club of yours."
+me "Life is too short to not having swung a golf club once."
+scene ep4p2_party_chrislater33 with dissolve
+ch "Don't mind me sitting here enjoying that catastrophe in the making."
+ch "We should Nuke this."
+me "Nope."
+scene ep4p2_party_chrislater34 with dissolve
+me "So which one of these do I choose?"
+ch "Try the biggest one."
+scene ep4p2_party_chrislater35 with dissolve
+me "Ready or not... here I come!"
+play sound ep4_golfswing
+scene ep4p2_party_chrislater36 with dissolve
+$ renpy.pause(3)
+scene ep4p2_party_chrislater37 with dissolve
+me "..."
+scene ep4p2_party_chrislater38 with dissolve
+me "..."
+scene ep4p2_party_chrislater39 with dissolve
+ch "Dude..."
+ch "You son of a bitch, you did it."
+ch "First golf swing you ever did..."
+ch "... in the middle of the night..."
+ch "... while hammered..."
+ch "... and you go and pull off a shot like that."
+me "Did you Nuke it?"
+ch "No."
+me "Damn."
+scene ep4p2_party_chrislater45 with dissolve
+me "That would have been something."
+me "..."
+scene ep4p2_party_chrislater41 with dissolve
+me "Anyway, I'm off."
+scene ep4p2_party_chrislater42 with dissolve
+ch "Have a good night, brother."
+me "You too."
+scene ep4p2_party_chrislater43 with dissolve
+stop music fadeout 3
+ch "By the way, did you see where I put my crocs?"
+scene ep4p2_party_chrislater44 with dissolve
+me "No idea, man."
+me "(So comfy.)"
+label ch4Bunny:
+scene bg empty with fade
+$ clockis = [[todayIs],1,0,0,6]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(2)
+scene ep4p2_bunnydance01 with dissolve
+"zzz."
+hide screen phone
+play music ep4_bunnygirls
+$ nowPlayingArtist = "Ryan Prewett"
+$ nowPlayingTitle = "Hit the Ground Running"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+"{fast}zzz...{w=1.0}{nw}"
+scene ep4p2_bunnydance02 with dissolve
+"{fast}Mhrff...{w=1.0}{nw}"
+scene ep4p2_bunnydance03 with dissolve
+"{fast}Huh...{w=0.7}{nw}"
+scene ep4p2_bunnydance04 with dissolve
+"{fast}!{w=1.0}{nw}"
+if Impact_Steph:
+    show ep4_bunnydance at imgSlide_bunnydanceGirls
+else:
+    show ep4_bunnydancewos at imgSlide_bunnydanceGirls
+$ renpy.pause(15.5)
+scene ep4p2_bunnydance12
+hide ep4_bunnydance
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance13 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance14 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance15 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance16 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance17 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance18 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance19 with dissolve
+$ renpy.pause(1.3)
+scene ep4p2_bunnydance20 with dissolve
+$ renpy.pause(1.3)
+if Impact_Steph:
+    scene ep4p2_bunnydance22 with dissolve
+    $ renpy.pause(1.3)
+    scene ep4p2_bunnydance23 with dissolve
+    $ renpy.pause(1.3)
+    scene ep4p2_bunnydance24 with dissolve
+    $ renpy.pause(1.1)
+else:
+    scene ep4p2_bunnydance21 with dissolve
+    $ renpy.pause(1.3)
+    scene ep4p2_bunnydance26 with dissolve
+    $ renpy.pause(1.3)
+    scene ep4p2_bunnydance27 with dissolve
+    $ renpy.pause(1.1)
+scene ep4p2_bunnydance29 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance31 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance29 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance31 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance35
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance37
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance35
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance37
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance32 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance31 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance29 with dissolve
+$ renpy.pause(0.45)
+if Impact_Steph:
+    scene ep4p2_bunnydance34 with dissolve
+else:
+    scene ep4p2_bunnydance33 with dissolve
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance35
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance37
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance35
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance37
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance36
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance25
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance26
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance25
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance27
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance25
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance26
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance25
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance28
+$ renpy.pause(1.45)
+scene bg empty with fade
+$ renpy.pause(2)
+scene ep4p2_mcshock60
+$ renpy.movie_cutscene("imov/ep4/ep4p2_mcshock.webm", delay=None, loops=0, stop_music=False)
+$ renpy.pause(1.25)
+$ nowPlayingArtist = "Ikoliks"
+$ nowPlayingTitle = "One Last Breath"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+show ep4p2_bunnydance42 at imgSlide_bunnydanceGirls3
+show ep4p2_bunnydance43 at imgSlide_bunnydanceGirls2
+if Impact_Steph:
+    show ep4p2_bunnydance_unbra_s at imgSlide_bunnydanceGirls
+else:
+    show ep4p2_bunnydance_unbra at imgSlide_bunnydanceGirls
+$ renpy.pause(14.5)
+label galleryScene5:
+scene ep4p2_bunnydance44
+hide ep4p2_bunnydance42
+hide ep4p2_bunnydance43
+hide ep4p2_bunnydance_unbra
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance45
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance44
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance45
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance47
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance46
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance47
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance46
+$ renpy.pause(0.73)
+scene ep4p2_bunnydance56
+$ renpy.pause(1.45)
+scene ep4p2_bunnydance57
+$ renpy.pause(1.45)
+scene ep4p2_bunnydance58
+$ renpy.pause(1.45)
+if Impact_Steph:
+    scene ep4p2_bunnydance59s
+    $ renpy.pause(1.45)
+    scene ep4p2_bunnydance60s
+    $ renpy.pause(1.45)
+    scene ep4p2_bunnydance61s
+    $ renpy.pause(1.45)
+    scene ep4p2_bunnydance62s
+    $ renpy.pause(2.9)
+    scene ep4p2_bunnydance63s
+else:
+    scene ep4p2_bunnydance59
+    $ renpy.pause(1.45)
+    scene ep4p2_bunnydance60
+    $ renpy.pause(1.45)
+    scene ep4p2_bunnydance61
+    $ renpy.pause(1.45)
+    scene ep4p2_bunnydance62
+    $ renpy.pause(2.9)
+    scene ep4p2_bunnydance63
+$ renpy.pause(2.9)
+scene ep4p2_bunnydance48
+le "{fast}Hmmm...{w=1.45}{nw}"
+scene ep4p2_bunnydance49
+$ renpy.pause(0.45)
+scene ep4p2_bunnydance50
+le "{fast}You have something I want...{w=2.5}{nw}"
+scene ep4p2_bunnydance51
+le "{fast}...and I want it now.{w=1.65}{nw}"
+scene ep4p2_bunnydance52
+le "{fast}...{w=0.25}{nw}"
+scene ep4p2_bunnydance53
+le "{fast}...this...{w=1}{nw}"
+scene ep4p2_bunnydance54
+le "{fast}...is...{w=1}{nw}"
+scene ep4p2_bunnydance55
+le "{fast}...mine!{w=2}{nw}"
+stop music fadeout 3
+show screen phone
+me "Ehm... Lexi..."
+me "I'm fairly sure that is Robin's toy."
+scene ep4p2_bunnyend02 with dissolve
+le "Oh..."
+le "Now that's embarrassing..."
+$ renpy.end_replay()
+scene ep4p2_bunnyend01 with dissolve
+le "Robin!"
+label ep4DatePrologues:
+$ clockis = [[todayIs],1,6,3,4]
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lindaromance09 with fade
+me "(This is absolute heaven.)"
+me "(I haven't felt this relaxed in ages.)"
+li "Morning sunshine."
+scene ep4p2_lindaromance09a with dissolve
+me "Hey there."
+me "Watching me while I'm sleeping, eh?"
+scene ep4p2_lindaromance09b with dissolve
+li "Maybe."
+li "You looked so relaxed."
+scene ep4p2_lindaromance09c with dissolve
+me "I am. Truly enjoying this."
+me "And you?"
+scene ep4p2_lindaromance09b with dissolve
+li "Absolute bliss."
+scene ep4p2_lindaromance09d with dissolve
+li "I mean, your place is good too, but this is... just what I needed."
+scene ep4p2_lindaromance09a with dissolve
+me "I do miss my fantastic couch though."
+scene ep4p2_lindaromance09d with dissolve
+li "Sure you do."
+li "I like it better laying next to you in b..."
+play sound phone_notify_sound
+scene ep4p2_lindaromance09e with dissolve
+li "What could that be."
+me "Expecting a message?"
+li "Not really."
+scene ep4p2_lindaromance01 with fade
+me "Nothing bad I presume?"
+li "Mhmmm."
+scene ep4p2_lindaromance03 with dissolve
+li "(What could you want now...)"
+scene ep4p2_lindaromance04 with dissolve
+li "(No...)"
+scene ep4p2_lindaromance05 with dissolve
+$ renpy.pause(2)
+scene ep4p2_lindaromance06 with dissolve
+$ renpy.pause(2)
+scene ep4p2_lindaromance07 with dissolve
+$ renpy.pause(2)
+scene ep4p2_lindaromance02 with dissolve
+me "Linda?"
+scene ep4p2_lindaromance10 with dissolve
+ch "Whoa, there."
+me "Linda!"
+scene ep4p2_lindaromance11 with dissolve
+ch "What's up?"
+scene ep4p2_lindaromance12 with dissolve
+me "No idea. I'll go talk to her."
+ch "Keep me posted."
+scene ep4p2_lindaromance13 with dissolve
+me "Oh, and she dropped her phone in the pool..."
+scene ep4p2_lindaromance14 with dissolve
+ch "Say no more!"
+scene bg empty with fade
+$ clockis = [[todayIs],1,6,4,3]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lindaromance15 with fade
+play music ep4_lindapreromance
+$ nowPlayingArtist = "The Talbott Brothers"
+$ nowPlayingTitle = "One Day Soon"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "Linda?"
+scene ep4p2_lindaromance16 with dissolve
+li "I'll be right back. Just give me a few."
+scene ep4p2_lindaromance17 with dissolve
+li "Everything's fine."
+scene ep4p2_lindaromance18 with dissolve
+me "No it's not. Everything is not fine. Not even remotely close to it."
+me "I have been a complete fucking idiot."
+scene ep4p2_lindaromance19 with dissolve
+me "So many years, and not a single time did I pick up the phone to call you."
+me "Or text you. Anything really..."
+scene ep4p2_lindaromance20 with dissolve
+me "To ask how you're doing. To come and visit you. To make sure you're actually doing... fine."
+me "So don't give me any of that bullshit. I can see that things are absolutely not fine. Far from it."
+scene ep4p2_lindaromance21 with dissolve
+me "I'm just so very sorry I didn't make sure of it earlier."
+me "But I'm not going to abandon you again. I'm here for you. So is Chris, and all the rest of us."
+me "So when we get back home, we're going to sort this out. Whatever it is, I'm going to make sure."
+scene ep4p2_lindaromance22 with dissolve
+me "I don't know how many times I've had to lean on your shoulder, but now I'm offering you mine."
+me "Whenever you want to share whatever it is that is not fine, I'm there."
+me "Just don't say that everything is fine. It's not."
+me "I'm so sorry, Linda."
+li "..."
+scene ep4p2_lindaromance26 with dissolve
+li "That's not true."
+li "I mean, the part of you not being there for me."
+li "You were always there, even when I moved away."
+scene ep4p2_lindaromance27 with dissolve
+li "I'd remember the fun things we did, and how it felt being around you and the rest of the guys."
+li "Those memories never went away."
+scene ep4p2_lindaromance26 with dissolve
+li "And that ring you gave me. In a weird way, it always gave me comfort."
+li "I know it's goofy, and that you got it out of a cereal box. And for you it probably doesn't mean anything at all."
+scene ep4p2_lindaromance28 with dissolve
+li "But to me, it means a lot more. It comes with this nice story..."
+li "...of the day I met you for the first time."
+scene ep4p2_lindaromance29 with dissolve
+li "So on a particularly bad day, I would just lay down in my bed and remember."
+li "And you know what?"
+scene ep4p2_lindaromance30 with dissolve
+li "...I always ended up smiling."
+scene ep4p2_lindaromance25 with dissolve
+li "Because I know..."
+li "..."
+scene ep4p2_lindaromance23 with dissolve
+li "...I'll always love you."
+label galleryScene11:
+scene ep4p2_lindaromance30b
+$ renpy.movie_cutscene("imov/ep4/ep4p2_firstkiss.webm", delay=None, loops=0, stop_music=False)
+$ ep4SetupChrisWithLi = False
+menu:
+    "[M_04_043a]" if ep4NightChoose <> 6: # "Withdraw." if ep4NightChoose <> 6:
+        $ clockis = [[todayIs],1,7,0,0]
+        scene ep4p2_lindaromance30 with dissolve
+        me "Linda..."
+        li "I know..."
+        li "I wasn't trying to seduce you."
+        li "You're the brother I never had. And you can never let me down."
+        scene ep4p2_lindaromancew01 with dissolve
+        me "In that case..."
+        me "...love you too."
+        scene ep4p2_lindaromance30 with dissolve
+        me "But seriously, it's going to be alright. You don't have to tackle everything alone."
+        me "I'm there for you..."
+        scene ep4p2_lindaromancew01 with dissolve
+        me "...little sister."
+        li "Now that's just unfair. How do you know I'm not the big sister?"
+        me "Well for one, you're younger than me..."
+        li "*sigh* Good point."
+        menu:
+            "[M_04_044a]" if ep4SetupChrisWith == 1: # "Try setting her up with Chris." if ep4SetupChrisWith == 1:
+                $ ep4SetupChrisWithLi = True
+                me "You know Chris adores you, right?"
+                li "*laughs* Yeah, and I adore him."
+                scene ep4p2_lindaromancew02 with dissolve
+                me "Do I really need to say anything more?"
+                li "I..."
+                li "..."
+                me "But are you ready to head back upstairs?"
+                jump ep4LindaHeadBack
+            "[M_04_044b]": # "Head back upstairs.":
+                me "So are you ready to head back upstairs?"
+                jump ep4LindaHeadBack
+        label ep4LindaHeadBack:
+        scene ep4p2_lindaromance30 with dissolve
+        li "Yeah. Depressive mode is over."
+        me "Don't call it depressive mode. Shit happens, and you're allowed to take a step back to deal with it."
+        scene ep4p2_lindaromancew01 with dissolve
+        stop music fadeout 3
+        li "Stop being so melodramatic."
+        me "Touche..."
+        li "You stole that from a book, didn't you."
+        me "Touche..."
+        jump ep4RomanceSelectors
+    "[M_04_043b]" if ep4NightChoose == 6 or ep4NightChoose == 0: # "Go for it!" if ep4NightChoose == 6 or ep4NightChoose == 0:
+        $ clockis = [[todayIs],1,7,0,0]
+        hide screen phone
+        stop music fadeout 2
+        $ renpy.pause(2)
+        if ep4SetupChrisWith == 1:
+            $ phone_task_append_item1 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;1"
+            $ phone_task_append_item2 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;0"
+            if phone_task_append_item1 in phone_task_list:
+                if phone_task_append_item2 not in phone_task_list:
+                    $ phone_task_list.remove(phone_task_append_item1)
+                    $ phone_task_list.append(phone_task_append_item2)
+                    $ phTaskNotify = True
+            $ phone_taskadd = "Task failed\nSet Chris up with someone."
+            show screen phone_taskfailed
+            play music ep4_lindaromance
+            $ nowPlayingArtist = "Francesco D'Andrea"
+            $ nowPlayingTitle = "Sharp Thin Blade"
+            $ nowPlayingRealArtist = ""
+            $ nowPlayingRealTitle = ""
+            scene ep4p2_lindaromance31 with dissolve
+            me "..."
+            hide screen phone_taskfailed
+        else:
+            play music ep4_lindaromance
+            $ nowPlayingArtist = "Francesco D'Andrea"
+            $ nowPlayingTitle = "Sharp Thin Blade"
+            $ nowPlayingRealArtist = ""
+            $ nowPlayingRealTitle = ""
+            scene ep4p2_lindaromance31 with dissolve
+            me "..."
+        scene ep4p2_lindaromance32 with dissolve
+        li "I can't believe this is happening."
+        scene ep4p2_lindaromance33 with dissolve
+        li "I have wanted this for so long."
+        scene ep4p2_lindaromance34 with dissolve
+        me "You have magnificent breasts, Linda."
+        li "I know, you've told me."
+        scene ep4p2_lindaromance35 with dissolve
+        li "So get down there and manhandle them."
+        scene ep4p2_lindaromance36 with dissolve
+        li "Yes! Just like that."
+        scene ep4p2_lindaromance37 with dissolve
+        li "Lick, suck, bi..."
+        scene ep4p2_lindaromance38 with dissolve
+        li "Mmmmmmmmhooowshiiit."
+        scene ep4p2_lindaromance39 with dissolve
+        li "Keep going."
+        me "Mhmmhng?"
+        li "Yes!"
+        scene ep4p2_lindaromance45
+        show ep4p2_lindaromance40a at imgSlide_ep4LindaGo
+        show ep4p2_lindaromance40b at imgSlide_ep4LindaGoBra
+        show ep4p2_lindaromance40c at imgSlide_ep4LindaGoPanties
+        $ renpy.pause()
+        hide ep4p2_lindaromance40a
+        hide ep4p2_lindaromance40b
+        hide ep4p2_lindaromance40c
+        li "I've wanted this for so long."
+        me "I don't know why I waited so long."
+        me "You're damn hot."
+        scene ep4p2_lindaromance46 with dissolve
+        li "Must be because every part of me..."
+        scene ep4p2_lindaromance47 with dissolve
+        li "...is on fire."
+        scene ep4p2_lindaromance48 with dissolve
+        li "..."
+        li "Damnit. Can't reach..."
+        scene ep4p2_lindaromance49 with dissolve
+        li "Fuck it."
+        scene ep4_lindaback with dissolve
+        li "Keep going."
+        li "Just... keep... going."
+        me "I'm going to fuck you into the wall."
+        scene ep4p2_lindaromance49 with dissolve
+        li "Oh, sweet baby jesus. Here we go..."
+        scene ep4p2_lindaromance50 with dissolve
+        li "I'm cu..."
+        scene ep4_chrisblowphone with fade
+        ch "..."
+        scene ep4p2_lindaromance53 with dissolve
+        ch "What the..."
+        scene ep4p2_lindaromance54 with dissolve
+        ch "Earthquake?"
+        scene ep4p2_lindaromance42 with fade
+        li "Don't come, please."
+        scene ep4p2_lindaromance41 with dissolve
+        li "I want more."
+        scene ep4p2_lindaromance43 with dissolve
+        me "*laughs* Don't worry. I've got more stamina than that."
+        scene ep4p2_lindaromance44 with dissolve
+        li "You just went from a perfect 10, to 11."
+        scene ep4p2_lindaromance61 with fade
+        li "Where the heck did you learn how to do that?"
+        me "Bad?"
+        scene ep4p2_lindaromance62 with dissolve
+        li "Good!"
+        scene ep4p2_lindaromance66 with dissolve
+        li "And... do you still remember that... thing... I taught you?"
+        scene ep4p2_lindaromance67 with dissolve
+        me "The twirl?"
+        scene ep4p2_lindaromance63 with dissolve
+        li "What the fuck, you gave it a name?"
+        scene ep4p2_lindaromance64 with dissolve
+        li "Oh, fucking hell."
+        scene ep4p2_lindaromance65 with dissolve
+        li "Keep twirling!"
+        li "Because... I'm... going... to... cu..."
+        scene ep4p2_lindaromance55 with fade
+        ch "..."
+        scene ep4p2_lindaromance56 with dissolve
+        ch "..."
+        scene ep4p2_lindaromance55 with dissolve
+        ch "..."
+        scene ep4p2_lindaromance69 with fade
+        li "Do it!"
+        scene ep4p2_lindaromance72 with dissolve
+        me "Are you sure?"
+        scene ep4p2_lindaromance68 with dissolve
+        li "Yes. I want it."
+        scene ep4p2_lindaromance71 with dissolve
+        me "I don't have any lube..."
+        scene ep4p2_lindaromance73 with dissolve
+        me "This isn't going to be good for you..."
+        scene ep4p2_lindaromance68 with dissolve
+        li "Sweetheart..."
+        li "I'm wetter than the pacific ocean..."
+        scene ep4p2_lindaromance75
+        $ renpy.movie_cutscene("imov/ep4/ep4p2_linda.webm", delay=None, loops=0, stop_music=False)
+        li "Let's get you...."
+        scene ep4p2_lindaromance76 with dissolve
+        li "...lubed up."
+        scene ep4p2_lindaromance77 with dissolve
+        me "..."
+        scene ep4p2_lindaromance78 with dissolve
+        li "You weren't kidding."
+        scene ep4p2_lindaromance79 with dissolve
+        me "So, you ready for this now?"
+        scene ep4p2_lindaromance80 with dissolve
+        li "I've been ready for years."
+        scene ep4p2_lindaromance81 with dissolve
+        li "Hngh..."
+        li "Push."
+        scene ep4p2_lindaromance82 with dissolve
+        li "Oh yeah. There we go."
+        scene ep4p2_lindaromance83 with dissolve
+        li "This is..."
+        scene ep4p2_lindaromance84 with dissolve
+        li "...different than regular..."
+        scene ep4p2_lindaromance83 with dissolve
+        me "You're really tight. You sure..."
+        scene ep4p2_lindaromance84 with dissolve
+        li "Yes! Now fuck that ass like you mean it."
+        scene ep4_lindaanal with dissolve
+        li "Oh my god..."
+        li "This is really different..."
+        li "I'm so damn close."
+        me "I'm not going to be able to hold back this..."
+        me "At all."
+        scene ep4p2_lindaromance85 with dissolve
+        li "Don't pull out..."
+        li "...just go!"
+        scene ep4p2_lindaromance88 with dissolve
+        me "And now for the piece the resistance."
+        li "Huh?"
+        $ renpy.end_replay()
+        scene ep4p2_lindaromance86 with dissolve
+        li "Aaaaaaaaaaaaaaaaaaaaa..."
+        scene ep4p2_lindaromance87 with dissolve
+        li "...aaaaaaaaaaaaaaaaaaa..."
+        li "..."
+        li "A!"
+        stop music fadeout 3
+        scene ep4_chrisfloor with dissolve
+        ch "..."
+        scene ep4p2_lindaromance59 with dissolve
+        ch "Earthquake!"
+        scene bg empty with fade
+        $ renpy.pause(0.5)
+        $ renpy.pause(0.5)
+        $ renpy.pause(0.5)
+        $ renpy.pause(0.5)
+        play music ep3_homeinter
+        $ nowPlayingArtist = "Brick Fields"
+        $ nowPlayingTitle = "This Time Coming Soon"
+        $ nowPlayingRealArtist = ""
+        $ nowPlayingRealTitle = ""
+        scene ep4p2_lindaromance90 with fade
+        li "Listen, I know that this was just a spur of the moment thing."
+        scene ep4p2_lindaromance89 with dissolve
+        me "Linda..."
+        scene ep4p2_lindaromance91 with dissolve
+        li "I can see the girls here drooling over you if you as much as walk past them."
+        scene ep4p2_lindaromance92 with dissolve
+        li "And they are all so much more beautiful than me, I know."
+        li "Not to mention, Lexi. You can basically have everything with her. The fame, and probably no financial worries..."
+        scene ep4p2_lindaromance91 with dissolve
+        li "Or Cece. Fuck me... what was I thinking... poor Cece."
+        me "Linda..."
+        scene ep4p2_lindaromance91 with dissolve
+        li "So I get it."
+        li "But I wanted you to know, that I hope this doesn't ruin our friendship."
+        li "You know, getting awkward... or something like that."
+        li "For me, it's just another very good memory to treasure."
+        scene ep4p2_lindaromance93 with dissolve
+        me "You done?"
+        scene ep4_lindablinkafter with dissolve
+        li "..."
+        me "Good."
+        me "They are all beautiful women. And I don't know what I've been doing right if every single one of them is interested in me."
+        me "If you say so, maybe it's true."
+        me "And I could probably try dating Lexi, and who knows. Maybe that would mean me ending up with her."
+        me "Which in terms would mean I could probably move in here, live off her, follow her on tours and meet a lot of celebrities."
+        me "Or Cece. She is wonderful too. That maybe the two us ending up together would somehow... help her."
+        me "And Steph. I was with her for a few years too."
+        me "But all of them made me realize that I don't want any of them."
+        me "I sat on that bench in school for two full weeks watching you."
+        scene ep4p2_lindaromance97 with dissolve
+        me "You were my first crush without even saying a word to me."
+        me "Then life somehow got in the way. And other women caught my attention."
+        scene ep4p2_lindaromance98 with dissolve
+        me "But I realize they were just distractions, you were not only my first crush."
+        me "I love you."
+        me "And if you can forgive me for being a fool and not realizing earlier..."
+        scene ep4p2_lindaromance99 with dissolve
+        me "...you would make me the happiest guy in the world."
+        scene ep4p2_lindaromance991 with dissolve
+        li "..."
+        scene ep4p2_lindaromance992 with dissolve
+        stop music fadeout 3
+        me "..."
+        me "I take that as a yes."
+        li "Yes!"
+        hide screen phone
+        scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+        play music ep4_epilogue
+        $ nowPlayingArtist = "Roman P."
+        $ nowPlayingTitle = "Universe"
+        $ nowPlayingRealArtist = ""
+        $ nowPlayingRealTitle = ""
+        queue music [ep4_loftheme]
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        scene ep4p2_epilinda with fade
+        $ renpy.pause(2)
+        jump ch4EndPre
+label ep4RomanceSelectors:
+scene bg empty with fade
+$ nowPlayingArtist = ""
+$ nowPlayingTitle = ""
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+$ clockis = [[todayIs],1,7,1,5]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_cecethought01 with fade
+me "(There's Cece.)"
+me "(She seems lost in thought. I don't think that's a good thing when it comes to her. Maybe I can provide a distraction.)"
+scene ep4p2_cecethought04 with dissolve
+me "Want to come outside for a bit?"
+scene ep4p2_cecethought02 with dissolve
+me "Jump in the pool or something?"
+scene ep4p2_cecethought03 with dissolve
+ce "..."
+scene ep4p2_cecethought02 with dissolve
+ce "..."
+scene ep4p2_cecethought05 with dissolve
+me "(This is one of those moments where I need my female encyclopedia. I have no idea what to do.)"
+me "(Is this secret code for leave me alone, I need a hug, or talk to me?)"
+$ ep4CeceCheerUp = False
+$ ep4CeceCheerUpMsgOpen = False
+$ ep4CeceCheerUpMsgOpenReply = False
+menu:
+    "[M_04_045a]": # "Try to cheer her up.":
+        me "(I should try to cheer her up.)"
+        scene ep4p2_cecethought08 with dissolve
+        me "Anything you want to talk about?"
+        scene ep4p2_cecethought09 with dissolve
+        $ ep4CeceCheerUpMsgOpen = True
+        mod "Open Phone chat and chat with Cece."
+        me "So, you already know that I'm awful at small talk..."
+        scene ep4p2_cecethought10 with dissolve
+        ce "..."
+        scene ep4p2_cecethought09 with dissolve
+        me "...and you know you can talk to me about anything, right?"
+        scene ep4p2_cecethought10 with dissolve
+        ce "..."
+        scene ep4p2_cecethought09 with dissolve
+        me "Honestly, if there's anything you need right now, feel free to just say it."
+        scene ep4p2_cecethought16 with dissolve
+        me "Or maybe I can just continue talking. Or tell you a story. You know, if my voice is calming or something..."
+        scene ep4p2_cecethought17 with dissolve
+        me "But if I should say so myself, I give damn good hugs. So if you want one, feel free to reach out."
+        scene ep4p2_cecethought10 with dissolve
+        ce "..."
+        $ ep4CeceCheerUpMsgOpen = False
+        scene ep4p2_cecethought11 with dissolve
+        me "See? There we go. Come here, and I got this great hug..."
+        scene ep4p2_cecethought12 with dissolve
+        me "...with your name on it?"
+        scene ep4p2_cecethought13 with dissolve
+        ce "..."
+        scene ep4p2_cecethought14 with dissolve
+        me "(Now where did I put that female encyclopedia...)"
+        scene ep4p2_cecethought15 with dissolve
+        $ ep4CeceCheerUpMsgOpenReply = True
+        play sound phone_notify_sound
+        show screen phone_notify_chat
+        $ phChatNotify = True
+        $ chat_notify_cece = True
+        $ chat_cece_item = "1;0;2401;I need some time alone."
+        if chat_cece_item not in chat_cece:
+            $ chat_cece.append(chat_cece_item)
+        me "(Message from Cece?)"
+        $ chat_notify_cece = False
+        $ chat_sel_name = "Cece"
+        $ chat_sel_icon = "cont_cece"
+        hide screen phone_notify_chat
+        $ phChatNotify = False
+        call screen phone_chat_single
+        label ep4AfterCeceBummed:
+        $ ep4CeceCheerUpMsgOpenReply = False
+        me "(Hm. No reply. Hopefully it'll be fine. At least she's here in good company.)"
+        jump ep4RomanceSelectorsEnd
+    "[M_04_045b]": # "Leave her alone.":
+        me "(I think she might need some time alone.)"
+        scene ep4p2_cecethought06 with dissolve
+        me "Listen, I take it you want some time alone."
+        if ep4NightChoose <= 3 and ep4NightChoose >= 5:
+            me "I'm going on a little trip with Kira and Robin. If there's anything you need, just say it and we'll go get it for you."
+        elif ep4NightChoose == 2:
+            me "I'm going out eating with Lexi. If there's anything you need, just say it and we'll go get it for you."
+        else:
+            me "Just come see me if there's anything."
+        me "Ok?"
+        scene ep4p2_cecethought02 with dissolve
+        ce "..."
+        scene ep4p2_cecethought07 with dissolve
+        me "(Let's hope I did the right thing.)"
+        jump ep4RomanceSelectorsEnd
+label ep4CeceMsgEvent00:
+scene ep4p2_cecethought16 with dissolve
+play sound phone_notify_sound
+$ renpy.pause(0.5)
+ce "*sigh*"
+scene ep4p2_cecethought16 with dissolve
+ce "..."
+scene ep4p2_cecethought19 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought20 with dissolve
+$ renpy.pause(1.5)
+scene ep4_CeceMsgShort with dissolve
+ce "..."
+scene ep4p2_cecethought26 with dissolve
+$ renpy.pause(2)
+$ chat_sel_name = "Cece"
+$ chat_sel_icon = "cont_cece"
+$ chat_cece_item = "1;0;2503;You think?"
+if chat_cece_item not in chat_cece:
+    $ chat_cece.append(chat_cece_item)
+call screen phone_chat_single
+label ep4CeceMsgEvent01:
+scene ep4p2_cecethought27 with dissolve
+$ renpy.pause(0.5)
+scene ep4p2_cecethought20 with dissolve
+ce "..."
+scene ep4_CeceMsgLong with dissolve
+ce "..."
+scene ep4p2_cecethought26 with dissolve
+$ renpy.pause(2)
+$ chat_sel_name = "Cece"
+$ chat_sel_icon = "cont_cece"
+$ chat_cece_item = "1;0;2505;And how exactly should we celebrate?"
+if chat_cece_item not in chat_cece:
+    $ chat_cece.append(chat_cece_item)
+call screen phone_chat_single
+label ep4CeceMsgEvent02:
+scene ep4p2_cecethought27 with dissolve
+$ renpy.pause(0.5)
+scene ep4p2_cecethought20 with dissolve
+ce "..."
+scene ep4_CeceMsgShort with dissolve
+ce "..."
+scene ep4p2_cecethought26 with dissolve
+$ renpy.pause(2)
+$ chat_sel_name = "Cece"
+$ chat_sel_icon = "cont_cece"
+$ chat_cece_item = "1;0;2507;Cat."
+if chat_cece_item not in chat_cece:
+    $ chat_cece.append(chat_cece_item)
+call screen phone_chat_single
+label ep4CeceMsgEvent03:
+scene ep4p2_cecethought27 with dissolve
+$ renpy.pause(0.5)
+scene ep4p2_cecethought20 with dissolve
+ce "..."
+scene ep4p2_cecethought24 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought25 with dissolve
+$ renpy.pause(1.5)
+scene ep4_CeceMsgLong with dissolve
+ce "..."
+scene ep4p2_cecethought28 with dissolve
+$ renpy.pause(2)
+$ chat_sel_name = "Cece"
+$ chat_sel_icon = "cont_cece"
+$ chat_cece_item = "1;0;2509;I know what you are trying to do."
+if chat_cece_item not in chat_cece:
+    $ chat_cece.append(chat_cece_item)
+call screen phone_chat_single
+label ep4CeceMsgEvent04:
+$ ep4CeceCheerUpMsgOpen = False
+$ ep4CeceCheerUp = True
+scene ep4p2_cecethought20 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought29 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought30 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought31 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought32 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought33 with dissolve
+$ renpy.pause(1.5)
+scene ep4p2_cecethought34 with dissolve
+ce "..."
+me "(No words needed, Cece. You're in good hands.)"
+me "(Let's sit here in silence for a while.)"
+$ ep4CeceBummed = False
+scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+if not Impact_Steph:
+    me "(I must have dosed off. Cece's not here.)"
+$ renpy.pause(2.5)
+jump ep4RomanceSelectorsEnd
+label ep4RomanceSelectorsEnd:
+if ep4NightChoose == 1:
+    if Impact_Steph:
+        jump ep4StephPre
+    else:
+        jump ep4CeceRomance
+elif ep4NightChoose == 2:
+    jump ep4LexiDate
+elif ep4NightChoose == 7:
+    jump ep4StephPre
+label ep4KRDate:
+$ clockis = [[todayIs],1,9,3,8]
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+label galleryScene9:
+scene ep4p2_krdate01 with fade
+play music ep4_krgoingout
+$ nowPlayingArtist = "John Coggins"
+$ nowPlayingTitle = "The Journey"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "(There they are.)"
+me "(We need to get going on that date on ours. If I don't try and make it happen now, it probably never will.)"
+scene ep4p2_krdate02 with dissolve
+me "(Thankfully, Kevin helped me set this up.)"
+me "Rise and shine!"
+scene ep4p2_krdate03 with dissolve
+ki "Huh?"
+ki "Where's the fire."
+me "No fire. But we're going out."
+scene ep4p2_krdate04 with dissolve
+ki "Out?"
+me "Yeah, just the three of us. Remember?"
+ki "I'm in!"
+scene ep4p2_krdate05 with dissolve
+ro "I need to wake up."
+me "You can wake up on the way there."
+ro "You've planned something, haven't you."
+me "Maybe."
+ki "This is exciting."
+scene ep4p2_krdate06 with dissolve
+me "It is. So get dressed and get a move on."
+ro "Moving... Slowly."
+scene ep4p2_krdate07 with dissolve
+ki "Whoa..."
+me "Dizzy? You probably got up too fast."
+ki "No, it's not that. This is so weird."
+scene ep4p2_krdate08 with dissolve
+ki "Someone actually told me to get dressed, instead of undressed."
+ki "You're breaking all the rules here."
+me "*laughs* You're such a dork."
+me "I'll be waiting for you in the garage, ok?"
+ro "Sure thing."
+ki "We'll be right there."
+$ renpy.end_replay()
+scene ep4p2_krdate09 with fade
+me "(This is slightly underwhelming.)"
+me "(I thought there'd be tons of exotic cars down here.)"
+scene ep4p2_krdate10 with dissolve
+me "(What did Lexi mean by, take any car except the Shelby.)"
+me "(There's only one car here except the Shelby.)"
+scene ep4p2_krdate11 with dissolve
+me "(Not that it matters, this will do nicely.)"
+scene ep4p2_krdate12 with dissolve
+$ clockis = [[todayIs],1,9,4,8]
+"Waiting..."
+scene ep4p2_krdate15 with dissolve
+$ clockis = [[todayIs],1,9,5,8]
+"Waiting..."
+scene ep4p2_krdate13 with dissolve
+$ clockis = [[todayIs],2,0,0,8]
+"Waiting..."
+$ clockis = [[todayIs],2,0,1,8]
+ro "Ready?"
+scene ep4p2_krdate14 with dissolve
+me "Finally."
+show ep4p2_krdate16b at imgSlide_ep4KRDate_b
+show ep4p2_krdate16 at imgSlide_ep4KRDate_a
+me "You sure took your sweet time."
+scene ep4p2_krdate17 with dissolve
+hide ep4p2_krdate16b
+hide ep4p2_krdate16a
+ki "Well, girls need to put their face on."
+me "Why? You look great either way."
+scene ep4p2_krdate18 with dissolve
+ro "Correct answer."
+scene ep4p2_krdate19 with dissolve
+ro "And please tell me we're driving the Shelby."
+ro "I always wanted to."
+me "Actually, Lexi told us to take any car except that one."
+me "Something about the clutch acting up."
+scene ep4p2_krdate18 with dissolve
+ro "That doesn't make any sense. There's only two cars here."
+me "I know."
+scene ep4p2_krdate19 with dissolve
+ki "Maybe she meant the Limo?"
+me "That's probably it."
+ro "Well, I'm driving."
+scene ep4p2_krdate20 with dissolve
+me "No, I'm driving."
+ki "I'll just wait over here while you go measure dicks."
+ro "No, I'm driving."
+scene ep4p2_krdate21 with dissolve
+me "..."
+ro "..."
+me "Rock, Paper, Scissors..."
+ro "You're on."
+stop music fadeout 3
+me "One, two..."
+scene ep4p2_krdate22 with dissolve
+ro "...three."
+me "One, two..."
+scene ep4p2_krdate23 with dissolve
+ro "...three."
+me "One, two..."
+scene ep4p2_krdate24 with dissolve
+ro "...three."
+me "One, two..."
+scene ep4p2_krdate25 with dissolve
+ki "Guys..."
+ro "...three."
+me "YES!"
+ki "Guys!"
+scene ep4p2_krdate26 with dissolve
+ki "I love you, Lexi."
+me "In... your... face."
+ro "Talk to the hand."
+scene ep4p2_krdate27 with dissolve
+ro "What's up, love."
+ki "I just found the 'any' car."
+scene ep4p2_krdate28 with dissolve
+play music ep4_krgoingoutcar
+$ nowPlayingArtist = "Above Envy"
+$ nowPlayingTitle = "Get Back Up"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+ro "..."
+ki "I know."
+scene ep4p2_krdate29 with dissolve
+ro "Awww, you poor little thing. Being kept cooped up here like that."
+ro "You need to feel the sunshine on your body, to be enjoyed every day, to be driven hard."
+ki "Hard..."
+scene ep4p2_krdate30 with dissolve
+me "What's up..."
+ro "16 cylinders, 8 liter, quad turbocharged W16 engine. So powerful, they wielded two V8 engines together to produce the amazing amount of 1000hp."
+ro "Just knowing that less than 1 minute after you put your ass in it's seat, you could be cruising at 267 mph..."
+ro "...makes you moist in all the right places..."
+ki "...moist..."
+scene ep4p2_krdate31 with dissolve
+me "Oh..."
+ro "...and with a price tag of two million dollars, it was once the most expensive production car in the world."
+scene ep4p2_krdate32 with dissolve
+ro "And this is a special edition..."
+me "It's beautiful."
+ro "Unlock it."
+me "You think we should?"
+ro "She said any car, didn't she?"
+me "She did."
+play sound ep4_caralarm
+scene ep4p2_krdate32b with Dissolve(2.0, alpha=True)
+$ renpy.pause(1)
+scene ep4p2_krdate32c with Dissolve(0.1, alpha=True)
+$ renpy.pause(1)
+scene ep4p2_krdate32d with Dissolve(0.1, alpha=True)
+$ renpy.pause(1)
+scene ep4p2_krdate32c with Dissolve(0.1, alpha=True)
+$ renpy.pause(0.15)
+scene ep4p2_krdate32d with Dissolve(0.1, alpha=True)
+$ renpy.pause(0.15)
+scene ep4p2_krdate32c with Dissolve(0.1, alpha=True)
+$ renpy.pause(0.15)
+scene ep4p2_krdate32d with Dissolve(0.1, alpha=True)
+$ renpy.pause(0.15)
+scene ep4p2_krdate32c with Dissolve(0.1, alpha=True)
+$ renpy.pause(0.15)
+scene ep4p2_krdate32d with Dissolve(0.1, alpha=True)
+ki "Purrrrr..."
+scene ep4p2_krdate33 with dissolve
+ro "I'm driving?"
+me "You still lost that one."
+scene ep4p2_krdate34 with dissolve
+ro "Was worth a try..."
+ki "You coming?"
+me "It's a two seater."
+ki "We'll snuggle up in the passenger seat. We can both use the belt."
+me "Then let's do this."
+scene ep4p2_krdate35 with dissolve
+play sound ep4_carstart
+me "..."
+ki "So, where are we going?"
+me "I got a little surprise. Kevin had a hot tip for me."
+ro "Honestly, we can just drive around in this and I'll be fine."
+ro "There is no car in the world that is more awesome than this one."
+me "I bet I can make you change your mind."
+ro "I bet you can't."
+scene bg empty with fade
+$ clockis = [[todayIs],2,1,2,2]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_krdate36
+show ep4p2_krdate36b at imgSlide_ep4KRDate_c
+$ renpy.pause(4)
+ro "I was wrong..."
+me "Told you so."
+hide ep4p2_krdate36b
+scene ep4p2_krdate37 with dissolve
+ro "This is the ultimate driving machine."
+scene ep4p2_krdate38 with dissolve
+ro "I mean, is this the authentic thing? Just like they use in the races?"
+me "Mostly. It's been equipped with an engine with less horsepower than the race edition."
+scene ep4p2_krdate39 with dissolve
+me "So that normal people like us can drive it if we were to get that lucky."
+ro "Yeah, if we were to get that lucky."
+stop music fadeout 3
+me "Well, how about it, punk. Do you feel lucky?"
+scene ep4p2_krdate40 with dissolve
+ro "Huh?"
+me "We're not just here to look."
+me "Maybe we should rock, paper, scissors over who goes first..."
+scene ep4p2_krdate41 with dissolve
+ro "Me first! I'll get into race gear."
+me "And there she goes..."
+scene ep4p2_krdate42 with dissolve
+play music ep4_krcalmdown
+$ nowPlayingArtist = "Oliver Dodge"
+$ nowPlayingTitle = "Higher"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+ki "Yeah, there's no stopping her now."
+scene ep4p2_krdate43 with dissolve
+me "This isn't really your favorite pastime is it."
+scene ep4p2_krdate44 with dissolve
+ki "Not really."
+scene ep4p2_krdate45 with dissolve
+ki "Don't get me wrong though, I love this but I'm probably more comfortable..."
+scene ep4p2_krdate48 with dissolve
+me "...playing bowling?"
+scene ep4p2_krdate45 with dissolve
+ki "Exactly. Playing bowling."
+scene ep4p2_krdate48 with dissolve
+me "Honestly, that was what I wanted to do, but with Robin's bowling alley problems, I thought it was better to do something else."
+scene ep4p2_krdate46 with dissolve
+ki "Don't worry about it, and this is nice too. I'm not complaining."
+scene ep4p2_krdate48 with dissolve
+me "At least you can get a chance to drive one of these things. It'll be fun."
+scene ep4p2_krdate47 with dissolve
+ki "There's no chance in hell I'm getting into that car, no way."
+ki "But you two have fun. It's fine, I promise."
+scene ep4p2_krdate48 with dissolve
+me "You sure? I'd love to see you try."
+scene ep4p2_krdate45 with dissolve
+ki "Yes, I'm sure. You guys just be careful out there."
+scene ep4p2_krdate49 with dissolve
+me "Here she comes."
+scene ep4p2_krdate50 with dissolve
+me "Looking good there, Robin."
+me "Let me get a picture of this."
+ro "Please do."
+show screen phone_camop
+$ phone_camop_screen = "ep4RobinRace"
+label photoop_ep4RobinRacePhotoLoop:
+me "..."
+jump photoop_ep4RobinRacePhotoLoop
+hide screen phone_camop
+$ photoop_ep4RobinRaceNuke = False
+jump photoop_ep4RobinRaceEnd
+label photoop_ep4RobinRace:
+play sound camerashutter
+$ photoop_ep4RobinRaceNuke = True
+$ cam_gallery_append_item1 = "ep4p2_krdate51"
+if cam_gallery_append_item1 not in cam_gallery:
+    $ cam_gallery.append(cam_gallery_append_item1)
+show bg_empty
+scene ep4p2_krdate50 with Fade(0, 0, 0.5, color="#ffffff")
+me "All set."
+ro "And Nuke it too if you can, so I can download it after."
+me "I'll do my best."
+label photoop_ep4RobinRaceEnd:
+$ phone_camop_screen = ""
+hide screen phone_camop
+scene ep4p2_krdate52 with dissolve
+$ clockis = [[todayIs],2,1,4,0]
+ro "So just go like a normal car?"
+me "From what Kevin told me, you need to use the clutch pedals on the steering wheel to start."
+me "Once you're rolling, it's just like a car with automatic transmission."
+scene ep4p2_krdate53 with dissolve
+ro "Ok, I'm off. Wish me luck."
+scene ep4p2_krdate54 with dissolve
+ki "Good luck sweetheart."
+scene ep4p2_krdate55 with dissolve
+ki "Drive safely."
+scene ep4p2_krdate56 with dissolve
+ki "Kisskiss."
+scene ep4p2_krdate57 with dissolve
+ki "There she goes."
+scene ep4p2_krdate58 with dissolve
+ki "I hope she'll be ok, and not crash."
+scene ep4p2_krdate59 with dissolve
+me "She'll be fine. Those cars are very safe."
+if Impact_KiraRobin:
+    scene ep4p2_krdate60 with dissolve
+    ki "Yeah, I'm not really worried. She's a good driver."
+    ki "I'd like to tell you something..."
+    scene ep4p2_krdate73 with dissolve
+    ki "I've been in a relationship with Robin for many years. Though I'm not sure how to classify our relationship."
+    scene ep4p2_krdate72 with dissolve
+    ki "In some ways you can say we're not even a real couple."
+    ki "We don't live in the same apartment, and maybe we never will."
+    scene ep4p2_krdate66 with dissolve
+    ki "And maybe that's just fine, and we go about our business like we have done for years now, until we grow old."
+    ki "Or maybe I just did this to step on my perfect family's toes in some teenage rebel way."
+    scene ep4p2_krdate64 with dissolve
+    ki "But I've seen her face... when she sees other couples. And kids."
+    ki "Honestly, I think she wants a man. A family. Kids. You know, the normal package."
+    ki "And I guess that maybe... just maybe... deep down inside, I want that too."
+    scene ep4p2_krdate67 with dissolve
+    ki "So I'll just blurt this out right now, just so you know it."
+    ki "Because, I'd do anything for her and I know she'd do anything for me as well."
+    ki "I can see that she likes you. She even told me. So if you want Robin, I'll back off."
+    ki "No hard feelings... Just... be nice to her. Treat her well."
+    scene ep4p2_krdate61 with dissolve
+    me "Kira, you're freaking me out now."
+    scene ep4p2_krdate66 with dissolve
+    ki "I'm dead serious."
+    ki "I know Robin really likes you. And I know I do too. That's why I'm asking you now. If you were to choose Robin, would you have?"
+    scene ep4p2_krdate67 with dissolve
+    me "I had some serious concerns about messing with the both of you in the start."
+    me "And you know, we went on this trip here."
+    scene ep4p2_krdate65 with dissolve
+    me "Though even if we've not had a chance to really do a whole lot together just the three of us, I think I realized that I would really want to."
+    me "Because I had a really good time bowling with you. And I had a really good time on that evening I spent with Robin."
+    me "But more importantly, I've had a really good time with both of you together."
+    me "So if you twist this 'normal family' you're talking about slightly. Would it be odd if maybe someday down the line we would be three instead of two?"
+    scene ep4p2_krdate64 with dissolve
+    me "I like both of you. Enough to know I don't need to choose if you don't want me to."
+    scene ep4p2_krdate65 with dissolve
+    me "And what you're both missing now when looking at other couples, we can have."
+    me "..."
+    scene ep4p2_krdate68 with dissolve
+    me "That sounded weird, didn't it."
+    scene ep4p2_krdate74 with dissolve
+    ki "If I'm going to be totally honest with you..."
+    ki "...it sounded much better than I possibly could have hoped for."
+    scene ep4p2_krdate63 with dissolve
+    ki "And I know Robin thinks the same."
+    scene ep4p2_krdate69 with dissolve
+    $ clockis = [[todayIs],2,2,0,1]
+    me "There she is."
+    ro "Hey guys."
+    scene ep4p2_krdate82 with dissolve
+    me "Robin!"
+    scene ep4p2_krdate83 with dissolve
+    me "How was the ride?"
+    scene ep4p2_krdate84b with dissolve
+    ro "Amazing. That's one more thing crossed off the list."
+    me "Do you mind if I give it a try?"
+    scene ep4p2_krdate85b with dissolve
+    ro "Go right ahead. Kira, I have to tell you about it!"
+    scene ep4p2_krdate86 with fade
+    me "(I've been wanting to do this my whole life. Thanks Kevin, you're awesome.)"
+    me "(But now I'm really hyped about Kira and Robin. Is this going to work?)"
+    me "(Is Kira telling Robin about this right now?)"
+    scene ep4p2_krdate87 with dissolve
+    me "(I can't drive this today. My mind is elsewhere.)"
+    me "(We need to have a talk while all three are there.)"
+    scene ep4p2_krdate88 with dissolve
+    $ clockis = [[todayIs],2,2,2,6]
+    stop music fadeout 3
+    me "(Ok... Maybe the talk can wait...)"
+    scene ep4p2_krdate91 with dissolve
+    me "(...)"
+    label galleryScene10:
+    scene ep4p2_krthree01 with dissolve
+    play music ep4_krsexytime
+    $ nowPlayingArtist = "Aarom Kellim"
+    $ nowPlayingTitle = "Where are we Going"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    ki "Ehm... I kinda told her what you said..."
+    ki "And we might just have started celebrating for a bit..."
+    scene ep4p2_krthree02 with dissolve
+    ro "Why don't you join us?"
+    me "That sounds perfect."
+    ki "Let's get you out of that suit."
+    hide screen phone
+    scene ep4p2_krthree04
+    show ep4p2_krthree03 at imgSlide_ep4KRReady
+    ro "Let's make this one to remember."
+    hide ep4p2_krthree03
+    scene ep4p2_krthree05 with dissolve
+    ki "We did rock, paper, scissor. I won."
+    ro "Sadly."
+    ki "I love this."
+    scene ep4p2_krthree06 with dissolve
+    $ renpy.pause(0.5)
+    scene ep4p2_krthree07 with dissolve
+    $ renpy.pause(0.5)
+    scene ep4p2_krthree08 with dissolve
+    $ renpy.pause()
+    scene ep4p2_krthree09 with dissolve
+    ro "Damn, you guys. You are really turning me on right now."
+    scene ep4_krkirablow with dissolve
+    ro "Kira, you really got to teach me how to do that."
+    ki "Mhfhmm."
+    scene ep4p2_krthree10 with dissolve
+    ro "It's like the best porn movie I've seen."
+    ro "Except here..."
+    scene ep4p2_krthree11 with dissolve
+    ro "...I can do this."
+    scene ep4p2_krthree12 with hpunch
+    ro "..."
+    scene ep4p2_krthree13 with dissolve
+    ro "Keep going. I know you can take it."
+    scene ep4p2_krthree12 with dissolve
+    ki "Mmm..."
+    ro "Now stay..."
+    ki "..."
+    scene ep4p2_krthree14 with dissolve
+    ro "Fuck... I'm close."
+    scene ep4p2_krthree15 with dissolve
+    ki "Holy shit, Robin..."
+    ki "That was..."
+    ro "...too much?"
+    scene ep4p2_krthree16 with dissolve
+    "..."
+    scene ep4p2_krthree15 with dissolve
+    ki "...exciting!"
+    ro "My turn."
+    ki "You'll do fine, Robin. Just do what you do to me."
+    scene ep4p2_krthree19 with dissolve
+    me "..."
+    scene ep4p2_krthree23 with dissolve
+    $ renpy.pause(1.5)
+    scene ep4p2_krthree19 with dissolve
+    $ renpy.pause(1.5)
+    scene ep4p2_krthree22 with dissolve
+    $ renpy.pause(1.5)
+    scene ep4p2_krthree24 with dissolve
+    ro "Kira..."
+    ro "I want this to last. If you don't go easy on me, I'll cum."
+    scene ep4p2_krthree21 with dissolve
+    ki "Don't worry, I know your limits."
+    scene ep4p2_krthree20 with dissolve
+    ki "I'm just keeping you..."
+    scene ep4p2_krthree18 with dissolve
+    ki "...and me..."
+    scene ep4p2_krthree20 with dissolve
+    ki "...on the edge..."
+    scene ep4p2_krthree18 with dissolve
+    ki "Mmmmm..."
+    scene ep4_krrobinblow with dissolve
+    me "..."
+    me "If this is your first blowjob..."
+    me "...then you're a natural."
+    scene ep4p2_krthree24 with dissolve
+    ro "Forget it... I need a dick in my pussy."
+    scene ep4p2_krthree25 with dissolve
+    ki "What about me?"
+    scene ep4p2_krthree24 with dissolve
+    ro "Who do you want, [name]?"
+    scene ep4p2_krthree26 with dissolve
+    me "Both of you."
+    ro "Rock, paper, scissors it is."
+    ki "Mhfmm..."
+    ro "One, two..."
+    scene ep4p2_krthree27 with dissolve
+    ro "Three."
+    ki "I can't see anything. [name], who won."
+    menu:
+        "[M_04_046a]": # "Kira (Truth)":
+            scene ep4p2_krthree32 with dissolve
+            me "I'm not sure I should say it..."
+            me "...because Robin's scissors are way too close to my dick for me to feel comfortable with them."
+            ro "Damn!"
+            ki "Yes!"
+            scene ep4p2_krthree33 with dissolve
+            me "Don't unleash your fury on me, Robin. It's not my fault you lost."
+            scene ep4p2_krthree34 with fade
+            ki "Nghh..."
+            ki "Robin... I thought you said go easy..."
+            ki "I'm about to cum."
+            scene ep4p2_krthree34 with dissolve
+            ro "Maybe it's because I'm not the only one working you."
+            scene ep4p2_krthree37 with dissolve
+            me "Are you complaining, Kira?"
+            ki "Ngh... Not really..."
+            scene ep4p2_krthree38 with hpunch
+            ki "Ah!..."
+            scene ep4p2_krthree39 with dissolve
+            ki "But I'm warning you, I'm going to have to double my efforts..."
+            scene ep4p2_krthree35 with dissolve
+            ki "...on my end."
+            scene ep4p2_krthree36 with hpunch
+            ki "..."
+            scene ep4p2_krthree41 with dissolve
+            ro "Hng.... Naughty girl!"
+            scene ep4p2_krthree40 with dissolve
+            ro "Kira..."
+            ro "..."
+            ro "I'm..."
+            scene ep4p2_krthree37 with dissolve
+            ki "..."
+            scene ep4p2_krthree38 with dissolve
+            ki "Cum..."
+            scene ep4p2_krthree41 with dissolve
+            ro "..."
+            scene bg empty with fade
+            $ renpy.pause(0.5)
+            $ renpy.pause(0.5)
+            $ renpy.pause(0.5)
+            $ renpy.pause(0.5)
+            scene ep4p2_krthree42 with dissolve
+            ro "Don't cum... Please."
+            me "Yeah, that's a no go. I'm damn close."
+            ro "No..."
+            scene ep4p2_krthree43 with dissolve
+            ro "Kira..."
+            scene ep4p2_krthree45 with dissolve
+            ro "...you alive?"
+            scene ep4p2_krthree46 with dissolve
+            ki "Don't worry about me. I'm working up my second one."
+            ki "Or was it third. I don't remember."
+            scene ep4p2_krthree45 with dissolve
+            ki "Ah... Keep going!"
+            scene ep4p2_krthree42 with dissolve
+            me "How about the grand finale."
+            ro "Whatever you want, I'm game."
+            scene ep4p2_krthree44 with dissolve
+            me "Over there..."
+            ro "Oh, hell yeah!"
+            ki "Ngh..."
+            ki "..."
+            ki "That makes it three."
+            ki "...or four."
+            jump ep4ThreeFinale
+        "[M_04_046b]": # "Robin (Lie)":
+            me "Sorry, Kira. Robin won. She had paper."
+            ki "Damn!"
+            scene ep4p2_krthree28 with dissolve
+            ro "Huh?"
+            scene ep4p2_krthree29 with dissolve
+            ro "Paper..."
+            scene ep4_RobinBJBlink with dissolve
+            me "..."
+            jump ep4ThreeFinale
+    label ep4ThreeFinale:
+    $ clockis = [[todayIs],2,2,5,8]
+    scene bg empty with fade
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    scene ep4p2_krthree47 with dissolve
+    ki "Best view in the house."
+    ki "God dammit. You're sexy, [name]."
+    ki "Don't cum."
+    scene ep4p2_krthree48 with dissolve
+    $ renpy.movie_cutscene("imov/ep4/ep4p2_kranim.webm", delay=None, loops=0, stop_music=False)
+    me "Nope. That's it. No can do, I'm..."
+    scene ep4p2_krthree49 with dissolve
+    ro "Wait!"
+    me "Seriously?"
+    scene ep4p2_krthree50 with dissolve
+    ro "Now."
+    scene ep4p2_krthree53 with dissolve
+    ki "Give it to her."
+    scene ep4p2_krthree51 with hpunch
+    ro "..."
+    scene ep4p2_krthree54 with dissolve
+    me "Wow... That was something."
+    me "I'm kinda lightheaded now."
+    ro "Guys."
+    scene ep4p2_krthree55 with dissolve
+    ki "Huh?"
+    ro "Good aim."
+    scene ep4p2_krthree56 with dissolve
+    stop music fadeout 3
+    "*laughs*"
+    $ renpy.end_replay()
+    scene ep4p2_krthree52 with dissolve
+    ro "..."
+    scene bg empty with fade
+    $ clockis = [[todayIs],2,3,4,0]
+    play music ep4_krcalmdown
+    $ nowPlayingArtist = "Oliver Dodge"
+    $ nowPlayingTitle = "Higher"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    $ renpy.pause(0.5)
+    scene ep4p2_krafter06 with fade
+    ki "I came here today willing to give it all up."
+    ki "Because I've seen the way Robin looks at you."
+    ki "And I've seen the way she looks at other... normal... couples."
+    ki "And the way you look at her."
+    scene ep4p2_krafter13 with dissolve
+    ki "But I never could have dreamt..."
+    ro "..."
+    scene ep4p2_krafter16 with dissolve
+    ro "So did I..."
+    ro "I was so sure that you two..."
+    ro "I didn't even consider that we would go in this direction."
+    scene ep4p2_krafter17 with dissolve
+    me "I never dismissed any of you."
+    me "But I thought you jumped into this threesome thing way too fast."
+    me "Without thinking about what it could have led to."
+    scene ep4p2_krafter13 with dissolve
+    me "It could have ruined your relationship."
+    me "And the way you're talking about it now..."
+    scene ep4p2_krafter08 with dissolve
+    me "...it seems like it almost did just that."
+    scene ep4p2_krafter07 with dissolve
+    ki "Yeah..."
+    scene ep4p2_krafter08 with dissolve
+    me "I still have no idea how this is going to work. I've never been with two women at once."
+    me "But I'm willing to give it a try."
+    scene ep4p2_krafter09 with dissolve
+    ki "Of course!"
+    scene ep4p2_krafter10 with dissolve
+    ki "And you, Robin?"
+    scene ep4p2_krafter18 with dissolve
+    ro "..."
+    me "Robin?"
+    ro "I'm just enjoying this. I haven't been this relaxed in a long time."
+    ro "No worries, fears or... competition."
+    scene ep4p2_krafter16 with dissolve
+    ro "Yes. Of course I want to try."
+    scene ep4p2_krafter20 with dissolve
+    stop music fadeout 3
+    ro "So just lay back and enjoy this feeling with me."
+    scene ep4p2_krafter12 with dissolve
+    ro "Because I think this might be the best thing that's happened to me."
+    scene ep4p2_krafter21b with dissolve
+    ki "..."
+    scene ep4p2_krafter21 with dissolve
+    ro "..."
+    hide screen phone
+    scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+    play music ep4_epilogue
+    $ nowPlayingArtist = "Roman P."
+    $ nowPlayingTitle = "Universe"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    queue music [ep4_loftheme]
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    scene ep4p2_epikirarobin with fade
+    $ renpy.pause(2)
+    jump ch4EndPre
+else:
+    if ep4NightChoose == 3:
+        scene ep4p2_krdate60 with dissolve
+        ki "Yeah, I'm not really worried. She's a good driver."
+        ki "I'd like to tell you something..."
+        scene ep4p2_krdate73 with dissolve
+        ki "I've been in a relationship with Robin for many years. Though I'm not sure how to classify our relationship."
+        scene ep4p2_krdate72 with dissolve
+        ki "In some ways you can say we're not even a real couple."
+        ki "We don't live in the same apartment, and honestly I don't think we ever will."
+        scene ep4p2_krdate66 with dissolve
+        ki "And maybe that's just fine, and we go about our business like we have done for years now, until we grow old."
+        ki "Or maybe I just did this to step on my perfect family's toes in some teenage rebel way."
+        ki "But I've seen her face... when she sees other couples. And kids."
+        ki "Honestly, I think she wants a man. A family. Kids. You know, the normal package."
+        ki "And I guess that maybe... just maybe... deep down inside, I want that too."
+        scene ep4p2_krdate67 with dissolve
+        ki "So I'll just blurt this out right now, just so you know it."
+        ki "Because, I'd do anything for her and I know she'd do anything for me as well."
+        ki "I can see that she likes you. She even told me. So if you want Robin, I'll back off."
+        ki "No hard feelings... Just... be nice to her. Treat her well."
+        scene ep4p2_krdate65 with dissolve
+        me "Kira..."
+        scene ep4p2_krdate70 with dissolve
+        me "You know, we haven't really been able to spend any time together. I mean, just you and me."
+        scene ep4p2_krdate71 with dissolve
+        ki "I know. Things has been really weird. But about my question..."
+        scene ep4p2_krdate62 with dissolve
+        me "Honestly, I'm still thinking back on the bowling date we had. And smiling."
+        me "Seems like it was a very long time ago."
+        me "I would very much like to do it again at some point."
+        scene ep4p2_krdate74 with dissolve
+        ki "I would love that too."
+        ki "But I guess things are really messed up. We shouldn't have brought you into this."
+        ki "...but about..."
+        scene ep4p2_krdate63 with dissolve
+        me "Kira... I don't want Robin..."
+        scene ep4p2_krdate75 with dissolve
+        me "Because I really like... you."
+        me "I think I was fascinated by the fact that you were two girls that gave me interest. But deep down inside I know I can't go that route."
+        scene ep4p2_krdate76 with dissolve
+        me "Just the fact that I don't like Robin the way I like you... is enough for me to decide right here and now that I have to leave you alone."
+        me "I don't want to split you up, because..."
+        scene ep4p2_krdate77 with dissolve
+        me "..."
+        scene ep4p2_krdate78 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_krdate79 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_krdate80 with dissolve
+        $ renpy.pause(1.5)
+        scene ep4p2_krdate81 with dissolve
+        ki "Mmmm."
+        scene ep4p2_krdate69 with dissolve
+        $ clockis = [[todayIs],2,2,0,1]
+        ro "Hey guys."
+        scene ep4p2_krdate82 with dissolve
+        me "Robin. You're back."
+        scene ep4p2_krdate83 with dissolve
+        me "How was the ride?"
+        scene ep4p2_krdate84 with dissolve
+        ro "Good. It was good. That's one more thing crossed off the list."
+        me "Do you mind if I give it a try?"
+        scene ep4p2_krdate85 with dissolve
+        ro "Go right ahead. I think I'm done for the day."
+        scene ep4p2_krdate86 with fade
+        me "(I've been wanting to do this my whole life. Thanks Kevin, you're awesome.)"
+        me "(But I didn't like the look on Robin's face when she got back.)"
+        me "(Did she see the kiss?)"
+        scene ep4p2_krdate87 with dissolve
+        me "(Fuck. I think she did. I have to talk to them both.)"
+        me "(I feel like something bad is about to happen.)"
+        scene ep4p2_krdate89 with dissolve
+        $ clockis = [[todayIs],2,2,2,6]
+        me "(There's Kira. She doesn't look too happy.)"
+        scene ep4p2_krdate91 with dissolve
+        me "(...)"
+        scene ep4p2_krdate93 with dissolve
+        me "Where's Robin?"
+        ki "I'm freaking out."
+        scene ep4p2_krdate94 with dissolve
+        me "What's going on. Did she see... us?"
+        scene ep4p2_krdate95 with dissolve
+        ki "I think she did. She was acting all weird, saying she had enough for the day."
+        ki "Then she said she really wanted me to enjoy this night with you, so we could get some alone time together."
+        me "Calm down. Easy."
+        scene ep4p2_krdate96 with dissolve
+        ki "She just took off, I don't even know where she went."
+        me "I'll call her."
+        ki "We didn't bring our phones!"
+        ki "I'm worried."
+        scene ep4p2_krdate97 with dissolve
+        me "Lets look around. She's got to be here somewhere."
+        scene ep4p2_krafter01 with fade
+        $ clockis = [[todayIs],2,2,4,4]
+        me "Robin?"
+        ki "Where are you sweetheart?"
+        ro "Calm down will you? I'm right here behind the car."
+        scene ep4p2_krafter03 with dissolve
+        ki "You idiot. I was worried sick."
+        scene ep4p2_krafter04 with dissolve
+        me "Can you just tell me what's going on?"
+        me "Let's sit down and talk."
+        ro "*sigh*"
+        scene ep4p2_krafter13 with dissolve
+        me "What's up."
+        scene ep4p2_krafter15 with dissolve
+        ro "This whole threesome thing..."
+        scene ep4p2_krafter14 with dissolve
+        me "...was a bad idea, I get it."
+        scene ep4p2_krafter15 with dissolve
+        ro "No, not that."
+        ro "It was a good thing."
+        scene ep4p2_krafter13 with dissolve
+        ki "Huh?"
+        scene ep4p2_krafter15 with dissolve
+        ro "Somehow I came to a conclusion a while back that even though I love you very much, Kira. Maybe I'd like for you to have something more."
+        ro "A normal life."
+        scene ep4p2_krafter13 with dissolve
+        ro "And I've been thinking about this for quite some time. In some way, it was perfect that we brought you in [name]."
+        ro "You can give Kira a normal life, and all that comes with it."
+        scene ep4p2_krafter15 with dissolve
+        ro "So when I saw you kiss a bit earlier, I saw both your eyes and I knew."
+        ro "I've seen it for quite some time now, but I just realized. This is it... for me."
+        scene ep4p2_krafter10 with dissolve
+        ki "But I love you Robin."
+        scene ep4p2_krafter13 with dissolve
+        ro "And I love you Kira. I'd do anything for you. And that is what I'm doing now."
+        ro "I think is the time where I have to say goodbye and move on."
+        ro "And so do you. Don't even try to protest."
+        ki "..."
+        scene ep4p2_krafter14 with dissolve
+        me "Listen Robin. You're jumping the conclusions here."
+        me "If I'm going to be blunt, then yes. I like Kira. I even have a suspicion she likes me too."
+        me "But that doesn't give you the veto to end your relationship."
+        me "And even if you did, we've hardly spent any time together alone. There's no way we can even know if we're even a good match."
+        me "I have a say in this too, you know. And I don't want to split you guys up, because of something that might not even work."
+        scene ep4p2_krafter16 with dissolve
+        ro "Then try..."
+        scene ep4p2_krafter17 with dissolve
+        me "Pardon?"
+        scene ep4p2_krafter16 with dissolve
+        ro "Let's say what you said is true. You both like each other. I know for a fact that Kira likes you."
+        ro "Then try and see if it works. I'm fine with that. I'm not jealous, so that's not a problem for me. I just want the best for Kira."
+        scene ep4p2_krafter18 with dissolve
+        me "You can't just decide that either."
+        ro "Kira. You want a go at this?"
+        scene ep4p2_krafter07 with dissolve
+        ki "..."
+        ki "Yes... I'm so sorry."
+        scene ep4p2_krafter16 with dissolve
+        ro "[name]. You want a go at this?"
+        scene ep4p2_krafter17 with dissolve
+        me "Yes...?"
+        scene ep4p2_krafter18 with dissolve
+        ro "All good then. But I'll let you know that I want to spend the night with Kira after this. It might be the last one. Come morning, she's with you. That ok with you?"
+        scene ep4p2_krafter19 with dissolve
+        me "..."
+        ki "..."
+        ro "Whether or not you believe me, this is actually a good night. For all of us."
+        scene ep4p2_krafter20 with dissolve
+        stop music fadeout 3
+        ro "So let's at least try and enjoy it a little bit."
+        scene ep4p2_krafter12 with dissolve
+        ki "..."
+        scene ep4p2_krafter21b with dissolve
+        ro "..."
+        scene ep4p2_krafter21 with dissolve
+        ki "..."
+        hide screen phone
+        scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+        play music ep4_epilogue
+        $ nowPlayingArtist = "Roman P."
+        $ nowPlayingTitle = "Universe"
+        $ nowPlayingRealArtist = ""
+        $ nowPlayingRealTitle = ""
+        queue music [ep4_loftheme]
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        scene ep4p2_epikirarobin with fade
+        $ renpy.pause(2)
+        jump ch4EndPre
+    else:
+        scene ep4p2_krdate60 with dissolve
+        ki "Yeah, I'm not really worried. She's a good driver."
+        ki "I'd like to tell you something..."
+        scene ep4p2_krdate73 with dissolve
+        ki "I've been in a relationship with Robin for many years. Though I'm not sure how to classify our relationship."
+        scene ep4p2_krdate72 with dissolve
+        ki "In some ways you can say we're not even a real couple."
+        ki "We don't live in the same apartment, and honestly I don't think we ever will."
+        scene ep4p2_krdate66 with dissolve
+        ki "And maybe that's just fine, and we go about our business like we have done for years now, until we grow old."
+        ki "Or maybe I just did this to step on my perfect family's toes in some teenage rebel way."
+        scene ep4p2_krdate64 with dissolve
+        ki "But I've seen her face... when she sees other couples. And kids."
+        ki "Honestly, I think she wants a man. A family. Kids. You know, the normal package."
+        ki "And I guess that maybe... just maybe... deep down inside, I want that too."
+        scene ep4p2_krdate67 with dissolve
+        ki "So I'll just blurt this out right now, just so you know it."
+        ki "Because, I'd do anything for her and I know she'd do anything for me as well."
+        ki "I can see that she likes you. She even told me. So if you want Robin, I'll back off."
+        ki "No hard feelings... Just... be nice to her. Treat her well."
+        scene ep4p2_krdate61 with dissolve
+        me "Kira, you're freaking me out now."
+        scene ep4p2_krdate66 with dissolve
+        ki "I'm dead serious."
+        scene ep4p2_krdate65 with dissolve
+        me "I don't want to hurt you."
+        me "Actually, I'm going to sit this one out."
+        me "Yes, I admit I like Robin. But you can't make decisions like that. You have to talk to Robin if there's anything."
+        me "I'm not going to sit here and agree with you and end your relationship like that."
+        scene ep4p2_krdate66 with dissolve
+        ki "As said, I'll do anything for her."
+        scene ep4p2_krdate64 with dissolve
+        me "And as I said, it's not up to you to decide."
+        ki "..."
+        scene ep4p2_krdate69 with dissolve
+        $ clockis = [[todayIs],2,2,0,1]
+        me "Look who's back."
+        ro "Hey guys."
+        scene ep4p2_krdate82 with dissolve
+        me "Robin."
+        scene ep4p2_krdate83 with dissolve
+        me "How was the ride?"
+        scene ep4p2_krdate84b with dissolve
+        ro "Amazing. That's one more thing crossed off the list."
+        me "Do you mind if I give it a try?"
+        scene ep4p2_krdate85b with dissolve
+        ro "Go right ahead. Kira, I have to tell you about it!"
+        scene ep4p2_krdate86 with fade
+        me "(I've been wanting to do this my whole life. Thanks Kevin, you're awesome.)"
+        me "(But I didn't like the way Kira wanted to end her relationship because of me.)"
+        me "(Has Robin told her anything? Shit, I hope I didn't do anything wrong by admitting I like Robin better than her.)"
+        scene ep4p2_krdate87 with dissolve
+        me "(Fuck. I think I did. I have to talk to them both.)"
+        me "(I feel like something bad is about to happen.)"
+        scene ep4p2_krdate90 with dissolve
+        $ clockis = [[todayIs],2,2,2,6]
+        me "(There's Robin. She doesn't look too happy.)"
+        scene ep4p2_krdate91 with dissolve
+        me "(...)"
+        scene ep4p2_krdate98 with dissolve
+        me "Where's Kira?"
+        scene ep4p2_krdate99 with dissolve
+        ro "What the hell did you tell her?"
+        me "Fuck..."
+        scene ep4p2_krdate100 with dissolve
+        me "She asked me if I liked you. I think she meant if I liked you more than her, and I... said I did."
+        ro "What the fuck? That just... very nice and all, but she just said she wanted us to spend the evening here together and figure things out."
+        ro "And something about her doing everything for me."
+        ro "I have no idea what's going on."
+        scene ep4p2_krdate101 with dissolve
+        me "I don't know if you two have been talking about this whole thing."
+        scene ep4p2_krdate103 with dissolve
+        ro "We have, but I don't see how that's got anything to do with this."
+        scene ep4p2_krdate101 with dissolve
+        me "As said, I admitted that I'm not really into her. And that I'd got feelings for you."
+        me "But I also said that meant I should put the breakes on."
+        scene ep4p2_krdate104 with dissolve
+        me "I do like you. Very much. And that night at your place still brings me good memories."
+        me "I had a really good time with you. And maybe if your situation had been different, things could have turned out another way."
+        scene ep4p2_krdate105 with dissolve
+        me "But I don't want to end your relationship."
+        me "I'll try calling her."
+        scene ep4p2_krdate102 with dissolve
+        ro "Neither of us brought phones."
+        scene ep4p2_krdate102 with dissolve
+        me "Shit. Let's go look for her then."
+        scene ep4p2_krafter01 with fade
+        $ clockis = [[todayIs],2,2,2,6]
+        me "Kira?"
+        ro "You'd better be here!"
+        ki "Behind the car. Chilling in the grass."
+        scene ep4p2_krafter02 with dissolve
+        ro "You crazy woman. Don't do this to me."
+        scene ep4p2_krafter05 with dissolve
+        me "Can you just tell me what's going on?"
+        me "Let's sit down and talk."
+        ki "*sigh*"
+        scene ep4p2_krafter11 with dissolve
+        ki "Don't be so dramatic about it."
+        scene ep4p2_krafter07 with dissolve
+        ki "This whole threesome thing..."
+        scene ep4p2_krafter08 with dissolve
+        me "...was a bad idea, I get it."
+        scene ep4p2_krafter09 with dissolve
+        ki "No, it wasn't."
+        ki "It was a good thing."
+        scene ep4p2_krafter13 with dissolve
+        ro "Huh?"
+        scene ep4p2_krafter11 with dissolve
+        ki "Somehow I came to a conclusion a while back that even though I love you very much, Robin. Maybe I'd like for you to have something more."
+        ki "A normal life."
+        scene ep4p2_krafter06 with dissolve
+        ki "And I've been thinking about this for quite some time. In some way, it was perfect that we brought you in [name]."
+        ki "You can give Robin a normal life, and all that comes with it."
+        scene ep4p2_krafter15 with dissolve
+        ki "So when you confirmed my suspicions earlier, I knew."
+        ki "I've probably known for quite some time now, but I just realized. This is it... for me."
+        scene ep4p2_krafter10 with dissolve
+        ro "But I love you Kira."
+        scene ep4p2_krafter11 with dissolve
+        ki "And I love you Robin. I'd do anything for you. And that is what I'm doing now."
+        ki "I think is the time where I have to say goodbye and move on."
+        ki "I'm not sad about it. In fact I'm so happy for all the memories you've given me."
+        ki "Deep down inside I think you even know you agree. Don't even try to protest."
+        ro "..."
+        scene ep4p2_krafter08 with dissolve
+        me "Listen Kira. You're jumping the conclusions here."
+        me "If I'm going to be blunt, then yes. I like Robin. I even have a suspicion she likes me too."
+        me "But that doesn't give you the veto to end your relationship."
+        me "And even if you did, we've hardly spent any time together alone. There's no way we can even know if we're even a good match."
+        me "I have a say in this too, you know. And I don't want to split you guys up, because of something that might not even work."
+        scene ep4p2_krafter06 with dissolve
+        ki "Then try..."
+        scene ep4p2_krafter18 with dissolve
+        me "Pardon?"
+        scene ep4p2_krafter09 with dissolve
+        ki "Let's say what you said is true. You both like each other. I know for a fact that Robin likes you."
+        ki "Then try and see if it works. I'm fine with that. I'm not jealous, so that's not a problem for me. I just want the best for Robin."
+        scene ep4p2_krafter06 with dissolve
+        me "You can't just decide that either."
+        scene ep4p2_krafter10 with dissolve
+        ki "Robin. You want a go at this?"
+        ro "..."
+        ro "Yes... I'm sorry..."
+        scene ep4p2_krafter09 with dissolve
+        ki "[name]. You want a go at this?"
+        scene ep4p2_krafter06 with dissolve
+        me "Yes...?"
+        scene ep4p2_krafter11 with dissolve
+        ki "All good then. Try it then."
+        scene ep4p2_krafter12 with dissolve
+        ki "But I'll let you know that I want to spend the night with Robin after this. It might be the last one. Come morning, she's with you. That ok with you?"
+        me "..."
+        ro "..."
+        ki "Whether or not you believe me, this is actually a good night. For all of us."
+        scene ep4p2_krafter20 with dissolve
+        stop music fadeout 3
+        ki "So let's at least try and enjoy it a little bit."
+        scene ep4p2_krafter12 with dissolve
+        ro "..."
+        scene ep4p2_krafter21b with dissolve
+        ki "..."
+        scene ep4p2_krafter21 with dissolve
+        ro "..."
+        hide screen phone
+        scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+        play music ep4_epilogue
+        $ nowPlayingArtist = "Roman P."
+        $ nowPlayingTitle = "Universe"
+        $ nowPlayingRealArtist = ""
+        $ nowPlayingRealTitle = ""
+        queue music [ep4_loftheme]
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        $ renpy.pause(1)
+        scene ep4p2_epikirarobin with fade
+        $ renpy.pause(2)
+        jump ch4EndPre
 $ clockis = [[todayIs],2,1,0,8]
+$ renpy.pause()
+if ep4NightChoose == 2:
+    jump ep4LexiDate
+else:
+    jump ep4AfterDates
+label ep4LexiDate:
+scene bg empty with fade
+$ clockis = [[todayIs],1,9,5,8]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lexidate01 with fade
+play music ep4_lexidate
+$ nowPlayingArtist = "ORKAS"
+$ nowPlayingTitle = "So Good"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "(Ok. This is the spot we agreed to meet.)"
+scene ep4p2_lexidate02 with dissolve
+me "(Why am I nervous. I just spoke to her inside.)"
+scene ep4p2_lexidate03 with dissolve
+me "(And I'm right on time. Two minutes early, just as I should be.)"
+scene ep4p2_lexidate04 with dissolve
+me "(Breath is...)"
+scene ep4p2_lexidate05 with dissolve
+me "(...acceptable)"
+scene ep4p2_lexidate06 with dissolve
+me "(Thankfully... If I were to eat more mints now, I'd smell like a dentist's office.)"
+scene ep4p2_lexidate07 with dissolve
+me "(Hopefully the deodorant is holding up in the warm weather...)"
+scene ep4p2_lexidate08 with dissolve
+me "(*sniffs*)"
+scene ep4p2_lexidate09 with dissolve
+le "*laughs* There you are."
+show ep4p2_lexidate10c at imgSlide_ep4LexiDate_c
+show ep4p2_lexidate10b at imgSlide_ep4LexiDate_b
+show ep4p2_lexidate10aa at imgSlide_ep4LexiDate_a
+$ renpy.pause()
+scene ep4p2_lexidate11 with dissolve
+hide ep4p2_lexidate10c
+hide ep4p2_lexidate10b
+hide ep4p2_lexidate10aa
+me "You look amazing."
+scene ep4p2_lexidate12 with dissolve
+le "Why thank you lots, fine gentleman. You look quite smashing yourself."
+scene ep4p2_lexidate13 with dissolve
+me "Surely you jest, M'lady. I didn't bring any clothing worthy of a date with a star, but your flattery is appreciated."
+if meRomantic >= 3:
+    $ XPlexi += 2
+    if XPlexi > 25:
+        $ XPlexi = 25
+    show screen rshw with dissolve
+    scene ep4p2_lexidate15 with dissolve
+    me "Now if you would just accompany me to the horse carriage."
+    scene ep4p2_lexidate16 with dissolve
+    le "I'd be delighted to."
+    hide screen rshw with dissolve
+else:
+    scene ep4p2_lexidate14 with dissolve
+    me "Let's get this show on the road."
+scene ep4p2_lexidate17 with dissolve
+le "So where are we going?"
+scene ep4p2_lexidate18 with dissolve
+me "I could tell you that, but then I'd have to kill you."
+le "Big secret, eh?"
+le "Remember you have to clear it with..."
+scene ep4p2_lexidate19 with dissolve
+me "...Kevin. For security, yes. We should be all good."
+me "I've got him on speed dial."
+le "It can get rough sometimes..."
+scene ep4p2_lexidate20 with dissolve
+me "We should be fine. I've got something nice planned out."
+le "I should probably say that..."
+me "...or probably not say anything."
+me "Yes, I know that this is your hometown, and you've probably seen most places already."
+me "I just hope we can sit down and have a good time together."
+me "If we run into some crazy autograph hunters, I'll just flash my butt to them."
+scene ep4p2_lexidate21 with dissolve
+le "Oh no, please don't. Anything but that."
+me "See?"
+le "*laughs* I'm imagining the headlines right now."
+scene ep4p2_lexidate22 with dissolve
+me "And here we are. Our ride."
+me "Impressive, eh?"
+le "I see you're pulling all the strings for this date."
+me "Worthy of a star."
+scene bg empty with fade
+$ clockis = [[todayIs],2,0,1,6]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+me "...aaaand you can open your eyes."
+scene ep4p2_lexidate23 with fade
+le "This better be good."
+scene ep4p2_lexidate24 with dissolve
+le "Oh... it's..."
+scene ep4p2_lexidate25 with dissolve
+le "...a Japanese restaurant."
+scene ep4p2_lexidate26 with dissolve
+me "Well, I heard you liked sushi..."
+scene ep4p2_lexidate27 with dissolve
+le "It's so cool. Just like the... restaurants in Japan."
+scene ep4p2_lexidate28 with dissolve
+le "Even got the cute seats on the floor."
+me "So you like it?"
+scene ep4p2_lexidate29 with dissolve
+le "I love it."
+me "Phew... I was sure you'd been here before."
+le "...this is just perfect."
+me "That's good to hear. I was a bit nervous for a while. Surely you've seen it all by now."
+scene ep4p2_lexidate30 with dissolve
+me "Let's get comfortable. I'm hungry."
+scene ep4p2_lexidate32 with dissolve
+le "Me too. The waiter is probably right around the corner."
+scene ep4p2_lexidate31 with dissolve
+le "There she is."
+scene ep4p2_lexidate33 with dissolve
+wa "What can I get you today?"
+scene ep4p2_lexidate34 with dissolve
+me "Any assortment of Makis and Nigiris will do just fine. A dozen please."
+scene ep4p2_lexidate33 with dissolve
+wa "That I can do. And to drink with that?"
+scene ep4p2_lexidate34 with dissolve
+me "A bottle of red wine to share will do just fine. Nothing fancy."
+scene ep4p2_lexidate35 with dissolve
+wa "And you Miss Dimante, will you be having your regular?"
+scene ep4p2_lexidate37 with dissolve
+le "I'll just go with what the gentleman ordered today."
+scene ep4p2_lexidate35 with dissolve
+wa "That we can do."
+scene ep4p2_lexidate36 with dissolve
+wa "I'll be right back with your food, should take no more than 5 minutes."
+scene ep4p2_lexidate38 with dissolve
+me "So..."
+le "..."
+me "...regular, eh?"
+scene ep4p2_lexidate39 with dissolve
+me "Miss Dimante."
+me "Or should I say, Miss 'Never been here before'"
+scene ep4p2_lexidate40 with dissolve
+le "Oh, stop it. I didn't want to ruin your date location, ok!"
+me "..."
+le "You know I love sushi, and this is 5 minutes away from home."
+me "..."
+le "And I didn't use those words. I said it's perfect."
+scene ep4p2_lexidate41 with dissolve
+me "*makes Lexi's voice* 'They even got the cute seats on the floor...'"
+scene ep4p2_lexidate42 with fade
+le "So, no girlfriend in your life right now?"
+me "No girlfriend. Honestly I haven't had time to look for any."
+le "I'm guessing you're popular with the girls."
+scene ep4p2_lexidate43 with dissolve
+me "Not really. Though, I'm starting to wonder..."
+me "...I've been finding a lot of female friends lately."
+me "But I haven't really had a girlfriend in a long time."
+scene ep4p2_lexidate44 with dissolve
+me "And how about you? As an artist, I'm guessing you have an exciting ... love life?"
+scene ep4p2_lexidate45 with dissolve
+le "..."
+scene ep4p2_lexidate46
+$ renpy.pause(0.3)
+scene ep4p2_lexidate45
+$ renpy.pause(0.3)
+scene ep4p2_lexidate46
+$ renpy.pause(0.3)
+scene ep4p2_lexidate45
+$ renpy.pause(0.3)
+scene ep4p2_lexidate46
+$ renpy.pause(0.3)
+scene ep4p2_lexidate47 with dissolve
+$ photoop_ep4LexiSushiPic = False
+$ photoop_ep4LexiSushiNuke = True
+le "*mouths* mouth full"
+mod "Take Lexi's picture or you'll get an opportunity"
+show screen phone_camop
+$ phone_camop_screen = "ep4LexiSushi"
+me "(I just broke the 19th rule of dating... Never ask a girl about something before she puts a big piece of food into her mouth.)"
+le "..."
+hide screen phone_camop
+jump photoop_ep4LexiSushiEnd
+label photoop_ep4LexiSushi:
+play sound camerashutter
+$ photoop_ep4LexiSushiPic = True
+$ cam_gallery_append_item1 = "ep4p2_lexidate47"
+if cam_gallery_append_item1 not in cam_gallery:
+    $ cam_gallery.append(cam_gallery_append_item1)
+show bg_empty
+scene ep4p2_lexidate47 with Fade(0, 0, 0.5, color="#ffffff")
+me "..."
+label photoop_ep4LexiSushiEnd:
+$ phone_camop_screen = ""
+hide screen phone_camop
+scene ep4p2_lexidate45
+$ renpy.pause(0.3)
+scene ep4p2_lexidate46
+$ renpy.pause(0.3)
+scene ep4p2_lexidate45
+$ renpy.pause(0.3)
+scene ep4p2_lexidate46
+$ renpy.pause(0.3)
+scene ep4p2_lexidate48 with dissolve
+le "*swallows*"
+scene ep4p2_lexidate49 with dissolve
+le "Not really. I don't think it's more exciting than others."
+if photoop_ep4LexiSushiPic:
+    le "And did you just take my picture with my mouth full?"
+    scene ep4p2_lexidate50 with dissolve
+    me "You looked cute, ok?"
+    scene ep4p2_lexidate49 with dissolve
+    le "*laughs*"
+le "But yes, you tend to be a bit more careful about it."
+le "At least I am."
+scene ep4p2_lexidate50 with dissolve
+me "That's it?"
+scene ep4p2_lexidate49 with dissolve
+le "You expected it to be something different?"
+scene ep4p2_lexidate50 with dissolve
+me "I'm not sure to be honest. I always imagined that..."
+scene ep4p2_lexidate51 with dissolve
+le "...every artist or actor get together in the weekends for some wild sex party?"
+scene ep4p2_lexidate50 with dissolve
+me "*laughs* No, not like that."
+me "But I kinda thought you'd go looking at certain places for your better half to be."
+scene ep4p2_lexidate52 with dissolve
+le "Yeah, I tried that too. Didn't work. So I stopped looking and hoped somebody would fall into my lap at some point..."
+scene ep4p2_lexidate53 with dissolve
+le "Tell you what... Let's put the past in the past and toast to a better future."
+scene ep4p2_lexidate54 with dissolve
+me "I can certainly drink to that."
+scene ep4p2_lexidate55 with dissolve
+me "And to the most beautiful eyes in showbiz."
+scene ep4p2_lexidate56 with dissolve
+le "Cheers!"
+scene ep4p2_lexidate57 with dissolve
+me "(Too cheeky?)"
+scene ep4p2_lexidate58_dirt2 with dissolve
+me "(So far this trip has been amazing, but...)"
+me "(This date thing isn't really going the way I'd like.)"
+me "(I'm sure she thinks it's ok, but I want Lexi to experience something more than just another sushi meal.)"
+scene ep4p2_lexidate59_dirt2 with dissolve
+me "(All the flirting...)"
+if ep3TimePassed <= 2:
+    me "(...and on the airplane...)"
+me "(...and that first night when I got here.)"
+le "I'm so full..."
+scene ep4p2_lexidate60_dirt2 with dissolve
+le "...I think I have to leave the last piece behind."
+me "I can help you with that."
+le "Oh, please yes. Help me out here."
+scene ep4p2_lexidate62_dirt2 with dissolve
+me "There's always room for one more."
+me "I'm just so glad this isn't my first time around chopsticks..."
+scene ep4p2_lexidate63 with dissolve
+le "..."
+scene ep4p2_lexidate64 with dissolve
+me "..."
+scene ep4p2_lexidate65 with dissolve
+le "..."
+scene ep4p2_lexidate66 with dissolve
+le "*gasps*"
+scene ep4p2_lexidate67 with dissolve
+le "Houston, we have a problem..."
+scene ep4p2_lexidate68 with dissolve
+le "Sushi down... and you're kinda poking my..."
+scene ep4p2_lexidate69 with dissolve
+me "Oh shit, I'm so sorry."
+scene ep4p2_lexidate70 with dissolve
+le "It's fine, let me..."
+scene ep4p2_lexidate71 with dissolve
+me "No, no. I got this. Let me..."
+me "*fiddles*"
+me "As I said, this isn't my first time around chopsticks."
+me "Almost there..."
+me "Shit..."
+me "It fell down a bit further."
+scene ep4p2_lexidate72 with dissolve
+le "You don't say..."
+me "..."
+me "Don't worry, I can reach it."
+scene ep4p2_lexidate71 with dissolve
+me "..aaaaaalmost there."
+le "..."
+me "If I can just get right in there and..."
+scene ep4p2_lexidate73 with dissolve
+me "...get a good grip, we should be fine."
+le "..."
+scene ep4p2_lexidate74 with dissolve
+me "There we go."
+le "*laughs* My hero."
+scene ep4p2_lexidate75 with fade
+$ clockis = [[todayIs],2,0,4,5]
+le "Thank you very much for the date. It's been wonderful."
+scene ep4p2_lexidate76 with dissolve
+me "Nah, you know what? No it hasn't."
+me "As far as dates go, this has been probably the most boring one I've been able to attend."
+le "...but..."
+me "I know you're a huge star and all that, and that we have to follow the rules to keep you safe and out of danger."
+me "But I would very much like to take you out, walk around in the city just like a normal boy and girl enjoying themselves."
+scene ep4p2_lexidate77 with dissolve
+le "I would love that too, but you don't know how it is. If I set my foot out there, we're going to be surrounded in 2 minutes."
+le "And it's going to be very little us, and very many others."
+scene ep4p2_lexidate76 with dissolve
+me "You're lucky I am a man of many resources then. You stay here for a bit, and I'll be right back."
+scene ep4p2_lexidate78 with fade
+le "..."
+le "(This is odd.)"
+le "(What did he mean by that?)"
+scene ep4p2_lexidate79 with dissolve
+le "(He doesn't know how it is.)"
+le "(If one person recognizes me, they all do.)"
+scene ep4p2_lexidate80 with dissolve
+le "(And then comes the autograph requests. Then the hug this, the selfie that and the sign this butt cheek...)"
+le "(...)"
+scene ep4p2_lexidate81 with dissolve
+le "(But if it makes him happy then...)"
+le "(...let's do it.)"
+le "(...)"
+le "(Crap, why am I nervous.)"
+scene ep4p2_lexidate82 with dissolve
+$ clockis = [[todayIs],2,0,5,8]
+le "(*sniffs* Is the deodorant still working?)"
+me "And I'm back!"
+scene ep4p2_lexidate83 with dissolve
+le "Oh, that's awkward."
+le "And?"
+scene ep4p2_lexidate84 with dissolve
+me "Here you go."
+le "Huh?"
+scene ep4p2_lexidate85 with dissolve
+le "And what is this supposed to be?"
+me "Your disguise."
+scene ep4p2_lexidate84 with dissolve
+le "..."
+me "Put it on!"
+scene ep4p2_lexidate85 with dissolve
+me "If you don't put it on, I've wasted $3.99, and I will have none of it."
+scene ep4p2_lexidate86 with fade
+me "Perfect."
+scene ep4p2_lexidate87 with dissolve
+le "And this is going to make me unrecognizable for everyone, right?"
+scene ep4p2_lexidate86 with dissolve
+me "They will be looking at you, thinking... Elvis?"
+me "And then they will see your cute butt, and go nah."
+scene ep4p2_lexidate87 with dissolve
+stop music fadeout 3
+le "Elvis, eh?"
+scene ep4p2_lexidate86 with dissolve
+me "No. Cute butt. Now come on."
+scene bg empty with fade
+$ clockis = [[todayIs],2,1,2,1]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lexistreet01 with fade
+play music ep4_lexistreet
+$ nowPlayingArtist = "Faith Richards"
+$ nowPlayingTitle = "LA"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+le "..."
+le "I'm not comfortable like this, you know."
+scene ep4p2_lexistreet02 with dissolve
+me "Yeah. Isn't it great?"
+le "..."
+me "You can lower your shoulders now."
+scene ep4p2_lexistreet03 with dissolve
+me "And now for the finishing touch."
+scene ep4p2_lexistreet04 with dissolve
+me "Voila..."
+me "And now it's a date."
+scene ep4p2_lexistreet05 with dissolve
+le "Smooth hand on the shoulder move."
+me "I know. An ancient art passed down from father to son, father to ... son."
+le "..."
+le "I thought you didn't know your father."
+me "I don't."
+scene ep4p2_lexistreet06 with dissolve
+le "But I approve. This is nice."
+me "You need to experience this, you know."
+me "Even though I bet it's nice to be a huge star and be treated like one."
+me "Don't forget to take the time to walk the streets at night, without a worry in the world."
+me "Taking in the sounds, the smell, the people talking and the atmosphere."
+me "You know... being normal."
+scene ep4p2_lexistreet07 with dissolve
+le "So you are going to teach me how to be normal now?"
+me "Clearly."
+le "In other words, you don't think I'm normal, do you."
+me "Eh... That was not what I meant."
+le "U-huh."
+scene ep4p2_lexistreet08 with dissolve
+me "I meant..."
+le "U-huh."
+scene ep4p2_lexistreet07 with dissolve
+me "It's hard to describe. Let me show you."
+le "I can't wait!"
+scene ep4p2_lexistreet08 with dissolve
+me "Do you smell what I smell?"
+le "Is my deodorant failing me?"
+me "*laughs* No. Close your eyes and smell."
+scene ep4p2_lexistreet09 with dissolve
+le "..."
+me "And?"
+le "Coffee, cakes, cookies, and cupcakes."
+me "Yes!"
+le "I want some."
+me "Let's go buy some then."
+scene ep4p2_lexistreet09c with dissolve
+le "No we can't. Look at that queue. People will recognize me."
+me "No they won't. Do you see what they are looking at?"
+le "..."
+le "Different... stuff?"
+me "*laughs* No, they are looking at their phone."
+me "You could basically stand nude before them, and they would not even notice you."
+le "If you're sure..."
+me "Yes, come on."
+scene ep4p2_lexistreet10 with dissolve
+$ clockis = [[todayIs],2,1,3,8]
+le "*sings* Born to drive me crazy and we both know..."
+scene ep4_lexibump with dissolve
+me "Hush."
+scene ep4p2_lexistreet12 with dissolve
+le "What?"
+scene ep4p2_lexistreet11 with dissolve
+me "Normal, remember?"
+scene ep4p2_lexistreet16 with dissolve
+le "I sing when I'm nervous, ok?"
+le "And it's normal to sing, right?"
+scene ep4p2_lexistreet17 with dissolve
+me "Yes, it's quite normal to sing. But this is a small shop, we're in a queue, and..."
+me "...with your voice being so strong and recognizable, they'll notice you."
+uk "Huh?"
+le "*sigh*"
+le "And did I tell you I'm a bit impatient?"
+me "*whispers* quickly, do something normal. I think the girl ahead is catching up. Pretend you're my wife."
+scene ep4p2_lexistreet18 with dissolve
+le "{i}So honey, I've been waiting this table for all day, and that fuckhead of a guy didn't even tip me.{/i}"
+le "{i}...Like at all.{/i}"
+me "*laughs*"
+le "{i}So, how was your day honey?{/i}"
+scene ep4p2_lexistreet16 with dissolve
+uk "nah..."
+le "And if this queue moves any slower than this, I'll bake the cupcakes myself."
+scene ep4p2_lexistreet13 with dissolve
+$ clockis = [[todayIs],2,1,4,0]
+le "Seriously, we've been waiting for like..."
+scene ep4p2_lexistreet11 with dissolve
+me "Two minutes?"
+le "..."
+scene ep4p2_lexistreet13 with dissolve
+le "Whatever..."
+scene ep4p2_lexistreet20 with fade
+$ clockis = [[todayIs],2,1,5,0]
+le "Finally!"
+clerk "How may I help you?"
+scene ep4p2_lexistreet19 with dissolve
+le "Do you have cupcakes?"
+scene ep4p2_lexistreet21 with dissolve
+clerk "Eh. Sure. Which do you want?"
+le "What do you have?"
+scene ep4p2_lexistreet22 with dissolve
+clerk "Eh. We have white ones, yellow ones, green, purple, blue..."
+le "Pink ones?"
+clerk "...pink ones..."
+le "Excellent. If you could just take two trays of the pink ones, one of the white ones, one of the blue ones..."
+le "...and throw in a few loafs with that and ship it to my place at..."
+scene ep4_lexibump with dissolve
+le "Hmmm?"
+me "Honey..."
+scene ep4p2_lexistreet23 with dissolve
+me "You know that we can't spend our entire budget on cupcakes."
+scene ep4p2_lexistreet24 with dissolve
+me "We'll just have two pink cupcakes."
+le "..."
+scene ep4p2_lexistreet25 with dissolve
+le "Do you think we have enough money in our budget to add coffee with those?"
+me "Yes, honey. Let's go wild today."
+scene ep4p2_lexistreet23 with dissolve
+le "Awwww. Thank you Babyboo."
+scene ep4p2_lexistreet26 with dissolve
+le "And two coffee with those cupcakes."
+clerk "What names do you want on the cups?"
+le "Names?"
+clerk "Yes, on the cups?"
+le "Ah, it's [name] and Le..."
+scene ep4_lexibump with dissolve
+me "..."
+scene ep4p2_lexistreet27 with dissolve
+le "...onard..."
+le "o?"
+clerk "Leonardo?"
+le "My parents were weird."
+stop music fadeout 3
+scene ep4p2_lexistreet28 with dissolve
+clerk "[name] and Leonardo. Gotcha."
+clerk "That'll be $9.99."
+scene bg empty with fade
+$ clockis = [[todayIs],2,2,5,5]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+me "I think they are..."
+me "Yes."
+me "They are definitely having sex."
+scene ep4p2_lexistreet42 with fade
+play music ep4_lexirun
+$ nowPlayingArtist = "The Lighthearts"
+$ nowPlayingTitle = "Out of Nowhere"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "There goes the dress."
+me "..."
+me "And the pants."
+scene ep4p2_lexistreet43 with dissolve
+le "No way!"
+scene ep4p2_lexistreet44 with dissolve
+me "Holy shit, this guy is really packing."
+le "What?"
+me "Look at the size of that thing."
+scene ep4p2_lexistreet45 with dissolve
+le "I can't see anything from here."
+scene ep4p2_lexistreet46 with dissolve
+le "Stupid glasses. Everything is so dark."
+scene ep4p2_lexistreet47 with dissolve
+le "..."
+le "Are they eating."
+me "Well, he's about to eat something alright."
+scene ep4p2_lexistreet48 with dissolve
+le "Let me have a look."
+me "No way, this is too juicy."
+me "It's just like porntube."
+scene ep4p2_lexistreet49 with dissolve
+le "Move over!"
+scene ep4p2_lexistreet50 with dissolve
+me "Poor woman... He's really going for it."
+le "..."
+scene ep4p2_lexistreet51 with dissolve
+me "Or maybe I should say lucky gal..."
+le "Will you let me have a look?"
+scene ep4p2_lexistreet53 with dissolve
+le "There we go..."
+scene ep4p2_lexistreet52 with dissolve
+me "..."
+le "They are..."
+scene ep4p2_lexistreet54 with dissolve
+le "...doing nothing at all, are they."
+scene ep4p2_lexistreet55 with dissolve
+me "*laughs* Gotcha!"
+le "You big..."
+scene ep4p2_lexistreet56 with dissolve
+le "...asshole!"
+me "You should have seen the look on your face."
+scene bg empty with fade
+$ clockis = [[todayIs],2,3,1,5]
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+show ep4_lexistreet_sea at imgSlide_ep4LexiDateSea_b
+show ep4p2_lexistreet71a at imgSlide_ep4LexiDateSea_a
+$ renpy.pause()
+le "This is really nice."
+me "Yes, it's a worthy ending to a good date."
+le "I'm not just talking about the view, you know."
+le "Like you told me earlier, it's about everything out here."
+le "The sounds, the smell, the atmosphere..."
+le "...holding you close."
+me "..."
+le "I know things has been happening so fast."
+le "But I really like you."
+le "And the more time I spend with you, the more I'm certain that I want to spend even more time with you."
+me "I know what you mean."
+me "And yes, I like you too."
+scene ep4p2_lexistreet29 with dissolve
+hide ep4_lexistreet_sea
+hide ep4p2_lexistreet71a
+me "Honestly, it's much better now that you..."
+scene ep4p2_lexistreet30 with dissolve
+le "...don't throw myself at you every single minute?"
+me "...your words, but yes. This is more like the time I met you at Metro."
+scene ep4p2_lexistreet31 with dissolve
+me "Just a man and a woman..."
+scene ep4p2_lexistreet32 with dissolve
+le "...in love?"
+scene ep4p2_lexistreet33 with dissolve
+me "..."
+me "In love."
+scene ep4p2_lexistreet34 with dissolve
+le "...Mmmm..."
+scene ep4p2_lexistreet35 with dissolve
+$ clockis = [[todayIs],2,3,2,2]
+me "..."
+uk "I knew it!"
+scene ep4p2_lexistreet36 with dissolve
+uk "It's you! Lexi!"
+scene ep4p2_lexistreet37 with dissolve
+uk "I thought I recognized you, but the glasses made me uncertain."
+scene ep4p2_lexistreet38 with dissolve
+uk "OH MY GOD! Can I get your autograph?"
+le "Sure you can, sweetie."
+me "I'll be over here for a bit..."
+scene ep4p2_lexistreet39 with dissolve
+me "(The life of the rich and famous...)"
+vo "...thank you so much... and can we do a selfie too?"
+le "Sure thing, let's do one."
+scene ep4p2_lexistreet57 with dissolve
+play sound camerashutter
+me "(Will I ever get used to this?)"
+scene ep4p2_lexistreet40 with fade
+$ clockis = [[todayIs],2,3,4,4]
+me "(Wow. This fan is really persistent...)"
+play sound camerashutter
+vo "...and from this angle..."
+play sound camerashutter
+$ renpy.pause(1)
+v1 "...me next please..."
+v2 "...and me..."
+vm "...can you sign my butt cheek?"
+play sound camerashutter
+$ renpy.pause(1)
+play sound camerashutter
+scene ep4p2_lexistreet41 with dissolve
+me "Huh?"
+le "Calm down please, one at a time."
+me "(Oh, no.)"
+scene ep4p2_lexistreet58 with dissolve
+le "If you would all stop pushing, this will be so much better."
+me "(I have to save her from this.)"
+scene ep4p2_lexistreet60 with dissolve
+le "Please give me some room..."
+me "Lexi?"
+le "Huh?"
+scene ep4p2_lexistreet61 with dissolve
+me "RUN!"
+le "What the..."
+vo "Hey!"
+v1 "You forgot about me."
+v2 "And me."
+scene ep4p2_lexistreet62 with dissolve
+le "Run?"
+me "Yeah, run!"
+le "But my fans."
+me "...are going to eat you alive."
+scene ep4p2_lexistreet64 with dissolve
+me "How is it looking back there?"
+le "Holy shit. They are chasing us."
+me "Throw something at them..."
+me "The cupcakes."
+le "We ate the cupcakes."
+me "Your panties."
+le "..."
+le "Not happening."
+vm "Lexi!"
+me "I know... the sunglasses."
+scene ep4p2_lexistreet65 with dissolve
+le "Aw... but I really liked those sunglasses."
+me "You have to give them something or they will catch up."
+le "If you say so... Here goes."
+me "..."
+scene ep4p2_lexistreet63 with dissolve
+me "This is so much fun!"
+le "*laughs* You are crazy."
+me "Fun!"
+scene ep4p2_lexistreet64 with dissolve
+me "Did the sunglasses help?"
+le "Two of them stopped to fight over them, the rest are still chasing."
+me "I'll call Kevin."
+scene ep4p2_lexistreet66 with dissolve
+me "Kevin, we got a code red."
+ke "{i}...somebody threw an egg at Lexi?{/i}"
+me "..."
+me "Ok, so I don't know the code colors, but we got an army of Lexinions chasing us."
+ke "{i}A code purple then...{/i}"
+scene ep4p2_lexistreet67 with dissolve
+ke "Just keep running for a bit more."
+me "Whatever you do, do it fast."
+ke "ETA 10 seconds. I'm on your six."
+scene ep4p2_lexistreet68 with dissolve
+ke "{i}...and here we are..."
+scene ep4p2_lexistreet69 with dissolve
+ke "{i}...get in.{/i}"
+me "You first, Lexi."
+scene ep4p2_lexistreet70 with dissolve
+le "You don't have to tell me twice."
+scene ep4p2_lexistreet72 with fade
+me "Wow... You've got some crazy fans."
+le "I told you, didn't I?"
+me "Hey, it worked fine until you took the sunglasses off."
+scene ep4p2_lexistreet73 with dissolve
+le "I'm going to miss those glasses."
+me "Why?"
+le "They came with a good story."
+me "I have to agree to that."
+me "And they cost $3.99..."
+le "Or maybe we could have spent it on cupcakes instead."
+scene ep4p2_lexistreet74 with dissolve
+me "At least we're alone now."
+le "Hmhmmm. Nobody can disturb us here."
+scene ep4p2_lexistreet75 with dissolve
+le "And I've really wanted to do something all night."
+me "..."
+scene ep4p2_lexistreet76 with dissolve
+le "You are so beautiful..."
+me "And you..."
+scene ep4p2_lexistreet77 with dissolve
+le "...and you smell so good."
+scene ep4p2_lexistreet78 with dissolve
+le "(Oh, no...)"
+le "(Not now, not now...)"
+me "(She's really tense...)"
+le "(Please be silent...)"
+play sound ep4_fart
+scene ep4p2_lexistreet79 with dissolve
+"*farts*"
+le "..."
+me "..."
+scene ep4p2_lexistreet80 with dissolve
+le "..."
+scene ep4p2_lexistreet81 with dissolve
+me "..."
+scene ep4p2_lexistreet80 with dissolve
+le "..."
+scene ep4p2_lexistreet82 with dissolve
+me "So..."
+me "...was that..."
+scene ep4p2_lexistreet83 with dissolve
+le "Nope..."
+scene ep4p2_lexistreet84 with dissolve
+le "..."
+me "I mean..."
+le "..."
+scene ep4p2_lexistreet85 with dissolve
+me "...it sounded like a D major..."
+scene ep4p2_lexistreet86 with dissolve
+le "Oh my god!"
+me "I swear, it's a hit!"
+le "You are the worst!"
+me "...and can we open the windows? My eyes are burning."
+scene ep4p2_lexistreet87 with fade
+$ photoop_ep4LexiSushiNuke = False
+me "aaaaaaaaaaaa..."
+le "...aaaaaayeah..."
+me "...this is life."
+scene ep4p2_lexistreet88 with dissolve
+le "I haven't had this much fun in years."
+me "I know, right?"
+scene ep4p2_lexistreet89 with dissolve
+le "Now, I'm going to do what I've been wanting to do all night!"
+le "And I don't care who sees it."
+scene ep4p2_lexistreet90 with dissolve
+me "Lay it on me babe!"
+scene ep4p2_lexistreet91 with dissolve
+le "!"
+scene ep4p2_lexistreet92 with Dissolve(5.0, alpha=True)
+hide screen phone
+stop music fadeout 3
+$ renpy.pause()
+scene ep4p2_lexistreet93 with dissolve
+le "I just need to go powder my nose."
+scene ep4p2_lexistreet94 with dissolve
+le "Why don't you get comfortable meanwhile."
+scene ep4p2_lexistreet95 with dissolve
+play music ep4_lexiprepare
+$ nowPlayingArtist = "Lance Conrad ft. Michael Shynes"
+$ nowPlayingTitle = "Summertime Blues"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+me "..."
+me "I've always wondered what it means to get comfortable."
+me "Do I lay down on the bed, waiting. Or sit on it?"
+me "Should remove my clothes, and even how much of it?"
+scene ep4p2_lexistreet96 with dissolve
+me "And what do 'powder my nose' actually mean?"
+me "Do they really powder the nose at all?"
+me "..."
+me "Women, and their secrets..."
+scene ep4p2_lexiromance01 with fade
+le "(This is it, Lexi...)"
+le "(...the biggest performance you've ever done.)"
+le "(500,000 people on the red square in Moscow...)"
+le "(...easy.)"
+scene ep4p2_lexiromance02 with dissolve
+le "(Half time, Superbowl...)"
+le "(...piece of cake.)"
+scene ep4p2_lexiromance03 with dissolve
+le "(Opening show of the Football World Cup...)"
+le "(...a breeze.)"
+le "(Having sex with this guy you really like...)"
+scene ep4p2_lexiromance04 with dissolve
+le "(...)"
+le "(...you can do this!)"
+scene ep4p2_lexiromance05 with dissolve
+le "(I'm going to be sick.)"
+le "(...)"
+le "Get a grip, Lexi!"
+scene ep4p2_lexiromance07 with dissolve
+me "Did you say anything?"
+scene ep4p2_lexiromance06 with dissolve
+le "No, it's nothing, hun. I'll be right there."
+scene ep4p2_lexiromance07 with dissolve
+me "Ok. Take your time. No rush."
+scene ep4p2_lexiromance08 with dissolve
+me "(So... this is comfortable...)"
+me "(...right?)"
+scene ep4_lexiromance_mcbed with dissolve
+$ renpy.pause(4)
+me "(I feel very small all of a sudden.)"
+scene ep4p2_lexiromance10 with dissolve
+me "(Maybe the room is very big.)"
+me "(Or the star is...)"
+me "(...)"
+me "(...it'll be fine when we get on with it.)"
+le "[name]?"
+scene ep4p2_lexiromance07 with dissolve
+me "..."
+label galleryScene12:
+scene ep4p2_lexiromance11b
+$ renpy.movie_cutscene("imov/ep4/ep4p2_lexishow.webm", delay=None, loops=0, stop_music=False)
+me "Wow. You look fantastic."
+scene ep4p2_lexiromance12 with dissolve
+le "And you look..."
+scene ep4p2_lexiromance11 with dissolve
+le "...very inviting."
+scene ep4p2_lexiromance13 with dissolve
+le "Let's just get this show on the road."
+scene ep4p2_lexiromance14 with dissolve
+le "Because holy shit, do I want you!"
+me "I want you too, Lexi."
+me "Ever since Metro I've been wanting..."
+scene ep4p2_lexiromance15 with dissolve
+le "Mhmmmm... All of this... just for you."
+me "You're phenomenal."
+le "You'll see... phenomenal."
+scene ep4p2_lexiromance16 with dissolve
+le "And, uh, oh... You're packing."
+me "Packing?"
+le "...decently sized..."
+scene ep4p2_lexiromance17 with dissolve
+me "We can go careful. I mean..."
+le "NO!"
+le "I mean, let me play with it a bit. It always turns me on."
+le "Turns me on so much..."
+scene ep4p2_lexiromance18 with dissolve
+le "Just let me get out of these..."
+me "..."
+me "Mhmmm... That's so..."
+me "Ouch!"
+le "I'm sorry. I, just... let me..."
+me "Aaah... Much better."
+le "Wow... I'm impressed."
+le "And slightly scared."
+scene ep4p2_lexiromance19 with dissolve
+me "My turn."
+me "You're really..."
+me "(...not ready?)"
+scene ep4p2_lexiromance20 with hpunch
+le "No touching!"
+le "Just..."
+le "...fuck me"
+scene ep4p2_lexiromance21 with fade
+le "Fuck me!"
+le "I want you. I need you."
+me "Lexi..."
+me "There's no rush."
+scene ep4p2_lexiromance22 with dissolve
+me "..."
+me "Are you sure? I don't want to push this. I want it to be..."
+le "...perfect..."
+me "..."
+scene ep4p2_lexiromance21 with dissolve
+le "Fuck me! It will be... perfect."
+me "..."
+le "Just go!"
+me "Lexi..."
+scene ep4p2_lexiromance25 with dissolve
+me "..."
+scene ep4p2_lexiromance26 with dissolve
+le "Ow..."
+scene ep4p2_lexiromance23 with dissolve
+le "..."
+le "...keep going."
+me "(This doesn't feel right at all.)"
+scene ep4p2_lexiromance27 with dissolve
+me "Lexi..."
+me "...I can't."
+scene ep4p2_lexiromance24 with dissolve
+le "No, don't stop!"
+le "Keep going."
+me "..."
+le "Fuck me!"
+le "Treat me like a slut."
+le "Ram it in."
+le "It will be perfect!"
+scene ep4p2_lexiromance27 with dissolve
+me "I can't..."
+me "Everything about this seems wrong."
+scene ep4p2_lexiromance23 with dissolve
+me "This is not how I want this to be."
+le "..."
+me "And I don't think you want it like this either..."
+$ renpy.end_replay()
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lexiromance28 with fade
+stop music fadeout 10
+le "I fucked it up, didn't I."
+le "I just wanted this to be perfect..."
+scene ep4p2_lexiromance29 with dissolve
+le "..."
+scene ep4p2_lexiromance28 with dissolve
+le "I really wanted this to work."
+scene ep4p2_lexiromance30 with dissolve
+le "...and it didn't."
+me "..."
+scene ep4p2_lexiromance31 with dissolve
+me "No. {b}I'm{/b} really sorry."
+le "Sorry? For what?"
+me "For not stopping earlier."
+le "Don't apologize. If it's not meant to be, it's not meant to be."
+me "..."
+scene ep4p2_lexiromance32 with dissolve
+me "Earlier tonight, I felt this date started off badly."
+me "I tried following the normal 'date rules' of going out, having a meal, talking and enjoying ourselves."
+scene ep4p2_lexiromance31 with dissolve
+me "So I tried playing by those rules of how it was meant to be."
+me "You know, the date thing. Go somewhere, eat something, look into each other's eyes... perfect date."
+le "..."
+scene ep4p2_lexiromance32 with dissolve
+me "And everything felt wrong to me. I picked a spot where you use to eat all the time."
+me "Went through the normal conversation topics of past girlfriends."
+me "I asked questions where I shouldn't, where you had your mouth full."
+me "Dropped the piece of sushi."
+le "..."
+scene ep4p2_lexiromance31 with dissolve
+me "Then I thought... fuck those rules you've set up."
+me "Let's just do whatever - go wherever, and see what happens."
+me "It became much more enjoyable."
+scene ep4p2_lexiromance32 with dissolve
+me "And maybe you set yourself a rule, that sex was supposed to be the perfect ending of this night."
+me "Or maybe you live your life by that rule. That sex is the deciding element in finding love."
+le "..."
+me "But honestly, sex is not love."
+scene ep4p2_lexiromance34 with dissolve
+le "Isn't that what we're supposed to do?"
+me "If it feels right, or the mood is right, sure."
+me "..."
+me "But in reality, the perfect evening doesn't have to end with sex."
+le "Are you telling me that guys don't want sex on a perfect date?"
+me "Sure we do. But that's just one of the outcomes."
+scene ep4p2_lexiromance35 with dissolve
+me "And if he demands it... you just might have the wrong partner."
+le "Sounds familiar."
+scene ep4p2_lexiromance34 with dissolve
+me "In all likelihood, a normal date might very well end with going to sleep cuddling."
+me "Because you're too tired to have sex."
+me "And it wouldn't matter, because I'd be falling asleep with my arm around you."
+me "After all, it's not about who you go to bed with..."
+scene ep4p2_lexiromance35 with dissolve
+le "...but who you wake up next to in the morning."
+me "If it feels right, just go with it."
+me "Like this..."
+scene ep4p2_lexiromance37 with dissolve
+le "..."
+me "...feels very right to me."
+scene ep4p2_lexiromance38 with Dissolve(2.0, alpha=True)
+le "Mhmm..."
+le "Me too."
+scene ep4p2_lexiromance36 with dissolve
+le "..."
+me "Anything wrong?"
+le "..."
+me "Listen, again. I'm sorry. I should have stopped..."
+le "I just found the words..."
+me "Words?"
+le "Yes. To the song."
+scene ep4p2_lexiromance39 with dissolve
+le "Please let me sing it for you..."
+scene ep4p2_lexiromance40 with dissolve
+play music ep4_alwayslove_edit
+$ nowPlayingArtist = "Lexi Dimante"
+$ nowPlayingTitle = "I Already Love You"
+$ nowPlayingRealArtist = "Joy Hannah"
+$ nowPlayingRealTitle = "I Already Love You"
+label ep4LexiRomanceChoice:
+"{color=#ffff55}As she starts singing, you can't help but focus on her {a=jump:ep4LexiRomanceVoice}voice{/a}/{a=jump:ep4LexiRomanceLooks}looks{/a}.{/color}"
+jump ep4LexiRomanceChoice
+label ep4LexiRomanceVoice:
+scene ep4p2_lexiromance41 with dissolve
+"{color=#ffff55}You're mesmerized by her intimate performance, and you cling to every word.{/color}"
+"{color=#ffff55}Her voice is flawless, in any range. The lower notes a husky sexiness, the higher notes full of need.{/color}"
+scene ep4p2_lexiromance42 with dissolve
+"{color=#ffff55}She sings about love, about giving her all.{/color}"
+show ep4p2_lexiromance48 at imgSlide_ep4LexiRomancePiano_b
+show ep4p2_lexiromance49 at imgSlide_ep4LexiRomancePiano_a
+$ renpy.pause(10)
+hide ep4p2_lexiromance48
+hide ep4p2_lexiromance49
+"{color=#ffff55}Wanting and longing for that feeling.{/color}"
+scene ep4p2_lexiromance43 with dissolve
+"{color=#ffff55}And you realize that she isn't singing about wanting the feeling, but about already having found it.{/color}"
+"{color=#ffff55}...she isn't just singing about love. She is singing about you.{/color}"
+jump ep4LexiRomanceFin
+label ep4LexiRomanceLooks:
+scene ep4p2_lexiromance41 with dissolve
+"{color=#ffff55}You're mesmerized by her intimate performance, admiring her beauty.{/color}"
+"{color=#ffff55}Her fingers flawlessly moving along the keys, arms and shoulders relaxed.{/color}"
+scene ep4p2_lexiromance42 with dissolve
+"{color=#ffff55}As she draws her breath on every pause, her breasts pressing against her garments.{/color}"
+show ep4p2_lexiromance48 at imgSlide_ep4LexiRomancePiano_b
+show ep4p2_lexiromance49 at imgSlide_ep4LexiRomancePiano_a
+$ renpy.pause(10)
+hide ep4p2_lexiromance48
+hide ep4p2_lexiromance49
+"{color=#ffff55}Her body rocking slightly, with her still naked ass moves on the seat.{/color}"
+scene ep4p2_lexiromance43 with dissolve
+"{color=#ffff55}She couldn't care less, as every part of her is enthralled in her own song.{/color}"
+"{color=#ffff55}And you realize it's not just any song. It's her song about you.{/color}"
+jump ep4LexiRomanceFin
+label ep4LexiRomanceFin:
+scene ep4p2_lexiromance44 with dissolve
+"{color=#ffff55}You want her... need her. And she...{/color}"
+scene ep4p2_lexiromance46 with dissolve
+"{color=#ffff55}...needs you even more.{/color}"
+scene ep4p2_lexiromance44 with dissolve
+"{color=#ffff55}Expectations are the furthest thing from your minds. It couldn't feel more natural.{/color}"
+"{color=#ffff55}You both know... this time it's perfect.{/color}"
+scene ep4p2_lexiromance45 with dissolve
+me "..."
+le "..."
+scene ep4p2_lexiromance50 with dissolve
+$ renpy.pause()
+scene ep4p2_lexiromance52
+$ renpy.movie_cutscene("imov/ep4/ep4p2_lexiundress.webm", delay=None, loops=0, stop_music=False)
+le "Mhmmm..."
+scene ep4p2_lexiromance53 with fade
+le "Don't you even dare ask..."
+me "..."
+scene ep4p2_lexiromance54 with dissolve
+le "I need you."
+scene ep4p2_lexiromance55 with dissolve
+le "Ah... Just... so..."
+scene ep4p2_lexiromance56 with dissolve
+le "...good!"
+scene ep4p2_lexiromance58
+$ renpy.movie_cutscene("imov/ep4/ep4p2_lexipianoback_full.webm", delay=None, loops=0, stop_music=False)
+le "So this is how it's supposed to feel like..."
+me "You are absolute perfection. You know that, right?"
+le "Less words, more fucking."
+show ep4p2_lexiromance57 at imgSlide_ep4LexiOnPiano
+$ renpy.pause(10)
+le "It's unlike anything I've ever felt before."
+hide ep4p2_lexiromance57
+le "It's wonderful."
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+scene ep4p2_lexiromance59 with fade
+le "You ok back there?"
+me "I'm having the time of my life."
+scene ep4p2_lexiromance60 with dissolve
+le "This position is so good..."
+scene ep4p2_lexiromance61 with dissolve
+le "Though, the hair..."
+scene ep4_lexiromance_hairblow with dissolve
+le "*blows*"
+scene ep4p2_lexiromance64 with dissolve
+le "Oh fuck it."
+scene ep4p2_lexi_ride with dissolve
+me "Language."
+le "Fuck language."
+le "This is amazing."
+le "Fffuck..."
+le "Too good."
+le "I'm not going to last long like this."
+me "Don't say that. I'm going to..."
+scene ep4p2_lexiromance69 with dissolve
+le "Cum with me."
+le "Oh no... I'm..."
+scene ep4p2_lexiromance70 with dissolve
+me "...cumming?"
+le "...slipping."
+scene ep4p2_lexiromance65 with vpunch
+le "...and cumming..."
+scene ep4p2_lexiromance66 with vpunch
+le "...hard..."
+scene ep4p2_lexiromance67 with vpunch
+le "...Ngh..."
+le "*breathes* you... ok... back there?"
+le "I landed on you."
+me "I'm fine."
+scene ep4_lexiromance_mchairblow with dissolve
+me "*blows* Drowning in hair, but otherwise fine."
+scene ep4p2_lexiromance71 with dissolve
+le "That was really something."
+me "..."
+me "It seems we got the..."
+scene ep4p2_lexiromance72 with dissolve
+me "...perfect ending after all."
+le "Mhmmmmmmmm..."
+$ renpy.end_replay()
+scene ep4p2_lexiromance73 with fade
+stop music fadeout 10
+le "..."
+le "What a date..."
+scene ep4p2_lexiromance74 with dissolve
+me "A good reminder to not go by the rules."
+scene ep4p2_lexiromance73 with dissolve
+le "Just one thing..."
+scene ep4p2_lexiromance74 with dissolve
+me "What's that?"
+scene ep4p2_lexiromance73 with dissolve
+le "No."
+scene ep4p2_lexiromance74 with dissolve
+me "No, what?"
+scene ep4p2_lexiromance73 with dissolve
+le "I'm too exhausted for another round."
+scene ep4p2_lexiromance74 with dissolve
+me "...I wasn't implying..."
+scene ep4p2_lexiromance73 with dissolve
+le "By the feel of it, your friend down there is disagreeing..."
+scene ep4p2_lexiromance75 with dissolve
+le "...and he's poking my butt right now."
+scene ep4p2_lexiromance76 with dissolve
+me "I'm sorry. But you are just too hot. And he seems to be agreeing with me."
+me "And I didn't mean to suggest a..."
+le "Small steps, remember?"
+scene ep4p2_lexiromance77 with dissolve
+me "It's not that I'm a huge fan of anal anyway. You are perfect no matter what. I know lots of guys prefer it, but I'm fine without it."
+scene ep4p2_lexiromance78 with dissolve
+le "Maybe tomorrow."
+scene ep4p2_lexiromance79 with dissolve
+me "..."
+hide screen phone
+scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+play music ep4_epilogue
+$ nowPlayingArtist = "Roman P."
+$ nowPlayingTitle = "Universe"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+queue music [ep4_loftheme]
+$ renpy.pause(1)
+$ renpy.pause(1)
+$ renpy.pause(1)
+$ renpy.pause(1)
+$ renpy.pause(1)
+scene ep4p2_epilexi with fade
+$ renpy.pause(2)
+jump ch4EndPre
+label ep4AfterDates:
 if not Impact_Steph:
     if ep4NightChoose == 0:
         jump ch4EndPre
     else:
         jump ep4CeceRomance
+label ep4StephPre:
+scene bg empty with fade
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
+$ renpy.pause(0.5)
 scene ep4_stephcouch03 with fade
 me "(There's Steph.)"
 scene ep4_stephcouch04 with dissolve
@@ -3647,7 +10456,7 @@ me "I agree with you. It was rough there for a while."
 scene ep4_stephcouch10 with dissolve
 me "But you know, Steph..."
 menu:
-    "[M_04_019a]": # "Sit next to her.":
+    "[M_04_047a]": # "Sit next to her.":
         $ XPstephanie += 1
         if XPstephanie > 25:
             $ XPstephanie = 25
@@ -3662,7 +10471,7 @@ menu:
         scene ep4_stephcouch13 with dissolve
         st "Let's just enjoy the sunset for a bit."
         me "Sounds like a good plan."
-    "[M_04_019b]": # "Take her hand.":
+    "[M_04_047b]": # "Take her hand.":
         $ XPstephanie += 2
         if XPstephanie > 25:
             $ XPstephanie = 25
@@ -3680,7 +10489,7 @@ menu:
         scene ep4_stephcouch13 with dissolve
         st "Let's just enjoy the sunset for a bit."
         me "Sounds like a good plan."
-    "[M_04_019c]": # "Hold her.":
+    "[M_04_047c]": # "Hold her.":
         $ XPstephanie += 3
         if XPstephanie > 25:
             $ XPstephanie = 25
@@ -3706,7 +10515,7 @@ if ep4NightChoose <> 7:
     st "...for sharing the sunset with me. And for what we had."
     st "I will always treasure the memory of it."
     menu:
-        "[M_04_020a]" if ep4NightChoose == 0: # "How about you and me?" if ep4NightChoose == 0:
+        "[M_04_048a]" if ep4NightChoose == 0: # "How about you and me?" if ep4NightChoose == 0:
             $ XPstephanie += 3
             if XPstephanie > 25:
                 $ XPstephanie = 25
@@ -3729,7 +10538,7 @@ if ep4NightChoose <> 7:
             st "It is..."
             jump ch4EndPre
 
-        "[M_04_020b]" if ep4NightChoose >= 1: # "But I choose you." if ep4NightChoose >= 1:
+        "[M_04_048b]" if ep4NightChoose >= 1: # "But I choose you." if ep4NightChoose >= 1:
             $ XPstephanie += 3
             if XPstephanie > 25:
                 $ XPstephanie = 25
@@ -3748,7 +10557,7 @@ if ep4NightChoose <> 7:
             st "I wish you all the best with her."
             st "And thank you for forgiving me."
             jump ep4AfterStephSunset
-        "[M_04_020c]": # "Remain silent":
+        "[M_04_048c]": # "Remain silent":
             st "But our time is over, it's in the past."
             if ep4NightChoose == 0:
                 st "I don't know what your plans are, but I don't want to ruin anything."
@@ -3910,7 +10719,7 @@ scene ep4_stephcouch53 with dissolve
 me "You're god damn amazing..."
 st "Hey."
 scene ep4_stephcouch54 with dissolve
-st "Keep your eyes at your target at all times."
+st "Keep your eyes on your target at all times."
 scene ep4_stephcouch55 with dissolve
 me "..."
 scene ep4_stephcouch56 with dissolve
@@ -4099,25 +10908,44 @@ if meSporty >= 3:
     me "I can't leave the body of my victim here for the others to find in the morning."
     st "You're carrying me."
     me "And? You're light as a feather."
-    play music ep4_loftheme
     st "You have been training, haven't you."
     hide screen sshw with dissolve
     me "Don't tell anyone."
+    hide screen phone
+    scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+    play music ep4_epilogue
+    $ nowPlayingArtist = "Roman P."
+    $ nowPlayingTitle = "Universe"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    queue music [ep4_loftheme]
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    scene ep4p2_epistephcarry with fade
 else:
     stop music fadeout 3
     me "This is our cue to head inside."
     st "Yes... just let me catch my breath first."
-    play music ep4_loftheme
     st "And regain control over my legs."
-$ renpy.end_replay()
-$ renpy.pause(1)
-$ renpy.pause(1)
-hide screen phone
-scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
-$ renpy.pause(1)
-$ renpy.pause(1)
-$ renpy.pause(1)
-jump ch4End
+    hide screen phone
+    scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+    play music ep4_epilogue
+    $ nowPlayingArtist = "Roman P."
+    $ nowPlayingTitle = "Universe"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
+    queue music [ep4_loftheme]
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    $ renpy.pause(1)
+    scene ep4p2_epistephlay with fade
+$ renpy.pause(2)
+jump ch4EndPre
 label ep4CeceRomance:
 scene bg empty with fade
 $ renpy.pause(0.5)
@@ -4188,7 +11016,7 @@ scene ep4_cecepre11 with dissolve
 ce "I'm leaving, [name]. I can't stay close to you."
 scene ep4_cecepre12 with dissolve
 menu:
-    "[M_04_021a]": # "I love you":
+    "[M_04_049a]": # "I love you":
         me "I love you!"
         $ XPcece += 3
         if XPcece > 25:
@@ -4196,7 +11024,7 @@ menu:
         scene ep4_cecepre11 with dissolve
         ce "And I love you!"
         ce "That's why I have to go!"
-    "[M_04_021b]": # "We can fix this":
+    "[M_04_049b]": # "We can fix this":
         me "I care about you. I can fix you. We can fix this."
         $ XPcece += 1
         if XPcece > 25:
@@ -4270,7 +11098,6 @@ $ nowPlayingArtist = "Jay Denton"
 $ nowPlayingTitle = "Make Your Home with Me"
 $ nowPlayingRealArtist = ""
 $ nowPlayingRealTitle = ""
-label galleryScene5:
 scene ep4_backyardintroalone08 with dissolve
 me "..."
 show ep4_ceceromance39c at imgSlide_cecepool_c
@@ -4278,6 +11105,7 @@ show ep4_ceceromance39b at imgSlide_cecepool_b
 show ep4_ceceromance39a at imgSlide_cecepool
 $ renpy.pause()
 me "Cece?"
+label galleryScene7:
 scene ep4_ceceromance40 with dissolve
 hide ep4_ceceromance39a
 hide ep4_ceceromance39b
@@ -4376,6 +11204,7 @@ scene ep4_ceceromance09 with dissolve
 ce "..."
 scene ep4_ceceromance11 with dissolve
 ce "Let me get comfortable."
+label galleryScene6:
 scene ep4_ceceromance01 with dissolve
 ce "..."
 scene ep4_ceceromance03 with dissolve
@@ -4396,6 +11225,7 @@ scene ep4_ceceromance68
 $ renpy.movie_cutscene("imov/ep4/ep4_ceceslidedown.webm", delay=None, loops=0, stop_music=False)
 ce "Mmm..."
 ce "...there we go..."
+$ renpy.end_replay()
 scene ep4_ceceromance03
 $ renpy.movie_cutscene("imov/ep4/ep4_cecemc.webm", delay=None, loops=0, stop_music=False)
 ce "This is just..."
@@ -4462,7 +11292,7 @@ ce "God..."
 ce "...I'm..."
 "{color=#ffff55}Before she manages to finish the sentence...{/color}"
 $ renpy.movie_cutscene("imov/ep4/ep4_cececum.webm", delay=None, loops=0, stop_music=False)
-"{color=#ffff55}...she start climaxing violently.{/color}"
+"{color=#ffff55}...she starts climaxing violently.{/color}"
 "{color=#ffff55}You feel her contractions. Almost like she is milking you.{/color}"
 "{color=#ffff55}The whole sensation so overwhelming that you are on the verge of cumming yourself.{/color}"
 label ep4CeceRomanceCChoice:
@@ -4479,7 +11309,7 @@ $ ep4CeceCreampie = True
 scene ep4_ceceromance29 with dissolve
 "{color=#ffff55}As you reach the edge, she seems to sense you wanting to stay inside her.{/color}"
 "{color=#ffff55}Eagerly, she spreads her legs ever further, making you penetrate her deeper.{/color}"
-"{color=#ffff55}Before you both explode in wave after wave of pleasure, her body convulsing in tact with yours.{/color}"
+"{color=#ffff55}Before you both explode in wave after wave of pleasure.{/color}"
 scene ep4_ceceromance30 with dissolve
 "{color=#ffff55}Seemingly milking you for everything you got.{/color}"
 jump ep4CeceRomanceCEnd
@@ -4522,18 +11352,25 @@ else:
     scene ep4_ceceromance38 with dissolve
     ce "That sounds wonderful."
     ce "But for now..."
-scene ep4_ceceromance33 with dissolve
-play music ep4_loftheme
-ce "Let's just enjoy this moment."
 $ renpy.end_replay()
-$ renpy.pause(1)
-$ renpy.pause(1)
+scene ep4_ceceromance33 with dissolve
+ce "Let's just enjoy this moment."
 hide screen phone
 scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
+play music ep4_epilogue
+$ nowPlayingArtist = "Roman P."
+$ nowPlayingTitle = "Universe"
+$ nowPlayingRealArtist = ""
+$ nowPlayingRealTitle = ""
+queue music [ep4_loftheme]
 $ renpy.pause(1)
 $ renpy.pause(1)
 $ renpy.pause(1)
-jump ch4End
+$ renpy.pause(1)
+$ renpy.pause(1)
+scene ep4p2_epicece with fade
+$ renpy.pause(2)
+jump ch4EndPre
 label ep4Dawg:
 hide screen ep4_endscreen_cece with dissolve
 hide screen ep4_endscreen
@@ -4588,7 +11425,7 @@ ce "Awww."
 scene ep4_dawg17 with dissolve
 me "So, I went a little trip to the store today and bought you a copy of the latest 'Rambling Stones' Magazine."
 scene ep4_dawg18 with dissolve
-me "But now I see that some guy have been writing all over the front page with a marker."
+me "But now I see that some guy has been writing all over the front page with a marker."
 scene ep4_dawg19 with dissolve
 me "I should just head back to the store and ask for a new copy..."
 ce "No way!"
@@ -4632,6 +11469,10 @@ if ep4Dawgs:
     le "Start the song."
     li "Yeah, yeah. On my way."
     play music ep4_dawg
+    $ nowPlayingArtist = "Nite Owl ft. Nikko Smith"
+    $ nowPlayingTitle = "The End"
+    $ nowPlayingRealArtist = ""
+    $ nowPlayingRealTitle = ""
     scene ep4_dawg29 with dissolve
     ce "What..."
     scene ep4_dawg30 with dissolve
@@ -4671,16 +11512,57 @@ if ep4Dawgs:
         ce "I love you!"
     else:
         ce "THANK YOU!"
+    jump ch4End
 label ch4EndPre:
-stop music fadeout 3
-scene ep3_epilogue_blank with Dissolve(2.5, alpha=True)
-play music ep4_loftheme
+$ renpy.pause(2)
+if Impact_Steph:
+    scene ep4p2_treeperson04 with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson03 with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson02 with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson01 with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson00 with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+else:
+    scene ep4p2_treeperson04s with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson03s with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson02s with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson01s with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+    scene ep4p2_treeperson00s with Dissolve(2.5, alpha=True)
+    $ renpy.pause(0.5)
+scene ep4p2_mattback04 with fade
 $ renpy.pause(0.5)
+scene ep4p2_mattback03 with Dissolve(2.5, alpha=True)
 $ renpy.pause(0.5)
+scene ep4p2_mattback02 with Dissolve(2.5, alpha=True)
 $ renpy.pause(0.5)
+scene ep4p2_mattback05 with Dissolve(2.5, alpha=True)
+$ renpy.pause(0.5)
+scene ep4p2_mattback06 with Dissolve(2.5, alpha=True)
+$ renpy.pause(0.5)
+scene ep4p2_chairperson01 with fade
+$ renpy.pause(0.5)
+scene ep4p2_chairperson02 with Dissolve(2.5, alpha=True)
+$ renpy.pause(0.5)
+scene ep4p2_chairperson03 with Dissolve(2.5, alpha=True)
+$ renpy.pause(0.5)
+scene ep4p2_chairperson04 with Dissolve(2.5, alpha=True)
+"{fast}There you are...{w=2.5}{nw}"
+scene ep4p2_chairperson05 with Dissolve(2.5, alpha=True)
+$ renpy.pause(0.5)
+scene ep4p2_chairperson06 with Dissolve(2.5, alpha=True)
+"{fast}...Son.{w=2.5}{nw}"
 $ renpy.pause(0.5)
 jump ch4End
 label ch4End:
+scene bg empty with Dissolve(2.5, alpha=True)
 show screen ep4_endscreen
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)

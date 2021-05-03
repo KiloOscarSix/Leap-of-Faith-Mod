@@ -359,6 +359,10 @@ screen phone_chat_single:
                                         imagebutton:
                                             idle Transform(chat_temp3 + "_sml")
                                             action (Show("phone_chat_picture"), SetVariable("chat_picture",chat_temp3))
+                                    elif chat_temp1 == "3":
+                                        imagebutton:
+                                            idle Transform(chat_temp3 + "_sml")
+                                            action NullAction()
                     elif chat_temp0 == "2":
                         hbox spacing 4:
                             imagebutton:
@@ -2529,6 +2533,1369 @@ screen phone_chat_single:
                 ypos 700
                 has hbox
                 textbutton "Exit Conversation." text_style "chatreply" action (SetVariable("ep4StephImpactTextOpen",False), Call("norollback"))
+    elif chat_temp2 == "2201":
+        if ep4LexiAssgameTextOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("chat_bg_exit",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Exit Conversation." text_style "chatreply" action (SetVariable("ep4LexiAssgameTextOpen",False), Hide("phone_chat_single"), Jump("ep4GoToAssgame"))
+    elif chat_temp2 == "2301":
+        if ep4KiraPartyChatOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "You're drunk, aren't you." text_style "chatreply" action AddToSet(chat_kira,"0;0;2302;You're drunk, aren't you.")
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 780
+                has hbox
+                textbutton "Need me to shower first?" text_style "chatreply" action AddToSet(chat_kira,"0;0;2303;Need me to shower first?")
+    elif chat_temp2 == "2302":
+        if ep4KiraPartyChatOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action AddToSet(chat_kira,"1;0;2304;Something like that. I'm by the pool downstairs.")
+    elif chat_temp2 == "2303":
+        if ep4KiraPartyChatOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action AddToSet(chat_kira,"1;0;2304;Don't get your hopes up, Tiger.")
+    elif chat_temp2 == "2304":
+        if ep4KiraPartyChatOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "I'll be right there." text_style "chatreply" action AddToSet(chat_kira,"0;0;2305;I'll be right there.")
+    elif chat_temp2 == "2305":
+        if ep4KiraPartyChatOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("chat_bg_exit",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Exit Conversation." text_style "chatreply" action (SetVariable("ep4KiraPartyChatOpen",False), Hide("phone_chat_single"), Jump("ep4KiraParty"))
+    elif chat_temp2 == "2401":
+        if ep4CeceCheerUpMsgOpenReply:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "All good." text_style "chatreply" action AddToSet(chat_cece,"0;0;2402;All good. We all need some time alone every once in a while. Come see me if there's anything, ok?")
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 780
+                has hbox
+                textbutton "Let me help you." text_style "chatreply" action AddToSet(chat_cece,"0;0;2402;Please let me help you.")
+    elif chat_temp2 == "2402":
+        if ep4CeceCheerUpMsgOpenReply:
+            $ chat_showexit = False
+            frame:
+                background Frame("chat_bg_exit",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Exit Conversation." text_style "chatreply" action (SetVariable("ep4CeceCheerUpMsgOpenReply",False), Hide("phone_chat_single"), Jump("ep4AfterCeceBummed"))
+    elif chat_temp2 == "501":
+        if todayIs == 8:
+            if ep4CeceCheerUpMsgOpen:
+                $ chat_showexit = False
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Send a message." text_style "chatreply" action AddToSet(chat_cece,"0;0;2502;Did you know that this is the first message I've sent to you?")
+    elif chat_temp2 == "2502":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep4CeceMsgEvent00"))
+    elif chat_temp2 == "2503":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "We should celebrate." text_style "chatreply" action AddToSet(chat_cece,"0;0;2504;We should celebrate.")
+    elif chat_temp2 == "2504":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep4CeceMsgEvent01"))
+    elif chat_temp2 == "2505":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "What's our favorite animal?" text_style "chatreply" action AddToSet(chat_cece,"0;0;2506;What's your favorite animal?")
+    elif chat_temp2 == "2506":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep4CeceMsgEvent02"))
+    elif chat_temp2 == "2507":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Send a funny cat animation" text_style "chatreply" action AddToSet(chat_cece,"0;3;2508;ep4_catmeow")
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 780
+                has hbox
+                textbutton "Send a cute cat" text_style "chatreply" action AddToSet(chat_cece,"0;3;2508;ep4_catcute")
+    elif chat_temp2 == "2508":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep4CeceMsgEvent03"))
+    elif chat_temp2 == "2509":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "I'm just trying to cheer you up." text_style "chatreply" action AddToSet(chat_cece,"0;0;2510;I'm just trying to cheer you up. If you want some alone time, I can do that. Or if I can do anything else, just hint in some way. No words needed.")
+    elif chat_temp2 == "2510":
+        if ep4CeceCheerUpMsgOpen:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep4CeceMsgEvent04"))
+
+    elif chat_temp2 == "2601":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    if MenuChoice == "HintsNone":
+                        textbutton "I was just thinking about you." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2602;I was just thinking about you. Miss you too, baby. Can't wait to see you again.")
+                    else:
+                        textbutton "I was just thinking about you." text_style "chatreplygood" action AddToSet(chat_stephanie,"0;0;2602;I was just thinking about you. Miss you too, baby. Can't wait to see you again.")
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "You still in Holly's appartment?" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2604;You still in Holly's appartment?")
+            else:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "(Hang on... She doesn't know I'm still here in LA...)" text_style "chatreply" action (Hide("phone_chat_single"), Hide("phone_notify_chat"), Jump("ep5StephGameStart"))
+
+    elif chat_temp2 == "2602":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2603;Enjoying the private plane?")
+
+    elif chat_temp2 == "2603":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Would have been better with you here." text_style "chatreply" action (SetVariable("ep5StephGameHorny",True), AddToSet(chat_stephanie,"0;0;2610;Would have been better with you here. Because... you know... mile high club?"))
+
+    elif chat_temp2 == "2604":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2605;Yes. Doing a bit of reading and preparing to leave. Why?")
+
+    elif chat_temp2 == "2605":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Oh, no particular reason." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2610;Oh, no particular reason.")
+
+    elif chat_temp2 == "2610":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "(LET THE GAMES BEGIN)" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep5StephGameTraitSel"))
+
+    elif chat_temp2 == "2611":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                if ep5StephGameAns:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "Work your lower central area" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2612;I would start by slowly massaging your inner thigh when nobody was looking.")
+
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 780
+                        has hbox
+                        textbutton "Whisper sweets words in your ear" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2612;I would start by whispering in your ear how I want you, and guide your hand towards my hard throbbing dick.")
+                else:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "(GOOD QUESTION)" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep5StephGameAnswer"))
+
+    elif chat_temp2 == "2612":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2613;Mmmhmmm. Get me all wet and ready... And then?")
+
+    elif chat_temp2 == "2613":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Head to the tiny plane lavatory" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2614;Then I would go to the lavatory, undress and wait for you.")
+
+    elif chat_temp2 == "2614":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2615;I'm right behind you baby... Then what...")
+
+    elif chat_temp2 == "2615":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Lift that tiny skirt of yours." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2616;I'd just bend you over and lift that tiny skirt of yours...")
+
+    elif chat_temp2 == "2616":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2617;...because I'm not wearing anything underneath. Just for you.")
+
+    elif chat_temp2 == "2617":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                if ep5StephGameCont:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "The grand finale" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2618;Then I would grab both your hips and slide myself in, while you push back towards me.")
+                else:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "(PAUSE FOR NOW)" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep5StephGameContinue"))
+
+    elif chat_temp2 == "2618":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                if ep5StephGameCont:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "(ALL DONE!)" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep5StephGameFinale"))
+
+    elif chat_temp2 == "2621":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                if ep5StephGameAns:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "Can't stand being without me now, eh?" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2622;Can't get enough of me now, eh?")
+
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 780
+                        has hbox
+                        textbutton "Can't wait too see you again too." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2622;Can't wait too see you again too.")
+                else:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "(GOOD QUESTION)" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep5StephGameAnswer"))
+
+    elif chat_temp2 == "2622":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2623;I feel weird saying this when it's just been a few hours, but then again I've spent so long time without having the opportunity to see you.")
+
+    elif chat_temp2 == "2623":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I know what you mean." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2624;I know what you mean. But then again we'll see each other again before you know it.")
+
+    elif chat_temp2 == "2624":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2625;Yeah, I'm being silly, I know.")
+
+    elif chat_temp2 == "2625":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "It's not silly, it's kind of cute." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2626;It's not silly. It's kind of cute.")
+
+    elif chat_temp2 == "2626":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2627;I really wish you were here right now.")
+
+    elif chat_temp2 == "2627":
+        if ep5StephGame:
+            $ chat_showexit = False
+            if ep5StephGameInit:
+                if ep5StephGameCont:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "The grand finale" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2618;Well...")
+                else:
+                    frame:
+                        background Frame("reply_action",10,10)
+                        xmaximum 336
+                        xminimum 336
+                        xpos 804
+                        ypos 700
+                        has hbox
+                        textbutton "(PAUSE FOR NOW)" text_style "chatreply" action (Hide("phone_chat_single"), Jump("ep5StephGameContinue"))
+
+    elif chat_temp2 == "2701":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "You didn't wake me up?" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2702;You didn't wake me up?")
+
+    elif chat_temp2 == "2702":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2703;No, I couldn't make myself. And I like watching you sleep.")
+
+    elif chat_temp2 == "2703":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "You wear me out." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2704;You wear me out, you know.")
+
+    elif chat_temp2 == "2704":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2705;In a good way, I hope?")
+
+    elif chat_temp2 == "2705":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "The best way." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2706;In the best way. I miss you already.")
+
+    elif chat_temp2 == "2706":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2707;You are waaaaaay to lovey-dovey.")
+
+    elif chat_temp2 == "2707":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Not more than you." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;2708;Not more than you.")
+
+    elif chat_temp2 == "2708":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;2709;I think so. Because I'm in the bathroom, darling.")
+
+    elif chat_temp2 == "2709":
+        $ chat_showexit = False
+        if ep5MsgSteph:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep5MsgSteph",False), Call("norollback"), Jump("ep5StephDone"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "2801":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2802;It's Linda. Cece's on the toilet. But she misses you too. And where's the remote?")
+
+    elif chat_temp2 == "2802":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Remote?" text_style "chatreply" action AddToSet(chat_cece,"0;0;2803;Remote?")
+
+    elif chat_temp2 == "2803":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2804;To the TV! There's a new episode of Leap of Faith out today.")
+
+    elif chat_temp2 == "2804":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Do you see a TV in my apartment?" text_style "chatreply" action AddToSet(chat_cece,"0;0;2805;Linda... Do you see a TV in my apartment?")
+
+    elif chat_temp2 == "2805":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2806;You don't have a TV??????")
+
+    elif chat_temp2 == "2806":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "No?" text_style "chatreply" action AddToSet(chat_cece,"0;0;2807;No? Though, you can use my pad.")
+
+    elif chat_temp2 == "2807":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2808;Great. You password? Or wait a minute. HAHAHA Your password is still 123456? Anyway, Cece is back now. Have fun in LA.")
+
+    elif chat_temp2 == "2808":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Cece?" text_style "chatreply" action AddToSet(chat_cece,"0;0;2809;Cece?")
+
+    elif chat_temp2 == "2809":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2810;Yes, it's me now. How did it go with your dad? And are you doing fine? Are Lexi and Holly doing fine? Are you hungry? Have you eaten?")
+
+    elif chat_temp2 == "2810":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Relax." text_style "chatreply" action AddToSet(chat_cece,"0;0;2811;Relax Cece. Everything is fine. I'll tell you all about it when I come home. Probably tomorrow.")
+
+    elif chat_temp2 == "2811":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2812;I miss you.")
+
+    elif chat_temp2 == "2812":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "I miss you too." text_style "chatreply" action AddToSet(chat_cece,"0;0;2813;I miss you too, Cece. Can't wait to see you again.")
+
+    elif chat_temp2 == "2813":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2814;Before I forget, where is the remote?")
+
+    elif chat_temp2 == "2814":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Ask Linda." text_style "chatreply" action AddToSet(chat_cece,"0;0;2815;Just... ask Linda.")
+
+    elif chat_temp2 == "2815":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_cece,"1;0;2816;YOU DON'T HAVE A TV???!??")
+
+    elif chat_temp2 == "2816":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "See you." text_style "chatreply" action AddToSet(chat_cece,"0;0;2817;See you tomorrow, Cece. Have fun you two.")
+
+    elif chat_temp2 == "2817":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action (AddToSet(chat_cece,"1;1;2818;ep5_chat_cecelinda"), AddToSet(cam_gallery,"ep5_chat_cecelinda"))
+
+    elif chat_temp2 == "2818":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Beautiful." text_style "chatreply" action AddToSet(chat_cece,"0;0;2819;Beautiful!")
+
+    elif chat_temp2 == "2819":
+        $ chat_showexit = False
+        if ep5MsgCece:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep5MsgCece",False), Call("norollback"), Jump("ep5AfterPhoneMessage"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "2901":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;2902;Hey Sweeting. I've been... missing you.")
+
+    elif chat_temp2 == "2902":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Did you talk to Robin?" text_style "chatreply" action AddToSet(chat_kira,"0;0;2903;Did you talk to Robin?")
+
+    elif chat_temp2 == "2903":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;2904;Actually, I'm just heading out to go see her.")
+
+    elif chat_temp2 == "2904":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Tell her I said hi." text_style "chatreply" action AddToSet(chat_kira,"0;0;2905;Send my greetings. And keep me posted if there's anything serious, ok?")
+
+    elif chat_temp2 == "2905":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;2906;Will do. And... I miss you terribly. I wish you were here.")
+
+    elif chat_temp2 == "2906":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "I'll be back soon." text_style "chatreply" action AddToSet(chat_kira,"0;0;2907;I'll be back before you know it. And I'll come see you right away.")
+
+    elif chat_temp2 == "2907":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;2908;And I'll be waiting, sweetie. xoxoxo")
+
+    elif chat_temp2 == "2908":
+        $ chat_showexit = False
+        if ep5MsgKira:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep5MsgKira",False), Call("norollback"), Jump("ep5AfterPhoneMessage"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "3001":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3002;Yeah, it's fine. It's just been so much lately. I think I'll just stare into the abyss tonight.")
+
+    elif chat_temp2 == "3002":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Go play some games." text_style "chatreply" action AddToSet(chat_robin,"0;0;3003;Go play some games. It'll help on the mood.")
+
+    elif chat_temp2 == "3003":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3004;You still haven't beaten my record.")
+
+    elif chat_temp2 == "3004":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Just warming up." text_style "chatreply" action AddToSet(chat_robin,"0;0;3005;Don't worry, I'm just warming up. I'll get it soon enough.")
+
+    elif chat_temp2 == "3005":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3006;In your dreams.")
+
+    elif chat_temp2 == "3006":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "See you soon." text_style "chatreply" action AddToSet(chat_robin,"0;0;3007;See you soon, Robin. Have fun.")
+
+    elif chat_temp2 == "3007":
+        $ chat_showexit = False
+        if ep5MsgRobin:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep5MsgRobin",False), Call("norollback"), Jump("ep5AfterPhoneMessage"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "3101":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_linda,"1;0;3102;Hey loverboy. We're just fine. I'm trying to find the remote. And Cece's on the toilet.")
+
+    elif chat_temp2 == "3102":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Remote?" text_style "chatreply" action AddToSet(chat_linda,"0;0;3103;Remote? To what?")
+
+    elif chat_temp2 == "3103":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_linda,"1;0;3104;Your TV?")
+
+    elif chat_temp2 == "3104":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "I don't have one." text_style "chatreply" action AddToSet(chat_linda,"0;0;3105;Linda. Do you see a TV in my apartment?")
+
+    elif chat_temp2 == "3105":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_linda,"1;0;3106;HOLY SHIT, YOU DON'T HAVE A TV???")
+
+    elif chat_temp2 == "3106":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Use my pad." text_style "chatreply" action AddToSet(chat_linda,"0;0;3107;Just use my pad. It works just as well.")
+
+    elif chat_temp2 == "3107":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_linda,"1;0;3108;Let me guess.... 123456? LOL. Yes. Well, Cece's back from the toilet now. We're going to watch the new episode of Leap of Faith.")
+
+    elif chat_temp2 == "3108":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Have fun." text_style "chatreply" action AddToSet(chat_linda,"0;0;3109;Have fun you two. Enjoy a man-free evening.")
+
+    elif chat_temp2 == "3109":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_linda,"1;0;3110;Only if you let me enjoy a man-evening when you get back. Oh, and Cece says hello!")
+
+    elif chat_temp2 == "3110":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Say hello to Cece." text_style "chatreply" action AddToSet(chat_linda,"0;0;3111;Say hello back to her. And can't wait to see you again. Miss you.")
+
+    elif chat_temp2 == "3111":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action (AddToSet(chat_linda,"1;1;3112;ep5_chat_cecelinda"), AddToSet(cam_gallery,"ep5_chat_cecelinda"))
+
+    elif chat_temp2 == "3112":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Beautiful." text_style "chatreply" action AddToSet(chat_linda,"0;0;3113;Beautiful!")
+
+    elif chat_temp2 == "3113":
+        $ chat_showexit = False
+        if ep5MsgLinda:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep5MsgLinda",False), Call("norollback"), Jump("ep5AfterPhoneMessage"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "3201":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3202;This is just like old times... Except the rest of the world got emojis since then.")
+
+    elif chat_temp2 == "3202":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "You been at your dad's place yet?" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;3203;You been at your dad's place yet?")
+
+    elif chat_temp2 == "3203":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3204;Almost there, about 30 minutes to drive. But listen, I had this completely surreal experience at the gas station just now.")
+
+    elif chat_temp2 == "3204":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Go on." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;3205;And?")
+
+    elif chat_temp2 == "3205":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3206;So there were two guys there. They were looking at me weirdly.")
+
+    elif chat_temp2 == "3206":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "That doesn't sound too bad?" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;3207;That doesn't sound too bad?")
+
+    elif chat_temp2 == "3207":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3208;Well, here's the weird part. They had torches in their hands. Like... literal torches. And they were looking at me like they wanted to... idc... burn me or something.")
+
+    elif chat_temp2 == "3208":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "You're imagining things." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;3209;You're imagining things, Steph. I mean, who would ever want to burn you. You're just too cute. Just like every other Panda out there.")
+
+    elif chat_temp2 == "3209":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3210;I know, right? But it might have been some form of clan. Like the KK Clan.")
+
+    elif chat_temp2 == "3210":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "KK Clan?" text_style "chatreply" action AddToSet(chat_stephanie,"0;0;3211;That's far fetched, Steph.")
+
+    elif chat_temp2 == "3211":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3212;I just named them that. Because I heard them talking. One of them was Kyt and the other was Kato. So... KK Clan. Anyway, it was just a weird feeling. I'm fine.")
+
+    elif chat_temp2 == "3212":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Miss you, Panda." text_style "chatreply" action AddToSet(chat_stephanie,"0;0;3213;I miss you, Panda. Come see me the instant you're back, ok?")
+
+    elif chat_temp2 == "3213":
+        $ chat_showexit = False
+        frame:
+            background Frame("reply_action",10,10)
+            xmaximum 336
+            xminimum 336
+            xpos 804
+            ypos 700
+            has hbox
+            textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_stephanie,"1;0;3214;<3")
+
+    elif chat_temp2 == "3214":
+        $ chat_showexit = False
+        if ep5MsgSteph:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep5MsgSteph",False), Call("norollback"), Jump("ep5AfterPhoneMessage"))
+        else:
+            $ chat_showexit = True
 
 
 

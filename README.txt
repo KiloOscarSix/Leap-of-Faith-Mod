@@ -1,10 +1,10 @@
-Author: OscarSix, Last Updated: 2020/10/03
+Author: OscarSix, Last Updated: 2021/05/01
 Contact Me: https://discord.gg/9hdCvNV (OscarSix#4254)
 
 DISCLAIMER: We take no responsibilty for any damage or corruption to your game or PC. Please make sure you back up your files before installing any 3rd party modification
 
 Installation:
-PC: Unzip the mod and put the folder named "game" from the mod in your "Leap of Faith-0.4.1c" folder.
+PC: Unzip the mod and put the folder named "game" from the mod in your "Leap of Faith-0.5.1c" folder.
 MAC: Unzip the mod -> Right-click your "Leap of Faith" app -> Click "Show Package Contents" -> Open the "Contents" then "Resources" folders -> Hold the Option key and drag the folder named "game" from the mod to the "autorun" folder -> Click merge
 
 Features:

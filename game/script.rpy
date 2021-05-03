@@ -613,7 +613,7 @@ ch "Really, dude? You know the exact number of days..."
 me "Yeah, I know. I don't forget these things so easily."
 scene ep1_burg_chris_talk4 with dissolve
 ch "Deep down inside you are waiting for her, you know? There's this part of you that hopes that some day you'll meet her somewhere completely random."
-ch "Then you will look into each others eyes, the world will melt away, and it will go back to the way things were."
+ch "Then you will look into each other's eyes, the world will melt away, and it will go back to the way things were."
 scene ep1_burg_chris_talk1 with dissolve
 ch "But I'm telling you, that is not going to happen. Even if it does, it won't right the past."
 ch "And right now, it's really cramping your style."
@@ -1102,6 +1102,7 @@ $ renpy.choice_for_skipping()
 me "(I should check out my phone)"
 me "(Or maybe...time for a little nap. I'm drowsing here.)"
 me "(Maybe...will...dream...again...zzz)"
+$ phChatCanReplyChris = False
 $ eveningStrollMusic = False
 scene bg empty with fade
 
@@ -1285,7 +1286,7 @@ $ renpy.pause(1)
 scene ep1_bowling_rhug2 with Dissolve(0.5, alpha=True)
 $ renpy.pause(0.5)
 scene ep1_bowling_robin1 with dissolve
-me "Pleasure is all mine, [name]."
+ro "Pleasure is all mine, [name]."
 scene ep1_bowling_krm_kt with dissolve
 ki "So, I invited him for an evening of bowling."
 scene ep1_bowling_krm_rt with dissolve
@@ -2046,7 +2047,7 @@ me "(But something tells me I should.)"
 menu:
     "[M_01_019a]": # "Keep chit-chatting":
         $ XPcece += 2
-        me "Evenings makes me feel less awkward. Not too many people out. And those who are out, are too drunk to notice you anyway."
+        me "Evenings make me feel less awkward. Not too many people out. And those who are out, are too drunk to notice you anyway."
         uk "..."
         scene ep1_street_introtalk2 with dissolve
         me "And of course, looking at all the drunk people doing stupid stuff always gets me smiling."
@@ -2055,7 +2056,7 @@ menu:
             "[M_01_020a]": # "Keep chit-chatting":
                 $ XPcece += 2
                 scene ep1_street_introtalk1 with dissolve
-                me "The weather is so nice this time of year. Like winter finally letting go and sun is warm again."
+                me "The weather is so nice this time of year. Like winter finally letting go and the sun is warm again."
                 uk "..."
                 scene ep1_street_introtalk2 with dissolve
                 me "Flowers starting to bloom, leaves growing back on trees. It's a good time to be alive."
@@ -2085,7 +2086,7 @@ menu:
             "[M_01_021a]": # "Keep chit-chatting":
                 $ XPcece += 2
                 scene ep1_street_introtalk1 with dissolve
-                me "Evenings makes me feel less awkward. Not too many people out. And those who're out, are too drunk to notice you anyway."
+                me "Evenings make me feel less awkward. Not too many people out. And those who're out, are too drunk to notice you anyway."
                 uk "..."
                 scene ep1_street_introtalk3 with dissolve
                 me "And of course, looking at all the drunk people doing stupid stuff always gets me smiling."
@@ -3521,9 +3522,9 @@ ce "I hope you want to enjoy it with me?"
 scene ep1_bridgecece_01 with dissolve
 me "Please, get down from there so we can talk properly?"
 scene ep1_bridgecece_07 with dissolve
-me "It's got to be 50 meters down, and those shoes are not meant for rail climbing."
+me "It's got to be 150 feet down, and those shoes are not meant for rail climbing."
 scene ep1_bridgecece_04 with dissolve
-ce "62.5 meters."
+ce "205 feet (62.5 m)."
 scene ep1_bridgecece_06 with dissolve
 ce "And they are nice shoes. My friend bought them for me."
 scene ep1_bridgecece_02 with dissolve
