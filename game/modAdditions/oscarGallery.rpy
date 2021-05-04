@@ -22,8 +22,8 @@ init python:
     ## GALLERY ITEMS HERE
 define Kira1 = GalleryItem("Kira", "e01s01", "ep1/special/ep1s01_kiraphoto1.jpg")
 define Kira2 = GalleryItem("Kira", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
-define KiraRobin1 = GalleryItem("Robin", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
-define KiraRobin2 = GalleryItem("Robin", "galleryScene3", "ep3/airplaneinside/ep3_airplane71.jpg", {"todayIs":5, "ep3TimePassed":0, "Impact_KiraRobin":True})
+define KiraRobin1 = GalleryItem("Kira", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
+define KiraRobin2 = GalleryItem("Kira", "galleryScene3", "ep3/airplaneinside/ep3_airplane71.jpg", {"todayIs":5, "ep3TimePassed":0, "Impact_KiraRobin":True})
 define KiraRobin3 = GalleryItem("Kira", "galleryScene9", "ep4/krromance/ep4p2_krdate03.jpg")
 define KiraRobin4 = GalleryItem("Kira", "galleryScene10", "ep4/krromance/ep4p2_krthree01.jpg", {"todayIs":99})
 define KiraRobin5 = GalleryItem("Kira", "ep5WakeKiraRobin", "ep5/intro/ep5_kirawake12.jpg", {"ep4NightChoose":5})
@@ -79,8 +79,6 @@ label galleryNameChange:
 
     $ scopeDict = {"name":persistent.name}    
     return
-
-    
 
 screen sceneGalleryMenu():
     tag menu

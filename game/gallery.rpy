@@ -3,6 +3,7 @@ default persistent.galleryUnlocked = False
 screen bonus_scenes:
     tag bonus_scenes
     modal True
+
     add "seethrough"
 
     imagebutton:
@@ -22,7 +23,6 @@ screen bonus_scenes:
         else:
             textbutton "{size=50}Unlock Scenes":
                 action SetVariable("persistent.galleryUnlocked", True)
-
 
     if persistent.scene01 or persistent.galleryUnlocked:
         imagebutton:
@@ -74,4 +74,38 @@ screen bonus_scenes:
             action (NullAction())
             xpos 500
             ypos 400
+
+    if persistent.scene04 or persistent.galleryUnlocked:
+        imagebutton:
+            focus_mask True
+            idle Transform("e04s01_unlocked")
+            hover Transform("e04s01_unlocked_h")
+            action (Hide("main_menu"), Hide("bonus_scenes"), Start("e04s01"))
+            xpos 1050
+            ypos 400
+    else:
+        imagebutton:
+            focus_mask True
+            idle Transform("e04s01_locked")
+            hover Transform("e04s01_locked_h")
+            action (NullAction())
+            xpos 1050
+            ypos 400
+
+    if persistent.scene05 or persistent.galleryUnlocked:
+        imagebutton:
+            focus_mask True
+            idle Transform("e05s01_unlocked")
+            hover Transform("e05s01_unlocked_h")
+            action (Hide("main_menu"), Hide("bonus_scenes"), Start("e05s01"))
+            xpos 500
+            ypos 700
+    else:
+        imagebutton:
+            focus_mask True
+            idle Transform("e05s01_locked")
+            hover Transform("e05s01_locked_h")
+            action (NullAction())
+            xpos 500
+            ypos 700
 # Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc
