@@ -2152,7 +2152,7 @@ scene ep3_cecehome67 with dissolve
 me "You are really flexible."
 ce "Go ahead, lift my foot higher. I won't break."
 scene ep3_cecehome64 with dissolve
-me "So you see, you might think twice about ruining the moment with me."
+ce "So you see, you might think twice about ruining the moment with me."
 play sound ep3_rip
 scene ep3_cecehome65 with dissolve
 "*riiiiiiiiiiip*"
@@ -2270,7 +2270,7 @@ scene ep3_cecehome89 with dissolve
 li "Los Angeles!"
 scene ep3_cecehome90 with dissolve
 $ contact_notify_linda = True
-$ contact_text_linda += "\n\nShe had been out all day again. Luckyly I had some good news - about us being invited to Lexi's place. She seemed overjoyed by it."
+$ contact_text_linda += "\n\nShe had been out all day again. Luckily I had some good news - about us being invited to Lexi's place. She seemed overjoyed by it."
 $ contact_notify_cece = True
 $ contact_text_cece += "\n\nAfterwards, I told her about us being invited to Lexi, or ... LA, and she was delighted."
 stop music fadeout 3
@@ -2290,7 +2290,7 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 scene ep3_chris_bag with fade
 $ contact_notify_chris = True
-$ contact_text_chris += "\n\nChris gets easily exited. And he loves Lexi. Put those two together, and you get quite a reaction to telling him that that we were invited to her place."
+$ contact_text_chris += "\n\nChris gets easily excited. And he loves Lexi. Put those two together, and you get quite a reaction to telling him that that we were invited to her place."
 $ contact_text_chris += " Of course he was overjoyed."
 me "..."
 me "If it's any comfort, you're taking it way better than I thought you would..."
@@ -2544,7 +2544,6 @@ ce "Don't care. They are still cool, ok?"
 li "*hums* ... '{i}hyper, hyper{/i}' ..."
 scene ep3_eveninghome13 with dissolve
 $ clockis = [[todayIs],2,0,4,2]
-
 $ ep3RespondedKira = False
 $ ep3RespondedLexi = False
 $ ep3RespondedChris = False
@@ -3970,7 +3969,7 @@ if nukeStoriesAdd1 in nukeStories:
     $ nukeCommentsAdd = "10;1002;AssesAndBreasts;Did you by any chance bring any motion sickness tablets? Nvm, I'll ask you when you get in here."
     if nukeCommentsAdd not in nukeComments:
         $ nukeComments.append(nukeCommentsAdd)
-    $ nukeCommentsAdd = "10;1003;BlackBeauty;And yes, I'm fucking envious right now. Knock one back for me."
+    $ nukeCommentsAdd = "10;1003;Xor;And yes, I'm fucking envious right now. Knock one back for me."
     if nukeCommentsAdd not in nukeComments:
         $ nukeComments.append(nukeCommentsAdd)
     $ nukeCommentsAdd = "10;1004;Drifty;I have I feeling you're in for an adventure. Have fun. :)"
@@ -3983,7 +3982,7 @@ if nukeStoriesAdd2 in nukeStories:
     $ nukeCommentsAdd = "11;1102;AssesAndBreasts;Did you by any chance bring any motion sickness tablets? Nvm, I'll ask you when you get in here."
     if nukeCommentsAdd not in nukeComments:
         $ nukeComments.append(nukeCommentsAdd)
-    $ nukeCommentsAdd = "11;1103;BlackBeauty;And yes, I'm fucking envious right now. Knock one back for me."
+    $ nukeCommentsAdd = "11;1103;Xor;And yes, I'm fucking envious right now. Knock one back for me."
     if nukeCommentsAdd not in nukeComments:
         $ nukeComments.append(nukeCommentsAdd)
     $ nukeCommentsAdd = "11;1104;Drifty;I have I feeling you're in for an adventure. Have fun. :)"
@@ -4001,7 +4000,7 @@ elif ep3TimePassed == 0:
 if ep3PlaneParty:
     $ contact_text_me += "\n\nI also put on some Lexi music on the plane's main speakers, which brought us some good fun."
 $ contact_notify_cece = True
-$ contact_text_cece += "\n\nShe really seem to like this Nite Dawg, and on the plane she asked me to somehow get his autograph. From Lexi."
+$ contact_text_cece += "\n\nShe really seems to like this Nite Dawg, and on the plane she asked me to somehow get his autograph. From Lexi."
 $ contact_notify_lexi = True
 $ contact_text_lexi += "\n\nIt's very easy to talk to Lexi, she's very used to socializing. At least she's not shy."
 if ep3TimePassed == 1:
@@ -4714,4 +4713,3 @@ stop music fadeout 3
 scene bg empty with fade
 $ renpy.pause(2)
 $ renpy.pause(2)
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

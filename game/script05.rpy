@@ -568,7 +568,6 @@ le "Holly was right though?"
 me "Holly?"
 le "She might have been giving me some pointers."
 me "..."
-$ renpy.end_replay()
 scene ep5_leximorning17 with dissolve
 le "Look, I'm not that experienced. And I have absolutely no good experiences. And we talk about everything anyway."
 scene ep5_leximorning19 with dissolve
@@ -963,7 +962,6 @@ hide screen phone
 jump ep5AfterWake
 
 label ep5AfterWake:
-    $ renpy.end_replay()
 if ep4AskedForDawgAutograph:
     $ phone_task_append_item1 = "7;8;2;3;5;9;Cece;Ask if Lexi can help Cece with a Nite Dawg autograph before;Get Nite Dawg's autograph.;1"
     $ phone_task_append_item2 = "7;8;2;3;5;9;Cece;Ask if Lexi can help Cece with a Nite Dawg autograph before;Get Nite Dawg's autograph.;2"
@@ -999,6 +997,20 @@ if phone_task_append_item1 in phone_task_list:
     $ phone_task_list.remove(phone_task_append_item1)
     $ phone_task_list.append(phone_task_append_item2)
     $ phTaskNotify = True
+if ep4SetupChrisWith == 3:
+    $ phone_task_append_item1 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;1"
+    $ phone_task_append_item2 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris + Robin = True?;2"
+    if phone_task_append_item1 in phone_task_list:
+        $ phone_task_list.remove(phone_task_append_item1)
+        $ phone_task_list.append(phone_task_append_item2)
+        $ phTaskNotify = True
+if ep4SetupChrisWithLi:
+    $ phone_task_append_item1 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris needs your help;1"
+    $ phone_task_append_item2 = "10;9;2;3;5;9;Chris;Set Chris up with someone before;Chris + Linda = True?;2"
+    if phone_task_append_item1 in phone_task_list:
+        $ phone_task_list.remove(phone_task_append_item1)
+        $ phone_task_list.append(phone_task_append_item2)
+        $ phTaskNotify = True
 scene bg empty with fade
 play music ep5_morningfinal
 $ nowPlayingArtist = "Joy Hanna"
@@ -1203,7 +1215,7 @@ ho "I know. Truly hideous."
 scene ep5_hollybalcony09 with dissolve
 ho "At least I have nice breasts."
 scene ep5_hollybalcony10 with dissolve
-ho "I wonder how long time it takes until your eyes drop from mine."
+ho "I wonder how long it takes until your eyes drop from mine."
 scene ep5_hollybalconyblink with dissolve
 me "I'll be fine. I've got great peripheral vision."
 me "You never told me what you do for a living."
@@ -1419,7 +1431,7 @@ $ roam_key_up_action = ""
 $ roam_key_down = False
 $ roam_key_down_action = ""
 $ roam_key_left = False
-$ roam_key_left_action = "" 
+$ roam_key_left_action = ""
 $ roam_key_right = False
 $ roam_key_right_action = ""
 show ep5_hollybalconyroamfull_clean at imgSlide_ep5HollyB030
@@ -1664,6 +1676,8 @@ ho "(Why the heck did you let him touch you like that. You know how you react.)"
 ho "(Is he gone... Can I?)"
 ho "(...)"
 ho "(I have to.)"
+$ contact_notify_holly = True
+$ contact_text_holly += "\n\nDuring the weeks I spent at Lexi's place, Holly has opened up quite a bit to me. At first she seemed like a... bimbo. Now she seems like a completely different person."
 scene ep5_holly01soloend
 $ renpy.movie_cutscene("imov/ep5/ep5_holly01solo.webm", delay=None, loops=0, stop_music=False)
 ho "(It's been so long.)"
@@ -1699,7 +1713,6 @@ ho "(...should never have let him touch me...)"
 ho "(He doesn't know you're...)"
 ho "(...a god damned...)"
 ho "(...sex addict...)"
-$ renpy.end_replay()
 scene bg empty with fade
 $ clockis = [[todayIs],1,0,3,7]
 play music ep5_morningall
@@ -1761,7 +1774,7 @@ if ep4NightChoose == 2:
     scene ep5_split14 with dissolve
     me "Actually... we haven't talked about it at all."
     me "So I don't really know how it will pan out. She's still this famous pop star, and I'm just good old me."
-    me "But whatever we have, we've decided to keep if under the public radar."
+    me "But whatever we have, we've decided to keep it under the public radar."
     me "And Lexi is going on another tour now."
     scene ep5_split13 with dissolve
     ch "So you will be going home today without knowing?"
@@ -1899,7 +1912,7 @@ if Impact_Steph:
                 me "Goodbye, Steph."
                 li "Cece, why are you talking to the flowers?"
             "[M_05_005b]": # "Be dismissive":
-                $ ep5StephForgive = False
+                $ ep5StephForgive = True
                 me "I do remember the good times, but they are overshadowed by the bad ones."
                 me "But I'm looking forward, not backward."
                 scene ep5_split35 with dissolve
@@ -2051,16 +2064,16 @@ scene ep5_split61 with dissolve
 le "So no, I don't agree with him."
 if ep4NightChoose == 2:
     scene ep5_split65 with dissolve
-    me "But you don't think it's a good idea to open to the public about our relationship?"
+    me "But you don't think it's a good idea to be open to the public about our relationship?"
     le "No."
     me "And is that because of Jan?"
     scene ep5_split64 with dissolve
     le "Yes, but not for the reasons you might think."
-    le "You're going to have paparazzi in your garden, reporters on your door, phonecalls..."
+    le "You're going to have paparazzi in your garden, reporters at your door, phonecalls..."
     scene ep5_split66 with dissolve
     stop music fadeout 3
     le "It will make your life much easier if we don't go public."
-    me "I see. I'll take Jans word for it then."
+    me "I see. I'll take Jan's word for it then."
     le "..."
 else:
     scene ep5_split64 with dissolve
@@ -2098,7 +2111,7 @@ me "Wait... that's your OCD?"
 le "Oh, that's it. I can't take it any more."
 scene ep5_split73 with dissolve
 stop music
-le "Hello, this is Lexi Dimante speaking. Currently relegated into being an phone answering secretary of [name]."
+le "Hello, this is Lexi Dimante speaking. Currently relegated into being a phone answering secretary of [name]."
 le "..."
 scene ep5_split74 with dissolve
 le "Yes, that Lexi."
@@ -2308,7 +2321,7 @@ else:
         ch "Oh, right. That's the real batmobile."
     else:
         scene ep5_bye18b with dissolve
-        ch "To a safe flight home, and not one where we plunge into our deaths."
+        ch "To a safe flight home, and not one where we plunge to our deaths."
         li "Jerk. Do you ever think before talking?"
         ch "Rarely, no."
     ce "Hey Kevin."
@@ -2320,7 +2333,7 @@ me "Kira. Haven't seen you all morning."
 scene ep5_bye46 with dissolve
 ki "There was a whole lot to pack."
 scene ep5_bye53 with dissolve
-ki "Lexi gave us so much clothes I had problems packing it all."
+ki "Lexi gave us so much clothing I had problems packing it all."
 ki "In the end she just gave me an extra bag as well."
 scene ep5_bye55 with dissolve
 me "Listen, I have to stay behind. At least until tomorrow."
@@ -2511,7 +2524,7 @@ scene ep5_precity01 with dissolve
 if ep4NightChoose == 2:
     ho "Well, you get another few days with him then. Alone."
     le "*laughs* And that too."
-ho "Why don't we go with him? As morale support."
+ho "Why don't we go with him? As moral support."
 le "That's what I said."
 scene ep5_precity03 with dissolve
 ho "Oh shit, we have to get you ready."
@@ -2529,7 +2542,7 @@ if ep4NightChoose == 2:
     scene ep5_precity07 with dissolve
     le "I have some sunglasses..."
 scene ep5_precity04 with dissolve
-ho "Mhmm. We need some new clothes. Something very unlexi."
+ho "Mhmm. We need some new clothes. Something very un-lexi."
 scene ep5_precity06 with dissolve
 ho "It will probably need more drastic measures."
 scene ep5_precity07 with dissolve
@@ -2648,7 +2661,7 @@ stop music fadeout 3
 ho "He's still kinda slow isn't he."
 le "He sure is."
 scene ep5_precity21 with dissolve
-le "We're coming with you. Morale support."
+le "We're coming with you. Moral support."
 ho "Let's go."
 scene bg empty with fade
 play music ep5_city
@@ -2662,7 +2675,7 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 scene ep5_city02 with fade
 $ clockis = [[todayIs],1,3,0,7]
-me "So... Morale support, eh?"
+me "So... Moral support, eh?"
 ho "Also curious, of course."
 scene ep5_city04 with dissolve
 ho "Must be so weird seeing your dad after all this time."
@@ -2890,7 +2903,7 @@ $ nowPlayingRealArtist = ""
 $ nowPlayingRealTitle = ""
 me "(This is so weird. What should I say.)"
 scene ep5_meet01 with dissolve
-me "(Hey Dad?"
+me "(Hey Dad?)"
 scene ep5_meet02 with dissolve
 me "(Benjamin?)"
 scene ep5_meet03 with dissolve
@@ -2967,7 +2980,7 @@ menu:
         $ ep5DadOptional = True
         me "Can you stop calling me Son, please? It's freaking me out."
         scene ep5_meet21 with dissolve
-        be "Of course, and I'm sorry. It's a habit of force, and must sound weird when you actually are my... offspring."
+        be "Of course, and I'm sorry. It's a force of habit, and must sound weird when you actually are my... offspring."
         jump ep5DadConvoStart
     "[M_05_009c]" if not ep5ForeignOption: # "You don't sound foreign." if not ep5ForeignOption:
         $ ep5ForeignOption = True
@@ -3069,7 +3082,7 @@ menu:
         me "I'm 24 now, and the dad bonding opportunities... it's just too weird."
         me "Seeing you just enhances everything that's happened..."
         if dadConvoMom > 2:
-            me "You left mom, and although she always says good thing about you, I could see she was hurting."
+            me "You left mom, and although she always says good things about you, I could see she was hurting."
             me "She never found another guy. And knowing her, it was probably because of me, or even you."
             me "Even today when I spoke to her about it, I could hear it in her voice."
             if dadConvoMe > 2:
@@ -4127,7 +4140,6 @@ $ nowPlayingArtist = "Above Envy"
 $ nowPlayingTitle = "Crazy B*tch"
 $ nowPlayingRealArtist = ""
 $ nowPlayingRealTitle = ""
-label galleryScene13:
 st "...last one in!"
 scene ep5_stephshower08 with dissolve
 me "..."
@@ -4243,7 +4255,6 @@ else:
     scene ep5_stephshower47 with dissolve
     st "..."
     st "Damn orgasm legs."
-$ renpy.end_replay()
 scene bg empty with fade
 play music ep5_stephepilogue
 $ nowPlayingArtist = "Lumane"
@@ -4255,7 +4266,6 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
-label galleryScene14:
 scene ep5_stephtub02 with fade
 st "What's on your mind..."
 me "Nothing. Just enjoying the silence."
@@ -4319,7 +4329,6 @@ st "That's not possible."
 scene ep5_stephtub11 with dissolve
 st "But I still enjoy it..."
 st "...very very much."
-$ renpy.end_replay()
 $ clockis = [[todayIs],1,8,5,9]
 scene ep5_stephend01 with Dissolve(4.0, alpha=True)
 me "Huh... (I must have drifted off...)"
@@ -4667,9 +4676,9 @@ else:
         scene ep5_port12 with dissolve
         jy "That's such a horribly bad story."
         me "*laughs* I know. But it's my story."
-jy "So what's the morale."
+jy "So what's the moral."
 me "Good question."
-me "Maybe that no matter what happens in life, there's always {b}sunsets{/b}."
+me "Maybe that no matter what happens in life, there are always {b}sunsets{/b}."
 me "And speaking of..."
 scene ep5_port13 with dissolve
 me "...there it is."
@@ -4706,7 +4715,7 @@ scene ep5_port21 with dissolve
 jy "Is that..."
 me "You mean the woman in the $40,000 designer dress..."
 jy "Yes."
-me "...which seems to be slightly tipsy..."
+me "...who seems to be slightly tipsy..."
 jy "Yup."
 me "...singing 'born to drive me crazy'..."
 jy "Mhmm."
@@ -4770,7 +4779,7 @@ me "On another note, how much did you guys drink?"
 ho "We had one drink. One!"
 scene ep5_port35 with dissolve
 le "What a nice woman."
-ho "*whispers* But then again, she's never been that tolerant."
+ho "*whispers* But then again, she's never had much tolerance."
 le "And what are you two whispering about."
 scene ep5_port36 with dissolve
 me "Asses."
@@ -4804,7 +4813,7 @@ le "Welcome aboard. Make yourself at home."
 me "Looks amazing."
 scene ep5_yacht21 with dissolve
 le "Honestly, I've never really used it except for some promo-events and parties."
-le "But this is a good a time as any for the maiden journey, right?"
+le "But this is as good a time as any for the maiden journey, right?"
 le "Holly, can you go talk to the captain and tell him we're all good to go?"
 ho "Sure."
 scene ep5_yacht22 with dissolve
@@ -4831,7 +4840,7 @@ if ep4NightChoose == 2:
     le "Now you're not making any sense at all."
     me "After I left him and got to chew it over for a bit, I realized that if he hadn't done that..."
     scene ep5_yacht05 with dissolve
-    me "Well, I wouldn't be sitting here with you in my armpit right now."
+    me "Well, I wouldn't be sitting here with you in my arm right now."
     me "If I didn't see the reward in that, I wouldn't be worth a penny."
     me "And this, is worth everything."
     le "And I love that you're here with me."
@@ -4906,7 +4915,7 @@ else:
     me "But let's talk about something else. I still have some thinking to do about it all, and I'd rather not do it tonight."
     scene ep5_yacht17 with dissolve
     le "..."
-    le "You know that on these few weeks... I might have had hoped that things would turn out differently."
+    le "You know that on these few weeks... I might have hoped that things would turn out differently."
     scene ep5_yacht18 with dissolve
     me "Really? I hadn't noticed. You mean your subtle hints at flirting?"
     scene ep5_yacht17 with dissolve
@@ -4947,7 +4956,7 @@ else:
     le "The sunset was half an hour ago."
     me "I know, but I was on a roll with the whole sunset concept here."
     scene ep5_yacht07 with dissolve
-    le "Agree. This is nice."
+    le "Agreed. This is nice."
     le "If it hadn't been for the overly tight dress."
     le "Feels like my tits are going to pop out any second and shout peekaboo."
     scene ep5_yacht08 with dissolve
@@ -5004,7 +5013,7 @@ me "Is she ok?"
 ho "Sure she is. Right Lexi?"
 scene ep5_yacht36 with dissolve
 le "..."
-ho "See? Fine as a fiddle."
+ho "See? Fit as a fiddle."
 scene ep5_yacht37 with dissolve
 ho "You go get that fishing gear. I'll take care of Lexi."
 scene bg empty with fade
@@ -5251,7 +5260,6 @@ if ep4NightChoose == 2:
     $ nowPlayingRealArtist = ""
     $ nowPlayingRealTitle = ""
     $ clockis = [[todayIs],2,2,3,9]
-    label galleryScene15:
     le "But you know..."
     scene ep5_yacht88 with dissolve
     le "I have a good idea."
@@ -5673,7 +5681,6 @@ else:
     jump ep5YachtAftermath
 
 label ep5YachtAftermath:
-    $ renpy.end_replay()
 hide screen phone
 $ todayIs = 11
 $ clockis = [[todayIs],0,9,3,3]
@@ -5967,7 +5974,7 @@ if ep4NightChoose == 2:
         me "Because of the kiss?"
         ho "No, it's..."
         scene ep5_yachtmorning08 with dissolve
-        me "It's fine by me. I know Lexi is my girlfriend and that kind of sets different boundries for what I should be ok with."
+        me "It's fine by me. I know Lexi is my girlfriend and that kind of sets different boundaries for what I should be ok with."
         ho "But, I..."
         me "No, really. It's fine. Lexi told me the whole thing about that time you kissed some years ago."
         ho "It's not..."
@@ -6364,7 +6371,7 @@ scene ep5_postyacht53 with dissolve
 me "And these scheduled discussions are with you? Nothing important?"
 jn "Excuse me?"
 scene ep5_postyacht52 with dissolve
-me "I mean, there are no business today except for the two of you discussing?"
+me "I mean, there is no business today except for the two of you discussing?"
 jn "That is today's schedule, yes."
 scene ep5_postyacht54 with dissolve
 me "Ok, that was all I needed to hear."
@@ -6388,14 +6395,14 @@ me "And when your shock fades away, you might feel the sudden urge to hit me."
 me "I'd advise against it because I for one, would enjoy the clash. But on the other hand, Lexi told me she hates violence, which I'm sure you're already aware of."
 me "And that woman over there is your boss, and your job is to support her and nurture her career."
 me "You should appreciate that, because the way you go about people I'm sure that any other artist would have sacked you long ago."
-me "She told me that you've been her manager since she was seven years old, so you obviously got experience in this."
+me "She told me that you've been her manager since she was seven years old, so you've obviously got experience in this."
 me "But I'll still throw in my friendly advice, for good measure..."
-ja "..."
+jn "..."
 me "Never ever comment on her appearance again."
-me "Don't make deals that dictates how her hair should be, or what she should wear."
+me "Don't make deals that dictate how her hair should be, or what she should wear."
 me "Because I'm sure you know that your job is to make her environment a good one, so she can do what she does best."
 me "But now, she actually had to excuse your behaviour before I even met you."
-me "And for last, be aware that she's not a seven year old girl anymore. She grew up to become a fantastic independent woman."
+me "And lastly, be aware that she's not a seven year old girl anymore. She grew up to become a fantastic independent woman."
 if ep4NightChoose == 2:
     me "My girlfriend."
 else:
@@ -6414,7 +6421,7 @@ me "Lexi! Seems, you have the rest of the day off."
 scene ep5_postyacht59 with dissolve
 le "..."
 scene ep5_postyacht60 with dissolve
-ke "It's not in my place to smile at this..."
+ke "It's not my place to smile at this..."
 scene ep5_postyacht61 with dissolve
 le "..."
 ke "...but that might have been the most enjoyable thing I've ever seen..."
@@ -6483,7 +6490,7 @@ menu:
         me "I remembered you told me that he's been your manager since you were seven years old."
         me "From everything I could see, he treated you as a little girl, and not the wonderful woman you are."
         me "But basically, that he should treat you and your friends with respect."
-        me "Not make deals that forces you to dress a certain way, or color your hair."
+        me "Not make deals that force you to dress a certain way, or color your hair."
         scene ep5_plane16 with dissolve
         me "And that he's working for you, and not vice versa."
         scene ep5_lexiplaneblink with dissolve
@@ -6512,7 +6519,7 @@ if ep4NightChoose == 2:
     me "Lexi..."
     scene ep5_plane20b with dissolve
     le "The moment we go public, your privacy is no more."
-    le "You'll have to get a secret phone number, there will be reporters on your doorstep, paparazzi following you."
+    le "You'll have to get a secret phone number, there will be reporters at your doorstep, paparazzi following you."
     le "And, there's nothing I can do to stop it."
     scene ep5_plane19 with dissolve
     me "Listen..."
@@ -6602,7 +6609,7 @@ if ep4NightChoose == 2:
     scene ep5_lexiend with dissolve
     me "That's the one. I just thought it was really cute, and realized that..."
     me "...even if I'm not going to wake up next to you every single morning..."
-    me "...it will just make the mornings I do wake up next to you, so much more sweeter."
+    me "...it will just make the mornings I do wake up next to you, so much sweeter."
     me "Because you make me smile. Even when you're not there."
     me "So why don't we sit down and talk about how we're going to make this work..."
     me "...instead of looking at everything that can go wrong..."
@@ -6623,7 +6630,7 @@ else:
     le "It's just that now that I realize how much fun it is to spend time with people..."
     le "...friends..."
     le "...I'll miss having someone to call, or spend time with."
-    le "And even though I had hoped it would turn out differently..."
+    le "And even though I hoped it would turn out differently..."
     scene ep5_plane20b with dissolve
     play music ep5_planehome
     $ nowPlayingArtist = "Casey Parnell"
@@ -6685,14 +6692,14 @@ else:
     le "I'm... afraid... ok?"
     scene ep5_plane26 with dissolve
     le "Afraid that I'll go through all my life and end up alone."
-    le "That when some day when I'm old and I'll walk down the street looking at that couple that stayed together through everything."
+    le "That some day, when I'm old, I'll walk down the street looking at that couple that stayed together through everything."
     scene ep5_plane12 with dissolve
     le "I'll be the one that never even got the chance to be normal."
-    le "I'm just Lexi Dimante. Lucky an everything in life, except... love."
+    le "I'm just Lexi Dimante. Lucky at everything in life, except... love."
     scene ep5_plane27 with dissolve
     me "You will always be the fantastic artist you are now."
     me "So talented, dedicated, caring..."
-    me "But for me, it's hard for me to get a grasp on this Lexi Dimante."
+    me "But it's hard for me to get a grasp on this Lexi Dimante."
     me "Because everything is so huge and unnatural for me. I've never seen anything remotely close to it."
     me "So I have a hard time relating to it."
     scene ep5_plane28 with dissolve
@@ -6937,4 +6944,3 @@ stop music fadeout 3
 scene bg empty with fade
 $ renpy.pause(2)
 $ renpy.pause(2)
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

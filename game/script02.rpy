@@ -770,7 +770,7 @@ me "I think so. Listen, I'm going back to the hospital. Want me to drop by your 
 scene ep2_chrisphone03 with dissolve
 ch "Sure. My head hurts like a motherfucker, but I'll gulp down some painkillers."
 scene ep2_chrisphone04 with dissolve
-ch "Nah, you get some rest. I can drop by tomorrow instead."
+me "Nah, you get some rest. I can drop by tomorrow instead."
 scene ep2_chrisphone03 with dissolve
 ch "I'm sure the painkillers will take care of it."
 scene ep2_chrisphone09 with dissolve
@@ -3649,4 +3649,3 @@ stop music fadeout 3
 scene bg empty with fade
 $ renpy.pause(2)
 $ renpy.pause(2)
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

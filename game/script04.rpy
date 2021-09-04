@@ -298,7 +298,7 @@ scene ep4_firstsleep09 with dissolve
 ce "(Maybe when we get back home he can solve that little thing.)"
 ce "(...)"
 ce "(Fuck... Here we go again...)"
-label galleryScene8:
+label galleryScene9:
 scene ep4_firstsleep10 with fade
 li "(...with those depressing thoughts...)"
 scene ep4_firstsleep11 with dissolve
@@ -312,7 +312,6 @@ scene ep4_firstsleep13 with dissolve
 li "(If he hasn't seen you by now, he never will.)"
 li "(...)"
 li "(Or maybe this little trip will somehow make him see that...)"
-$ renpy.end_replay()
 $ ep4SexNone = True
 if not ep3RejectedKira:
     $ ep4SexNone = False
@@ -727,7 +726,7 @@ if ep2RejectedRobin:
     ki "And I know nothing happened."
 ki "Basically, I don't know where we are right now. But it seems like a fun thing to do, and I'm still up for it."
 ro "And I agree."
-ro "I also believe you do so, seeing as you are here tonight."
+ro "I also believe you do too, seeing as you are here tonight."
 scene ep4p2_krbedroom19 with dissolve
 me "Ok, so I had it all figured out then. It was just a bit unreal to me."
 me "And even though I'm all up for having some fun, I still don't think you've thought this all the way through."
@@ -1268,7 +1267,7 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 scene ep4p2_lindanight43 with fade
-li "...and then Miss Vasques comes running and shouting, 'who emptied the fire extinguisher all over the hallways'!!!"
+li "...and then Miss Vasquez comes running and shouting, 'who emptied the fire extinguisher all over the hallways'!!!"
 me "...like nobody could put two and two together when they saw Linda sitting there in a huge pile of white dust!"
 li "...then Chris comes strolling without a care in the world, and she goes..."
 scene ep4p2_lindanight44 with dissolve
@@ -1457,9 +1456,9 @@ menu:
         scene ep4p2_lindanight78 with dissolve
         ch "So... what was it you were talking about before I got here, anyway."
         ch "I heard laughing."
-        li "Oh, that. The Vasques incident..."
+        li "Oh, that. The Vasquez incident..."
         scene ep4p2_lindanight79 with dissolve
-        ch "Vasques... Vasques..."
+        ch "Vasquez... Vasquez..."
         ch "Doesn't ring a bell."
         me "Spanish teacher. Latino."
         ch "..."
@@ -3436,7 +3435,7 @@ st "In almost all of the cases, it just takes a phone call or background check, 
 st "But sometimes we have to dig a bit deeper. And sometimes, very much deeper."
 st "So, about a year after I started working there, I got a file on my desk. It was rather simple. I was to do a bit of a background check on this person..."
 scene ep4_stephcon16 with dissolve
-st "...which had received a lot of money from the middle east..."
+st "...who had received a lot of money from someone connected to the middle east..."
 scene ep4_stephcon15 with dissolve
 me "..."
 me "Me..."
@@ -4039,16 +4038,20 @@ if Impact_Steph:
     me "Probably a good idea. Let me go break the news to Chris and Linda."
     scene ep4_reunion36 with dissolve
     ce "Come, Steph. I'll join you."
+    scene ep4_reunion03 with dissolve
+    me "(I have no idea of how they will react to me bringing Steph back.)"
+    scene ep4_reunion04 with dissolve
+    me "(Let's hope they take it well.)"
 else:
     scene ep4_reunion01 with fade
     ce "I'm going to get back into my bikini."
     scene ep4_reunion02 with dissolve
     me "Yeah, I have to talk to Chris and Linda."
     ce "Sounds like a good idea. See you later on."
-scene ep4_reunion03 with dissolve
-me "(I have no idea of how they will react to me bringing Steph back.)"
-scene ep4_reunion04 with dissolve
-me "(Let's hope they take it well.)"
+    scene ep4_reunion03 with dissolve
+    me "(I have no idea if they wanted me to square up with Steph.)"
+    scene ep4_reunion04 with dissolve
+    me "(Let's hope they didn't.)"
 scene ep4_reunion05 with dissolve
 me "Hey guys."
 li "[name], you're back."
@@ -7560,7 +7563,7 @@ if Impact_Steph:
 else:
     show ep4p2_bunnydance_unbra at imgSlide_bunnydanceGirls
 $ renpy.pause(14.5)
-label galleryScene5:
+label galleryScene6:
 scene ep4p2_bunnydance44
 hide ep4p2_bunnydance42
 hide ep4p2_bunnydance43
@@ -7753,7 +7756,7 @@ li "Because I know..."
 li "..."
 scene ep4p2_lindaromance23 with dissolve
 li "...I'll always love you."
-label galleryScene11:
+label galleryScene12:
 scene ep4p2_lindaromance30b
 $ renpy.movie_cutscene("imov/ep4/ep4p2_firstkiss.webm", delay=None, loops=0, stop_music=False)
 $ ep4SetupChrisWithLi = False
@@ -8258,7 +8261,7 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
-label galleryScene9:
+label galleryScene10:
 scene ep4p2_krdate01 with fade
 play music ep4_krgoingout
 $ nowPlayingArtist = "John Coggins"
@@ -8617,7 +8620,7 @@ if Impact_KiraRobin:
     me "(Ok... Maybe the talk can wait...)"
     scene ep4p2_krdate91 with dissolve
     me "(...)"
-    label galleryScene10:
+    label galleryScene11:
     scene ep4p2_krthree01 with dissolve
     play music ep4_krsexytime
     $ nowPlayingArtist = "Aarom Kellim"
@@ -9644,8 +9647,8 @@ scene ep4p2_lexistreet05 with dissolve
 le "Smooth hand on the shoulder move."
 me "I know. An ancient art passed down from father to son, father to ... son."
 le "..."
-le "I thought you didn't know your father."
-me "I don't."
+le "You haven't told me about your dad."
+me "It's a long story."
 scene ep4p2_lexistreet06 with dissolve
 le "But I approve. This is nice."
 me "You need to experience this, you know."
@@ -10085,7 +10088,7 @@ me "(...it'll be fine when we get on with it.)"
 le "[name]?"
 scene ep4p2_lexiromance07 with dissolve
 me "..."
-label galleryScene12:
+label galleryScene13:
 scene ep4p2_lexiromance11b
 $ renpy.movie_cutscene("imov/ep4/ep4p2_lexishow.webm", delay=None, loops=0, stop_music=False)
 me "Wow. You look fantastic."
@@ -10170,7 +10173,6 @@ scene ep4p2_lexiromance23 with dissolve
 me "This is not how I want this to be."
 le "..."
 me "And I don't think you want it like this either..."
-$ renpy.end_replay()
 scene bg empty with fade
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
@@ -11105,7 +11107,7 @@ show ep4_ceceromance39b at imgSlide_cecepool_b
 show ep4_ceceromance39a at imgSlide_cecepool
 $ renpy.pause()
 me "Cece?"
-label galleryScene7:
+label galleryScene8:
 scene ep4_ceceromance40 with dissolve
 hide ep4_ceceromance39a
 hide ep4_ceceromance39b
@@ -11204,7 +11206,7 @@ scene ep4_ceceromance09 with dissolve
 ce "..."
 scene ep4_ceceromance11 with dissolve
 ce "Let me get comfortable."
-label galleryScene6:
+label galleryScene7:
 scene ep4_ceceromance01 with dissolve
 ce "..."
 scene ep4_ceceromance03 with dissolve
@@ -11570,4 +11572,3 @@ stop music fadeout 3
 scene bg empty with fade
 $ renpy.pause(2)
 $ renpy.pause(2)
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

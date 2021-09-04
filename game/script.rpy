@@ -7,6 +7,7 @@ define MenuChoiceCece = False
 define MenuChoiceLinda = False
 define MenuChoiceLexi = False
 define MenuChoiceKira = False
+define MenuChoiceHolly = False
 define MenuChoiceRobin = False
 define MenuChoiceStephanie = False
 define MenuChoiceKiraRobin = False
@@ -1660,16 +1661,16 @@ if ep1LookedKiraBoobs:
     me "You're forgetting me staring at your boobs."
     scene ep1_bowling_down_talk2 with dissolve
     ki "No, I didnt. Men reacts to boobs. You didn't stare."
-    ki "You took a peak, and I'm ok with that."
+    ki "You took a peek, and I'm ok with that."
 else:
     scene ep1_bowling_down_listen with dissolve
     me "Maybe I've been looking at your boobs."
     scene ep1_bowling_down_talk2 with dissolve
-    ki "Men reacts to boobs. At least you don't stare. You take a peak, and that's fine."
+    ki "Men react to boobs. At least you don't stare. You take a peek, and that's fine."
 scene ep1_bowling_down_talk1 with dissolve
 ki "The problem is when you have to wave your arms to get eye-contact."
 scene ep1_bowling_down_talk2 with dissolve
-ki "And it's not like I'm not peaking at your sexy ass anyway."
+ki "And it's not like I'm not peeking at your sexy ass anyway."
 scene ep1_bowling_down_listen with dissolve
 me "I don't have a sexy ass."
 scene ep1_bowling_down_talk2 with dissolve
@@ -3623,4 +3624,3 @@ stop music fadeout 3
 scene bg empty with fade
 $ renpy.pause(2)
 $ renpy.pause(2)
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc

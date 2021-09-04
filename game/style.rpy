@@ -217,4 +217,49 @@ init 500:
         drop_shadow [(2.5, 2.5)]
         drop_shadow_color "#000000"
         hover_color "ffff77"
-# Decompiled by unrpyc: https://github.com/CensoredUsername/unrpyc
+
+    style popup:
+        xpadding 2
+        ypadding 2
+
+    style popup is button:
+
+        background "#70707f"
+        hover_background "#90909f"
+        xmaximum 250
+        xfill True
+
+    style popup_text is text:
+        size 22
+        hover_color "#ffffff"
+        outlines [(0, "#000000", 0, 0)]
+        color "#000000"
+        font "HelveticaNeueLt.ttf"
+
+    style popupclosed:
+        xpadding 2
+        ypadding 2
+
+    style popupclosed is button:
+
+        background "#ff0000"
+        hover_background "#ff0000"
+        xmaximum 250
+        xfill True
+
+    style popupclosed_text is text:
+        size 22
+        hover_color "#ffffff"
+        outlines [(0, "#000000", 0, 0)]
+        color "#ffcccc"
+        font "HelveticaNeueLt.ttf"
+
+    style midscreentxt:
+        size 50
+        color "#4ab5b5"
+        font "RalewayBold.ttf"
+
+    style betatxt:
+        size 50
+        color "#ff4444"
+        font "RalewayBold.ttf"

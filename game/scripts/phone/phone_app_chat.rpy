@@ -3897,6 +3897,424 @@ screen phone_chat_single:
         else:
             $ chat_showexit = True
 
+    elif chat_temp2 == "3301":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;3302;Hell yeah. It's really busy here right now, but if you come over, I'll fix you right up.")
+
+    elif chat_temp2 == "3302":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            $ ep6DayOrderLock1 = False
+            $ ep6DayOrderLock2 = False
+            if ep6DayOrder == 1:
+                $ ep6DayOrderLock1 = True
+            if ep6DayOrder == 2:
+                $ ep6DayOrderLock2 = True
+            if not ep6DayOrderLock2:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I'll be over soon." text_style "chatreply" action (AddToSet(chat_kira,"0;0;3303;That sounds great. I'll be over soon."), SetVariable("ep6DayOrder",1))
+            else:
+                frame:
+                    background Frame("taskop_na",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I'll be over soon." text_style "chatreply" action NullAction()
+            if not ep6DayOrderLock1:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "I'll come by a bit later today if you're still on the clock then?" text_style "chatreply" action (AddToSet(chat_kira,"0;0;3303;I can come by a bit later today if you're still on the clock then?"), SetVariable("ep6DayOrder",2))
+            else:
+                frame:
+                    background Frame("taskop_na",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "I'll come by a bit later today if you're still on the clock then?" text_style "chatreply" action NullAction()
+
+    elif chat_temp2 == "3303":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;3304;Sounds perfect, Tiger. Cya. Kisskiss.")
+
+    elif chat_temp2 == "3304":
+        $ chat_showexit = False
+        if ep6MsgKira:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep6MsgKira",False), Call("norollback"), Jump("ep6TextKiraEnd"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "3305":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;3302;Sure thing, I would love that. It's a bit busy here, but I'll save up my lunchbreak until you get here.")
+
+    elif chat_temp2 == "3306":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;3307;Miss you too, Tiger. I wish you were here. Work is killing me right now.")
+
+    elif chat_temp2 == "3307":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Tough day?" text_style "chatreply" action AddToSet(chat_kira,"0;0;3308;Tough day?")
+
+    elif chat_temp2 == "3308":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_kira,"1;0;3309;You have no idea. Everything is going wrong.")
+
+    elif chat_temp2 == "3309":
+        if ep6MsgKira:
+            $ chat_showexit = False
+            $ ep6DayOrderLock1 = False
+            $ ep6DayOrderLock2 = False
+            if ep6DayOrder == 1:
+                $ ep6DayOrderLock1 = True
+            if ep6DayOrder == 2:
+                $ ep6DayOrderLock2 = True
+            if not ep6DayOrderLock2:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I'll be right there." text_style "chatreply" action (AddToSet(chat_kira,"0;0;3303;Say no more. I'll be right there once I've freshened up a bit."), SetVariable("ep6DayOrder",1))
+            else:
+                frame:
+                    background Frame("taskop_na",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I'll be right there." text_style "chatreply" action NullAction()
+            if not ep6DayOrderLock1:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "I can come by later on if you're still at work then." text_style "chatreply" action (AddToSet(chat_kira,"0;0;3303;Got something to take care of, but I can come by later on if you're still at work then."), SetVariable("ep6DayOrder",2))
+            else:
+                frame:
+                    background Frame("taskop_na",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "I can come by later on if you're working all day." text_style "chatreply" action NullAction()
+
+    elif chat_temp2 == "3401":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3402;Hey " + name + ". Sorry, it's not a good time today.")
+
+    elif chat_temp2 == "3402":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Yeah... not happening." text_style "chatreply" action AddToSet(chat_robin,"0;0;3403;Yeah, I'm going to ignore that and head on over to you today.")
+
+    elif chat_temp2 == "3403":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3404;Haha. You don't even know where I am.")
+
+    elif chat_temp2 == "3404":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "You're... home?" text_style "chatreply" action AddToSet(chat_robin,"0;0;3405;You're... home?")
+
+    elif chat_temp2 == "3405":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3406;Nope. I'm not at home.")
+
+    elif chat_temp2 == "3406":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Bowling alley!" text_style "chatreply" action AddToSet(chat_robin,"0;0;3407;Aha. Bowling alley!")
+
+    elif chat_temp2 == "3407":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3408;Yes... But today is not a good day.")
+
+    elif chat_temp2 == "3408":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            $ ep6DayOrderLock1 = False
+            $ ep6DayOrderLock2 = False
+            if ep6DayOrder == 1:
+                $ ep6DayOrderLock1 = True
+            if ep6DayOrder == 2:
+                $ ep6DayOrderLock2 = True
+            if not ep6DayOrderLock1:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I'll be over soon." text_style "chatreply" action (AddToSet(chat_robin,"0;0;3409;Say no more. I'll be there in a jiffy."), SetVariable("ep6DayOrder",2))
+            else:
+                frame:
+                    background Frame("taskop_na",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 700
+                    has hbox
+                    textbutton "I'll be over soon." text_style "chatreply" action NullAction()
+            if not ep6DayOrderLock2:
+                frame:
+                    background Frame("reply_action",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "I'll drop by later today." text_style "chatreply" action (AddToSet(chat_robin,"0;0;3409;I'll drop by a bit later today. You have fun being depressed until I get there, ok?"), SetVariable("ep6DayOrder",1))
+            else:
+                frame:
+                    background Frame("taskop_na",10,10)
+                    xmaximum 336
+                    xminimum 336
+                    xpos 804
+                    ypos 780
+                    has hbox
+                    textbutton "I'll drop by later today." text_style "chatreply" action NullAction()
+
+    elif chat_temp2 == "3409":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3410;Ok... And thank you. I guess.")
+
+    elif chat_temp2 == "3410":
+        $ chat_showexit = False
+        if ep6MsgRobin:
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "EXIT" text_style "chatreply" action (Hide("phone_chat_single"), SetVariable("ep6MsgRobin",True), Call("norollback"), Jump("ep6TextRobinEnd"))
+        else:
+            $ chat_showexit = True
+
+    elif chat_temp2 == "3411":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3412;Sexy? That's the best nickname you can come up with?")
+
+    elif chat_temp2 == "3412":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Well, it's true." text_style "chatreply" action AddToSet(chat_robin,"0;0;3413;Well, it's true. But you missed me, right?")
+
+    elif chat_temp2 == "3413":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3414;Listen, I'm having a bad day, ok?")
+
+    elif chat_temp2 == "3414":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Ok. But you missed me, right?" text_style "chatreply" action AddToSet(chat_robin,"0;0;3415;Ok, but you missed me, right?")
+
+    elif chat_temp2 == "3415":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3416;Fine, ok. I missed you. There. Happy now?")
+
+    elif chat_temp2 == "3416":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Of course." text_style "chatreply" action AddToSet(chat_robin,"0;0;3417;Of course. And you want to meet up today?")
+
+    elif chat_temp2 == "3417":
+        if ep6MsgRobin:
+            $ chat_showexit = False
+            frame:
+                background Frame("reply_action",10,10)
+                xmaximum 336
+                xminimum 336
+                xpos 804
+                ypos 700
+                has hbox
+                textbutton "Wait for reply." text_style "chatreply" action AddToSet(chat_robin,"1;0;3402;No! I mean, not really. It's kinda a shitty day today. But maybe another day?")
+
 
 
     if chat_showexit:
