@@ -1142,6 +1142,7 @@ if ep4NightChoose == 3 or ep4NightChoose == 4 or ep4NightChoose == 5:
         $ clockis = [[todayIs],1,9,0,5]
     menu:
         "[M_06_008a]": # "Go for it.":
+            label gallery_scene_19:
             $ ep6HadSexWithKira = True
             scene ep6_kiraworking74 with dissolve
             me "Ok, woman. You just said the magic words."
@@ -1257,6 +1258,7 @@ if ep4NightChoose == 3 or ep4NightChoose == 4 or ep4NightChoose == 5:
 else:
     me "No problem at all. It's not like I had a full schedule of other things to do anyway."
 
+$ renpy.end_replay()
 scene ep6_kiraworking48 with fade
 if ep6DayOrder == 1:
     $ clockis = [[todayIs],1,6,2,0]
@@ -1942,6 +1944,7 @@ else:
     $ clockis = [[todayIs],1,6,2,7]
 if ep4SetupChrisWith <> 3:
     if ep4NightChoose == 3 or ep4NightChoose == 4 or ep4NightChoose == 5:
+        label gallery_scene_20:
         scene ep6_bowling69 with dissolve
         ro "Anyway, how's your balls."
         me "Much better."
@@ -2121,6 +2124,7 @@ if ep4SetupChrisWith <> 3:
                 ro "Maybe not..."
                 me "Talk to Kira first."
                 ro "Maybe..."
+    $ renpy.end_replay()
 else:
     scene ep6_bowling73 with dissolve
     ro "Anyway, how's it going down there."
@@ -3305,6 +3309,7 @@ if ep4NightChoose == 7:
     me "Sorry, Steph."
 elif ep4NightChoose == 2:
     me "Sorry, Lexi."
+label gallery_scene_18:
 scene ep6_hike37 with dissolve
 ce "Come get some, Linda."
 li "I'm on my way."
@@ -3381,6 +3386,7 @@ scene ep6_Bamboobzled with dissolve
 me "..."
 stop music fadeout 3
 ce "IMMA BITE THOSE NIPPLES RIGHT OFF!"
+$ renpy.end_replay()
 scene bg empty with fade
 $ clockis = [[todayIs],1,7,0,1]
 $ renpy.pause(0.5)
@@ -4779,6 +4785,7 @@ elif ep4NightChoose == 6:
             me "Call for me instead, and I'll take care of them for you."
             scene ep6_linda17 with dissolve
             li "Sounds like a good deal."
+    label gallery_scene_17:
     scene ep6_linda18 with dissolve
     li "So you're not a fan of heights?"
     me "I don't have a problem with heights."
@@ -4931,6 +4938,7 @@ else:
     le "And [name]... I had a blast all summer with you. I'll always remember it."
     me "So did I. Maybe we can have a reunion next summer."
     le "Hopefully."
+$ renpy.end_replay()
 scene bg empty with fade
 $ clockis = [[todayIs],0,1,3,3]
 $ renpy.pause(0.5)
@@ -5195,6 +5203,7 @@ $ nowPlayingRealArtist = ""
 $ nowPlayingRealTitle = ""
 scene ep6_evening49 with dissolve
 me "..."
+label gallery_scene_16:
 scene ep6_evening50 with dissolve
 $ clockis = [[todayIs],0,2,5,0]
 ce "And still it was perfect for me."
@@ -5805,6 +5814,7 @@ else:
     ce "Glad you enjoyed it."
     scene ep6_cecel27 with dissolve
     me "..."
+    $ renpy.end_replay()
     jump ep6EndThoughts
 label ep6EndThoughts:
 scene bg empty with fade

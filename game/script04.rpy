@@ -312,6 +312,7 @@ scene ep4_firstsleep13 with dissolve
 li "(If he hasn't seen you by now, he never will.)"
 li "(...)"
 li "(Or maybe this little trip will somehow make him see that...)"
+$ renpy.end_replay()
 $ ep4SexNone = True
 if not ep3RejectedKira:
     $ ep4SexNone = False
@@ -7756,7 +7757,6 @@ li "Because I know..."
 li "..."
 scene ep4p2_lindaromance23 with dissolve
 li "...I'll always love you."
-label galleryScene12:
 scene ep4p2_lindaromance30b
 $ renpy.movie_cutscene("imov/ep4/ep4p2_firstkiss.webm", delay=None, loops=0, stop_music=False)
 $ ep4SetupChrisWithLi = False
@@ -7835,6 +7835,7 @@ menu:
             $ nowPlayingRealTitle = ""
             scene ep4p2_lindaromance31 with dissolve
             me "..."
+        label gallery_scene_12:
         scene ep4p2_lindaromance32 with dissolve
         li "I can't believe this is happening."
         scene ep4p2_lindaromance33 with dissolve
@@ -8614,13 +8615,13 @@ if Impact_KiraRobin:
     scene ep4p2_krdate87 with dissolve
     me "(I can't drive this today. My mind is elsewhere.)"
     me "(We need to have a talk while all three are there.)"
+    label galleryScene11:
     scene ep4p2_krdate88 with dissolve
     $ clockis = [[todayIs],2,2,2,6]
     stop music fadeout 3
     me "(Ok... Maybe the talk can wait...)"
     scene ep4p2_krdate91 with dissolve
     me "(...)"
-    label galleryScene11:
     scene ep4p2_krthree01 with dissolve
     play music ep4_krsexytime
     $ nowPlayingArtist = "Aarom Kellim"
@@ -10947,6 +10948,7 @@ else:
     $ renpy.pause(1)
     scene ep4p2_epistephlay with fade
 $ renpy.pause(2)
+$ renpy.end_replay()
 jump ch4EndPre
 label ep4CeceRomance:
 scene bg empty with fade
@@ -11227,7 +11229,6 @@ scene ep4_ceceromance68
 $ renpy.movie_cutscene("imov/ep4/ep4_ceceslidedown.webm", delay=None, loops=0, stop_music=False)
 ce "Mmm..."
 ce "...there we go..."
-$ renpy.end_replay()
 scene ep4_ceceromance03
 $ renpy.movie_cutscene("imov/ep4/ep4_cecemc.webm", delay=None, loops=0, stop_music=False)
 ce "This is just..."

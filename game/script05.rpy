@@ -311,6 +311,7 @@ if ep4NightChoose == 5:
     me "Guess that's my cue."
     scene ep5_kirawake16 with hpunch
     me "..."
+    $ renpy.end_replay()
     jump ep5AfterWake
 else:
     label ep5WakeKiraRobinCont:
@@ -568,6 +569,7 @@ le "Holly was right though?"
 me "Holly?"
 le "She might have been giving me some pointers."
 me "..."
+$ renpy.end_replay()
 scene ep5_leximorning17 with dissolve
 le "Look, I'm not that experienced. And I have absolutely no good experiences. And we talk about everything anyway."
 scene ep5_leximorning19 with dissolve
@@ -1714,6 +1716,7 @@ ho "(He doesn't know you're...)"
 ho "(...a god damned...)"
 ho "(...sex addict...)"
 scene bg empty with fade
+$ renpy.end_replay()
 $ clockis = [[todayIs],1,0,3,7]
 play music ep5_morningall
 $ nowPlayingArtist = "Ty Simon"
@@ -4111,6 +4114,7 @@ else:
 st "*sigh* I can't quite shake the feeling that I've overlooked something about what happened to us before."
 st "I'll probably never get that feeling out of my head."
 me "Let it go. It's a part of our past, not our future."
+label gallery_scene_21:
 if ep5StephGameTrait == 3:
     scene ep5_steph57r with dissolve
 elif ep5StephGameTrait == 2:
@@ -4256,6 +4260,7 @@ else:
     st "..."
     st "Damn orgasm legs."
 scene bg empty with fade
+$ renpy.end_replay()
 play music ep5_stephepilogue
 $ nowPlayingArtist = "Lumane"
 $ nowPlayingTitle = "Until Now"
@@ -4266,6 +4271,7 @@ $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
 $ renpy.pause(0.5)
+label gallery_scene_14:
 scene ep5_stephtub02 with fade
 st "What's on your mind..."
 me "Nothing. Just enjoying the silence."
@@ -4329,6 +4335,7 @@ st "That's not possible."
 scene ep5_stephtub11 with dissolve
 st "But I still enjoy it..."
 st "...very very much."
+$ renpy.end_replay()
 $ clockis = [[todayIs],1,8,5,9]
 scene ep5_stephend01 with Dissolve(4.0, alpha=True)
 me "Huh... (I must have drifted off...)"
@@ -5081,6 +5088,7 @@ scene ep5_yacht46 with dissolve
 stop music fadeout 3
 $ clockis = [[todayIs],2,1,5,4]
 ho "Let's have a little fun. Jump into the pool or something instead of waiting for him to snap out of it."
+label gallery_scene_15:
 scene ep5_yacht47 with dissolve
 le "He's really into it, isn't he."
 scene ep5_yacht48 with dissolve
@@ -5195,6 +5203,7 @@ if ep4NightChoose == 2:
     scene ep5_yacht78 with dissolve
     le "So... this is awkward."
     me "Hang on..."
+    $ renpy.end_replay()
     scene ep5_yacht79 with dissolve
     $ clockis = [[todayIs],2,2,2,8]
     me "There. You looked cold."
@@ -5253,6 +5262,7 @@ if ep4NightChoose == 2:
             me "But you might want to think it over first. Really. It's a big step."
             scene ep5_yacht83 with dissolve
             me "Kissing is one thing. Anything more than can change a lot."
+    label gallery_scene_22:
     scene ep5_yacht85 with dissolve
     play music ep5_yachtneedy
     $ nowPlayingArtist = "Captain Qubz"
@@ -5681,6 +5691,7 @@ else:
     jump ep5YachtAftermath
 
 label ep5YachtAftermath:
+    $ renpy.end_replay()
 hide screen phone
 $ todayIs = 11
 $ clockis = [[todayIs],0,9,3,3]
