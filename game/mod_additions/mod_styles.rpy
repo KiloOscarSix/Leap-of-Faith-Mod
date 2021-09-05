@@ -15,6 +15,8 @@ style mod_gallery_header is text:
 
 style mod_gallery_text is mod_cheat_values_text
 
+style mod_options_text is mod_gallery_header
+
 style mod_options_button_text is button_text:
     size 50
     idle_color "#f0f0f0"

@@ -17,7 +17,7 @@ screen mod_options():
         ypos 33
         spacing 33
 
-        text "Mod Options" style "modTextHeader"
+        text "Mod Options"
 
         textbutton "Change In-Game Names" action ui.callsinnewcontext("mod_change_ingame_names")
 
@@ -29,10 +29,10 @@ screen mod_options():
 
 
 label mod_change_gallery_names:
-
+    $ persistent.name = renpy.input("What is your name? (leave blank for James)").strip() or "James"
     return
 
 
 label mod_change_ingame_names:
-
+    $ name = renpy.input("What is your name? (leave blank for James)").strip() or "James"
     return
