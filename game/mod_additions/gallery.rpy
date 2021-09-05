@@ -20,47 +20,50 @@ init python:
 
     ## GALLERY ITEMS HERE
     kira = GalleryItem("Kira", "e01s01", "ep1/special/ep1s01_kiraphoto1.jpg")
-    kira = GalleryItem("Kira", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
     kira_robin = GalleryItem("Kira", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
     kira_robin = GalleryItem("Kira", "galleryScene3", "ep3/airplaneinside/ep3_airplane71.jpg", {"todayIs":5, "ep3TimePassed":0, "Impact_KiraRobin":True})
-    kira_robin = GalleryItem("Kira", "galleryScene9", "ep4/krromance/ep4p2_krdate03.jpg")
-    kira_robin = GalleryItem("Kira", "galleryScene10", "ep4/krromance/ep4p2_krthree01.jpg", {"todayIs":99})
+    kira_robin = GalleryItem("Kira", "galleryScene10", "ep4/krromance/ep4p2_krdate03.jpg")
+    kira_robin = GalleryItem("Kira", "galleryScene11", "ep4/krromance/ep4p2_krthree01.jpg", {"todayIs":99})
     kira_robin = GalleryItem("Kira", "ep5WakeKiraRobin", "ep5/intro/ep5_kirawake12.jpg", {"ep4NightChoose":5})
     kira = GalleryItem("Kira", "gallery_scene_19", "ep6/kirawork/ep6_kiraworking98.jpg", {"ep6DayOrder": 1, "todayIs":99})
 
     stephanie = GalleryItem("Stephanie", "StephSlider4", "ep1/steph/ep1_steph_leg1.jpg", {"todayIs":3})
     stephanie = GalleryItem("Stephanie", "ep4StephRomance", "ep4/stephcouch/ep4_stephcouch80.jpg", {"todayIs":8, "meSporty":99})
-    stephanie = GalleryItem("Stephanie", "galleryScene13", "ep5/steph/ep5_stephshower26.jpg", {"stephRejected":False, "meSporty":99})
-    stephanie = GalleryItem("Stephanie", "galleryScene14", "ep5/steph/ep5_stephtub06.jpg")
+    stephanie = GalleryItem("Stephanie", "gallery_scene_21", "ep5/steph/ep5_stephshower26.jpg", {"ep5StephGameTrait": 3, "todayIs": 99, "stephRejected": False, "meSporty": 99})
+    stephanie = GalleryItem("Stephanie", "gallery_scene_14", "ep5/steph/ep5_stephtub06.jpg")
 
     robin = GalleryItem("Robin", "ep2RobinVideogamesTheory", "ep2/robin/ep2_robin_intimate11.jpg", {"todayIs":4, "XProbin":99, "meSporty":99, "meRomantic":99})
     robin = GalleryItem("Robin", "e02s01", "ep2/special/ep2_bonusrobin16.jpg")
-    kira_robin = GalleryItem("Robin", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
-    kira_robin = GalleryItem("Robin", "galleryScene3", "ep3/airplaneinside/ep3_airplane71.jpg", {"todayIs":5, "ep3TimePassed":0, "Impact_KiraRobin":True})
-    kira_robin = GalleryItem("Robin", "galleryScene9", "ep4/krromance/ep4p2_krdate03.jpg")
-    kira_robin = GalleryItem("Robin", "galleryScene10", "ep4/krromance/ep4p2_krthree01.jpg", {"todayIs":99})
-    kira_robin = GalleryItem("Robin", "ep5WakeKiraRobin", "ep5/intro/ep5_kirawake12.jpg", {"ep4NightChoose":5})
+    kira_robin = GalleryItem("Kira", "galleryScene2", "ep3/cafe/ep3_cafe21.jpg", {"Impact_KiraRobin":True})
+    kira_robin = GalleryItem("Kira", "galleryScene3", "ep3/airplaneinside/ep3_airplane71.jpg", {"todayIs":5, "ep3TimePassed":0, "Impact_KiraRobin":True})
+    kira_robin = GalleryItem("Kira", "galleryScene10", "ep4/krromance/ep4p2_krdate03.jpg")
+    kira_robin = GalleryItem("Kira", "galleryScene11", "ep4/krromance/ep4p2_krthree01.jpg", {"todayIs":99})
+    kira_robin = GalleryItem("Kira", "ep5WakeKiraRobin", "ep5/intro/ep5_kirawake12.jpg", {"ep4NightChoose":5})
     robin = GalleryItem("Robin", "gallery_scene_20", "ep6/robinwork/ep6_bowling88.jpg", {"ep4NightChoose": 4})
 
     linda = GalleryItem("Linda", "galleryScene1", "ep2/shopping/ep2_shopping47.jpg", {"meFlirty":99, "todayIs":4})
-    linda = GalleryItem("Linda", "galleryScene8", "ep4/firstsleep/ep4_firstsleep11.jpg", {"meFlirty":99, "todayIs":4})
-    linda = GalleryItem("Linda", "galleryScene11", "ep4/linda/ep4p2_lindaromance35.jpg", {"ep4NightChoose":6, "todayIs":99, "ep4SetupChrisWith":0})
+    linda = GalleryItem("Linda", "galleryScene9", "ep4/firstsleep/ep4_firstsleep11.jpg", {"meFlirty":99, "todayIs":4})
+    linda = GalleryItem("Linda", "gallery_scene_12", "ep4/linda/ep4p2_lindaromance35.jpg")
     linda = GalleryItem("Linda", "gallery_scene_17", "ep6/adds/ep6_linda36.jpg")
-    linda = GalleryItem("Linda", "gallery_scene_18", "ep6/hike/ep6_hike50.jpg")
+    cece_linda = GalleryItem("Linda", "gallery_scene_18", "ep6/hike/ep6_hike50.jpg")
 
     lexi = GalleryItem("Lexi", "galleryScene4", "ep3/airplaneinside/ep3_airplane98.jpg", {"XPlexi":99, "phone_task_list":[], "ep3CeceDrinkMojito":True})
     lexi = GalleryItem("Lexi", "e03s01", "ep3/special/ep3_special17.jpg")
-    lexi = GalleryItem("Lexi", "galleryScene5", "ep4/bunny/ep4p2_bunnydance51.jpg", {"Impact_Steph":True})
-    lexi = GalleryItem("Lexi", "galleryScene12", "ep4/lexi/ep4p2_lexiromance17.jpg")
+    lexi_cece = GalleryItem("Lexi", "galleryScene6", "ep4/bunny/ep4p2_bunnydance51.jpg", {"Impact_Steph":True})
+    lexi = GalleryItem("Lexi", "galleryScene13", "ep4/lexi/ep4p2_lexiromance17.jpg")
     lexi = GalleryItem("Lexi", "ep5WakeLexi", "ep5/intro/ep5_leximorning01.jpg")
-    lexi = GalleryItem("Lexi", "galleryScene15", "ep5/yacht/ep5_yacht125.jpg", {"todayIs":99, "ep5KissOK":3})
+    lexi_holly = GalleryItem("Lexi", "gallery_scene_15", "ep5/yacht/ep5_yacht73.jpg", {"todayIs": 99, "ep5HollyRC100": 0, "ep5HollyRC200": 0, "ep5HollyRC030": 0, "ep5HollyRC001": 0, "ep5HollyRC002": 0, "ep5HollyRC003": False, "ep5HollyInitiate": False, "ep4NightChoose": 2})
+    lexi = GalleryItem("Lexi", "gallery_scene_22", "ep5/yacht/ep5_yacht125.jpg",  {"todayIs": 99, "ep5KissOK": 3})
 
     cece = GalleryItem("Cece", "ep3CeceHome", "ep3/cecehome/ep3_cecehome14.jpg", {"contact_text_me":"", "contact_text_kira":"", "todayIs":5})
-    cece = GalleryItem("Cece", "galleryScene6", "ep4/cece/ep4_ceceromance24.jpg")
+    lexi_cece = GalleryItem("Cece", "galleryScene6", "ep4/bunny/ep4p2_bunnydance51.jpg", {"Impact_Steph":True})
     cece = GalleryItem("Cece", "galleryScene7", "ep4/cece/ep4_ceceromance41.jpg")
     cece = GalleryItem("Cece", "gallery_scene_16", "ep6/cece/ep6_cecel09.jpg", {"todayIs": 99, "ep4NightChoose": 1})
+    cece_linda = GalleryItem("Cece", "gallery_scene_18", "ep6/hike/ep6_hike50.jpg")
 
     holly = GalleryItem("Holly", "ep5HollyBend", "ep5/hollybalcony/ep5_holly02soloend.jpg", {"todayIs":99, "ep4NightChoose":2, "ep5ChrisHolly": False})
+    lexi_holly = GalleryItem("Lexi", "gallery_scene_15", "ep5/yacht/ep5_yacht73.jpg", {"todayIs": 99, "ep5HollyRC100": 0, "ep5HollyRC200": 0, "ep5HollyRC030": 0, "ep5HollyRC001": 0, "ep5HollyRC002": 0, "ep5HollyRC003": False, "ep5HollyInitiate": False, "ep4NightChoose": 2})
+
 
 default gallery_page_number = 1
 default scope_dict = {}
@@ -82,7 +85,7 @@ label gallery_name_set:
     if persistent.name == "":
         $ persistent.name = renpy.input("What is your name?", default="James")
 
-    $ scope_dict = {"name": persistent.name}    
+    $ scope_dict = {"name": persistent.name, "todayIs": 99}    
     return
 
 screen mod_scene_gallery_menu():
